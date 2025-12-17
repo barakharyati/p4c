@@ -138,15 +138,14 @@ $(function(){initNavTree('selector__update_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;lib/ordered_map.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;mau_visitor.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_add_selector_salu.html">   35</a></span><span class="keyword">class </span>AddSelectorSalu : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>AddSelectorSalu : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// map associating selectors with the stateful alu that updates them</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Selector *, const IR::MAU::StatefulAlu *&gt;</a> sel2salu;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ordered_map&lt;const IR::MAU::Selector *, const IR::MAU::StatefulAlu *&gt; sel2salu;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">class </span>FindSelectorSalu : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">class </span>FindSelectorSalu : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        AddSelectorSalu &amp;self;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::StatefulAlu *salu) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (salu-&gt;selector) self.sel2salu[salu-&gt;selector] = salu;</div>
@@ -157,7 +156,7 @@ $(function(){initNavTree('selector__update_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">explicit</span> FindSelectorSalu(AddSelectorSalu &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    };</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">class </span>AddSaluIfNeeded : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_modifier.html">MauModifier</a> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">class </span>AddSaluIfNeeded : <span class="keyword">public</span> MauModifier {</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        AddSelectorSalu &amp;self;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">bool</span> preorder(IR::MAU::Table *);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">bool</span> preorder(IR::Expression *) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }  <span class="comment">// prune all expressions</span></div>
@@ -168,13 +167,8 @@ $(function(){initNavTree('selector__update_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    AddSelectorSalu() : PassManager({<span class="keyword">new</span> FindSelectorSalu(*<span class="keyword">this</span>), <span class="keyword">new</span> AddSaluIfNeeded(*<span class="keyword">this</span>)}) {}</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
-</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_SELECTOR_UPDATE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_mau_modifier_html"><div class="ttname"><a href="class_mau_modifier.html">MauModifier</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:45</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

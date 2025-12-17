@@ -139,10 +139,9 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;backends/tofino/bf-asm/tables.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// static struct MeterBus_t {} MeterBus;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_meter_bus__t.html">   26</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_meter_bus__t.html">MeterBus_t</a> {};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">struct </span>MeterBus_t {};</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_action_bus_source.html">   28</a></span><span class="keyword">struct </span>ActionBusSource {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">struct </span>ActionBusSource {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">enum</span> {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        None,</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        Field,</div>
@@ -158,25 +157,19 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        ColorRef,</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        AddressRef</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    } type;</div>
-<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="union_action_bus_source_8____unnamed0____.html">   44</a></span>    <span class="keyword">union </span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_struct" href="struct_table_1_1_format_1_1_field.html">Table::Format::Field</a> *field;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_struct" href="struct_hash_distribution.html">HashDistribution</a> *hd;</div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_action_bus_source_8____unnamed0_____8hd__tuple.html">   47</a></span>        <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <a class="code hl_struct" href="struct_hash_distribution.html">HashDistribution</a> *hd1, *hd2;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        Table::Format::Field *field;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        HashDistribution *hd;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            HashDistribution *hd1, *hd2;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        } hd_tuple;</div>
-</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_class" href="class_table.html">Table</a> *table;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_struct" href="struct_table_1_1_ref.html">Table::Ref</a> *name_ref;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_struct" href="struct_random_number_gen.html">RandomNumberGen</a> rng;</div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="struct_action_bus_source_8____unnamed0_____8xcmp__data.html">   53</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        Table *table;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        Table::Ref *name_ref;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        RandomNumberGen rng;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordtype">short</span> xcmp_group, xcmp_byte;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        } xcmp_data;</div>
-</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    };</div>
-</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    ActionBusSource() : type(None) { field = <span class="keyword">nullptr</span>; }</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    ActionBusSource(Table::Format::Field *f) : type(Field) {  <span class="comment">// NOLINT(runtime/explicit)</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        field = f;</div>
@@ -266,28 +259,25 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    std::string toString(Table *tbl) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> ActionBusSource &amp;);</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>};</div>
-</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="foldopen" id="foldopen00147" data-start="{" data-end="};">
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="class_action_bus.html">  147</a></span><span class="keyword">class </span>ActionBus {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">class </span>ActionBus {</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// Check two ActionBusSource refs to ensure that they are compatible (can be at the same</span></div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="comment">// location on the aciton bus -- basically the same data)</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> compatible(<span class="keyword">const</span> <a class="code hl_struct" href="struct_action_bus_source.html">ActionBusSource</a> &amp;a, <span class="keywordtype">unsigned</span> a_off, <span class="keyword">const</span> <a class="code hl_struct" href="struct_action_bus_source.html">ActionBusSource</a> &amp;b,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> compatible(<span class="keyword">const</span> ActionBusSource &amp;a, <span class="keywordtype">unsigned</span> a_off, <span class="keyword">const</span> ActionBusSource &amp;b,</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                           <span class="keywordtype">unsigned</span> b_off);</div>
-<div class="foldopen" id="foldopen00153" data-start="{" data-end="};">
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="struct_action_bus_1_1_slot.html">  153</a></span>    <span class="keyword">struct </span>Slot {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keyword">struct </span>Slot {</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        std::string name;</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordtype">unsigned</span> byte, size;  <span class="comment">// size in bits</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;ActionBusSource, unsigned&gt;</a> data;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        ordered_map&lt;ActionBusSource, unsigned&gt; data;</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="comment">// offset in the specified source is in this slot -- corresponding bytes for different</span></div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="comment">// action data formats will go into the same slot.</span></div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        Slot(std::string n, <span class="keywordtype">unsigned</span> b, <span class="keywordtype">unsigned</span> s) : name(n), byte(b), size(s) {}</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        Slot(std::string n, <span class="keywordtype">unsigned</span> b, <span class="keywordtype">unsigned</span> s, <a class="code hl_struct" href="struct_action_bus_source.html">ActionBusSource</a> src, <span class="keywordtype">unsigned</span> off)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        Slot(std::string n, <span class="keywordtype">unsigned</span> b, <span class="keywordtype">unsigned</span> s, ActionBusSource src, <span class="keywordtype">unsigned</span> off)</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            : name(n), byte(b), size(s) {</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            data.emplace(src, off);</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordtype">unsigned</span> lo(<a class="code hl_class" href="class_table.html">Table</a> *tbl) <span class="keyword">const</span>;  <span class="comment">// low bit on the action data bus</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordtype">unsigned</span> lo(Table *tbl) <span class="keyword">const</span>;  <span class="comment">// low bit on the action data bus</span></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordtype">bool</span> is_table_output()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;d : data) {</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                BUG_CHECK(d.first.type != ActionBusSource::NameRef, <span class="stringliteral">&quot;Unexpected name ref&quot;</span>);</div>
@@ -296,11 +286,10 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    };</div>
-</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> <a class="code hl_struct" href="struct_action_bus_1_1_slot.html">Slot</a> &amp;);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> Slot &amp;);</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> ActionBus &amp;);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;unsigned, Slot&gt;</a> by_byte;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;ActionBusSource, ordered_map&lt;unsigned, unsigned&gt;</a>&gt; need_place;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    ordered_map&lt;unsigned, Slot&gt; by_byte;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    ordered_map&lt;ActionBusSource, ordered_map&lt;unsigned, unsigned&gt;&gt; need_place;</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="comment">// bytes from the given sources are needed on the action bus -- the pairs in the map</span></div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="comment">// are (offset,use) where offset is offset in bits, and use is a bitset of the needed</span></div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="comment">// uses (bit index == log2 of the access size in bytes)</span></div>
@@ -308,28 +297,28 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    std::vector&lt;std::array&lt;unsigned, ACTION_HV_XBAR_SLICES&gt;&gt; action_hv_slice_use;</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// which bytes of input to the ixbar are used in each action_hv_xbar slice, for each</span></div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="comment">// 128-bit slice of the action bus.</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> byte_use;  <span class="comment">// bytes on the action data (input) bus or immediate bus in use</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    bitvec byte_use;  <span class="comment">// bytes on the action data (input) bus or immediate bus in use</span></div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                      <span class="comment">// for wide action tables, this may be &gt;16 bytes...</span></div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> setup_slot(<span class="keywordtype">int</span> lineno, <a class="code hl_class" href="class_table.html">Table</a> *tbl, <span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">unsigned</span> idx, <a class="code hl_struct" href="struct_action_bus_source.html">ActionBusSource</a> src,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> setup_slot(<span class="keywordtype">int</span> lineno, Table *tbl, <span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">unsigned</span> idx, ActionBusSource src,</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                    <span class="keywordtype">unsigned</span> sz, <span class="keywordtype">unsigned</span> off);</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#a9fad34c72b03cc7b69485c3331271fa3">find_free</a>(<a class="code hl_class" href="class_table.html">Table</a> *tbl, <span class="keywordtype">unsigned</span> min, <span class="keywordtype">unsigned</span> max, <span class="keywordtype">unsigned</span> step, <span class="keywordtype">unsigned</span> lobyte,</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordtype">int</span> find_free(Table *tbl, <span class="keywordtype">unsigned</span> min, <span class="keywordtype">unsigned</span> max, <span class="keywordtype">unsigned</span> step, <span class="keywordtype">unsigned</span> lobyte,</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                  <span class="keywordtype">unsigned</span> bytes);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ace12b4808c4f9322a713c2aaa27dc698">find_merge</a>(<a class="code hl_class" href="class_table.html">Table</a> *tbl, <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> bytes, <span class="keywordtype">int</span> use);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordtype">bool</span> check_atcam_sharing(<a class="code hl_class" href="class_table.html">Table</a> *tbl1, <a class="code hl_class" href="class_table.html">Table</a> *tbl2);</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">bool</span> check_slot_sharing(<a class="code hl_struct" href="struct_action_bus_1_1_slot.html">ActionBus::Slot</a> &amp;slot, <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> &amp;action_bus);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">int</span> find_merge(Table *tbl, <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> bytes, <span class="keywordtype">int</span> use);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordtype">bool</span> check_atcam_sharing(Table *tbl1, Table *tbl2);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">bool</span> check_slot_sharing(ActionBus::Slot &amp;slot, bitvec &amp;action_bus);</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    ActionBus() : lineno(-1) {}</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <a class="code hl_class" href="class_action_bus.html">ActionBus</a>(<a class="code hl_class" href="class_table.html">Table</a> *, VECTOR(<a class="code hl_struct" href="structpair__t.html">pair_t</a>) &amp;);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    ActionBus(Table *, VECTOR(pair_t) &amp;);</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">int</span> lineno;</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keyword">static</span> std::unique_ptr&lt;ActionBus&gt; create();</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">static</span> std::unique_ptr&lt;ActionBus&gt; create(<a class="code hl_class" href="class_table.html">Table</a> *, VECTOR(<a class="code hl_struct" href="structpair__t.html">pair_t</a>) &amp;);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">static</span> std::unique_ptr&lt;ActionBus&gt; create(Table *, VECTOR(pair_t) &amp;);</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">void</span> pass1(<a class="code hl_class" href="class_table.html">Table</a> *tbl);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> pass2(<a class="code hl_class" href="class_table.html">Table</a> *tbl) {}</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">void</span> pass1(Table *tbl);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> pass2(Table *tbl) {}</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">void</span> pass3(Table *tbl);</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> REGS&gt;</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">void</span> write_immed_regs(REGS &amp;regs, Table *tbl);</div>
@@ -347,22 +336,22 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        need_alloc(tbl, ActionBusSource(attached, mod), lo, hi, size);</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    }</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, TableOutputModifier mod, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0) {</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(name, TableOutputModifier::NONE, lo, hi, size, len);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">int</span> find(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, TableOutputModifier mod, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">int</span> find(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordflow">return</span> find(name, TableOutputModifier::NONE, lo, hi, size, len);</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    }</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(<span class="keyword">const</span> std::string &amp;name, TableOutputModifier mod, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size,</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordtype">int</span> find(<span class="keyword">const</span> std::string &amp;name, TableOutputModifier mod, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size,</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>             <span class="keywordtype">int</span> *len = 0) {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(name.c_str(), mod, lo, hi, size, len);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordflow">return</span> find(name.c_str(), mod, lo, hi, size, len);</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    }</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(<span class="keyword">const</span> std::string &amp;name, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0) {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(name.c_str(), lo, hi, size, len);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">int</span> find(<span class="keyword">const</span> std::string &amp;name, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0) {</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">return</span> find(name.c_str(), lo, hi, size, len);</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(<span class="keyword">const</span> ActionBusSource &amp;src, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> pos = -1, <span class="keywordtype">int</span> *len = 0);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(Table *attached, TableOutputModifier mod, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0) {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(ActionBusSource(attached, mod), lo, hi, size, -1, len);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">int</span> find(<span class="keyword">const</span> ActionBusSource &amp;src, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> pos = -1, <span class="keywordtype">int</span> *len = 0);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">int</span> find(Table *attached, TableOutputModifier mod, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0) {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> find(ActionBusSource(attached, mod), lo, hi, size, -1, len);</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">find</a>(Stage *stage, ActionBusSource src, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> find(Stage *stage, ActionBusSource src, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> *len = 0);</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">unsigned</span> size() {</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keywordtype">unsigned</span> rv = 0;</div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;slot : by_byte) rv += slot.second.size;</div>
@@ -370,24 +359,8 @@ $(function(){initNavTree('action__bus_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keyword">auto</span> slots()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Values(by_byte); }</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>};</div>
-</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_ACTION_BUS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_action_bus_html"><div class="ttname"><a href="class_action_bus.html">ActionBus</a></div><div class="ttdef"><b>Definition</b> action_bus.h:147</div></div>
-<div class="ttc" id="aclass_action_bus_html_a9fad34c72b03cc7b69485c3331271fa3"><div class="ttname"><a href="class_action_bus.html#a9fad34c72b03cc7b69485c3331271fa3">ActionBus::find_free</a></div><div class="ttdeci">int find_free(Table *tbl, unsigned min, unsigned max, unsigned step, unsigned lobyte, unsigned bytes)</div><div class="ttdef"><b>Definition</b> action_bus.cpp:545</div></div>
-<div class="ttc" id="aclass_action_bus_html_ac78dc57daf5565aee8e0acdfbd333b32"><div class="ttname"><a href="class_action_bus.html#ac78dc57daf5565aee8e0acdfbd333b32">ActionBus::find</a></div><div class="ttdeci">int find(const char *name, TableOutputModifier mod, int lo, int hi, int size, int *len=0)</div><div class="ttdoc">find an action bus slot that contains the requested thing.</div><div class="ttdef"><b>Definition</b> action_bus.cpp:786</div></div>
-<div class="ttc" id="aclass_action_bus_html_ace12b4808c4f9322a713c2aaa27dc698"><div class="ttname"><a href="class_action_bus.html#ace12b4808c4f9322a713c2aaa27dc698">ActionBus::find_merge</a></div><div class="ttdeci">int find_merge(Table *tbl, int offset, int bytes, int use)</div><div class="ttdef"><b>Definition</b> action_bus.cpp:595</div></div>
-<div class="ttc" id="aclass_p4_1_1bitvec_html"><div class="ttname"><a href="class_p4_1_1bitvec.html">P4::bitvec</a></div><div class="ttdef"><b>Definition</b> bitvec.h:120</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_table_html"><div class="ttname"><a href="class_table.html">Table</a></div><div class="ttdef"><b>Definition</b> tables.h:98</div></div>
-<div class="ttc" id="astruct_action_bus_1_1_slot_html"><div class="ttname"><a href="struct_action_bus_1_1_slot.html">ActionBus::Slot</a></div><div class="ttdef"><b>Definition</b> action_bus.h:153</div></div>
-<div class="ttc" id="astruct_action_bus_source_html"><div class="ttname"><a href="struct_action_bus_source.html">ActionBusSource</a></div><div class="ttdef"><b>Definition</b> action_bus.h:28</div></div>
-<div class="ttc" id="astruct_hash_distribution_html"><div class="ttname"><a href="struct_hash_distribution.html">HashDistribution</a></div><div class="ttdef"><b>Definition</b> hash_dist.h:32</div></div>
-<div class="ttc" id="astruct_meter_bus__t_html"><div class="ttname"><a href="struct_meter_bus__t.html">MeterBus_t</a></div><div class="ttdef"><b>Definition</b> action_bus.h:26</div></div>
-<div class="ttc" id="astruct_random_number_gen_html"><div class="ttname"><a href="struct_random_number_gen.html">RandomNumberGen</a></div><div class="ttdef"><b>Definition</b> tables.h:61</div></div>
-<div class="ttc" id="astruct_table_1_1_format_1_1_field_html"><div class="ttname"><a href="struct_table_1_1_format_1_1_field.html">Table::Format::Field</a></div><div class="ttdef"><b>Definition</b> tables.h:287</div></div>
-<div class="ttc" id="astruct_table_1_1_ref_html"><div class="ttname"><a href="struct_table_1_1_ref.html">Table::Ref</a></div><div class="ttdef"><b>Definition</b> tables.h:183</div></div>
-<div class="ttc" id="astructpair__t_html"><div class="ttname"><a href="structpair__t.html">pair_t</a></div><div class="ttdef"><b>Definition</b> asm-types.h:150</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

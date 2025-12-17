@@ -143,8 +143,7 @@ $(function(){initNavTree('sections_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;bfas.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;map.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_section.html">   33</a></span><span class="keyword">class </span>Section : <span class="keyword">virtual</span> <span class="keyword">public</span> Parsable, <span class="keyword">virtual</span> <span class="keyword">public</span> Contextable {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>Section : <span class="keyword">virtual</span> <span class="keyword">public</span> Parsable, <span class="keyword">virtual</span> <span class="keyword">public</span> Contextable {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> std::map&lt;std::string, Section *&gt; *sections;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::string name;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> isInput = <span class="keyword">false</span>;</div>
@@ -166,18 +165,18 @@ $(function(){initNavTree('sections_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            sections = 0;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_section.html#ad5438ee238f2d8f8d7b65350d532dfce">   56</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_section.html#ad5438ee238f2d8f8d7b65350d532dfce">start</a>(<span class="keywordtype">int</span> lineno, VECTOR(<a class="code hl_struct" href="structvalue__t.html">value_t</a>) args) {}</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_section.html#a8bc055f8b213893a5e002608d1781e86">   58</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_section.html#a8bc055f8b213893a5e002608d1781e86">process</a>() {}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> start(<span class="keywordtype">int</span> lineno, VECTOR(value_t) args) {}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> process() {}</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> start_section(<span class="keywordtype">int</span> lineno, <span class="keywordtype">char</span> *name, VECTOR(<a class="code hl_struct" href="structvalue__t.html">value_t</a>) args) {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (<a class="code hl_class" href="class_section.html">Section</a> *sec = get(name)) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> start_section(<span class="keywordtype">int</span> lineno, <span class="keywordtype">char</span> *name, VECTOR(value_t) args) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (Section *sec = get(name)) {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordtype">int</span> prev_error_count = error_count;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            sec-&gt;isInput = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            sec-&gt;start(lineno, args);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">return</span> error_count &gt; prev_error_count;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <a class="code hl_function" href="namespace_p4.html#a14c553cb868e3303d6b29979570e1003">warning</a>(lineno, <span class="stringliteral">&quot;Unknown section %s, ignoring\n&quot;</span>, name);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            warning(lineno, <span class="stringliteral">&quot;Unknown section %s, ignoring\n&quot;</span>, name);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
@@ -212,14 +211,8 @@ $(function(){initNavTree('sections_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> <span class="keyword">public</span>:  <span class="comment">// for gtest</span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">static</span> Section *test_get(<span class="keyword">const</span> <span class="keywordtype">char</span> *name) { <span class="keywordflow">return</span> get(name); }</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>};</div>
-</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_SECTIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_section_html"><div class="ttname"><a href="class_section.html">Section</a></div><div class="ttdef"><b>Definition</b> sections.h:33</div></div>
-<div class="ttc" id="aclass_section_html_a8bc055f8b213893a5e002608d1781e86"><div class="ttname"><a href="class_section.html#a8bc055f8b213893a5e002608d1781e86">Section::process</a></div><div class="ttdeci">virtual void process()</div><div class="ttdoc">optionally process the data if not done during parsing</div><div class="ttdef"><b>Definition</b> sections.h:58</div></div>
-<div class="ttc" id="aclass_section_html_ad5438ee238f2d8f8d7b65350d532dfce"><div class="ttname"><a href="class_section.html#ad5438ee238f2d8f8d7b65350d532dfce">Section::start</a></div><div class="ttdeci">virtual void start(int lineno, VECTOR(value_t) args)</div><div class="ttdoc">process the arguments on the same line as the heading</div><div class="ttdef"><b>Definition</b> sections.h:56</div></div>
-<div class="ttc" id="anamespace_p4_html_a14c553cb868e3303d6b29979570e1003"><div class="ttname"><a href="namespace_p4.html#a14c553cb868e3303d6b29979570e1003">P4::warning</a></div><div class="ttdeci">void warning(const char *format, Args &amp;&amp;...args)</div><div class="ttdoc">Report a warning with the given message.</div><div class="ttdef"><b>Definition</b> lib/error.h:128</div></div>
-<div class="ttc" id="astructvalue__t_html"><div class="ttname"><a href="structvalue__t.html">value_t</a></div><div class="ttdef"><b>Definition</b> asm-types.h:114</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

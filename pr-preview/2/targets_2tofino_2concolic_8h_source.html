@@ -160,8 +160,7 @@ $(function(){initNavTree('targets_2tofino_2concolic_8h_source.html',''); initRes
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span>P4::P4Tools::P4Testgen::Tofino {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic.html">SharedTofinoConcolic</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_concolic.html">Concolic</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>SharedTofinoConcolic : <span class="keyword">public</span> Concolic {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">struct </span>TofinoHashAlgorithm {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">using </span>Type = <span class="keyword">enum</span> {</div>
@@ -183,21 +182,16 @@ $(function(){initNavTree('targets_2tofino_2concolic_8h_source.html',''); initRes
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">static</span> <span class="keyword">const</span> ConcolicMethodImpls::ImplList SharedTofinoConcolicMethodImpls;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::ListExpression *evaluateListHashExpr(</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">const</span> std::vector&lt;const IR::Expression *&gt; &amp;exprList, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_p4_tools_1_1_model.html">Model</a> &amp;completedModel,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">const</span> std::vector&lt;const IR::Expression *&gt; &amp;exprList, <span class="keyword">const</span> Model &amp;completedModel,</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        Model::ExpressionMap *resolvedExpressions);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">static</span> <span class="keyword">const</span> ConcolicMethodImpls::ImplList *<a class="code hl_function" href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic.html#a2ecb0b77ab7480d126f6c127c9e4d738">getSharedTofinoConcolicMethodImpls</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">static</span> <span class="keyword">const</span> ConcolicMethodImpls::ImplList *getSharedTofinoConcolicMethodImpls();</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
-</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}  <span class="comment">// namespace P4::P4Tools::P4Testgen::Tofino</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_P4TOOLS_MODULES_TESTGEN_TARGETS_TOFINO_CONCOLIC_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_p4_tools_1_1_model_html"><div class="ttname"><a href="class_p4_1_1_p4_tools_1_1_model.html">P4::P4Tools::Model</a></div><div class="ttdef"><b>Definition</b> backends/p4tools/common/lib/model.h:18</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_tools_1_1_p4_testgen_1_1_concolic_html"><div class="ttname"><a href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_concolic.html">P4::P4Tools::P4Testgen::Concolic</a></div><div class="ttdef"><b>Definition</b> lib/concolic.h:86</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic_html"><div class="ttname"><a href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic.html">P4::P4Tools::P4Testgen::Tofino::SharedTofinoConcolic</a></div><div class="ttdef"><b>Definition</b> targets/tofino/concolic.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic_html_a2ecb0b77ab7480d126f6c127c9e4d738"><div class="ttname"><a href="class_p4_1_1_p4_tools_1_1_p4_testgen_1_1_tofino_1_1_shared_tofino_concolic.html#a2ecb0b77ab7480d126f6c127c9e4d738">P4::P4Tools::P4Testgen::Tofino::SharedTofinoConcolic::getSharedTofinoConcolicMethodImpls</a></div><div class="ttdeci">static const ConcolicMethodImpls::ImplList * getSharedTofinoConcolicMethodImpls()</div><div class="ttdef"><b>Definition</b> targets/tofino/concolic.cpp:173</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

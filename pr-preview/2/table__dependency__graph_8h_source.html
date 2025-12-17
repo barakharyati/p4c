@@ -151,7 +151,7 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/mau/table_mutex.h&quot;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/phv_fields.h&quot;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/* The DependencyGraph data structure is a directed graph in which tables are</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * vertices and edges are dependencies.  An edge from t1 to t2 means that t2</span></div>
@@ -162,10 +162,9 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * representing a different dependency.</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">class </span><a class="code hl_class" href="class_table_graph_node.html">TableGraphNode</a>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">class </span><a class="code hl_class" href="class_table_summary.html">TableSummary</a>;</div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html">   52</a></span><span class="keyword">struct </span>DependencyGraph {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">class </span>TableGraphNode;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">class </span>TableSummary;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">struct </span>DependencyGraph {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        MAU_DEP_MATCH = 2,      <span class="comment">// Field written is read at match input crossbar.</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        MAU_DEP_ACTION = 1,     <span class="comment">// Field written is read and/or written at PHV ALU.</span></div>
@@ -220,12 +219,12 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        dependencies_t                                                   <span class="comment">// Edge labels.</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        &gt;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        Graph;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_struct" href="struct_reduction_or_info.html">ReductionOrInfo</a> red_info;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    ReductionOrInfo red_info;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">  146</a></span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;const IR::MAU::Table *&gt;</a>&gt; <a class="code hl_variable" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">container_conflicts</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;const IR::MAU::Table *&gt;&gt; container_conflicts;</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;const IR::MAU::Table *&gt;</a>&gt;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">  152</a></span>        <a class="code hl_variable" href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">unavoidable_container_conflicts</a>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;const IR::MAU::Table *&gt;&gt;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        unavoidable_container_conflicts;</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    Graph g;  <span class="comment">// Dependency graph.</span></div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
@@ -343,8 +342,7 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>             DependencyGraph::mau_dependencies_t&gt;</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        table_dep_ = {};</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="foldopen" id="foldopen00270" data-start="{" data-end="};">
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html">  270</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_dependency_graph.html#struct_dependency_graph_1_1_stage_info">StageInfo</a> {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keyword">struct </span>StageInfo {</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <span class="keywordtype">int</span> min_stage,   <span class="comment">// Minimum stage at which a table can be placed.</span></div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            max_stage,   <span class="comment">// Maximum stage at which a table must be placed (inclusive).</span></div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            dep_stages,  <span class="comment">// Number of tables that depend on this table and</span></div>
@@ -352,27 +350,26 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            dep_stages_control, dep_stages_control_anti, dep_stages_control_anti_split,</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            dep_stages_dom_frontier;</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    };</div>
-</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Table *, StageInfo&gt;</a> stage_info;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    ordered_map&lt;const IR::MAU::Table *, StageInfo&gt; stage_info;</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="keyword">using </span>MinEdgeInfo = std::pair&lt;const IR::MAU::Table *, dependencies_t&gt;;</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordtype">bool</span> display_min_edges = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <a class="code hl_class" href="classassoc_1_1hash__map.html">assoc::hash_map&lt;const IR::MAU::Table *, safe_vector&lt;MinEdgeInfo&gt;</a>&gt; min_stage_edges;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    assoc::hash_map&lt;const IR::MAU::Table *, safe_vector&lt;MinEdgeInfo&gt;&gt; min_stage_edges;</div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html#aa9cfe11cbbbcbab0c84eb92cfa9cbc06">  288</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_dependency_graph.html#aa9cfe11cbbbcbab0c84eb92cfa9cbc06">max_min_stage_per_gress</a>[3] = {-1, -1, -1};</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordtype">int</span> max_min_stage_per_gress[3] = {-1, -1, -1};</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordtype">int</span> max_min_stage = -1;</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    std::vector&lt;ordered_set&lt;DependencyGraph::Graph::vertex_descriptor&gt;&gt; vertex_rst;</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="comment">// Json variables</span></div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> passContext;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    cstring passContext;</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <span class="keywordtype">bool</span> placed = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a>(<span class="keywordtype">void</span>) { finalized = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    DependencyGraph(<span class="keywordtype">void</span>) { finalized = <span class="keyword">false</span>; }</div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordtype">void</span> clear() {</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <a class="code hl_variable" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">container_conflicts</a>.clear();</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        container_conflicts.clear();</div>
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        g.clear();</div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        finalized = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        max_min_stage = -1;</div>
@@ -393,7 +390,7 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        ctrl_annotations.clear();</div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        stage_info.clear();</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        min_stage_edges.clear();</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; 3; i++) <a class="code hl_variable" href="struct_dependency_graph.html#aa9cfe11cbbbcbab0c84eb92cfa9cbc06">max_min_stage_per_gress</a>[i] = -1;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; 3; i++) max_min_stage_per_gress[i] = -1;</div>
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        display_min_edges = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        vertex_rst.clear();</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        passContext = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
@@ -404,19 +401,19 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        table_dep_.clear();</div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    }</div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span></div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_dependency_graph.html#afe12b9b63749d0bd64357e44f33d7199">fill_dep_stages_from_topo</a>(</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keywordtype">void</span> fill_dep_stages_from_topo(</div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keyword">const</span> std::vector&lt;ordered_set&lt;DependencyGraph::Graph::vertex_descriptor&gt;&gt; &amp;topo,</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordtype">bool</span> include_stages, <span class="keyword">const</span> TableSummary *summary);</div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_dependency_graph.html#a999e9a569aede8ab3df3b618014dfadf">is_anti_edge</a>(DependencyGraph::dependencies_t dep) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordtype">bool</span> is_anti_edge(DependencyGraph::dependencies_t dep) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span></div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_dependency_graph.html#a8d4689f6cf0ddc0c37e7c56fe843fe61">is_ctrl_edge</a>(DependencyGraph::dependencies_t dep) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordtype">bool</span> is_ctrl_edge(DependencyGraph::dependencies_t dep) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span></div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_dependency_graph.html#a8edcc9ff06789a4b452ade475ec9d587">is_non_directional_edge</a>(DependencyGraph::dependencies_t dep) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordtype">bool</span> is_non_directional_edge(DependencyGraph::dependencies_t dep) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_dependency_graph.html#a7b8552fdcf6da93298965749b133ec76">is_edge_critical</a>(<span class="keyword">typename</span> Graph::edge_descriptor e) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordtype">bool</span> is_edge_critical(<span class="keyword">typename</span> Graph::edge_descriptor e) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html#a7d5ccb1fb210fc32d8a3c1e21898d308">  353</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="struct_dependency_graph.html#a7d5ccb1fb210fc32d8a3c1e21898d308">critical_path_length</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (1 + max_min_stage); }</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordtype">int</span> critical_path_length()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (1 + max_min_stage); }</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <span class="comment">// For a src -&gt; dst edge check if back edge dst -&gt; src exists</span></div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keywordtype">bool</span> has_back_edge(<span class="keyword">const</span> IR::MAU::Table *src, <span class="keyword">const</span> IR::MAU::Table *dst) {</div>
@@ -465,16 +462,16 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>                                                                dependencies_t edge_label);</div>
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordtype">bool</span> container_conflict(<span class="keyword">const</span> IR::MAU::Table *t1, <span class="keyword">const</span> IR::MAU::Table *t2)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">container_conflicts</a>.find(t1) == <a class="code hl_variable" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">container_conflicts</a>.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">container_conflicts</a>.at(t1).find(t2) == <a class="code hl_variable" href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">container_conflicts</a>.at(t1).end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        <span class="keywordflow">if</span> (container_conflicts.find(t1) == container_conflicts.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordflow">if</span> (container_conflicts.at(t1).find(t2) == container_conflicts.at(t1).end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    }</div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
 <div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keywordtype">bool</span> unavoidable_container_conflict(<span class="keyword">const</span> IR::MAU::Table *t1, <span class="keyword">const</span> IR::MAU::Table *t2)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">unavoidable_container_conflicts</a>.find(t1) == <a class="code hl_variable" href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">unavoidable_container_conflicts</a>.end())</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        <span class="keywordflow">if</span> (unavoidable_container_conflicts.find(t1) == unavoidable_container_conflicts.end())</div>
 <div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">unavoidable_container_conflicts</a>.at(t1).find(t2) ==</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>            <a class="code hl_variable" href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">unavoidable_container_conflicts</a>.at(t1).end())</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        <span class="keywordflow">if</span> (unavoidable_container_conflicts.at(t1).find(t2) ==</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>            unavoidable_container_conflicts.at(t1).end())</div>
 <div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    }</div>
@@ -581,11 +578,10 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>    <span class="keywordtype">void</span> print_dep_type_map(std::ostream &amp;out) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>    <span class="keywordtype">void</span> print_container_access(std::ostream &amp;out) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span></div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    DependencyGraph::mau_dependencies_t <a class="code hl_function" href="struct_dependency_graph.html#a92d0f1a3b7461e23f0acc8eda0290a85">find_mau_dependency</a>(<span class="keyword">const</span> IR::MAU::Table *from,</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    DependencyGraph::mau_dependencies_t find_mau_dependency(<span class="keyword">const</span> IR::MAU::Table *from,</div>
 <div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>                                                            <span class="keyword">const</span> IR::MAU::Table *to);</div>
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span></div>
-<div class="foldopen" id="foldopen00534" data-start="{" data-end="}">
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno"><a class="line" href="struct_dependency_graph.html#a4d0c08db11d2216e0c4b7133f872ff9a">  534</a></span>    DependencyGraph::dependencies_t <a class="code hl_function" href="struct_dependency_graph.html#a4d0c08db11d2216e0c4b7133f872ff9a">get_dependency</a>(<span class="keyword">const</span> IR::MAU::Table *t1,</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>    DependencyGraph::dependencies_t get_dependency(<span class="keyword">const</span> IR::MAU::Table *t1,</div>
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>                                                   <span class="keyword">const</span> IR::MAU::Table *t2)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>        <span class="keywordflow">if</span> (!finalized) BUG(<span class="stringliteral">&quot;Dependence graph used before being fully constructed.&quot;</span>);</div>
 <div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span> </div>
@@ -596,7 +592,6 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>        <span class="comment">// No dependency between tables</span></div>
 <div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        <span class="keywordflow">return</span> DependencyGraph::CONCURRENT;</div>
 <div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>    }</div>
-</div>
 <div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span> </div>
 <div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    <span class="keywordtype">int</span> dependence_tail_size(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        check_finalized();</div>
@@ -648,27 +643,23 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span> </div>
 <div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    TableGraphNode create_node(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> IR::MAU::Table *tbl) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>};</div>
-</div>
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
-<div class="foldopen" id="foldopen00597" data-start="{" data-end="};">
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno"><a class="line" href="class_table_graph_field.html">  597</a></span><span class="keyword">class </span><a class="code hl_class" href="class_table_graph_field.html">TableGraphField</a> {</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="keyword">class </span>TableGraphField {</div>
 <div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> gress;</div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name;</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    cstring gress;</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>    cstring name;</div>
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>    <span class="keywordtype">int</span> lo = -1;</div>
 <div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    <span class="keywordtype">int</span> hi = -1;</div>
 <div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>};</div>
-</div>
 <div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span> </div>
-<div class="foldopen" id="foldopen00605" data-start="{" data-end="};">
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno"><a class="line" href="class_table_graph_edge.html">  605</a></span><span class="keyword">class </span><a class="code hl_class" href="class_table_graph_edge.html">TableGraphEdge</a> {</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span><span class="keyword">class </span>TableGraphEdge {</div>
 <div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>    <span class="keywordtype">int</span> <span class="keywordtype">id</span> = -1;</div>
 <div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    <span class="keywordtype">int</span> source = -1;</div>
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>    <span class="keywordtype">int</span> target = -1;</div>
 <div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    <span class="keywordtype">int</span> phv_number = -1;</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> action_name = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> exit_action_name = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    cstring action_name = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    cstring exit_action_name = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>    <span class="keywordtype">bool</span> is_critical = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span> </div>
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>    std::vector&lt;TableGraphField&gt; dep_fields;</div>
@@ -677,30 +668,30 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>    DependencyGraph::dependencies_t label;</div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span> </div>
 <div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>    <span class="comment">// Static maps</span></div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;DependencyGraph::dependencies_t, cstring&gt;</a> labels_to_types;</div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;DependencyGraph::dependencies_t, cstring&gt;</a> labels_to_sub_types;</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;DependencyGraph::dependencies_t, cstring&gt;</a> labels_to_anti_types;</div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;DependencyGraph::dependencies_t, bool&gt;</a> labels_to_conds;</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>    <span class="keyword">static</span> ordered_map&lt;DependencyGraph::dependencies_t, cstring&gt; labels_to_types;</div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>    <span class="keyword">static</span> ordered_map&lt;DependencyGraph::dependencies_t, cstring&gt; labels_to_sub_types;</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>    <span class="keyword">static</span> ordered_map&lt;DependencyGraph::dependencies_t, cstring&gt; labels_to_anti_types;</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    <span class="keyword">static</span> ordered_map&lt;DependencyGraph::dependencies_t, bool&gt; labels_to_conds;</div>
 <div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span> </div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keywordtype">bool</span> add_dep_field(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *s) {</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keywordtype">bool</span> add_dep_field(<span class="keyword">const</span> PHV::Field *s) {</div>
 <div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>        <span class="keywordflow">if</span> (!s) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span> </div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>        <a class="code hl_class" href="class_table_graph_field.html">TableGraphField</a> f;</div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>        f.name = cstring::to_cstring(<a class="code hl_class" href="classcanon__name.html">canon_name</a>(s-&gt;<a class="code hl_variable" href="class_p_h_v_1_1_field.html#a6dc1459985650d5003fe4638787556c8">name</a>));</div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>        f.gress = toString(s-&gt;<a class="code hl_variable" href="class_p_h_v_1_1_field.html#af6262d2f5baa4d007b672a90432d91c6">gress</a>);</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>        TableGraphField f;</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>        f.name = cstring::to_cstring(canon_name(s-&gt;name));</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>        f.gress = toString(s-&gt;gress);</div>
 <div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>        f.lo = 0;</div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>        f.hi = s-&gt;<a class="code hl_variable" href="class_p_h_v_1_1_field.html#a10a198e7adff85104913040f88af6081">size</a> - 1;</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>        f.hi = s-&gt;size - 1;</div>
 <div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>        dep_fields.push_back(f);</div>
 <div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>        LOG5(<span class="stringliteral">&quot; Adding Dep Field: &quot;</span> &lt;&lt; f.name &lt;&lt; <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; f.hi &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; f.lo &lt;&lt; <span class="stringliteral">&quot;] (&quot;</span> &lt;&lt; f.gress</div>
 <div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>                                   &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>);</div>
 <div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>    }</div>
 <div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span> </div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>    <span class="keywordtype">void</span> add_dep_fields_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *edgeMdDepFields = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a>();</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>    <span class="keywordtype">void</span> add_dep_fields_json(Util::JsonObject *edgeMdJson) {</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>        Util::JsonArray *edgeMdDepFields = <span class="keyword">new</span> Util::JsonArray();</div>
 <div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>        <span class="keywordflow">if</span> (dep_fields.size() &gt; 0) {</div>
 <div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> field : dep_fields) {</div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>                <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdDepField = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a>();</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>                Util::JsonObject *edgeMdDepField = <span class="keyword">new</span> Util::JsonObject();</div>
 <div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>                edgeMdDepField-&gt;emplace(<span class="stringliteral">&quot;gress&quot;</span>_cs, field.gress);</div>
 <div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>                edgeMdDepField-&gt;emplace(<span class="stringliteral">&quot;field_name&quot;</span>_cs, field.name);</div>
 <div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>                edgeMdDepField-&gt;emplace(<span class="stringliteral">&quot;start_bit&quot;</span>_cs, field.lo);</div>
@@ -711,28 +702,28 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;dep_fields&quot;</span>_cs, edgeMdDepFields);</div>
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>    }</div>
 <div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span> </div>
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    <span class="keywordtype">void</span> add_action_name_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>        <span class="keyword">auto</span> act_name = cstring::to_cstring(<a class="code hl_class" href="classcanon__name.html">canon_name</a>(action_name));</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    <span class="keywordtype">void</span> add_action_name_json(Util::JsonObject *edgeMdJson) {</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>        <span class="keyword">auto</span> act_name = cstring::to_cstring(canon_name(action_name));</div>
 <div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;action_name&quot;</span>_cs, act_name);</div>
 <div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>    }</div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span> </div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keywordtype">void</span> add_exit_action_name_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>        <span class="keyword">auto</span> act_name = cstring::to_cstring(<a class="code hl_class" href="classcanon__name.html">canon_name</a>(exit_action_name));</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keywordtype">void</span> add_exit_action_name_json(Util::JsonObject *edgeMdJson) {</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>        <span class="keyword">auto</span> act_name = cstring::to_cstring(canon_name(exit_action_name));</div>
 <div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;action_name&quot;</span>_cs, act_name);</div>
 <div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>    }</div>
 <div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span> </div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>    <span class="keywordtype">void</span> add_phv_number_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>    <span class="keywordtype">void</span> add_phv_number_json(Util::JsonObject *edgeMdJson) {</div>
 <div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;phv_number&quot;</span>_cs, phv_number);</div>
 <div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>    }</div>
 <div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>    <span class="keywordtype">void</span> add_condition_value_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>    <span class="keywordtype">void</span> add_condition_value_json(Util::JsonObject *edgeMdJson) {</div>
 <div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>        <span class="keywordflow">if</span> (labels_to_conds.count(label) == 0)</div>
 <div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>            BUG(<span class="stringliteral">&quot;Invalid edge type. Cannot determine condition value&quot;</span>);</div>
 <div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>        <span class="keywordtype">bool</span> condition_value = labels_to_conds[label];</div>
 <div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;condition_value&quot;</span>_cs, condition_value);</div>
 <div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>    }</div>
 <div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span> </div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>    <span class="keywordtype">void</span> add_anti_type_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>    <span class="keywordtype">void</span> add_anti_type_json(Util::JsonObject *edgeMdJson) {</div>
 <div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>        <span class="keywordflow">if</span> (labels_to_anti_types.count(label) == 0)</div>
 <div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>            BUG(<span class="stringliteral">&quot;Invalid edge type. Cannot determine anti type&quot;</span>);</div>
 <div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span> </div>
@@ -740,14 +731,14 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;anti_type&quot;</span>_cs, anti_type);</div>
 <div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>    }</div>
 <div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span> </div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>    <span class="keywordtype">void</span> add_type_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>    <span class="keywordtype">void</span> add_type_json(Util::JsonObject *edgeMdJson) {</div>
 <div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>        <span class="keywordflow">if</span> (labels_to_types.count(label) == 0) BUG(<span class="stringliteral">&quot;Invalid edge type&quot;</span>);</div>
 <div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span> </div>
 <div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>        <span class="keyword">auto</span> type = labels_to_types[label];</div>
 <div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;type&quot;</span>_cs, type);</div>
 <div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>    }</div>
 <div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span> </div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>    <span class="keywordtype">void</span> add_sub_type_json(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson) {</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>    <span class="keywordtype">void</span> add_sub_type_json(Util::JsonObject *edgeMdJson) {</div>
 <div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>        <span class="keywordflow">if</span> (labels_to_sub_types.count(label) == 0)</div>
 <div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>            BUG(<span class="stringliteral">&quot;Invalid edge type. Cannot determine sub type.&quot;</span>);</div>
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span> </div>
@@ -755,8 +746,8 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>        edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;sub_type&quot;</span>_cs, sub_type);</div>
 <div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>    }</div>
 <div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span> </div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *create_edge_md_json() {</div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeMdJson = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a>();</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>    Util::JsonObject *create_edge_md_json() {</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        Util::JsonObject *edgeMdJson = <span class="keyword">new</span> Util::JsonObject();</div>
 <div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span> </div>
 <div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>        add_type_json(edgeMdJson);</div>
 <div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>        add_sub_type_json(edgeMdJson);</div>
@@ -820,7 +811,7 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        <span class="keywordflow">if</span> (is_critical) edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;is_critical&quot;</span>_cs, is_critical);</div>
 <div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span> </div>
 <div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        <span class="keywordflow">if</span> (tags.size() &gt; 0) {</div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>            <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *edgeMdTags = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a>();</div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>            Util::JsonArray *edgeMdTags = <span class="keyword">new</span> Util::JsonArray();</div>
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> t : tags) edgeMdTags-&gt;append(t);</div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>            edgeMdJson-&gt;emplace(<span class="stringliteral">&quot;tags&quot;</span>_cs, edgeMdTags);</div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>        }</div>
@@ -828,19 +819,17 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        <span class="keywordflow">return</span> edgeMdJson;</div>
 <div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    }</div>
 <div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span> </div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *create_edge_json() {</div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *edgeJson = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a>();</div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;id&quot;</span>_cs, <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_value.html">Util::JsonValue</a>(std::to_string(<span class="keywordtype">id</span>)));</div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;source&quot;</span>_cs, <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_value.html">Util::JsonValue</a>(std::to_string(source)));</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;target&quot;</span>_cs, <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_value.html">Util::JsonValue</a>(std::to_string(target)));</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>    Util::JsonObject *create_edge_json() {</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>        Util::JsonObject *edgeJson = <span class="keyword">new</span> Util::JsonObject();</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;id&quot;</span>_cs, <span class="keyword">new</span> Util::JsonValue(std::to_string(<span class="keywordtype">id</span>)));</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;source&quot;</span>_cs, <span class="keyword">new</span> Util::JsonValue(std::to_string(source)));</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;target&quot;</span>_cs, <span class="keyword">new</span> Util::JsonValue(std::to_string(target)));</div>
 <div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>        edgeJson-&gt;emplace(<span class="stringliteral">&quot;metadata&quot;</span>_cs, create_edge_md_json());</div>
 <div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        <span class="keywordflow">return</span> edgeJson;</div>
 <div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>    }</div>
 <div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>};</div>
-</div>
 <div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span> </div>
-<div class="foldopen" id="foldopen00782" data-start="{" data-end="};">
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno"><a class="line" href="class_table_graph_node.html">  782</a></span><span class="keyword">class </span><a class="code hl_class" href="class_table_graph_node.html">TableGraphNode</a> {</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span><span class="keyword">class </span>TableGraphNode {</div>
 <div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>    <span class="keywordtype">int</span> <span class="keywordtype">id</span> = -1;</div>
 <div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>    <span class="keywordtype">int</span> logical_id = -1;</div>
@@ -848,18 +837,16 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>    <span class="keywordtype">int</span> min_stage = -1;</div>
 <div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>    <span class="keywordtype">int</span> dep_chain = -1;</div>
 <div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
-<div class="foldopen" id="foldopen00790" data-start="{" data-end="};">
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno"><a class="line" href="class_table_graph_node.html">  790</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_table_graph_node.html#class_table_graph_node_1_1_table_graph_node_table">TableGraphNodeTable</a> {</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>    <span class="keyword">class </span>TableGraphNodeTable {</div>
 <div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> table_type = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> match_type = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> condition = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        cstring name = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>        cstring table_type = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>        cstring match_type = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>        cstring condition = <span class="stringliteral">&quot;&quot;</span>_cs;</div>
 <div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>    };</div>
-</div>
 <div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>    std::vector&lt;TableGraphNodeTable&gt; nodeTables;</div>
 <div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span> </div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> get_node_match_type(<span class="keyword">const</span> IR::MAU::Table *tbl) {</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>    <span class="keyword">static</span> cstring get_node_match_type(<span class="keyword">const</span> IR::MAU::Table *tbl) {</div>
 <div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>        <span class="keyword">auto</span> match_type = tbl-&gt;get_table_type_string();</div>
 <div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>        <span class="keywordflow">if</span> (match_type == <span class="stringliteral">&quot;exact_match&quot;</span>)</div>
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;exact&quot;</span>_cs;</div>
@@ -876,7 +863,7 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;none&quot;</span>_cs;</div>
 <div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>    }</div>
 <div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span> </div>
-<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> get_attached_table_type(<span class="keyword">const</span> IR::MAU::AttachedMemory *att) {</div>
+<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>    <span class="keyword">static</span> cstring get_attached_table_type(<span class="keyword">const</span> IR::MAU::AttachedMemory *att) {</div>
 <div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>        <span class="keywordflow">if</span> (att-&gt;to&lt;IR::MAU::Counter&gt;())</div>
 <div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;statistics&quot;</span>_cs;</div>
 <div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (att-&gt;to&lt;IR::MAU::Meter&gt;())</div>
@@ -928,54 +915,48 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>        <span class="keywordflow">return</span> nodeJson;</div>
 <div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>    }</div>
 <div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>};</div>
-</div>
 <div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span> </div>
-<div class="foldopen" id="foldopen00869" data-start="{" data-end="};">
-<div class="line"><a id="l00869" name="l00869"></a><span class="lineno"><a class="line" href="class_name_to_table_map_builder.html">  869</a></span><span class="keyword">class </span>NameToTableMapBuilder : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
-<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
+<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span><span class="keyword">class </span>NameToTableMapBuilder : <span class="keyword">public</span> MauInspector {</div>
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>    DependencyGraph &amp;dg;</div>
 <div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Table *tbl) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span> </div>
 <div class="line"><a id="l00873" name="l00873"></a><span class="lineno">  873</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>    <span class="keyword">explicit</span> NameToTableMapBuilder(<a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;d) : dg(d) {}</div>
+<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>    <span class="keyword">explicit</span> NameToTableMapBuilder(DependencyGraph &amp;d) : dg(d) {}</div>
 <div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span>};</div>
-</div>
 <div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span> </div>
-<div class="foldopen" id="foldopen00877" data-start="{" data-end="};">
-<div class="line"><a id="l00877" name="l00877"></a><span class="lineno"><a class="line" href="class_find_data_dependency_graph.html">  877</a></span><span class="keyword">class </span>FindDataDependencyGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a>, <a class="code hl_class" href="class_p4_1_1_control_flow_visitor.html">BFN::ControlFlowVisitor</a> {</div>
+<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span><span class="keyword">class </span>FindDataDependencyGraph : <span class="keyword">public</span> MauInspector, BFN::ControlFlowVisitor {</div>
 <div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span>    <span class="keyword">using </span>write_op_t = std::pair&lt;PHV::FieldSlice, bitvec&gt;;</div>
-<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span>    <span class="keyword">using </span>cont_write_t = <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;write_op_t&gt;</a>&gt;;</div>
-<div class="foldopen" id="foldopen00881" data-start="{" data-end="};">
-<div class="line"><a id="l00881" name="l00881"></a><span class="lineno"><a class="line" href="class_find_data_dependency_graph.html">  881</a></span>    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;</a>&gt; ixbar_read;</div>
-<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;</a>&gt; action_read;</div>
-<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;</a>&gt; write;</div>
-<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;</a>&gt; reduction_or_write;</div>
-<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;</a>&gt; reduction_or_read;</div>
-<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>    } <a class="code hl_struct" href="class_find_data_dependency_graph.html#struct_find_data_dependency_graph_1_1access__t">access_t</a>;</div>
-</div>
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span>    <span class="keyword">using </span>cont_write_t = ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;write_op_t&gt;&gt;;</div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span>    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>        ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;&gt; ixbar_read;</div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>        ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;&gt; action_read;</div>
+<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>        ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;&gt; write;</div>
+<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>        ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;&gt; reduction_or_write;</div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>        ordered_set&lt;std::pair&lt;const IR::MAU::Table *, const IR::MAU::Action *&gt;&gt; reduction_or_read;</div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>    } access_t;</div>
 <div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span> </div>
 <div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
-<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_tables_mutually_exclusive.html">TablesMutuallyExclusive</a> &amp;mutex;</div>
-<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_ignore_table_deps.html">IgnoreTableDeps</a> &amp;ignore;</div>
-<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, access_t&gt;</a> access;</div>
-<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, cstring&gt;</a> red_or_use;</div>
-<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;PHV::Container, cont_write_t&gt;</a> cont_write;</div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    DependencyGraph &amp;dg;</div>
+<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>    <span class="keyword">const</span> TablesMutuallyExclusive &amp;mutex;</div>
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>    <span class="keyword">const</span> IgnoreTableDeps &amp;ignore;</div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>    ordered_map&lt;cstring, access_t&gt; access;</div>
+<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>    ordered_map&lt;cstring, cstring&gt; red_or_use;</div>
+<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>    ordered_map&lt;PHV::Container, cont_write_t&gt; cont_write;</div>
 <div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span> </div>
 <div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::TableSeq *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Table *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Action *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::TableKey *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span> </div>
-<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>        <span class="keyword">auto</span> rv = Inspector::init_apply(node);</div>
 <div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>        access.clear();</div>
 <div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>        cont_write.clear();</div>
 <div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>        red_or_use.clear();</div>
 <div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span> </div>
-<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const PHV::Field *, const PHV::Field *&gt;</a> &amp;aliasMap = phv.getAliasMap();</div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>        <span class="keyword">const</span> ordered_map&lt;const PHV::Field *, const PHV::Field *&gt; &amp;aliasMap = phv.getAliasMap();</div>
 <div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>        LOG4(<span class="stringliteral">&quot;Printing alias map&quot;</span>);</div>
 <div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> kv : aliasMap)</div>
 <div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>            LOG4(<span class="stringliteral">&quot;  &quot;</span> &lt;&lt; kv.first-&gt;name &lt;&lt; <span class="stringliteral">&quot; aliases with &quot;</span> &lt;&lt; kv.second-&gt;name);</div>
@@ -983,17 +964,17 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00914" name="l00914"></a><span class="lineno">  914</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span>    }</div>
 <div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span> </div>
-<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span>    std::set&lt;cstring&gt; getFieldNameSlice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *field, le_bitrange range) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span>    <span class="keywordtype">void</span> flow_merge(<a class="code hl_class" href="class_p4_1_1_visitor.html">Visitor</a> &amp;v) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>    <span class="keywordtype">void</span> flow_copy(<a class="code hl_class" href="class_p4_1_1_control_flow_visitor.html">::ControlFlowVisitor</a> &amp;v) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span>    std::set&lt;cstring&gt; getFieldNameSlice(<span class="keyword">const</span> PHV::Field *field, le_bitrange range) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span>    <span class="keywordtype">void</span> flow_merge(Visitor &amp;v) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>    <span class="keywordtype">void</span> flow_copy(::ControlFlowVisitor &amp;v) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span>    <span class="comment">// Filter out the table sequence and revisit them again.</span></div>
-<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>    <span class="keywordtype">bool</span> filter_join_point(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *n)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> !n-&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a203be294e917ab99212b79aecc23936d">is</a>&lt;IR::BFN::ParserState&gt;(); }</div>
+<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>    <span class="keywordtype">bool</span> filter_join_point(<span class="keyword">const</span> IR::Node *n)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> !n-&gt;is&lt;IR::BFN::ParserState&gt;(); }</div>
 <div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span> </div>
 <div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>    <span class="comment">// void all_bfs(boost::default_bfs_visitor* vis);</span></div>
 <div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>    FindDataDependencyGraph *clone()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="keyword">new</span> FindDataDependencyGraph(*<span class="keyword">this</span>); }</div>
 <div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span> </div>
-<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>    <span class="keyword">class </span><a class="code hl_class" href="class_find_data_dependency_graph_1_1_add_dependencies.html">AddDependencies</a>;</div>
-<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>    <span class="keyword">class </span><a class="code hl_class" href="class_find_data_dependency_graph_1_1_update_access.html">UpdateAccess</a>;</div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>    <span class="keyword">class </span>AddDependencies;</div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>    <span class="keyword">class </span>UpdateAccess;</div>
 <div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span>    <span class="keyword">class </span>UpdateAttached;</div>
 <div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span> </div>
 <div class="line"><a id="l00930" name="l00930"></a><span class="lineno">  930</span> <span class="keyword">public</span>:</div>
@@ -1003,52 +984,48 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>        joinFlows = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>    }</div>
 <div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>};</div>
-</div>
 <div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span> </div>
-<div class="foldopen" id="foldopen00938" data-start="{" data-end="};">
-<div class="line"><a id="l00938" name="l00938"></a><span class="lineno"><a class="line" href="class_calculate_next_table_prop.html">  938</a></span><span class="keyword">class </span>CalculateNextTableProp : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span><span class="keyword">class </span>CalculateNextTableProp : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>    <span class="keyword">using </span>NextTableLeaves =</div>
-<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>        <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;const IR::MAU::Table *&gt;</a>&gt;;</div>
+<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>        ordered_map&lt;const IR::MAU::Table *, ordered_set&lt;const IR::MAU::Table *&gt;&gt;;</div>
 <div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span>    <span class="keyword">using </span>ControlDominatingSet = NextTableLeaves;</div>
-<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, const IR::MAU::Table *&gt;</a> name_to_table;</div>
+<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span>    ordered_map&lt;cstring, const IR::MAU::Table *&gt; name_to_table;</div>
 <div class="line"><a id="l00943" name="l00943"></a><span class="lineno">  943</span> </div>
 <div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00948" name="l00948"></a><span class="lineno"><a class="line" href="class_calculate_next_table_prop.html#aa758e30a38d874c907f7bc422756885a">  948</a></span>    NextTableLeaves <a class="code hl_variable" href="class_calculate_next_table_prop.html#aa758e30a38d874c907f7bc422756885a">next_table_leaves</a>;</div>
+<div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span>    NextTableLeaves next_table_leaves;</div>
 <div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span></div>
-<div class="line"><a id="l00952" name="l00952"></a><span class="lineno"><a class="line" href="class_calculate_next_table_prop.html#a773410b45c3257b5893845531150ff1c">  952</a></span>    ControlDominatingSet <a class="code hl_variable" href="class_calculate_next_table_prop.html#a773410b45c3257b5893845531150ff1c">control_dom_set</a>;</div>
+<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>    ControlDominatingSet control_dom_set;</div>
 <div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span> </div>
 <div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::MAU::Table *) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span>        <span class="keyword">auto</span> rv = MauInspector::init_apply(node);</div>
-<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span>        <a class="code hl_variable" href="class_calculate_next_table_prop.html#aa758e30a38d874c907f7bc422756885a">next_table_leaves</a>.clear();</div>
-<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>        <a class="code hl_variable" href="class_calculate_next_table_prop.html#a773410b45c3257b5893845531150ff1c">control_dom_set</a>.clear();</div>
+<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span>        next_table_leaves.clear();</div>
+<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>        control_dom_set.clear();</div>
 <div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span>        name_to_table.clear();</div>
 <div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span>    }</div>
 <div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span> </div>
 <div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00965" name="l00965"></a><span class="lineno">  965</span>    <span class="keyword">const</span> IR::MAU::Table *get_table(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00965" name="l00965"></a><span class="lineno">  965</span>    <span class="keyword">const</span> IR::MAU::Table *get_table(cstring name)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span>        <span class="keywordflow">if</span> (name_to_table.count(name)) <span class="keywordflow">return</span> name_to_table.at(name);</div>
 <div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00968" name="l00968"></a><span class="lineno">  968</span>    }</div>
 <div class="line"><a id="l00969" name="l00969"></a><span class="lineno">  969</span>    CalculateNextTableProp() { visitDagOnce = <span class="keyword">false</span>; }</div>
 <div class="line"><a id="l00970" name="l00970"></a><span class="lineno">  970</span>};</div>
-</div>
 <div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span> </div>
-<div class="foldopen" id="foldopen00972" data-start="{" data-end="};">
-<div class="line"><a id="l00972" name="l00972"></a><span class="lineno"><a class="line" href="class_control_pathways_to_table.html">  972</a></span><span class="keyword">class </span>ControlPathwaysToTable : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00972" name="l00972"></a><span class="lineno">  972</span><span class="keyword">class </span>ControlPathwaysToTable : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>    <span class="keyword">using </span>Path = <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;const IR::Node *&gt;</a>;</div>
-<div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span>    <span class="keyword">using </span>TablePathways = <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Table *, safe_vector&lt;Path&gt;</a>&gt;;</div>
-<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>    <span class="keyword">using </span>InjectPoints = <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;std::pair&lt;const IR::Node *, const IR::Node *&gt;</a>&gt;;</div>
+<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>    <span class="keyword">using </span>Path = safe_vector&lt;const IR::Node *&gt;;</div>
+<div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span>    <span class="keyword">using </span>TablePathways = ordered_map&lt;const IR::MAU::Table *, safe_vector&lt;Path&gt;&gt;;</div>
+<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>    <span class="keyword">using </span>InjectPoints = safe_vector&lt;std::pair&lt;const IR::Node *, const IR::Node *&gt;&gt;;</div>
 <div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span></div>
-<div class="line"><a id="l00980" name="l00980"></a><span class="lineno"><a class="line" href="class_control_pathways_to_table.html#a529f53221fac907c30aea58f6a8eaeff">  980</a></span>    TablePathways <a class="code hl_variable" href="class_control_pathways_to_table.html#a529f53221fac907c30aea58f6a8eaeff">table_pathways</a>;</div>
+<div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span>    TablePathways table_pathways;</div>
 <div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span> </div>
 <div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00984" name="l00984"></a><span class="lineno">  984</span>        <span class="keyword">auto</span> rv = MauInspector::init_apply(node);</div>
-<div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>        <a class="code hl_variable" href="class_control_pathways_to_table.html#a529f53221fac907c30aea58f6a8eaeff">table_pathways</a>.clear();</div>
+<div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>        table_pathways.clear();</div>
 <div class="line"><a id="l00986" name="l00986"></a><span class="lineno">  986</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00987" name="l00987"></a><span class="lineno">  987</span>    }</div>
 <div class="line"><a id="l00988" name="l00988"></a><span class="lineno">  988</span> </div>
@@ -1058,99 +1035,89 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l00992" name="l00992"></a><span class="lineno">  992</span>    Path common_reverse_path(<span class="keyword">const</span> Path &amp;a, <span class="keyword">const</span> Path &amp;b, <span class="keywordtype">bool</span> check_diff_if_seq = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span> </div>
 <div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>    <span class="keywordtype">void</span> print_paths(<a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;Path&gt;</a> &amp;paths) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>    <span class="keyword">const</span> IR::MAU::Table *<a class="code hl_function" href="class_control_pathways_to_table.html#a01a22e38dec20bc231da108b252e86e9">find_dominator</a>(<span class="keyword">const</span> IR::MAU::Table *init) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>    InjectPoints <a class="code hl_function" href="class_control_pathways_to_table.html#abc29895522284f5df54f17d54f25d231">get_inject_points</a>(<span class="keyword">const</span> IR::MAU::Table *a, <span class="keyword">const</span> IR::MAU::Table *b,</div>
+<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>    <span class="keywordtype">void</span> print_paths(safe_vector&lt;Path&gt; &amp;paths) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>    <span class="keyword">const</span> IR::MAU::Table *find_dominator(<span class="keyword">const</span> IR::MAU::Table *init) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>    InjectPoints get_inject_points(<span class="keyword">const</span> IR::MAU::Table *a, <span class="keyword">const</span> IR::MAU::Table *b,</div>
 <div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span>                                   <span class="keywordtype">bool</span> tbls_only = <span class="keyword">true</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span>    <a class="code hl_class" href="class_control_pathways_to_table.html">ControlPathwaysToTable</a>() { visitDagOnce = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span>    ControlPathwaysToTable() { visitDagOnce = <span class="keyword">false</span>; }</div>
 <div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span>};</div>
-</div>
 <div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span> </div>
-<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span><span class="keyword">class </span><a class="code hl_class" href="class_find_dependency_graph.html">FindDependencyGraph</a>;</div>
+<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span><span class="keyword">class </span>FindDependencyGraph;</div>
 <div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span> </div>
-<div class="foldopen" id="foldopen01004" data-start="{" data-end="};">
-<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"><a class="line" href="class_dep_stages_thru_dom_frontier.html"> 1004</a></span><span class="keyword">class </span>DepStagesThruDomFrontier : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
-<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_calculate_next_table_prop.html">CalculateNextTableProp</a> &amp;ntp;</div>
-<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
-<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span>    <a class="code hl_class" href="class_find_dependency_graph.html">FindDependencyGraph</a> &amp;self;</div>
-<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_table_summary.html">TableSummary</a> *summary;</div>
+<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span><span class="keyword">class </span>DepStagesThruDomFrontier : <span class="keyword">public</span> MauInspector {</div>
+<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span>    <span class="keyword">const</span> CalculateNextTableProp &amp;ntp;</div>
+<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span>    DependencyGraph &amp;dg;</div>
+<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span>    FindDependencyGraph &amp;self;</div>
+<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span>    <span class="keyword">const</span> TableSummary *summary;</div>
 <div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span> </div>
 <div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::MAU::Table *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span> </div>
 <div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>    DepStagesThruDomFrontier(<span class="keyword">const</span> <a class="code hl_class" href="class_calculate_next_table_prop.html">CalculateNextTableProp</a> &amp;n, <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;d,</div>
-<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>                             <a class="code hl_class" href="class_find_dependency_graph.html">FindDependencyGraph</a> &amp;s, <span class="keyword">const</span> <a class="code hl_class" href="class_table_summary.html">TableSummary</a> *ts)</div>
+<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>    DepStagesThruDomFrontier(<span class="keyword">const</span> CalculateNextTableProp &amp;n, DependencyGraph &amp;d,</div>
+<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>                             FindDependencyGraph &amp;s, <span class="keyword">const</span> TableSummary *ts)</div>
 <div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span>        : ntp(n), dg(d), self(s), summary(ts) {}</div>
 <div class="line"><a id="l01016" name="l01016"></a><span class="lineno"> 1016</span>};</div>
-</div>
 <div class="line"><a id="l01017" name="l01017"></a><span class="lineno"> 1017</span> </div>
-<div class="foldopen" id="foldopen01018" data-start="{" data-end="};">
-<div class="line"><a id="l01018" name="l01018"></a><span class="lineno"><a class="line" href="class_print_pipe.html"> 1018</a></span><span class="keyword">class </span>PrintPipe : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l01018" name="l01018"></a><span class="lineno"> 1018</span><span class="keyword">class </span>PrintPipe : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l01019" name="l01019"></a><span class="lineno"> 1019</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::BFN::Pipe *p) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l01020" name="l01020"></a><span class="lineno"> 1020</span> </div>
 <div class="line"><a id="l01021" name="l01021"></a><span class="lineno"> 1021</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l01022" name="l01022"></a><span class="lineno"> 1022</span>    PrintPipe() {}</div>
 <div class="line"><a id="l01023" name="l01023"></a><span class="lineno"> 1023</span>};</div>
-</div>
 <div class="line"><a id="l01024" name="l01024"></a><span class="lineno"> 1024</span> </div>
-<div class="foldopen" id="foldopen01025" data-start="{" data-end="};">
-<div class="line"><a id="l01025" name="l01025"></a><span class="lineno"><a class="line" href="class_find_ctrl_dependency_graph.html"> 1025</a></span><span class="keyword">class </span>FindCtrlDependencyGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
-<div class="line"><a id="l01026" name="l01026"></a><span class="lineno"> 1026</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
+<div class="line"><a id="l01025" name="l01025"></a><span class="lineno"> 1025</span><span class="keyword">class </span>FindCtrlDependencyGraph : <span class="keyword">public</span> MauInspector {</div>
+<div class="line"><a id="l01026" name="l01026"></a><span class="lineno"> 1026</span>    DependencyGraph &amp;dg;</div>
 <div class="line"><a id="l01027" name="l01027"></a><span class="lineno"> 1027</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Table *t);</div>
 <div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span> </div>
 <div class="line"><a id="l01029" name="l01029"></a><span class="lineno"> 1029</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span>    <span class="keyword">explicit</span> FindCtrlDependencyGraph(<a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;out) : dg(out) {}</div>
+<div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span>    <span class="keyword">explicit</span> FindCtrlDependencyGraph(DependencyGraph &amp;out) : dg(out) {}</div>
 <div class="line"><a id="l01031" name="l01031"></a><span class="lineno"> 1031</span>};</div>
-</div>
 <div class="line"><a id="l01032" name="l01032"></a><span class="lineno"> 1032</span> </div>
-<div class="foldopen" id="foldopen01033" data-start="{" data-end="};">
-<div class="line"><a id="l01033" name="l01033"></a><span class="lineno"><a class="line" href="class_find_dependency_graph.html"> 1033</a></span><span class="keyword">class </span>FindDependencyGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_logging_1_1_pass_manager.html">Logging::PassManager</a> {</div>
+<div class="line"><a id="l01033" name="l01033"></a><span class="lineno"> 1033</span><span class="keyword">class </span>FindDependencyGraph : <span class="keyword">public</span> Logging::PassManager {</div>
 <div class="line"><a id="l01036" name="l01036"></a><span class="lineno"> 1036</span>    <span class="keywordtype">void</span> verify_dependence_graph(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l01037" name="l01037"></a><span class="lineno"> 1037</span>    <span class="keywordtype">void</span> finalize_dependence_graph(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l01038" name="l01038"></a><span class="lineno"> 1038</span>    <span class="keywordtype">void</span> calc_max_min_stage();</div>
 <div class="line"><a id="l01039" name="l01039"></a><span class="lineno"> 1039</span> </div>
-<div class="line"><a id="l01040" name="l01040"></a><span class="lineno"> 1040</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l01041" name="l01041"></a><span class="lineno"> 1041</span>    <a class="code hl_class" href="class_tables_mutually_exclusive.html">TablesMutuallyExclusive</a> mutex;</div>
-<div class="line"><a id="l01042" name="l01042"></a><span class="lineno"> 1042</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
-<div class="line"><a id="l01043" name="l01043"></a><span class="lineno"> 1043</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> *options;</div>
-<div class="line"><a id="l01044" name="l01044"></a><span class="lineno"> 1044</span>    <a class="code hl_struct" href="struct_flow_graph.html">FlowGraph</a> fg;</div>
-<div class="line"><a id="l01045" name="l01045"></a><span class="lineno"> 1045</span>    <a class="code hl_class" href="class_control_pathways_to_table.html">ControlPathwaysToTable</a> con_paths;</div>
-<div class="line"><a id="l01046" name="l01046"></a><span class="lineno"> 1046</span>    <a class="code hl_class" href="class_calculate_next_table_prop.html">CalculateNextTableProp</a> ntp;</div>
-<div class="line"><a id="l01047" name="l01047"></a><span class="lineno"> 1047</span>    <a class="code hl_class" href="class_ignore_table_deps.html">IgnoreTableDeps</a> ignore;</div>
-<div class="line"><a id="l01048" name="l01048"></a><span class="lineno"> 1048</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> dotFile;</div>
-<div class="line"><a id="l01049" name="l01049"></a><span class="lineno"> 1049</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> passContext;</div>
-<div class="line"><a id="l01050" name="l01050"></a><span class="lineno"> 1050</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_table_summary.html">TableSummary</a> *summary;</div>
+<div class="line"><a id="l01040" name="l01040"></a><span class="lineno"> 1040</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l01041" name="l01041"></a><span class="lineno"> 1041</span>    TablesMutuallyExclusive mutex;</div>
+<div class="line"><a id="l01042" name="l01042"></a><span class="lineno"> 1042</span>    DependencyGraph &amp;dg;</div>
+<div class="line"><a id="l01043" name="l01043"></a><span class="lineno"> 1043</span>    <span class="keyword">const</span> BFN_Options *options;</div>
+<div class="line"><a id="l01044" name="l01044"></a><span class="lineno"> 1044</span>    FlowGraph fg;</div>
+<div class="line"><a id="l01045" name="l01045"></a><span class="lineno"> 1045</span>    ControlPathwaysToTable con_paths;</div>
+<div class="line"><a id="l01046" name="l01046"></a><span class="lineno"> 1046</span>    CalculateNextTableProp ntp;</div>
+<div class="line"><a id="l01047" name="l01047"></a><span class="lineno"> 1047</span>    IgnoreTableDeps ignore;</div>
+<div class="line"><a id="l01048" name="l01048"></a><span class="lineno"> 1048</span>    cstring dotFile;</div>
+<div class="line"><a id="l01049" name="l01049"></a><span class="lineno"> 1049</span>    cstring passContext;</div>
+<div class="line"><a id="l01050" name="l01050"></a><span class="lineno"> 1050</span>    <span class="keyword">const</span> TableSummary *summary;</div>
 <div class="line"><a id="l01051" name="l01051"></a><span class="lineno"> 1051</span> </div>
-<div class="line"><a id="l01052" name="l01052"></a><span class="lineno"> 1052</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l01052" name="l01052"></a><span class="lineno"> 1052</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *root) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l01053" name="l01053"></a><span class="lineno"> 1053</span>    <span class="keywordtype">void</span> add_logical_deps_from_control_deps();</div>
 <div class="line"><a id="l01054" name="l01054"></a><span class="lineno"> 1054</span> </div>
 <div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>    std::vector&lt;ordered_set&lt;DependencyGraph::Graph::vertex_descriptor&gt;&gt; <a class="code hl_function" href="class_find_dependency_graph.html#a3bb3b483ee3c974ab920c6c69d03688f">calc_topological_stage</a>(</div>
-<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>        <span class="keywordtype">unsigned</span> deps_flag = 0, <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> *dg_p = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span>    FindDependencyGraph(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;, <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;out, <span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> *o = <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span>                        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> dotFileName = <span class="stringliteral">&quot;&quot;</span>_cs, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> passContext = <span class="stringliteral">&quot;&quot;</span>_cs,</div>
-<div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span>                        <span class="keyword">const</span> <a class="code hl_class" href="class_table_summary.html">TableSummary</a> *s = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>    std::vector&lt;ordered_set&lt;DependencyGraph::Graph::vertex_descriptor&gt;&gt; calc_topological_stage(</div>
+<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>        <span class="keywordtype">unsigned</span> deps_flag = 0, DependencyGraph *dg_p = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span>    FindDependencyGraph(<span class="keyword">const</span> PhvInfo &amp;, DependencyGraph &amp;out, <span class="keyword">const</span> BFN_Options *o = <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span>                        cstring dotFileName = <span class="stringliteral">&quot;&quot;</span>_cs, cstring passContext = <span class="stringliteral">&quot;&quot;</span>_cs,</div>
+<div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span>                        <span class="keyword">const</span> TableSummary *s = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l01061" name="l01061"></a><span class="lineno"> 1061</span>};</div>
-</div>
 <div class="line"><a id="l01062" name="l01062"></a><span class="lineno"> 1062</span> </div>
-<div class="foldopen" id="foldopen01063" data-start="{" data-end="};">
-<div class="line"><a id="l01063" name="l01063"></a><span class="lineno"><a class="line" href="class_print_dependency_graph.html"> 1063</a></span><span class="keyword">class </span>PrintDependencyGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l01063" name="l01063"></a><span class="lineno"> 1063</span><span class="keyword">class </span>PrintDependencyGraph : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l01064" name="l01064"></a><span class="lineno"> 1064</span>    <span class="keywordtype">int</span> min_path_len = 0;</div>
-<div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> pipe_name;</div>
-<div class="line"><a id="l01066" name="l01066"></a><span class="lineno"> 1066</span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
+<div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span>    cstring pipe_name;</div>
+<div class="line"><a id="l01066" name="l01066"></a><span class="lineno"> 1066</span>    <span class="keyword">const</span> DependencyGraph &amp;dg;</div>
 <div class="line"><a id="l01067" name="l01067"></a><span class="lineno"> 1067</span>    std::map&lt;DependencyGraph::Graph::vertex_descriptor, cstring&gt; vertex_names;</div>
 <div class="line"><a id="l01068" name="l01068"></a><span class="lineno"> 1068</span>    std::map&lt;DependencyGraph::Graph::edge_descriptor, cstring&gt; edge_names;</div>
 <div class="line"><a id="l01069" name="l01069"></a><span class="lineno"> 1069</span>    std::map&lt;bitvec, char&gt; bitvec_to_char;</div>
 <div class="line"><a id="l01070" name="l01070"></a><span class="lineno"> 1070</span>    std::map&lt;char, bitvec&gt; char_to_bitvec;</div>
 <div class="line"><a id="l01071" name="l01071"></a><span class="lineno"> 1071</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::BFN::Pipe *t) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l01072" name="l01072"></a><span class="lineno"> 1072</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l01072" name="l01072"></a><span class="lineno"> 1072</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *root) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l01073" name="l01073"></a><span class="lineno"> 1073</span>    <span class="keywordtype">char</span> encode_dependencies(<span class="keyword">const</span> DependencyGraph::Graph::vertex_descriptor &amp;src_v,</div>
 <div class="line"><a id="l01074" name="l01074"></a><span class="lineno"> 1074</span>                             <span class="keyword">const</span> DependencyGraph::Graph::vertex_descriptor &amp;dst_v);</div>
-<div class="line"><a id="l01075" name="l01075"></a><span class="lineno"> 1075</span>    std::string print_dependencies(<a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> deps);</div>
+<div class="line"><a id="l01075" name="l01075"></a><span class="lineno"> 1075</span>    std::string print_dependencies(bitvec deps);</div>
 <div class="line"><a id="l01076" name="l01076"></a><span class="lineno"> 1076</span> </div>
 <div class="line"><a id="l01077" name="l01077"></a><span class="lineno"> 1077</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01078" name="l01078"></a><span class="lineno"> 1078</span>    <span class="keyword">explicit</span> PrintDependencyGraph(<span class="keyword">const</span> <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;out) : dg(out) {}</div>
-<div class="line"><a id="l01079" name="l01079"></a><span class="lineno"> 1079</span>    std::stringstream print_graph(<span class="keyword">const</span> <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;g);</div>
+<div class="line"><a id="l01078" name="l01078"></a><span class="lineno"> 1078</span>    <span class="keyword">explicit</span> PrintDependencyGraph(<span class="keyword">const</span> DependencyGraph &amp;out) : dg(out) {}</div>
+<div class="line"><a id="l01079" name="l01079"></a><span class="lineno"> 1079</span>    std::stringstream print_graph(<span class="keyword">const</span> DependencyGraph &amp;g);</div>
 <div class="line"><a id="l01080" name="l01080"></a><span class="lineno"> 1080</span> </div>
 <div class="line"><a id="l01081" name="l01081"></a><span class="lineno"> 1081</span>    <span class="comment">// DFS traversal of table dependency graph but starting from the</span></div>
 <div class="line"><a id="l01082" name="l01082"></a><span class="lineno"> 1082</span>    <span class="comment">// last min_stage tables toward min_stage 0.</span></div>
@@ -1160,87 +1127,23 @@ $(function(){initNavTree('table__dependency__graph_8h_source.html',''); initResi
 <div class="line"><a id="l01086" name="l01086"></a><span class="lineno"> 1086</span> </div>
 <div class="line"><a id="l01087" name="l01087"></a><span class="lineno"> 1087</span>    <span class="comment">// Print critical table dependency chains that cross at least</span></div>
 <div class="line"><a id="l01088" name="l01088"></a><span class="lineno"> 1088</span>    <span class="comment">// 70% of the device stages (e.g. for Tofino: chains &gt;= floor(12 * 0.7) = 8 stages</span></div>
-<div class="line"><a id="l01089" name="l01089"></a><span class="lineno"> 1089</span>    <span class="keywordtype">void</span> print_critical_chains(<span class="keyword">const</span> <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;g);</div>
+<div class="line"><a id="l01089" name="l01089"></a><span class="lineno"> 1089</span>    <span class="keywordtype">void</span> print_critical_chains(<span class="keyword">const</span> DependencyGraph &amp;g);</div>
 <div class="line"><a id="l01090" name="l01090"></a><span class="lineno"> 1090</span>};</div>
-</div>
 <div class="line"><a id="l01091" name="l01091"></a><span class="lineno"> 1091</span> </div>
 <div class="line"><a id="l01092" name="l01092"></a><span class="lineno"> 1092</span><span class="comment">// Print a summary of the dependency graph in ascii</span></div>
-<div class="foldopen" id="foldopen01093" data-start="{" data-end="};">
-<div class="line"><a id="l01093" name="l01093"></a><span class="lineno"><a class="line" href="class_table_dependency_graph_summary.html"> 1093</a></span><span class="keyword">class </span>TableDependencyGraphSummary : <span class="keyword">public</span> <a class="code hl_class" href="class_logging_1_1_pass_manager.html">Logging::PassManager</a> {</div>
-<div class="line"><a id="l01094" name="l01094"></a><span class="lineno"> 1094</span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
+<div class="line"><a id="l01093" name="l01093"></a><span class="lineno"> 1093</span><span class="keyword">class </span>TableDependencyGraphSummary : <span class="keyword">public</span> Logging::PassManager {</div>
+<div class="line"><a id="l01094" name="l01094"></a><span class="lineno"> 1094</span>    <span class="keyword">const</span> DependencyGraph &amp;dg;</div>
 <div class="line"><a id="l01095" name="l01095"></a><span class="lineno"> 1095</span> </div>
 <div class="line"><a id="l01096" name="l01096"></a><span class="lineno"> 1096</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01097" name="l01097"></a><span class="lineno"> 1097</span>    <span class="keyword">explicit</span> TableDependencyGraphSummary(<span class="keyword">const</span> <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;d)</div>
-<div class="line"><a id="l01098" name="l01098"></a><span class="lineno"> 1098</span>        : <a class="code hl_class" href="class_logging_1_1_pass_manager.html">Logging::PassManager</a>(<span class="stringliteral">&quot;table_dependency_summary&quot;</span>_cs, <a class="code hl_enumvalue" href="namespace_logging.html#ac6c91aa7c9b907996c823b0eb97cde2fab7603a1062347999563308de81efa0bb">Logging::Mode::AUTO</a>), dg(d) {</div>
-<div class="line"><a id="l01099" name="l01099"></a><span class="lineno"> 1099</span>        passes.push_back(<span class="keyword">new</span> <a class="code hl_class" href="class_print_dependency_graph.html">PrintDependencyGraph</a>(dg));</div>
+<div class="line"><a id="l01097" name="l01097"></a><span class="lineno"> 1097</span>    <span class="keyword">explicit</span> TableDependencyGraphSummary(<span class="keyword">const</span> DependencyGraph &amp;d)</div>
+<div class="line"><a id="l01098" name="l01098"></a><span class="lineno"> 1098</span>        : Logging::PassManager(<span class="stringliteral">&quot;table_dependency_summary&quot;</span>_cs, Logging::Mode::AUTO), dg(d) {</div>
+<div class="line"><a id="l01099" name="l01099"></a><span class="lineno"> 1099</span>        passes.push_back(<span class="keyword">new</span> PrintDependencyGraph(dg));</div>
 <div class="line"><a id="l01100" name="l01100"></a><span class="lineno"> 1100</span>    }</div>
 <div class="line"><a id="l01101" name="l01101"></a><span class="lineno"> 1101</span>};</div>
-</div>
 <div class="line"><a id="l01102" name="l01102"></a><span class="lineno"> 1102</span> </div>
 <div class="line"><a id="l01103" name="l01103"></a><span class="lineno"> 1103</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, DependencyGraph::dependencies_t);</div>
 <div class="line"><a id="l01104" name="l01104"></a><span class="lineno"> 1104</span> </div>
 <div class="line"><a id="l01105" name="l01105"></a><span class="lineno"> 1105</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_TABLE_DEPENDENCY_GRAPH_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_b_f_n___options_html"><div class="ttname"><a href="class_b_f_n___options.html">BFN_Options</a></div><div class="ttdef"><b>Definition</b> bf-p4c-options.h:27</div></div>
-<div class="ttc" id="aclass_calculate_next_table_prop_html"><div class="ttname"><a href="class_calculate_next_table_prop.html">CalculateNextTableProp</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:938</div></div>
-<div class="ttc" id="aclass_calculate_next_table_prop_html_a773410b45c3257b5893845531150ff1c"><div class="ttname"><a href="class_calculate_next_table_prop.html#a773410b45c3257b5893845531150ff1c">CalculateNextTableProp::control_dom_set</a></div><div class="ttdeci">ControlDominatingSet control_dom_set</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:952</div></div>
-<div class="ttc" id="aclass_calculate_next_table_prop_html_aa758e30a38d874c907f7bc422756885a"><div class="ttname"><a href="class_calculate_next_table_prop.html#aa758e30a38d874c907f7bc422756885a">CalculateNextTableProp::next_table_leaves</a></div><div class="ttdeci">NextTableLeaves next_table_leaves</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:948</div></div>
-<div class="ttc" id="aclass_control_pathways_to_table_html"><div class="ttname"><a href="class_control_pathways_to_table.html">ControlPathwaysToTable</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:972</div></div>
-<div class="ttc" id="aclass_control_pathways_to_table_html_a01a22e38dec20bc231da108b252e86e9"><div class="ttname"><a href="class_control_pathways_to_table.html#a01a22e38dec20bc231da108b252e86e9">ControlPathwaysToTable::find_dominator</a></div><div class="ttdeci">const IR::MAU::Table * find_dominator(const IR::MAU::Table *init) const</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1914</div></div>
-<div class="ttc" id="aclass_control_pathways_to_table_html_a529f53221fac907c30aea58f6a8eaeff"><div class="ttname"><a href="class_control_pathways_to_table.html#a529f53221fac907c30aea58f6a8eaeff">ControlPathwaysToTable::table_pathways</a></div><div class="ttdeci">TablePathways table_pathways</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:980</div></div>
-<div class="ttc" id="aclass_control_pathways_to_table_html_abc29895522284f5df54f17d54f25d231"><div class="ttname"><a href="class_control_pathways_to_table.html#abc29895522284f5df54f17d54f25d231">ControlPathwaysToTable::get_inject_points</a></div><div class="ttdeci">InjectPoints get_inject_points(const IR::MAU::Table *a, const IR::MAU::Table *b, bool tbls_only=true) const</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1790</div></div>
-<div class="ttc" id="aclass_find_data_dependency_graph_1_1_add_dependencies_html"><div class="ttname"><a href="class_find_data_dependency_graph_1_1_add_dependencies.html">FindDataDependencyGraph::AddDependencies</a></div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:792</div></div>
-<div class="ttc" id="aclass_find_data_dependency_graph_1_1_update_access_html"><div class="ttname"><a href="class_find_data_dependency_graph_1_1_update_access.html">FindDataDependencyGraph::UpdateAccess</a></div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1093</div></div>
-<div class="ttc" id="aclass_find_data_dependency_graph_html_struct_find_data_dependency_graph_1_1access__t"><div class="ttname"><a href="class_find_data_dependency_graph.html#struct_find_data_dependency_graph_1_1access__t">FindDataDependencyGraph::access_t</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:881</div></div>
-<div class="ttc" id="aclass_find_dependency_graph_html"><div class="ttname"><a href="class_find_dependency_graph.html">FindDependencyGraph</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:1033</div></div>
-<div class="ttc" id="aclass_find_dependency_graph_html_a3bb3b483ee3c974ab920c6c69d03688f"><div class="ttname"><a href="class_find_dependency_graph.html#a3bb3b483ee3c974ab920c6c69d03688f">FindDependencyGraph::calc_topological_stage</a></div><div class="ttdeci">std::vector&lt; ordered_set&lt; DependencyGraph::Graph::vertex_descriptor &gt; &gt; calc_topological_stage(unsigned deps_flag=0, DependencyGraph *dg_p=nullptr)</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1528</div></div>
-<div class="ttc" id="aclass_ignore_table_deps_html"><div class="ttname"><a href="class_ignore_table_deps.html">IgnoreTableDeps</a></div><div class="ttdef"><b>Definition</b> mau/table_mutex.h:36</div></div>
-<div class="ttc" id="aclass_logging_1_1_pass_manager_html"><div class="ttname"><a href="class_logging_1_1_pass_manager.html">Logging::PassManager</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/logging/pass_manager.h:36</div></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_control_flow_visitor_html"><div class="ttname"><a href="class_p4_1_1_control_flow_visitor.html">P4::ControlFlowVisitor</a></div><div class="ttdef"><b>Definition</b> visitor.h:476</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_array_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_array.html">P4::Util::JsonArray</a></div><div class="ttdef"><b>Definition</b> lib/json.h:128</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_object_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_object.html">P4::Util::JsonObject</a></div><div class="ttdef"><b>Definition</b> lib/json.h:177</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_value_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_value.html">P4::Util::JsonValue</a></div><div class="ttdef"><b>Definition</b> lib/json.h:51</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_html"><div class="ttname"><a href="class_p4_1_1_visitor.html">P4::Visitor</a></div><div class="ttdef"><b>Definition</b> visitor.h:75</div></div>
-<div class="ttc" id="aclass_p4_1_1bitvec_html"><div class="ttname"><a href="class_p4_1_1bitvec.html">P4::bitvec</a></div><div class="ttdef"><b>Definition</b> bitvec.h:120</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_html"><div class="ttname"><a href="class_p_h_v_1_1_field.html">PHV::Field</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:154</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_html_a10a198e7adff85104913040f88af6081"><div class="ttname"><a href="class_p_h_v_1_1_field.html#a10a198e7adff85104913040f88af6081">PHV::Field::size</a></div><div class="ttdeci">int size</div><div class="ttdoc">Total size of Field in bits.</div><div class="ttdef"><b>Definition</b> phv_fields.h:194</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_html_a6dc1459985650d5003fe4638787556c8"><div class="ttname"><a href="class_p_h_v_1_1_field.html#a6dc1459985650d5003fe4638787556c8">PHV::Field::name</a></div><div class="ttdeci">cstring name</div><div class="ttdef"><b>Definition</b> phv_fields.h:161</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_html_af6262d2f5baa4d007b672a90432d91c6"><div class="ttname"><a href="class_p_h_v_1_1_field.html#af6262d2f5baa4d007b672a90432d91c6">PHV::Field::gress</a></div><div class="ttdeci">gress_t gress</div><div class="ttdoc">Whether the Field is ingress or egress.</div><div class="ttdef"><b>Definition</b> phv_fields.h:167</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="aclass_print_dependency_graph_html"><div class="ttname"><a href="class_print_dependency_graph.html">PrintDependencyGraph</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:1063</div></div>
-<div class="ttc" id="aclass_table_graph_edge_html"><div class="ttname"><a href="class_table_graph_edge.html">TableGraphEdge</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:605</div></div>
-<div class="ttc" id="aclass_table_graph_field_html"><div class="ttname"><a href="class_table_graph_field.html">TableGraphField</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:597</div></div>
-<div class="ttc" id="aclass_table_graph_node_html"><div class="ttname"><a href="class_table_graph_node.html">TableGraphNode</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:782</div></div>
-<div class="ttc" id="aclass_table_graph_node_html_class_table_graph_node_1_1_table_graph_node_table"><div class="ttname"><a href="class_table_graph_node.html#class_table_graph_node_1_1_table_graph_node_table">TableGraphNode::TableGraphNodeTable</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:790</div></div>
-<div class="ttc" id="aclass_table_summary_html"><div class="ttname"><a href="class_table_summary.html">TableSummary</a></div><div class="ttdef"><b>Definition</b> table_summary.h:158</div></div>
-<div class="ttc" id="aclass_tables_mutually_exclusive_html"><div class="ttname"><a href="class_tables_mutually_exclusive.html">TablesMutuallyExclusive</a></div><div class="ttdef"><b>Definition</b> mau/table_mutex.h:110</div></div>
-<div class="ttc" id="aclassassoc_1_1hash__map_html"><div class="ttname"><a href="classassoc_1_1hash__map.html">assoc::hash_map</a></div><div class="ttdef"><b>Definition</b> assoc.h:403</div></div>
-<div class="ttc" id="aclasscanon__name_html"><div class="ttname"><a href="classcanon__name.html">canon_name</a></div><div class="ttdef"><b>Definition</b> common/asm_output.h:35</div></div>
-<div class="ttc" id="anamespace_logging_html_ac6c91aa7c9b907996c823b0eb97cde2fab7603a1062347999563308de81efa0bb"><div class="ttname"><a href="namespace_logging.html#ac6c91aa7c9b907996c823b0eb97cde2fab7603a1062347999563308de81efa0bb">Logging::AUTO</a></div><div class="ttdeci">@ AUTO</div><div class="ttdoc">Creates if this is the first time writing to the log; otherwise, appends.</div><div class="ttdef"><b>Definition</b> filelog.h:43</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="astruct_dependency_graph_html"><div class="ttname"><a href="struct_dependency_graph.html">DependencyGraph</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:52</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a0114ee65a698db40ec85ddc81e7f9bd9"><div class="ttname"><a href="struct_dependency_graph.html#a0114ee65a698db40ec85ddc81e7f9bd9">DependencyGraph::unavoidable_container_conflicts</a></div><div class="ttdeci">ordered_map&lt; const IR::MAU::Table *, ordered_set&lt; const IR::MAU::Table * &gt; &gt; unavoidable_container_conflicts</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:152</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a2dfb0ee8fbd8f19774e18df495660f91"><div class="ttname"><a href="struct_dependency_graph.html#a2dfb0ee8fbd8f19774e18df495660f91">DependencyGraph::container_conflicts</a></div><div class="ttdeci">ordered_map&lt; const IR::MAU::Table *, ordered_set&lt; const IR::MAU::Table * &gt; &gt; container_conflicts</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:146</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a4d0c08db11d2216e0c4b7133f872ff9a"><div class="ttname"><a href="struct_dependency_graph.html#a4d0c08db11d2216e0c4b7133f872ff9a">DependencyGraph::get_dependency</a></div><div class="ttdeci">DependencyGraph::dependencies_t get_dependency(const IR::MAU::Table *t1, const IR::MAU::Table *t2) const</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:534</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a7b8552fdcf6da93298965749b133ec76"><div class="ttname"><a href="struct_dependency_graph.html#a7b8552fdcf6da93298965749b133ec76">DependencyGraph::is_edge_critical</a></div><div class="ttdeci">bool is_edge_critical(typename Graph::edge_descriptor e) const</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1369</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a7d5ccb1fb210fc32d8a3c1e21898d308"><div class="ttname"><a href="struct_dependency_graph.html#a7d5ccb1fb210fc32d8a3c1e21898d308">DependencyGraph::critical_path_length</a></div><div class="ttdeci">int critical_path_length() const</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:353</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a8d4689f6cf0ddc0c37e7c56fe843fe61"><div class="ttname"><a href="struct_dependency_graph.html#a8d4689f6cf0ddc0c37e7c56fe843fe61">DependencyGraph::is_ctrl_edge</a></div><div class="ttdeci">bool is_ctrl_edge(DependencyGraph::dependencies_t dep) const</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1356</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a8edcc9ff06789a4b452ade475ec9d587"><div class="ttname"><a href="struct_dependency_graph.html#a8edcc9ff06789a4b452ade475ec9d587">DependencyGraph::is_non_directional_edge</a></div><div class="ttdeci">bool is_non_directional_edge(DependencyGraph::dependencies_t dep) const</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1364</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a92d0f1a3b7461e23f0acc8eda0290a85"><div class="ttname"><a href="struct_dependency_graph.html#a92d0f1a3b7461e23f0acc8eda0290a85">DependencyGraph::find_mau_dependency</a></div><div class="ttdeci">DependencyGraph::mau_dependencies_t find_mau_dependency(const IR::MAU::Table *from, const IR::MAU::Table *to)</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1422</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_a999e9a569aede8ab3df3b618014dfadf"><div class="ttname"><a href="struct_dependency_graph.html#a999e9a569aede8ab3df3b618014dfadf">DependencyGraph::is_anti_edge</a></div><div class="ttdeci">bool is_anti_edge(DependencyGraph::dependencies_t dep) const</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1348</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_aa9cfe11cbbbcbab0c84eb92cfa9cbc06"><div class="ttname"><a href="struct_dependency_graph.html#aa9cfe11cbbbcbab0c84eb92cfa9cbc06">DependencyGraph::max_min_stage_per_gress</a></div><div class="ttdeci">int max_min_stage_per_gress[3]</div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:288</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_afe12b9b63749d0bd64357e44f33d7199"><div class="ttname"><a href="struct_dependency_graph.html#afe12b9b63749d0bd64357e44f33d7199">DependencyGraph::fill_dep_stages_from_topo</a></div><div class="ttdeci">void fill_dep_stages_from_topo(const std::vector&lt; ordered_set&lt; DependencyGraph::Graph::vertex_descriptor &gt; &gt; &amp;topo, bool include_stages, const TableSummary *summary)</div><div class="ttdef"><b>Definition</b> mau/table_dependency_graph.cpp:1309</div></div>
-<div class="ttc" id="astruct_dependency_graph_html_struct_dependency_graph_1_1_stage_info"><div class="ttname"><a href="struct_dependency_graph.html#struct_dependency_graph_1_1_stage_info">DependencyGraph::StageInfo</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:270</div></div>
-<div class="ttc" id="astruct_flow_graph_html"><div class="ttname"><a href="struct_flow_graph.html">FlowGraph</a></div><div class="ttdef"><b>Definition</b> table_flow_graph.h:45</div></div>
-<div class="ttc" id="astruct_p4_1_1_r_t_t_i_1_1_base_html_a203be294e917ab99212b79aecc23936d"><div class="ttname"><a href="struct_p4_1_1_r_t_t_i_1_1_base.html#a203be294e917ab99212b79aecc23936d">P4::RTTI::Base::is</a></div><div class="ttdeci">bool is() const noexcept</div><div class="ttdef"><b>Definition</b> rtti.h:216</div></div>
-<div class="ttc" id="astruct_reduction_or_info_html"><div class="ttname"><a href="struct_reduction_or_info.html">ReductionOrInfo</a></div><div class="ttdef"><b>Definition</b> reduction_or.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

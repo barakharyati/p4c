@@ -140,29 +140,26 @@ $(function(){initNavTree('action__source__tracker_8h_source.html',''); initResiz
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/phv_fields.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>PHV {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_p_h_v_1_1_source_op.html">   31</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_p_h_v_1_1_source_op.html">SourceOp</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">struct </span>SourceOp {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">enum class</span> OpType { move, bitwise, whole_container };</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    OpType t = OpType::move;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> ad_or_const = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::optional&lt;PHV::FieldSlice&gt; phv_src = std::nullopt;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="struct_p_h_v_1_1_source_op.html">SourceOp</a> <a class="code hl_function" href="struct_p_h_v_1_1_source_op.html#a143148e24f248014122cd1248d130ed8">slice</a>(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> len) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    SourceOp slice(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> len) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_struct" href="struct_p_h_v_1_1_source_op.html">SourceOp</a> &amp;src);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> SourceOp &amp;src);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespace_p_h_v.html#a06b495e08ebdd94a73b2d893af930f54">   46</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespace_p_h_v.html#a06b495e08ebdd94a73b2d893af930f54">ActionClassifiedSources</a> = <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Action *, safe_vector&lt;SourceOp&gt;</a>&gt;;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">using </span>ActionClassifiedSources = ordered_map&lt;const IR::MAU::Action *, safe_vector&lt;SourceOp&gt;&gt;;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_p_h_v_1_1_action_source_tracker.html">   49</a></span><span class="keyword">class </span>ActionSourceTracker : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_reduction_or_info.html">ReductionOrInfo</a> &amp;red_info;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">class </span>ActionSourceTracker : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> ReductionOrInfo &amp;red_info;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const PHV::Field *, ordered_map&lt;le_bitrange, ActionClassifiedSources&gt;</a>&gt; sources;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    ordered_map&lt;const PHV::Field *, ordered_map&lt;le_bitrange, ActionClassifiedSources&gt;&gt; sources;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> clear() { sources.clear(); };</div>
@@ -170,7 +167,7 @@ $(function(){initNavTree('action__source__tracker_8h_source.html',''); initResiz
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> add_sources(<span class="keyword">const</span> IR::MAU::Action *act,</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                     <span class="keyword">const</span> ActionAnalysis::FieldActionsMap &amp;instructions);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        clear();</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">return</span> Inspector::init_apply(root);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
@@ -180,34 +177,20 @@ $(function(){initNavTree('action__source__tracker_8h_source.html',''); initResiz
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> end_apply() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">explicit</span> ActionSourceTracker(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <span class="keyword">const</span> <a class="code hl_struct" href="struct_reduction_or_info.html">ReductionOrInfo</a> &amp;ri)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">explicit</span> ActionSourceTracker(<span class="keyword">const</span> PhvInfo &amp;phv, <span class="keyword">const</span> ReductionOrInfo &amp;ri)</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        : phv(phv), red_info(ri) {}</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_typedef" href="namespace_p_h_v.html#a06b495e08ebdd94a73b2d893af930f54">ActionClassifiedSources</a> <a class="code hl_function" href="class_p_h_v_1_1_action_source_tracker.html#a3e01a4c4d46027d744c86f4dbad6627d">get_sources</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field_slice.html">PHV::FieldSlice</a> &amp;fs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    ActionClassifiedSources get_sources(<span class="keyword">const</span> PHV::FieldSlice &amp;fs) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> ActionSourceTracker &amp;tracker);</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
-</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_p_h_v.html#a06b495e08ebdd94a73b2d893af930f54">ActionClassifiedSources</a> &amp;sources);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_action_source_tracker.html">ActionSourceTracker</a> &amp;tracker);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> ActionClassifiedSources &amp;sources);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> ActionSourceTracker &amp;tracker);</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}  <span class="comment">// namespace PHV</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_ACTION_SOURCE_TRACKER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_action_source_tracker_html"><div class="ttname"><a href="class_p_h_v_1_1_action_source_tracker.html">PHV::ActionSourceTracker</a></div><div class="ttdoc">ActionSourceTracker collects all source-to-destination for all field slices.</div><div class="ttdef"><b>Definition</b> action_source_tracker.h:49</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_action_source_tracker_html_a3e01a4c4d46027d744c86f4dbad6627d"><div class="ttname"><a href="class_p_h_v_1_1_action_source_tracker.html#a3e01a4c4d46027d744c86f4dbad6627d">PHV::ActionSourceTracker::get_sources</a></div><div class="ttdeci">ActionClassifiedSources get_sources(const PHV::FieldSlice &amp;fs) const</div><div class="ttdef"><b>Definition</b> phv/action_source_tracker.cpp:137</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_slice_html"><div class="ttname"><a href="class_p_h_v_1_1_field_slice.html">PHV::FieldSlice</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:898</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
-<div class="ttc" id="anamespace_p_h_v_html_a06b495e08ebdd94a73b2d893af930f54"><div class="ttname"><a href="namespace_p_h_v.html#a06b495e08ebdd94a73b2d893af930f54">PHV::ActionClassifiedSources</a></div><div class="ttdeci">ordered_map&lt; const IR::MAU::Action *, safe_vector&lt; SourceOp &gt; &gt; ActionClassifiedSources</div><div class="ttdoc">A collection of source operands of a field slice, classified by actions.</div><div class="ttdef"><b>Definition</b> action_source_tracker.h:46</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1_source_op_html"><div class="ttname"><a href="struct_p_h_v_1_1_source_op.html">PHV::SourceOp</a></div><div class="ttdoc">SourceOp represents a source operand.</div><div class="ttdef"><b>Definition</b> action_source_tracker.h:31</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1_source_op_html_a143148e24f248014122cd1248d130ed8"><div class="ttname"><a href="struct_p_h_v_1_1_source_op.html#a143148e24f248014122cd1248d130ed8">PHV::SourceOp::slice</a></div><div class="ttdeci">SourceOp slice(int start, int len) const</div><div class="ttdef"><b>Definition</b> phv/action_source_tracker.cpp:45</div></div>
-<div class="ttc" id="astruct_reduction_or_info_html"><div class="ttname"><a href="struct_reduction_or_info.html">ReductionOrInfo</a></div><div class="ttdef"><b>Definition</b> reduction_or.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

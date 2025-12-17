@@ -147,13 +147,11 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;lib/indent.h&quot;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;lib/ordered_map.h&quot;</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group__parde.html">   41</a></span><span class="keyword">struct </span>ResolveNegativeExtract : <span class="keyword">public</span> PassManager {</div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html">   49</a></span>    <span class="keyword">struct </span>CollectNegativeExtractOutOfBufferStates : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_inspector">ParserInspector</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">struct </span>ResolveNegativeExtract : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">struct </span>CollectNegativeExtractOutOfBufferStates : <span class="keyword">public</span> ParserInspector {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">const</span> CollectParserInfo &amp;parserInfo;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">   55</a></span>        std::map&lt;cstring, unsigned&gt; <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        std::map&lt;cstring, unsigned&gt; state_to_shift;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">explicit</span> CollectNegativeExtractOutOfBufferStates(<span class="keyword">const</span> CollectParserInfo &amp;pi)</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            : parserInfo(pi) {}</div>
@@ -178,8 +176,8 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">auto</span> rv = ParserInspector::init_apply(node);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="comment">// Initialize all structures</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            max_buff_size = Device::pardeSpec().<a class="code hl_function" href="class_parde_spec.html#a750ff604c54d78ecc9179059edbe93fd">byteInputBufferSize</a>();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>.clear();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            max_buff_size = Device::pardeSpec().byteInputBufferSize();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            state_to_shift.clear();</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            historic_states.clear();</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            parsers.clear();</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> rv;</div>
@@ -221,7 +219,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <span class="keyword">auto</span> graph = parserInfo.graph(parser);</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keyword">auto</span> preds = graph.predecessors().at(state);</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordflow">if</span> (preds.size() &gt; 1) {</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                error(</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                    <span class="stringliteral">&quot;Cannot resolve negative extract because of multiple paths to &quot;</span></div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                    <span class="stringliteral">&quot;the node %1%&quot;</span>,</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                    state-&gt;name);</div>
@@ -257,7 +255,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="comment">// then just return the requested min_shift value.</span></div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">if</span> (end_to_earliest_start.size() == 0 ||</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                end_to_earliest_start.rbegin()-&gt;first &lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(max_keep)) {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>[pred-&gt;name] = min_shift;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                state_to_shift[pred-&gt;name] = min_shift;</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                <span class="keywordflow">return</span> min_shift;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            }</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
@@ -286,23 +284,21 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="keywordflow">if</span> (end_to_earliest_start_merged[max_keep] &gt; 0) {</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                <span class="keywordtype">unsigned</span> keep = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(end_to_earliest_start_merged[max_keep]);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="keywordtype">unsigned</span> delay_shift = curr_shift - keep;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>.count(pred-&gt;name))</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                    <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>[pred-&gt;name] = std::min(delay_shift, <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>[pred-&gt;name]);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                <span class="keywordflow">if</span> (state_to_shift.count(pred-&gt;name))</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                    state_to_shift[pred-&gt;name] = std::min(delay_shift, state_to_shift[pred-&gt;name]);</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                    <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">state_to_shift</a>[pred-&gt;name] = delay_shift;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                    state_to_shift[pred-&gt;name] = delay_shift;</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                <span class="keywordflow">return</span> delay_shift;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            }</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        }</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    };</div>
-</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span></div>
-<div class="foldopen" id="foldopen00219" data-start="{" data-end="};">
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_adjust_shift_out_of_buffer.html">  219</a></span>    <span class="keyword">struct </span>AdjustShiftOutOfBuffer : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_modifier">ParserModifier</a> {</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keyword">const</span> <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html">CollectNegativeExtractOutOfBufferStates</a> &amp;collectNegative;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keyword">struct </span>AdjustShiftOutOfBuffer : <span class="keyword">public</span> ParserModifier {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keyword">const</span> CollectNegativeExtractOutOfBufferStates &amp;collectNegative;</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keyword">explicit</span> AdjustShiftOutOfBuffer(<span class="keyword">const</span> <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html">CollectNegativeExtractOutOfBufferStates</a> &amp;cg)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keyword">explicit</span> AdjustShiftOutOfBuffer(<span class="keyword">const</span> CollectNegativeExtractOutOfBufferStates &amp;cg)</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            : collectNegative(cg) {}</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        std::map&lt;cstring, std::vector&lt;const IR::BFN::Extract *&gt;&gt; delayed_statements;</div>
@@ -311,7 +307,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordtype">unsigned</span> max_buff_size = 0;</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            <span class="keyword">auto</span> rv = ParserModifier::init_apply(node);</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            max_buff_size = Device::pardeSpec().byteInputBufferSize();</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            delayed_statements.clear();</div>
@@ -343,7 +339,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                <span class="comment">// Split the statements into statements to delay to child states and statements to</span></div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                <span class="comment">// keep in current state</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::BFN::ParserPrimitive&gt;</a> new_statements;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                IR::Vector&lt;IR::BFN::ParserPrimitive&gt; new_statements;</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> *stmt : state-&gt;statements) {</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                    <span class="keywordtype">bool</span> keep = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                    <span class="keywordflow">if</span> (<span class="keyword">const</span> <span class="keyword">auto</span> *extract = stmt-&gt;to&lt;IR::BFN::Extract&gt;()) {</div>
@@ -366,8 +362,8 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="comment">// Add statements delayed from parent state</span></div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            <span class="keywordflow">if</span> (state_delay.count(state-&gt;name)) {</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> pred = state_pred[state-&gt;name];</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::BFN::ParserPrimitive&gt;</a> new_statements;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                cstring pred = state_pred[state-&gt;name];</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                IR::Vector&lt;IR::BFN::ParserPrimitive&gt; new_statements;</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                <span class="comment">// Clone the delayed statements -- need a unique copy for each state</span></div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>                <span class="comment">// in case the statements are adjusted (e.g., made into CLOTs).</span></div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> *stmt : delayed_statements[pred])</div>
@@ -418,20 +414,18 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        }</div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    };</div>
-</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span></div>
-<div class="foldopen" id="foldopen00341" data-start="{" data-end="};">
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html">  341</a></span>    <span class="keyword">struct </span>CollectNegativeExtractStates : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_inspector">ParserInspector</a> {</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="keyword">struct </span>CollectNegativeExtractStates : <span class="keyword">public</span> ParserInspector {</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keyword">const</span> CollectParserInfo &amp;parserInfo;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span></div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#a2f0b781f14f94cc52315326819f2208c">  347</a></span>        std::map&lt;cstring, unsigned&gt; <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#a2f0b781f14f94cc52315326819f2208c">state_to_shift</a>;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        std::map&lt;cstring, unsigned&gt; state_to_shift;</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#ab981e0af6aad5070f1553020d8cb54cb">  353</a></span>        std::map&lt;cstring, std::map&lt;const IR::BFN::ParserMatchValue *, unsigned&gt;&gt; <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#ab981e0af6aad5070f1553020d8cb54cb">transition_shift</a>;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        std::map&lt;cstring, std::map&lt;const IR::BFN::ParserMatchValue *, unsigned&gt;&gt; transition_shift;</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span></div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#ae51bbce12bd6f20b5f3c598c2c6240d8">  358</a></span>        std::map&lt;const IR::BFN::Transition *, unsigned&gt; <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#ae51bbce12bd6f20b5f3c598c2c6240d8">remainder_before_exit</a>;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        std::map&lt;const IR::BFN::Transition *, unsigned&gt; remainder_before_exit;</div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span></div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>        std::map&lt;const IR::BFN::Transition *, std::pair&lt;const IR::BFN::ParserState *, int&gt;&gt;</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#a564fb7e5e7fbd48eb7d1fef1083e6f15">  395</a></span>            <a class="code hl_variable" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#a564fb7e5e7fbd48eb7d1fef1083e6f15">state_to_duplicate</a>;</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>            state_to_duplicate;</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        <span class="keyword">explicit</span> CollectNegativeExtractStates(<span class="keyword">const</span> CollectParserInfo &amp;pi) : parserInfo(pi) {}</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
@@ -462,7 +456,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        <span class="keywordtype">void</span> end_apply()<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>            <span class="comment">// Required data capture update all node states</span></div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> max_buff_size = Device::pardeSpec().<a class="code hl_function" href="class_parde_spec.html#a750ff604c54d78ecc9179059edbe93fd">byteInputBufferSize</a>();</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> max_buff_size = Device::pardeSpec().byteInputBufferSize();</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> kv : historic_states) {</div>
 <div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>                <span class="comment">// 1] Distribute the required history value and adjust transitions</span></div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>                <span class="keyword">auto</span> state = kv.first;</div>
@@ -584,7 +578,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>            <span class="comment">// a path through the graph</span></div>
 <div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>            BUG_CHECK(state, <span class="stringliteral">&quot;Parser state cannot be null!&quot;</span>);</div>
 <div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>            <span class="keywordflow">if</span> (state_to_shift.count(state-&gt;name) &gt; 0) {</div>
-<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>                error(</div>
 <div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>                    <span class="stringliteral">&quot;Current path with historic data usage has an intersection with&quot;</span></div>
 <div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>                    <span class="stringliteral">&quot; a previously analyzed historic data path at node %1%!&quot;</span>,</div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>                    state-&gt;name);</div>
@@ -616,7 +610,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>            <span class="keywordflow">if</span> (deficit &gt; 0) {</div>
 <div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>                <span class="keyword">auto</span> preds = graph.predecessors().at(state);</div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>                <span class="keywordflow">if</span> (preds.size() &gt; 1) {</div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>                    <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>                    error(</div>
 <div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>                        <span class="stringliteral">&quot;Cannot resolve negative extract because of multiple paths to &quot;</span></div>
 <div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>                        <span class="stringliteral">&quot;the node %1%&quot;</span>,</div>
 <div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>                        state-&gt;name);</div>
@@ -652,18 +646,16 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>            adjust_shift_buffer(state, succ, parser, new_tr_shift, new_state_shift);</div>
 <div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        }</div>
 <div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    };</div>
-</div>
 <div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span> </div>
-<div class="foldopen" id="foldopen00657" data-start="{" data-end="};">
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno"><a class="line" href="struct_resolve_negative_extract_1_1_adjust_shift.html">  657</a></span>    <span class="keyword">struct </span>AdjustShift : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_modifier">ParserModifier</a> {</div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>        <span class="keyword">const</span> <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html">CollectNegativeExtractStates</a> &amp;collectNegative;</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>    <span class="keyword">struct </span>AdjustShift : <span class="keyword">public</span> ParserModifier {</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>        <span class="keyword">const</span> CollectNegativeExtractStates &amp;collectNegative;</div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span> </div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        <span class="keyword">explicit</span> AdjustShift(<span class="keyword">const</span> <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html">CollectNegativeExtractStates</a> &amp;cg) : collectNegative(cg) {}</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        <span class="keyword">explicit</span> AdjustShift(<span class="keyword">const</span> CollectNegativeExtractStates &amp;cg) : collectNegative(cg) {}</div>
 <div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
 <div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>        std::map&lt;const IR::BFN::ParserState *, std::pair&lt;IR::BFN::ParserState *, int&gt;&gt;</div>
 <div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>            duplicated_states;</div>
 <div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span> </div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>            <span class="keyword">auto</span> rv = ParserModifier::init_apply(node);</div>
 <div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>            duplicated_states.clear();</div>
 <div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>            <span class="keywordflow">return</span> rv;</div>
@@ -693,7 +685,7 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>                <span class="keyword">auto</span> remainder_state = <span class="keyword">new</span> IR::BFN::ParserState(</div>
 <div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>                    state-&gt;p4States, state-&gt;name + <span class="stringliteral">&quot;$final_shift&quot;</span>, state-&gt;gress);</div>
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>                transition-&gt;next = remainder_state;</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                <span class="keyword">auto</span> end_transition = <span class="keyword">new</span> IR::BFN::Transition(<a class="code hl_struct" href="struct_p4_1_1match__t.html">match_t</a>(), state_shift);</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                <span class="keyword">auto</span> end_transition = <span class="keyword">new</span> IR::BFN::Transition(match_t(), state_shift);</div>
 <div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>                remainder_state-&gt;transitions.push_back(end_transition);</div>
 <div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                LOG5(<span class="stringliteral">&quot;Transition from state &quot;</span></div>
 <div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>                     &lt;&lt; state-&gt;name &lt;&lt; <span class="stringliteral">&quot; with match value &quot;</span> &lt;&lt; orig_transition-&gt;value</div>
@@ -755,46 +747,25 @@ $(function(){initNavTree('resolve__negative__extract_8h_source.html',''); initRe
 <div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>        }</div>
 <div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>    };</div>
-</div>
 <div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span> </div>
 <div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>    ResolveNegativeExtract() {</div>
 <div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>        <span class="keyword">auto</span> *parserInfo = <span class="keyword">new</span> CollectParserInfo;</div>
-<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>        <span class="keyword">auto</span> *collectNegative = <span class="keyword">new</span> <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html">CollectNegativeExtractStates</a>(*parserInfo);</div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        <span class="keyword">auto</span> *collectNegativeOutOfBuffer = <span class="keyword">new</span> <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html">CollectNegativeExtractOutOfBufferStates</a>(*parserInfo);</div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>        <span class="keyword">auto</span> *collectNegative = <span class="keyword">new</span> CollectNegativeExtractStates(*parserInfo);</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        <span class="keyword">auto</span> *collectNegativeOutOfBuffer = <span class="keyword">new</span> CollectNegativeExtractOutOfBufferStates(*parserInfo);</div>
 <div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span> </div>
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        addPasses({LOGGING(4) ? <span class="keyword">new</span> <a class="code hl_class" href="group__parde.html#class_dump_parser">DumpParser</a>(<span class="stringliteral">&quot;before_resolve_negative_extract&quot;</span>) : nullptr,</div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        addPasses({LOGGING(4) ? <span class="keyword">new</span> DumpParser(<span class="stringliteral">&quot;before_resolve_negative_extract&quot;</span>) : nullptr,</div>
 <div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>                   <span class="comment">// Step 1: Handle negative extracts that exceed the parser buffer size.</span></div>
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>                   <span class="comment">// Need to adjust shift and delay extracts until subsequent states.</span></div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>                   parserInfo, collectNegativeOutOfBuffer,</div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>                   new <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_adjust_shift_out_of_buffer.html">AdjustShiftOutOfBuffer</a>(*collectNegativeOutOfBuffer),</div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>                   new AdjustShiftOutOfBuffer(*collectNegativeOutOfBuffer),</div>
 <div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>                   <span class="comment">// Step 2: Handle all other negative extracts</span></div>
 <div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>                   <span class="comment">// Adjusting shift amounts but not delaying extracts.</span></div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>                   parserInfo, collectNegative, new <a class="code hl_struct" href="struct_resolve_negative_extract_1_1_adjust_shift.html">AdjustShift</a>(*collectNegative),</div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>                   LOGGING(4) ? new <a class="code hl_class" href="group__parde.html#class_dump_parser">DumpParser</a>(<span class="stringliteral">&quot;after_resolve_negative_extract&quot;</span>) : nullptr});</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>                   parserInfo, collectNegative, new AdjustShift(*collectNegative),</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>                   LOGGING(4) ? new DumpParser(<span class="stringliteral">&quot;after_resolve_negative_extract&quot;</span>) : nullptr});</div>
 <div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>    }</div>
 <div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>};</div>
-</div>
 <div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span> </div>
 <div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_RESOLVE_NEGATIVE_EXTRACT_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_parde_spec_html_a750ff604c54d78ecc9179059edbe93fd"><div class="ttname"><a href="class_parde_spec.html#a750ff604c54d78ecc9179059edbe93fd">PardeSpec::byteInputBufferSize</a></div><div class="ttdeci">int byteInputBufferSize() const</div><div class="ttdoc">The size of input buffer, in bytes.</div><div class="ttdef"><b>Definition</b> parde_spec.h:410</div></div>
-<div class="ttc" id="agroup__parde_html_class_dump_parser"><div class="ttname"><a href="group__parde.html#class_dump_parser">DumpParser</a></div><div class="ttdoc">Dumps the entire parser graphs (can be used before and also after parser lowering).</div><div class="ttdef"><b>Definition</b> dump_parser.h:288</div></div>
-<div class="ttc" id="agroup__parde_html_class_parser_inspector"><div class="ttname"><a href="group__parde.html#class_parser_inspector">ParserInspector</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:66</div></div>
-<div class="ttc" id="agroup__parde_html_class_parser_modifier"><div class="ttname"><a href="group__parde.html#class_parser_modifier">ParserModifier</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:78</div></div>
-<div class="ttc" id="anamespace_p4_html_a9fe6085b1cee8f21f098c9db89644b58"><div class="ttname"><a href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">P4::error</a></div><div class="ttdeci">void error(const char *format, Args &amp;&amp;...args)</div><div class="ttdoc">Report an error with the given message.</div><div class="ttdef"><b>Definition</b> lib/error.h:58</div></div>
-<div class="ttc" id="astruct_p4_1_1match__t_html"><div class="ttname"><a href="struct_p4_1_1match__t.html">P4::match_t</a></div><div class="ttdef"><b>Definition</b> match.h:36</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_adjust_shift_html"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_adjust_shift.html">ResolveNegativeExtract::AdjustShift</a></div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:657</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_adjust_shift_out_of_buffer_html"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_adjust_shift_out_of_buffer.html">ResolveNegativeExtract::AdjustShiftOutOfBuffer</a></div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:219</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states_html"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html">ResolveNegativeExtract::CollectNegativeExtractOutOfBufferStates</a></div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:49</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states_html_ab80b225ffe534ffd429709615bd108ed"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_out_of_buffer_states.html#ab80b225ffe534ffd429709615bd108ed">ResolveNegativeExtract::CollectNegativeExtractOutOfBufferStates::state_to_shift</a></div><div class="ttdeci">std::map&lt; cstring, unsigned &gt; state_to_shift</div><div class="ttdoc">In-buffer offsets of states.</div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:55</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_states_html"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html">ResolveNegativeExtract::CollectNegativeExtractStates</a></div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:341</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_states_html_a2f0b781f14f94cc52315326819f2208c"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#a2f0b781f14f94cc52315326819f2208c">ResolveNegativeExtract::CollectNegativeExtractStates::state_to_shift</a></div><div class="ttdeci">std::map&lt; cstring, unsigned &gt; state_to_shift</div><div class="ttdoc">In-buffer offsets of states.</div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:347</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_states_html_a564fb7e5e7fbd48eb7d1fef1083e6f15"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#a564fb7e5e7fbd48eb7d1fef1083e6f15">ResolveNegativeExtract::CollectNegativeExtractStates::state_to_duplicate</a></div><div class="ttdeci">std::map&lt; const IR::BFN::Transition *, std::pair&lt; const IR::BFN::ParserState *, int &gt; &gt; state_to_duplicate</div><div class="ttdoc">Duplicate the given node and set the shift value.</div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:395</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_states_html_ab981e0af6aad5070f1553020d8cb54cb"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#ab981e0af6aad5070f1553020d8cb54cb">ResolveNegativeExtract::CollectNegativeExtractStates::transition_shift</a></div><div class="ttdeci">std::map&lt; cstring, std::map&lt; const IR::BFN::ParserMatchValue *, unsigned &gt; &gt; transition_shift</div><div class="ttdoc">Output shift values for given transitions - key is the source node and value is a map transition -&gt; v...</div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:353</div></div>
-<div class="ttc" id="astruct_resolve_negative_extract_1_1_collect_negative_extract_states_html_ae51bbce12bd6f20b5f3c598c2c6240d8"><div class="ttname"><a href="struct_resolve_negative_extract_1_1_collect_negative_extract_states.html#ae51bbce12bd6f20b5f3c598c2c6240d8">ResolveNegativeExtract::CollectNegativeExtractStates::remainder_before_exit</a></div><div class="ttdeci">std::map&lt; const IR::BFN::Transition *, unsigned &gt; remainder_before_exit</div><div class="ttdoc">Transitions exiting parser with unconsumed bytes in the packet buffer.</div><div class="ttdef"><b>Definition</b> resolve_negative_extract.h:358</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -138,24 +138,19 @@ $(function(){initNavTree('move__to__egress_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/midend/type_checker.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_move_to_egress.html">   26</a></span><span class="keyword">class </span>MoveToEgress : <span class="keyword">public</span> PassManager {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_p4_1_1_evaluator_pass.html">BFN::EvaluatorPass</a> *evaluator;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>MoveToEgress : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    BFN::EvaluatorPass *evaluator;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    ordered_set&lt;const IR::P4Parser *&gt; ingress_parser, egress_parser;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    ordered_set&lt;const IR::P4Control *&gt; ingress, egress, ingress_deparser, egress_deparser;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="group__midend.html#class_compute_def_use">ComputeDefUse</a> defuse;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    ComputeDefUse defuse;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">class </span><a class="code hl_class" href="class_move_to_egress_1_1_find_ingress_packet_mods.html">FindIngressPacketMods</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">class </span>FindIngressPacketMods;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">explicit</span> MoveToEgress(<a class="code hl_class" href="class_p4_1_1_evaluator_pass.html">BFN::EvaluatorPass</a> *ev);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">explicit</span> MoveToEgress(BFN::EvaluatorPass *ev);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
-</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MIDEND_MOVE_TO_EGRESS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_move_to_egress_1_1_find_ingress_packet_mods_html"><div class="ttname"><a href="class_move_to_egress_1_1_find_ingress_packet_mods.html">MoveToEgress::FindIngressPacketMods</a></div><div class="ttdef"><b>Definition</b> move_to_egress.cpp:23</div></div>
-<div class="ttc" id="aclass_p4_1_1_evaluator_pass_html"><div class="ttname"><a href="class_p4_1_1_evaluator_pass.html">P4::EvaluatorPass</a></div><div class="ttdef"><b>Definition</b> evaluator.h:115</div></div>
-<div class="ttc" id="agroup__midend_html_class_compute_def_use"><div class="ttname"><a href="group__midend.html#class_compute_def_use">ComputeDefUse</a></div><div class="ttdoc">Compute defuse info within P4Parser and P4Control blocks in the midend.</div><div class="ttdef"><b>Definition</b> defuse.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -141,15 +141,13 @@ $(function(){initNavTree('register__reference_8h_source.html',''); initResizable
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* used by `dump_unread` methods to hold a concatenation of string literals for printing.</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * Allocated on the stack, the `pfx` chain prints the calling context */</span></div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structprefix.html">   28</a></span><span class="keyword">struct </span>prefix {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">struct </span>prefix {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> prefix *pfx;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *str;  <span class="comment">// should always be a string literal</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    prefix(<span class="keyword">const</span> prefix *p, <span class="keyword">const</span> <span class="keywordtype">char</span> *s) : pfx(p), str(s) {}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
-</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">inline</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_struct" href="structprefix.html">prefix</a> *p) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">inline</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> prefix *p) {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> (p) {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> (p-&gt;pfx) out &lt;&lt; p-&gt;pfx &lt;&lt; <span class="charliteral">&#39;.&#39;</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        out &lt;&lt; p-&gt;str;</div>
@@ -163,8 +161,7 @@ $(function(){initNavTree('register__reference_8h_source.html',''); initResizable
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * &#39;tree&#39; is the subtree to dump as binary at the appropriate offset</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> REG&gt;</div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classregister__reference.html">   48</a></span><span class="keyword">class </span>register_reference {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>register_reference {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    REG *tree = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::string name;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
@@ -212,15 +209,14 @@ $(function(){initNavTree('register__reference_8h_source.html',''); initResizable
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> log()<span class="keyword"> const </span>{ LOG1(<span class="keyword">this</span> &lt;&lt; <span class="stringliteral">&quot; = \&quot;&quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>); }</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
-</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> REG&gt;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">inline</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_class" href="classregister__reference.html">register_reference&lt;REG&gt;</a> *u) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">inline</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> register_reference&lt;REG&gt; *u) {</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    print_regname(out, u, u + 1);</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> REG&gt;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">inline</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_class" href="classregister__reference.html">register_reference&lt;REG&gt;</a> &amp;u) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">inline</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> register_reference&lt;REG&gt; &amp;u) {</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!*u.c_str())</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        out &lt;&lt; 0;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">else</span></div>
@@ -229,8 +225,6 @@ $(function(){initNavTree('register__reference_8h_source.html',''); initResizable
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_REGISTER_REFERENCE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassregister__reference_html"><div class="ttname"><a href="classregister__reference.html">register_reference</a></div><div class="ttdef"><b>Definition</b> register_reference.h:48</div></div>
-<div class="ttc" id="astructprefix_html"><div class="ttname"><a href="structprefix.html">prefix</a></div><div class="ttdef"><b>Definition</b> register_reference.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -138,18 +138,17 @@ $(function(){initNavTree('compute__multi__write__containers_8h_source.html','');
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/parde/clot/clot_info.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/parde/parde_visitor.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_parde_1_1_lowered.html">Parde::Lowered</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>Parde::Lowered {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="group___lower_parser.html">   32</a></span><span class="keyword">class </span>ComputeMultiWriteContainers : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_modifier">ParserModifier</a> {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>ComputeMultiWriteContainers : <span class="keyword">public</span> ParserModifier {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">const</span> CollectLoweredParserInfo &amp;parser_info;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::set&lt;std::pair&lt;const IR::BFN::LoweredParserMatch *, unsigned&gt;&gt; visited_matches;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">unsigned</span> stack_offset = 0;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    ComputeMultiWriteContainers(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;ph, <span class="keyword">const</span> CollectLoweredParserInfo &amp;pi)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    ComputeMultiWriteContainers(<span class="keyword">const</span> PhvInfo &amp;ph, <span class="keyword">const</span> CollectLoweredParserInfo &amp;pi)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        : phv(ph), parser_info(pi) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        visitDagOnce = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
@@ -160,14 +159,14 @@ $(function(){initNavTree('compute__multi__write__containers_8h_source.html','');
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> preorder(IR::BFN::LoweredParser *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> offset_container(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> &amp;container);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    PHV::Container offset_container(<span class="keyword">const</span> PHV::Container &amp;container);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">bool</span> has_non_mutex_writes(<span class="keyword">const</span> IR::BFN::LoweredParser *parser,</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                              <span class="keyword">const</span> std::set&lt;const IR::BFN::LoweredParserMatch *&gt; &amp;matches);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> detect_multi_writes(</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">const</span> IR::BFN::LoweredParser *parser,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">const</span> std::map&lt;<a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a>, std::set&lt;const IR::BFN::LoweredParserMatch *&gt;&gt; &amp;writes,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">const</span> std::map&lt;PHV::Container, std::set&lt;const IR::BFN::LoweredParserMatch *&gt;&gt; &amp;writes,</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        std::set&lt;PHV::Container&gt; &amp;write_containers, <span class="keyword">const</span> <span class="keywordtype">char</span> *which);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> postorder(IR::BFN::LoweredParser *parser) <span class="keyword">override</span>;</div>
@@ -176,15 +175,10 @@ $(function(){initNavTree('compute__multi__write__containers_8h_source.html','');
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        clear_on_write;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::set&lt;PHV::Container&gt; bitwise_or_containers, clear_on_write_containers;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
-</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}  <span class="comment">// namespace Parde::Lowered</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_LOWERED_COMPUTE_MULTI_WRITE_CONTAINERS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p_h_v_1_1_container_html"><div class="ttname"><a href="class_p_h_v_1_1_container.html">PHV::Container</a></div><div class="ttdef"><b>Definition</b> bf-p4c/phv/phv.h:176</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="agroup__parde_html_class_parser_modifier"><div class="ttname"><a href="group__parde.html#class_parser_modifier">ParserModifier</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:78</div></div>
-<div class="ttc" id="anamespace_parde_1_1_lowered_html"><div class="ttname"><a href="namespace_parde_1_1_lowered.html">Parde::Lowered</a></div><div class="ttdef"><b>Definition</b> lower_parser.cpp:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -138,17 +138,16 @@ $(function(){initNavTree('hash__dist_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;asm-types.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span><a class="code hl_class" href="class_stage.html">Stage</a>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span><a class="code hl_class" href="class_table.html">Table</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span>Stage;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>Table;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/* config for a hash distribution unit in match central.</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * FIXME -- need to abstract this away rather than have it be explicit</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * FIXME -- in the asm code */</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_hash_distribution.html">   32</a></span><span class="keyword">struct </span>HashDistribution {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">struct </span>HashDistribution {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// FIXME -- need less &#39;raw&#39; data for this */</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="class_table.html">Table</a> *tbl = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Table *tbl = 0;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">int</span> lineno = -1;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> hash_group = -1, <span class="keywordtype">id</span> = -1;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> shift = 0, mask = 0, expand = -1;</div>
@@ -166,20 +165,16 @@ $(function(){initNavTree('hash__dist_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">enum</span> delay_type_t { SELECTOR = 0, OTHER = 1 };</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    delay_type_t delay_type = SELECTOR;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">bool</span> non_linear = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    HashDistribution(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code hl_struct" href="structvalue__t.html">value_t</a> &amp;data, <span class="keywordtype">unsigned</span> u = 0);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parse(std::vector&lt;HashDistribution&gt; &amp;out, <span class="keyword">const</span> <a class="code hl_struct" href="structvalue__t.html">value_t</a> &amp;v, <span class="keywordtype">unsigned</span> u = 0);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    HashDistribution(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, value_t &amp;data, <span class="keywordtype">unsigned</span> u = 0);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> parse(std::vector&lt;HashDistribution&gt; &amp;out, <span class="keyword">const</span> value_t &amp;v, <span class="keywordtype">unsigned</span> u = 0);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> compatible(HashDistribution *a);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> pass1(<a class="code hl_class" href="class_table.html">Table</a> *tbl, delay_type_t dt, <span class="keywordtype">bool</span> nl);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> pass2(<a class="code hl_class" href="class_table.html">Table</a> *tbl);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> pass1(Table *tbl, delay_type_t dt, <span class="keywordtype">bool</span> nl);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> pass2(Table *tbl);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> REGS&gt;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> write_regs(REGS &amp;regs, <a class="code hl_class" href="class_table.html">Table</a> *);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> write_regs(REGS &amp;regs, Table *);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
-</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_HASH_DIST_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_stage_html"><div class="ttname"><a href="class_stage.html">Stage</a></div><div class="ttdef"><b>Definition</b> stage.h:123</div></div>
-<div class="ttc" id="aclass_table_html"><div class="ttname"><a href="class_table.html">Table</a></div><div class="ttdef"><b>Definition</b> tables.h:98</div></div>
-<div class="ttc" id="astructvalue__t_html"><div class="ttname"><a href="structvalue__t.html">value_t</a></div><div class="ttdef"><b>Definition</b> asm-types.h:114</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

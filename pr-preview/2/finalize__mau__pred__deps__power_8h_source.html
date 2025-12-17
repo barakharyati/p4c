@@ -147,27 +147,26 @@ $(function(){initNavTree('finalize__mau__pred__deps__power_8h_source.html',''); 
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/phv_fields.h&quot;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;ir/pass_manager.h&quot;</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_mau_power.html">MauPower</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span>MauPower {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span><a class="code hl_class" href="class_mau_power_1_1_mau_features.html">MauFeatures</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>MauFeatures;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_mau_power_1_1_finalize_mau_pred_deps_power.html">   47</a></span><span class="keyword">class </span>FinalizeMauPredDepsPower : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>FinalizeMauPredDepsPower : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    FinalizeMauPredDepsPower(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dep_graph,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                             <span class="keyword">const</span> <a class="code hl_class" href="class_next_table.html">NextTable</a> *next_table_properties, <span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> &amp;options);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    FinalizeMauPredDepsPower(<span class="keyword">const</span> PhvInfo &amp;phv, DependencyGraph &amp;dep_graph,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                             <span class="keyword">const</span> NextTable *next_table_properties, <span class="keyword">const</span> BFN_Options &amp;options);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::ostream &amp;emit_stage_asm(std::ostream &amp;out, gress_t g, <span class="keywordtype">int</span> stage) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> requires_stage_asm(gress_t g, <span class="keywordtype">int</span> stage) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// inputs</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv_;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dep_graph_;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_next_table.html">NextTable</a> *next_table_properties_;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> &amp;options_;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> PhvInfo &amp;phv_;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    DependencyGraph &amp;dep_graph_;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> NextTable *next_table_properties_;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> BFN_Options &amp;options_;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// derived</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="class_mau_power_1_1_mau_features.html">MauFeatures</a> *mau_features_;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    MauFeatures *mau_features_;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// flag indicating if table placement used more stages than available in the device.</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">bool</span> exceeds_stages_ = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// map from match table UniqueId to tuple of memory accesses</span></div>
@@ -175,22 +174,14 @@ $(function(){initNavTree('finalize__mau__pred__deps__power_8h_source.html',''); 
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::map&lt;UniqueId, PowerMemoryAccess&gt; table_memory_access_ = {};</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Per-gress graphs collected that will be walked to estimate power usage and compute MPR.</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="class_mau_power_1_1_build_power_graph.html">BuildPowerGraph</a> *graphs_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    BuildPowerGraph *graphs_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// Map from gress to MAU MPR settings.</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::map&lt;gress_t, MprSettings *&gt; mpr_settings_ = {};</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
-</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}  <span class="comment">// end namespace MauPower</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_FINALIZE_MAU_PRED_DEPS_POWER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_b_f_n___options_html"><div class="ttname"><a href="class_b_f_n___options.html">BFN_Options</a></div><div class="ttdef"><b>Definition</b> bf-p4c-options.h:27</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_build_power_graph_html"><div class="ttname"><a href="class_mau_power_1_1_build_power_graph.html">MauPower::BuildPowerGraph</a></div><div class="ttdef"><b>Definition</b> build_power_graph.h:38</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_mau_features_html"><div class="ttname"><a href="class_mau_power_1_1_mau_features.html">MauPower::MauFeatures</a></div><div class="ttdef"><b>Definition</b> mau_power.h:64</div></div>
-<div class="ttc" id="aclass_next_table_html"><div class="ttname"><a href="class_next_table.html">NextTable</a></div><div class="ttdef"><b>Definition</b> next_table.h:26</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_mau_power_html"><div class="ttname"><a href="namespace_mau_power.html">MauPower</a></div><div class="ttdef"><b>Definition</b> mau/asm_output.h:39</div></div>
-<div class="ttc" id="astruct_dependency_graph_html"><div class="ttname"><a href="struct_dependency_graph.html">DependencyGraph</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:52</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

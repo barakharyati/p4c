@@ -137,29 +137,26 @@ $(function(){initNavTree('attach_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>P4::P4Fmt {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_fmt_1_1_attach.html">    9</a></span><span class="keyword">class </span>Attach : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span>Attach : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">using </span>NodeId = int;</div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_fmt_1_1_attach.html">   12</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_p4_1_1_p4_fmt_1_1_attach.html#struct_p4_1_1_p4_fmt_1_1_attach_1_1_comments">Comments</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">struct </span>Comments {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        std::vector&lt;const Util::Comment *&gt; prefix;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        std::vector&lt;const Util::Comment *&gt; suffix;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    };</div>
-</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">using </span>CommentsMap = std::unordered_map&lt;NodeId, Comments&gt;;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">enum class</span> TraversalType { Preorder, Postorder };</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_p4_1_1_p4_fmt_1_1_attach.html">Attach</a>(std::unordered_map&lt;const Util::Comment *, bool&gt; &amp;processedComments)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">explicit</span> Attach(std::unordered_map&lt;const Util::Comment *, bool&gt; &amp;processedComments)</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        : processedComments(processedComments) {};</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> attachCommentsToNode(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *, TraversalType);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> attachCommentsToNode(<span class="keyword">const</span> IR::Node *, TraversalType);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Node *node) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::Node *node) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> addPrefixComments(NodeId, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_comment.html">Util::Comment</a> *);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> addSuffixComments(NodeId, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_comment.html">Util::Comment</a> *);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> addPrefixComments(NodeId, <span class="keyword">const</span> Util::Comment *);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> addSuffixComments(NodeId, <span class="keyword">const</span> Util::Comment *);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> CommentsMap &amp;getCommentsMap() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> <span class="keyword">private</span>:</div>
@@ -167,15 +164,10 @@ $(function(){initNavTree('attach_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    CommentsMap commentsMap;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
-</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}  <span class="comment">// namespace P4::P4Fmt</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_P4FMT_ATTACH_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_fmt_1_1_attach_html"><div class="ttname"><a href="class_p4_1_1_p4_fmt_1_1_attach.html">P4::P4Fmt::Attach</a></div><div class="ttdef"><b>Definition</b> attach.h:9</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_fmt_1_1_attach_html_struct_p4_1_1_p4_fmt_1_1_attach_1_1_comments"><div class="ttname"><a href="class_p4_1_1_p4_fmt_1_1_attach.html#struct_p4_1_1_p4_fmt_1_1_attach_1_1_comments">P4::P4Fmt::Attach::Comments</a></div><div class="ttdef"><b>Definition</b> attach.h:12</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_comment_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_comment.html">P4::Util::Comment</a></div><div class="ttdef"><b>Definition</b> source_file.h:252</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

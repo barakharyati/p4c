@@ -155,7 +155,7 @@ $(function(){initNavTree('power__ctl_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> I&gt;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> set_power_ctl_reg(<a class="code hl_class" href="classchecked__array.html">checked_array</a>&lt;2, <a class="code hl_class" href="classchecked__array.html">checked_array</a>&lt;16, <a class="code hl_struct" href="structubits.html">ubits&lt;I&gt;</a>&gt;&gt; &amp;power_ctl, <span class="keywordtype">int</span> reg) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> set_power_ctl_reg(checked_array&lt;2, checked_array&lt;16, ubits&lt;I&gt;&gt;&gt; &amp;power_ctl, <span class="keywordtype">int</span> reg) {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> side = 0;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">switch</span> (reg / (I * 8)) {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">case</span> 1:  <span class="comment">// 8 bit</span></div>
@@ -180,8 +180,6 @@ $(function(){initNavTree('power__ctl_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_POWER_CTL_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclasschecked__array_html"><div class="ttname"><a href="classchecked__array.html">checked_array</a></div><div class="ttdef"><b>Definition</b> checked_array.h:50</div></div>
-<div class="ttc" id="astructubits_html"><div class="ttname"><a href="structubits.html">ubits</a></div><div class="ttdef"><b>Definition</b> ubits.h:82</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

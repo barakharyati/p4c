@@ -137,9 +137,8 @@ $(function(){initNavTree('stack__push__shims_8h_source.html',''); initResizable(
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/common/header_stack.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;parde_visitor.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="group__parde.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="group__parde.html#class_stack_push_shims">StackPushShims</a> : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parde_modifier">PardeModifier</a> {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_header_stack_info.html">BFN::HeaderStackInfo</a> *stacks = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>StackPushShims : <span class="keyword">public</span> PardeModifier {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> BFN::HeaderStackInfo *stacks = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">bool</span> preorder(IR::BFN::Pipe *pipe)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        BUG_CHECK(pipe-&gt;headerStackInfo != <span class="keyword">nullptr</span>,</div>
@@ -170,7 +169,7 @@ $(function(){initNavTree('stack__push__shims_8h_source.html',''); initResizable(
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> stkValidSize = stack.size + stack.maxpush + stack.maxpop;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> stkValidValue = pushValue &lt;&lt; (stack.size + stack.maxpop);</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::BFN::ParserPrimitive&gt;</a> initStkValid = {<span class="keyword">new</span> IR::BFN::Extract(</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            IR::Vector&lt;IR::BFN::ParserPrimitive&gt; initStkValid = {<span class="keyword">new</span> IR::BFN::Extract(</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keyword">new</span> IR::Member(IR::Type::Bits::get(stkValidSize),</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                               <span class="keyword">new</span> IR::PathExpression(stack.name), <span class="stringliteral">&quot;$stkvalid&quot;</span>),</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keyword">new</span> IR::BFN::ConstantRVal(stkValidValue))};</div>
@@ -180,13 +179,8 @@ $(function(){initNavTree('stack__push__shims_8h_source.html',''); initResizable(
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
-</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_STACK_PUSH_SHIMS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="agroup__parde_html_class_parde_modifier"><div class="ttname"><a href="group__parde.html#class_parde_modifier">PardeModifier</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:37</div></div>
-<div class="ttc" id="agroup__parde_html_class_stack_push_shims"><div class="ttname"><a href="group__parde.html#class_stack_push_shims">StackPushShims</a></div><div class="ttdoc">Adds parser states to initialize the $stkvalid fields that are used to handle the push_front and pop_...</div><div class="ttdef"><b>Definition</b> stack_push_shims.h:32</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_header_stack_info_html"><div class="ttname"><a href="struct_b_f_n_1_1_header_stack_info.html">BFN::HeaderStackInfo</a></div><div class="ttdoc">Metadata about how header stacks are used in the program.</div><div class="ttdef"><b>Definition</b> header_stack.h:94</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

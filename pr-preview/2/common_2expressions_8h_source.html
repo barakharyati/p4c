@@ -163,7 +163,7 @@ $(function(){initNavTree('common_2expressions_8h_source.html',''); initResizable
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    int64_t p4_void;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    int64_t p4_match_kind;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    [[nodiscard]] std::string <a class="code hl_function" href="namespace_p4_1_1_p4_tools.html#aa2c52acf3cc11d56495dd60f6fcf248e">toString</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    [[nodiscard]] std::string toString()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::stringstream ss;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        ss &lt;&lt; <span class="stringliteral">&quot;p4_bit=&quot;</span> &lt;&lt; p4_bit &lt;&lt; <span class="stringliteral">&quot; p4_signed_bit=&quot;</span> &lt;&lt; p4_signed_bit</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>           &lt;&lt; <span class="stringliteral">&quot; p4_varbit=&quot;</span> &lt;&lt; p4_varbit &lt;&lt; <span class="stringliteral">&quot; p4_int=&quot;</span> &lt;&lt; p4_int &lt;&lt; <span class="stringliteral">&quot; p4_error=&quot;</span> &lt;&lt; p4_error</div>
@@ -176,11 +176,10 @@ $(function(){initNavTree('common_2expressions_8h_source.html',''); initResizable
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_tools_1_1_p4_smith_1_1_expression_generator.html">   48</a></span><span class="keyword">class </span>ExpressionGenerator : <span class="keyword">public</span> Generator {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>ExpressionGenerator : <span class="keyword">public</span> Generator {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">virtual</span> ~ExpressionGenerator() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">explicit</span> ExpressionGenerator(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_p4_tools_1_1_p4_smith_1_1_smith_target.html">SmithTarget</a> &amp;target) : Generator(target) {}</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">explicit</span> ExpressionGenerator(<span class="keyword">const</span> SmithTarget &amp;target) : Generator(target) {}</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> MAX_DEPTH = 3;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
@@ -237,20 +236,20 @@ $(function(){initNavTree('common_2expressions_8h_source.html',''); initResizable
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    IR::ListExpression *genStructListExpr(<span class="keyword">const</span> IR::Type_Name *tn);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    IR::Expression *editHdrStack(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> lval);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    IR::Expression *editHdrStack(cstring lval);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">virtual</span> IR::Expression *constructStructExpr(<span class="keyword">const</span> IR::Type_Name *tn);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> IR::MethodCallExpression *genFunctionCall(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> method_name,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> IR::MethodCallExpression *genFunctionCall(cstring method_name,</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                                                      IR::ParameterList params);</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keyword">virtual</span> IR::MethodCallExpression *pickFunction(</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::Declaration&gt;</a> viable_functions, <span class="keyword">const</span> IR::Type **ret_type);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        IR::IndexedVector&lt;IR::Declaration&gt; viable_functions, <span class="keyword">const</span> IR::Type **ret_type);</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">virtual</span> IR::Expression *genExpression(<span class="keyword">const</span> IR::Type *tp);</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">virtual</span> IR::ListExpression *genExpressionList(<a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Type&gt;</a> types, <span class="keywordtype">bool</span> only_lval);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">virtual</span> IR::ListExpression *genExpressionList(IR::Vector&lt;IR::Type&gt; types, <span class="keywordtype">bool</span> only_lval);</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">virtual</span> IR::Expression *genInputArg(<span class="keyword">const</span> IR::Parameter *param);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
@@ -258,16 +257,10 @@ $(function(){initNavTree('common_2expressions_8h_source.html',''); initResizable
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> checkInputArg(<span class="keyword">const</span> IR::Parameter *param);</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>};</div>
-</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}  <span class="comment">// namespace P4::P4Tools::P4Smith</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_P4TOOLS_MODULES_SMITH_COMMON_EXPRESSIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_indexed_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_indexed_vector.html">P4::IR::IndexedVector</a></div><div class="ttdef"><b>Definition</b> indexed_vector.h:40</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_tools_1_1_p4_smith_1_1_smith_target_html"><div class="ttname"><a href="class_p4_1_1_p4_tools_1_1_p4_smith_1_1_smith_target.html">P4::P4Tools::P4Smith::SmithTarget</a></div><div class="ttdef"><b>Definition</b> p4tools/modules/smith/core/target.h:17</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="anamespace_p4_1_1_p4_tools_html_aa2c52acf3cc11d56495dd60f6fcf248e"><div class="ttname"><a href="namespace_p4_1_1_p4_tools.html#aa2c52acf3cc11d56495dd60f6fcf248e">P4::P4Tools::toString</a></div><div class="ttdeci">const char * toString(const z3::expr &amp;e)</div><div class="ttdoc">Converts a Z3 expression to a string.</div><div class="ttdef"><b>Definition</b> z3_solver.cpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

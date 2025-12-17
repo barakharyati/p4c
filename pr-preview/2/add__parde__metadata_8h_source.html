@@ -137,8 +137,7 @@ $(function(){initNavTree('add__parde__metadata_8h_source.html',''); initResizabl
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;parde_visitor.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="group__parde.html">   34</a></span><span class="keyword">class </span>AddParserMetadata : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_modifier">ParserModifier</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>AddParserMetadata : <span class="keyword">public</span> ParserModifier {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">explicit</span> AddParserMetadata(<span class="keyword">const</span> IR::BFN::Pipe *pipe, <span class="keywordtype">bool</span> isV1) : pipe(pipe), isV1(isV1) {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        CHECK_NULL(pipe);</div>
@@ -156,29 +155,22 @@ $(function(){initNavTree('add__parde__metadata_8h_source.html',''); initResizabl
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> IR::BFN::Pipe *pipe;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">bool</span> isV1;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
-</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="group__parde.html">   64</a></span><span class="keyword">class </span>AddDeparserMetadata : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_deparser_modifier">DeparserModifier</a> {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">class </span>AddDeparserMetadata : <span class="keyword">public</span> DeparserModifier {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">explicit</span> AddDeparserMetadata(<span class="keyword">const</span> IR::BFN::Pipe *pipe) : pipe(pipe) { CHECK_NULL(pipe); }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="group__parde.html#a7399ba43a0f4e669420930d89a8148d2">preorder</a>(IR::BFN::Deparser *) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> preorder(IR::BFN::Deparser *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="group__parde.html#afd0b522964782e31eff09c8902dcc2bd">addIngressMetadata</a>(IR::BFN::Deparser *d);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> addIngressMetadata(IR::BFN::Deparser *d);</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// Add egress deparser parameters</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> addEgressMetadata(IR::BFN::Deparser *d);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> IR::BFN::Pipe *pipe;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
-</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_ADD_PARDE_METADATA_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="agroup__parde_html_a7399ba43a0f4e669420930d89a8148d2"><div class="ttname"><a href="group__parde.html#a7399ba43a0f4e669420930d89a8148d2">AddDeparserMetadata::preorder</a></div><div class="ttdeci">bool preorder(IR::BFN::Deparser *) override</div><div class="ttdoc">Process the deparser instances to add parameters.</div><div class="ttdef"><b>Definition</b> add_parde_metadata.cpp:137</div></div>
-<div class="ttc" id="agroup__parde_html_afd0b522964782e31eff09c8902dcc2bd"><div class="ttname"><a href="group__parde.html#afd0b522964782e31eff09c8902dcc2bd">AddDeparserMetadata::addIngressMetadata</a></div><div class="ttdeci">void addIngressMetadata(IR::BFN::Deparser *d)</div><div class="ttdoc">Add ingress deparser parameters.</div><div class="ttdef"><b>Definition</b> add_parde_metadata.cpp:158</div></div>
-<div class="ttc" id="agroup__parde_html_class_deparser_modifier"><div class="ttname"><a href="group__parde.html#class_deparser_modifier">DeparserModifier</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:129</div></div>
-<div class="ttc" id="agroup__parde_html_class_parser_modifier"><div class="ttname"><a href="group__parde.html#class_parser_modifier">ParserModifier</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

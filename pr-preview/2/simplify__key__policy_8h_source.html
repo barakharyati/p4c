@@ -136,10 +136,9 @@ $(function(){initNavTree('simplify__key__policy_8h_source.html',''); initResizab
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;midend/simplifyKey.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_is_phase0.html">   26</a></span><span class="keyword">class </span>IsPhase0 : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_key_is_simple.html">P4::KeyIsSimple</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>IsPhase0 : <span class="keyword">public</span> P4::KeyIsSimple {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    IsPhase0() {}</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
@@ -156,10 +155,8 @@ $(function(){initNavTree('simplify__key__policy_8h_source.html',''); initResizab
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
-</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_is_slice.html">   44</a></span><span class="keyword">class </span>IsSlice : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_key_is_simple.html">P4::KeyIsSimple</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">class </span>IsSlice : <span class="keyword">public</span> P4::KeyIsSimple {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    IsSlice() {}</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
@@ -171,14 +168,12 @@ $(function(){initNavTree('simplify__key__policy_8h_source.html',''); initResizab
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">return</span> e-&gt;to&lt;IR::PathExpression&gt;() != <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
-</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// Extend P4::IsMask to handle Slices</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// E.g. hdr.ethernet.smac[15:0] &amp; 0x1f1f</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">// This is a valid key which contains a field slice and a mask</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// Frontend IsMask only handles non sliced fields on masks.</span></div>
-<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_is_slice_mask.html">   61</a></span><span class="keyword">class </span>IsSliceMask : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_is_mask.html">P4::IsMask</a> {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">class </span>IsSliceMask : <span class="keyword">public</span> P4::IsMask {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::Slice *)<span class="keyword"> override </span>{}</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::Constant *)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">// Only skip constants under a Slice</span></div>
@@ -192,32 +187,20 @@ $(function(){initNavTree('simplify__key__policy_8h_source.html',''); initResizab
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> P4::IsMask::isSimple(expr, ctxt);</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
-</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_key_is_simple.html">   76</a></span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_key_is_simple.html">KeyIsSimple</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">class </span>KeyIsSimple {</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1_key_is_simple.html">P4::KeyIsSimple</a> *getPolicy(<a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> &amp;typeMap) {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_or_policy.html">P4::OrPolicy</a>(</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_or_policy.html">P4::OrPolicy</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_or_policy.html">P4::OrPolicy</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_is_valid.html">P4::IsValid</a>(&amp;typeMap), <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_is_mask.html">P4::IsMask</a>()),</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                             <span class="keyword">new</span> <a class="code hl_class" href="class_b_f_n_1_1_is_phase0.html">BFN::IsPhase0</a>()),</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_or_policy.html">P4::OrPolicy</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_b_f_n_1_1_is_slice.html">BFN::IsSlice</a>(), <span class="keyword">new</span> <a class="code hl_class" href="class_b_f_n_1_1_is_slice_mask.html">BFN::IsSliceMask</a>()));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">static</span> P4::KeyIsSimple *getPolicy(P4::TypeMap &amp;typeMap) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> P4::OrPolicy(</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keyword">new</span> P4::OrPolicy(<span class="keyword">new</span> P4::OrPolicy(<span class="keyword">new</span> P4::IsValid(&amp;typeMap), <span class="keyword">new</span> P4::IsMask()),</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                             <span class="keyword">new</span> BFN::IsPhase0()),</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keyword">new</span> P4::OrPolicy(<span class="keyword">new</span> BFN::IsSlice(), <span class="keyword">new</span> BFN::IsSliceMask()));</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
-</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MIDEND_SIMPLIFY_KEY_POLICY_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_b_f_n_1_1_is_phase0_html"><div class="ttname"><a href="class_b_f_n_1_1_is_phase0.html">BFN::IsPhase0</a></div><div class="ttdef"><b>Definition</b> simplify_key_policy.h:26</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_is_slice_html"><div class="ttname"><a href="class_b_f_n_1_1_is_slice.html">BFN::IsSlice</a></div><div class="ttdef"><b>Definition</b> simplify_key_policy.h:44</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_is_slice_mask_html"><div class="ttname"><a href="class_b_f_n_1_1_is_slice_mask.html">BFN::IsSliceMask</a></div><div class="ttdef"><b>Definition</b> simplify_key_policy.h:61</div></div>
-<div class="ttc" id="aclass_p4_1_1_is_mask_html"><div class="ttname"><a href="class_p4_1_1_is_mask.html">P4::IsMask</a></div><div class="ttdef"><b>Definition</b> simplifyKey.h:81</div></div>
-<div class="ttc" id="aclass_p4_1_1_is_valid_html"><div class="ttname"><a href="class_p4_1_1_is_valid.html">P4::IsValid</a></div><div class="ttdef"><b>Definition</b> simplifyKey.h:69</div></div>
-<div class="ttc" id="aclass_p4_1_1_key_is_simple_html"><div class="ttname"><a href="class_p4_1_1_key_is_simple.html">P4::KeyIsSimple</a></div><div class="ttdef"><b>Definition</b> simplifyKey.h:31</div></div>
-<div class="ttc" id="aclass_p4_1_1_or_policy_html"><div class="ttname"><a href="class_p4_1_1_or_policy.html">P4::OrPolicy</a></div><div class="ttdef"><b>Definition</b> simplifyKey.h:98</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_map_html"><div class="ttname"><a href="class_p4_1_1_type_map.html">P4::TypeMap</a></div><div class="ttdef"><b>Definition</b> typeMap.h:41</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

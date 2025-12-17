@@ -143,53 +143,48 @@ $(function(){initNavTree('simple__power__graph_8h_source.html',''); initResizabl
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/mau/mau_power.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_mau_power.html">MauPower</a> {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span><a class="code hl_class" href="class_mau_power_1_1_node.html">Node</a>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span><a class="code hl_class" href="class_mau_power_1_1_edge.html">Edge</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span>MauPower {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>Node;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>Edge;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">using </span>::<span class="keyword">operator</span>&lt;&lt;;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespace_mau_power.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">struct </span>NodeAndEdgeSet {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::set&lt;const Node *&gt; nodes;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::set&lt;const Edge *&gt; edges;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
-</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_mau_power_1_1_edge.html">   47</a></span><span class="keyword">class </span>Edge {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>Edge {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> id_;     <span class="comment">// edge id (used for dot output)</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name_;  <span class="comment">// debug name of edge</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> to_string()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> cstring name_;  <span class="comment">// debug name of edge</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    cstring to_string()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name_; }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> is_equivalent(<span class="keyword">const</span> Edge *other) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::string <a class="code hl_function" href="class_mau_power_1_1_edge.html#a44dd4524125b2ed8a489ee0205a9f87b">get_edge_color</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::string get_edge_color() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">explicit</span> Edge(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name, std::vector&lt;Node *&gt; &amp;child_nodes)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        : id_(<span class="keywordtype">id</span>), name_(name) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">explicit</span> Edge(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>, cstring name, std::vector&lt;Node *&gt; &amp;child_nodes)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        : id_(id), name_(name) {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n : child_nodes) {</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            child_nodes_.push_back(n);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// Encapsulation of what next Node(s) (logical table(s)) this edge connects to.</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    std::vector&lt;Node *&gt; child_nodes_;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out, <a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> *seen) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out, NodeAndEdgeSet *seen) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> seen;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        NodeAndEdgeSet seen;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        dbprint(out, &amp;seen);</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
-</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_mau_power_1_1_node.html">   81</a></span><span class="keyword">class </span>Node {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">class </span>Node {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> unique_id_;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">const</span> UniqueId unique_id_;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> id_;                   <span class="comment">// node id (used for dot output)</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::vector&lt;Edge *&gt; out_edges_;  <span class="comment">// collection of outbound edges</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">explicit</span> Node(<a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> uniq_id, <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : unique_id_(uniq_id), id_(<span class="keywordtype">id</span>) {}</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">explicit</span> Node(UniqueId uniq_id, <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : unique_id_(uniq_id), id_(id) {}</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    ~Node() {</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> e : out_edges_) <span class="keyword">delete</span> e;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
@@ -200,55 +195,50 @@ $(function(){initNavTree('simple__power__graph_8h_source.html',''); initResizabl
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    Node(<span class="keyword">const</span> Node &amp;&amp;n) = <span class="keyword">delete</span>;             <span class="comment">// move</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    Node &amp;operator=(<span class="keyword">const</span> Node &amp;&amp;n) = <span class="keyword">delete</span>;  <span class="comment">// move assignment</span></div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_mau_power_1_1_node.html#a2fbb6a9e7814e98a89eec5fb5cca5b88">create_and_add_edge</a>(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> edge_name, std::vector&lt;Node *&gt; &amp;child_nodes);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> create_and_add_edge(cstring edge_name, std::vector&lt;Node *&gt; &amp;child_nodes);</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> is_equivalent(<span class="keyword">const</span> Node *other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> to_string()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span> + unique_id_.build_name(); }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out, <a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> *seen) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    cstring to_string()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span> + unique_id_.build_name(); }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out, NodeAndEdgeSet *seen) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> seen;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        NodeAndEdgeSet seen;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        dbprint(out, &amp;seen);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> add_edge(<a class="code hl_class" href="class_mau_power_1_1_edge.html">Edge</a> *e);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> add_edge(Edge *e);</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
-</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
-<div class="foldopen" id="foldopen00126" data-start="{" data-end="};">
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="class_mau_power_1_1_simple_power_graph.html">  126</a></span><span class="keyword">class </span>SimplePowerGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_i_has_db_print.html">IHasDbPrint</a> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">class </span>SimplePowerGraph : <span class="keyword">public</span> IHasDbPrint {</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    std::map&lt;UniqueId, Node *&gt; nodes_ = {};</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    std::map&lt;UniqueId, std::set&lt;UniqueId&gt;&gt; pred_ = {};</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name_;  <span class="comment">// graph name, e.g. ingress or egress</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">const</span> cstring name_;  <span class="comment">// graph name, e.g. ingress or egress</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">explicit</span> SimplePowerGraph(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> gress) : name_(gress), running_id_(1) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> root_uid;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">explicit</span> SimplePowerGraph(cstring gress) : name_(gress), running_id_(1) {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        UniqueId root_uid;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        root_uid.name = <span class="stringliteral">&quot;$root&quot;</span>_cs;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        root_ = <span class="keyword">new</span> <a class="code hl_class" href="class_mau_power_1_1_node.html">Node</a>(root_uid, 0);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        root_ = <span class="keyword">new</span> Node(root_uid, 0);</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        nodes_.emplace(root_uid, root_);</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_class" href="class_mau_power_1_1_node.html">Node</a> *get_root()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> root_; }</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#a40a487324adaded09d8d0fc14ff0e817">add_connection</a>(<a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> parent, <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;UniqueId&gt;</a> activated, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> edge_name);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#a0925529f459b80af0ac51ff34469262d">to_dot</a>(<span class="keyword">const</span> std::filesystem::path &amp;filename);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#aa07fbe49dc1bc88aa738519470d053b6">get_leaves</a>(<a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> n, std::vector&lt;UniqueId&gt; &amp;leaves);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#a0c26175e3238eaba8203e04097c9a75f">can_reach</a>(<a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> parent, <a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> child);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#a923a2b8a3be7eeea5cb4964096f4bfc9">active_simultaneously</a>(<a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> parent, <a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> child);</div>
-<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="class_mau_power_1_1_simple_power_graph.html#a0de28d91bc2f4a5de05f51761f963a87">  180</a></span>    <span class="keyword">const</span> std::set&lt;UniqueId&gt; &amp;<a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#a0de28d91bc2f4a5de05f51761f963a87">predecessors</a>(<a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> child)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    Node *get_root()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> root_; }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> add_connection(UniqueId parent, ordered_set&lt;UniqueId&gt; activated, cstring edge_name);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">void</span> to_dot(<span class="keyword">const</span> std::filesystem::path &amp;filename);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> get_leaves(UniqueId n, std::vector&lt;UniqueId&gt; &amp;leaves);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">bool</span> can_reach(UniqueId parent, UniqueId child);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">bool</span> active_simultaneously(UniqueId parent, UniqueId child);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keyword">const</span> std::set&lt;UniqueId&gt; &amp;predecessors(UniqueId child)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">if</span> (pred_.count(child)) <span class="keywordflow">return</span> pred_.at(child);</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keyword">static</span> std::set&lt;UniqueId&gt; empty;</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">return</span> empty;</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
-</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    std::vector&lt;Node *&gt; <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#afc0601e5e6e5b921fa5fafad53f1204b">topo_sort</a>();</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_mau_power_1_1_simple_power_graph.html#a5c1f6703f729eafd1d2501aaeb6e07a6">get_tables_on_worst_path</a>(</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    std::vector&lt;Node *&gt; topo_sort();</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordtype">double</span> get_tables_on_worst_path(</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keyword">const</span> std::map&lt;UniqueId, PowerMemoryAccess&gt; &amp;table_memory_access, std::set&lt;Node *&gt; &amp;rv);</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out, <a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> *seen) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out, NodeAndEdgeSet *seen) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <a class="code hl_struct" href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">NodeAndEdgeSet</a> seen;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        NodeAndEdgeSet seen;</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        dbprint(out, &amp;seen);</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
@@ -272,29 +262,10 @@ $(function(){initNavTree('simple__power__graph_8h_source.html',''); initResizabl
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">double</span> visit_node_power(Node *n, <span class="keyword">const</span> std::map&lt;UniqueId, PowerMemoryAccess&gt; &amp;tma,</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                            std::set&lt;UniqueId&gt; &amp;worst_path);</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>};</div>
-</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>}  <span class="comment">// end namespace MauPower</span></div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_SIMPLE_POWER_GRAPH_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_mau_power_1_1_edge_html"><div class="ttname"><a href="class_mau_power_1_1_edge.html">MauPower::Edge</a></div><div class="ttdef"><b>Definition</b> simple_power_graph.h:47</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_edge_html_a44dd4524125b2ed8a489ee0205a9f87b"><div class="ttname"><a href="class_mau_power_1_1_edge.html#a44dd4524125b2ed8a489ee0205a9f87b">MauPower::Edge::get_edge_color</a></div><div class="ttdeci">std::string get_edge_color() const</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:52</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_node_html"><div class="ttname"><a href="class_mau_power_1_1_node.html">MauPower::Node</a></div><div class="ttdef"><b>Definition</b> simple_power_graph.h:81</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_node_html_a2fbb6a9e7814e98a89eec5fb5cca5b88"><div class="ttname"><a href="class_mau_power_1_1_node.html#a2fbb6a9e7814e98a89eec5fb5cca5b88">MauPower::Node::create_and_add_edge</a></div><div class="ttdeci">void create_and_add_edge(cstring edge_name, std::vector&lt; Node * &gt; &amp;child_nodes)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:61</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_a0925529f459b80af0ac51ff34469262d"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#a0925529f459b80af0ac51ff34469262d">MauPower::SimplePowerGraph::to_dot</a></div><div class="ttdeci">void to_dot(const std::filesystem::path &amp;filename)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:130</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_a0c26175e3238eaba8203e04097c9a75f"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#a0c26175e3238eaba8203e04097c9a75f">MauPower::SimplePowerGraph::can_reach</a></div><div class="ttdeci">bool can_reach(UniqueId parent, UniqueId child)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:221</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_a0de28d91bc2f4a5de05f51761f963a87"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#a0de28d91bc2f4a5de05f51761f963a87">MauPower::SimplePowerGraph::predecessors</a></div><div class="ttdeci">const std::set&lt; UniqueId &gt; &amp; predecessors(UniqueId child) const</div><div class="ttdef"><b>Definition</b> simple_power_graph.h:180</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_a40a487324adaded09d8d0fc14ff0e817"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#a40a487324adaded09d8d0fc14ff0e817">MauPower::SimplePowerGraph::add_connection</a></div><div class="ttdeci">void add_connection(UniqueId parent, ordered_set&lt; UniqueId &gt; activated, cstring edge_name)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:112</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_a5c1f6703f729eafd1d2501aaeb6e07a6"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#a5c1f6703f729eafd1d2501aaeb6e07a6">MauPower::SimplePowerGraph::get_tables_on_worst_path</a></div><div class="ttdeci">double get_tables_on_worst_path(const std::map&lt; UniqueId, PowerMemoryAccess &gt; &amp;table_memory_access, std::set&lt; Node * &gt; &amp;rv)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:296</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_a923a2b8a3be7eeea5cb4964096f4bfc9"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#a923a2b8a3be7eeea5cb4964096f4bfc9">MauPower::SimplePowerGraph::active_simultaneously</a></div><div class="ttdeci">bool active_simultaneously(UniqueId parent, UniqueId child)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:256</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_aa07fbe49dc1bc88aa738519470d053b6"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#aa07fbe49dc1bc88aa738519470d053b6">MauPower::SimplePowerGraph::get_leaves</a></div><div class="ttdeci">void get_leaves(UniqueId n, std::vector&lt; UniqueId &gt; &amp;leaves)</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:161</div></div>
-<div class="ttc" id="aclass_mau_power_1_1_simple_power_graph_html_afc0601e5e6e5b921fa5fafad53f1204b"><div class="ttname"><a href="class_mau_power_1_1_simple_power_graph.html#afc0601e5e6e5b921fa5fafad53f1204b">MauPower::SimplePowerGraph::topo_sort</a></div><div class="ttdeci">std::vector&lt; Node * &gt; topo_sort()</div><div class="ttdef"><b>Definition</b> simple_power_graph.cpp:207</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_has_db_print_html"><div class="ttname"><a href="class_p4_1_1_i_has_db_print.html">P4::IHasDbPrint</a></div><div class="ttdef"><b>Definition</b> stringify.h:33</div></div>
-<div class="ttc" id="aclass_p4_1_1_unique_id_html"><div class="ttname"><a href="class_p4_1_1_unique_id.html">P4::UniqueId</a></div><div class="ttdef"><b>Definition</b> unique_id.h:168</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="anamespace_mau_power_html"><div class="ttname"><a href="namespace_mau_power.html">MauPower</a></div><div class="ttdef"><b>Definition</b> mau/asm_output.h:39</div></div>
-<div class="ttc" id="anamespace_mau_power_html_struct_mau_power_1_1_node_and_edge_set"><div class="ttname"><a href="namespace_mau_power.html#struct_mau_power_1_1_node_and_edge_set">MauPower::NodeAndEdgeSet</a></div><div class="ttdef"><b>Definition</b> simple_power_graph.h:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

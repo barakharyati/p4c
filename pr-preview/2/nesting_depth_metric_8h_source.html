@@ -142,23 +142,22 @@ $(function(){initNavTree('nesting_depth_metric_8h_source.html',''); initResizabl
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;frontends/p4/metrics/metricsStructure.h&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>P4 {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_p4_1_1_nesting_depth_metric_pass.html">   16</a></span><span class="keyword">class </span>NestingDepthMetricPass : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span>NestingDepthMetricPass : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_struct" href="namespace_p4.html#struct_p4_1_1_nesting_depth_metrics">NestingDepthMetrics</a> &amp;metrics;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    NestingDepthMetrics &amp;metrics;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">unsigned</span> currentDepth;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">unsigned</span> currentMax;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">explicit</span> NestingDepthMetricPass(<a class="code hl_struct" href="namespace_p4.html#struct_p4_1_1_metrics">Metrics</a> &amp;metricsRef)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">explicit</span> NestingDepthMetricPass(Metrics &amp;metricsRef)</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        : metrics(metricsRef.nestingDepth), currentDepth(0), currentMax(0) {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        setName(<span class="stringliteral">&quot;NestingDepthPass&quot;</span>);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">bool</span> increment();</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> decrement();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> logDepth(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> logDepth(<span class="keyword">const</span> cstring name);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> enter();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::P4Parser * <span class="comment">/*parser*/</span>) <span class="keyword">override</span>;</div>
@@ -175,16 +174,10 @@ $(function(){initNavTree('nesting_depth_metric_8h_source.html',''); initResizabl
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::BlockStatement * <span class="comment">/*stmt*/</span>) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::P4Program * <span class="comment">/*program*/</span>) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
-</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif </span><span class="comment">/* FRONTENDS_P4_METRICS_NESTINGDEPTHMETRIC_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="anamespace_p4_html_struct_p4_1_1_metrics"><div class="ttname"><a href="namespace_p4.html#struct_p4_1_1_metrics">P4::Metrics</a></div><div class="ttdef"><b>Definition</b> metricsStructure.h:119</div></div>
-<div class="ttc" id="anamespace_p4_html_struct_p4_1_1_nesting_depth_metrics"><div class="ttname"><a href="namespace_p4.html#struct_p4_1_1_nesting_depth_metrics">P4::NestingDepthMetrics</a></div><div class="ttdef"><b>Definition</b> metricsStructure.h:86</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -145,46 +145,37 @@ $(function(){initNavTree('boost__graph_8h_source.html',''); initResizable(true);
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;lib/cstring.h&quot;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;lib/exceptions.h&quot;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Graph&gt;</div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_reachability.html">   39</a></span><span class="keyword">class </span>Reachability {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>Reachability {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">using </span>Vertex = <span class="keyword">typename</span> Graph::vertex_descriptor;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">using </span>EdgeSet =</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">typename</span> boost::container_gen&lt;typename Graph::vertex_list_selector, bitvec&gt;::type;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_reachability.html#a6c90b84fa6b7d03ce1da809ff33618a2">   47</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_reachability.html#a6c90b84fa6b7d03ce1da809ff33618a2">canReach</a>(Vertex v1, Vertex v2) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> canReach(Vertex v1, Vertex v2) {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (forwardsReachableVertices.empty()) recompute();</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> forwardsReachableVertices.at(v1).getbit(v2);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
-</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_reachability.html#aea9caacdf84a6059c85cd3adbcc9d119">   54</a></span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> <a class="code hl_function" href="class_reachability.html#aea9caacdf84a6059c85cd3adbcc9d119">reachableBetween</a>(Vertex v1, Vertex v2) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    bitvec reachableBetween(Vertex v1, Vertex v2) {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (forwardsReachableVertices.empty() || backwardsReachableVertices.empty()) recompute();</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">return</span> forwardsReachableVertices.at(v1) &amp; backwardsReachableVertices.at(v2);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
-</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
-<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_reachability.html#a4df3b3591b4ff0e372f56197bb3c1d7d">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_reachability.html#a4df3b3591b4ff0e372f56197bb3c1d7d">clear</a>() {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> clear() {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        forwardsReachableVertices.clear();</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        backwardsReachableVertices.clear();</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
-</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_reachability.html#a1fcb0c7b6117af47e3d2ed9aeef12da7">   68</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_reachability.html#a1fcb0c7b6117af47e3d2ed9aeef12da7">setSink</a>(std::optional&lt;Vertex&gt; sink) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> setSink(std::optional&lt;Vertex&gt; sink) {</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        this-&gt;sink = sink;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="class_reachability.html#a4df3b3591b4ff0e372f56197bb3c1d7d">clear</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        clear();</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
-</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_reachability.html">Reachability</a>(<span class="keyword">const</span> Graph &amp;g) : g(g) {}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">explicit</span> Reachability(<span class="keyword">const</span> Graph &amp;g) : g(g) {}</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> recompute() {</div>
@@ -249,16 +240,8 @@ $(function(){initNavTree('boost__graph_8h_source.html',''); initResizable(true);
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    EdgeSet backwardsReachableVertices;</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>};</div>
-</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_LIB_BOOST_GRAPH_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1bitvec_html"><div class="ttname"><a href="class_p4_1_1bitvec.html">P4::bitvec</a></div><div class="ttdef"><b>Definition</b> bitvec.h:120</div></div>
-<div class="ttc" id="aclass_reachability_html"><div class="ttname"><a href="class_reachability.html">Reachability</a></div><div class="ttdef"><b>Definition</b> boost_graph.h:39</div></div>
-<div class="ttc" id="aclass_reachability_html_a1fcb0c7b6117af47e3d2ed9aeef12da7"><div class="ttname"><a href="class_reachability.html#a1fcb0c7b6117af47e3d2ed9aeef12da7">Reachability::setSink</a></div><div class="ttdeci">void setSink(std::optional&lt; Vertex &gt; sink)</div><div class="ttdoc">Sets the sink node; no nodes will be considered reachable from this node.</div><div class="ttdef"><b>Definition</b> boost_graph.h:68</div></div>
-<div class="ttc" id="aclass_reachability_html_a4df3b3591b4ff0e372f56197bb3c1d7d"><div class="ttname"><a href="class_reachability.html#a4df3b3591b4ff0e372f56197bb3c1d7d">Reachability::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition</b> boost_graph.h:62</div></div>
-<div class="ttc" id="aclass_reachability_html_a6c90b84fa6b7d03ce1da809ff33618a2"><div class="ttname"><a href="class_reachability.html#a6c90b84fa6b7d03ce1da809ff33618a2">Reachability::canReach</a></div><div class="ttdeci">bool canReach(Vertex v1, Vertex v2)</div><div class="ttdoc">Determines whether vertex v2 is reachable from the vertex v1.</div><div class="ttdef"><b>Definition</b> boost_graph.h:47</div></div>
-<div class="ttc" id="aclass_reachability_html_aea9caacdf84a6059c85cd3adbcc9d119"><div class="ttname"><a href="class_reachability.html#aea9caacdf84a6059c85cd3adbcc9d119">Reachability::reachableBetween</a></div><div class="ttdeci">bitvec reachableBetween(Vertex v1, Vertex v2)</div><div class="ttdef"><b>Definition</b> boost_graph.h:54</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

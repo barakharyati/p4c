@@ -140,29 +140,26 @@ $(function(){initNavTree('p4__table_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;asm-types.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;backends/tofino/bf-asm/json.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span><a class="code hl_class" href="class_table.html">Table</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span><a class="code hl_class" href="class_p4_table.html">P4Table</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span>Table;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span>P4Table;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structalpm__t.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structalpm__t.html">alpm_t</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">struct </span>alpm_t {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::string partition_field_name = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">unsigned</span> alpm_atcam_table_handle = 0;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">unsigned</span> alpm_pre_classifier_table_handle = 0;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::set&lt;unsigned&gt; set_partition_action_handle;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="classjson_1_1map.html">json::map</a> *alpm_atcam_table_cfg = 0;           <span class="comment">// handle to cjson alpm table</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="classjson_1_1map.html">json::map</a> *alpm_pre_classifier_table_cfg = 0;  <span class="comment">// handle to cjson ternary pre classifier table</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    json::map *alpm_atcam_table_cfg = 0;           <span class="comment">// handle to cjson alpm table</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    json::map *alpm_pre_classifier_table_cfg = 0;  <span class="comment">// handle to cjson ternary pre classifier table</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
-</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_p4_table.html">   39</a></span><span class="keyword">class </span>P4Table {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>P4Table {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> lineno = -1;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::string name, preferred_match_type;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::string stage_table_type;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">unsigned</span> handle = 0;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> explicit_size = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> hidden = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classjson_1_1map.html">json::map</a> *config = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    json::map *config = 0;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    P4Table() {}</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> <span class="keyword">public</span>:</div>
@@ -172,7 +169,7 @@ $(function(){initNavTree('p4__table_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">enum</span> type {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        None = 0,</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        MatchEntry = 1,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_namespace" href="namespace_action_data.html">ActionData</a> = 2,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        ActionData = 2,</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        Selection = 3,</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        Statistics = 4,</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        Meter = 5,</div>
@@ -188,15 +185,15 @@ $(function(){initNavTree('p4__table_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> max_handle[];</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">static</span> P4Table *get(type t, VECTOR(<a class="code hl_struct" href="structpair__t.html">pair_t</a>) &amp; d);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">static</span> P4Table *alloc(type t, <a class="code hl_class" href="class_table.html">Table</a> *tbl);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> check(<a class="code hl_class" href="class_table.html">Table</a> *tbl);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">static</span> P4Table *get(type t, VECTOR(pair_t) &amp; d);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">static</span> P4Table *alloc(type t, Table *tbl);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> check(Table *tbl);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *p4_name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name.empty() ? nullptr : name.c_str(); }</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">unsigned</span> get_handle() { <span class="keywordflow">return</span> handle; }</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">unsigned</span> p4_size() { <span class="keywordflow">return</span> size; }</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::string p4_stage_table_type() { <span class="keywordflow">return</span> stage_table_type; }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_class" href="classjson_1_1map.html">json::map</a> *base_tbl_cfg(<a class="code hl_class" href="classjson_1_1vector.html">json::vector</a> &amp;out, <span class="keywordtype">int</span> size, <span class="keyword">const</span> <a class="code hl_class" href="class_table.html">Table</a> *table) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> base_alpm_tbl_cfg(<a class="code hl_class" href="classjson_1_1map.html">json::map</a> &amp;out, <span class="keywordtype">int</span> size, <span class="keyword">const</span> <a class="code hl_class" href="class_table.html">Table</a> *table,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    json::map *base_tbl_cfg(json::vector &amp;out, <span class="keywordtype">int</span> size, <span class="keyword">const</span> Table *table) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> base_alpm_tbl_cfg(json::map &amp;out, <span class="keywordtype">int</span> size, <span class="keyword">const</span> Table *table,</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                           P4Table::alpm_type atype) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> is_alpm()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">if</span> (match_type == <span class="stringliteral">&quot;alpm&quot;</span>) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -209,16 +206,8 @@ $(function(){initNavTree('p4__table_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">unsigned</span> get_alpm_atcam_table_handle() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">static</span> std::string direction_name(gress_t);</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
-</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_P4_TABLE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_table_html"><div class="ttname"><a href="class_p4_table.html">P4Table</a></div><div class="ttdef"><b>Definition</b> p4_table.h:39</div></div>
-<div class="ttc" id="aclass_table_html"><div class="ttname"><a href="class_table.html">Table</a></div><div class="ttdef"><b>Definition</b> tables.h:98</div></div>
-<div class="ttc" id="aclassjson_1_1map_html"><div class="ttname"><a href="classjson_1_1map.html">json::map</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-asm/json.h:300</div></div>
-<div class="ttc" id="aclassjson_1_1vector_html"><div class="ttname"><a href="classjson_1_1vector.html">json::vector</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-asm/json.h:222</div></div>
-<div class="ttc" id="anamespace_action_data_html"><div class="ttname"><a href="namespace_action_data.html">ActionData</a></div><div class="ttdef"><b>Definition</b> action_format.cpp:30</div></div>
-<div class="ttc" id="astructalpm__t_html"><div class="ttname"><a href="structalpm__t.html">alpm_t</a></div><div class="ttdef"><b>Definition</b> p4_table.h:30</div></div>
-<div class="ttc" id="astructpair__t_html"><div class="ttname"><a href="structpair__t.html">pair_t</a></div><div class="ttdef"><b>Definition</b> asm-types.h:150</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

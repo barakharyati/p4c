@@ -142,10 +142,9 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;lib/bitvec.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_can_be_i_x_bar_expr.html">   33</a></span><span class="keyword">class </span>CanBeIXBarExpr : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>CanBeIXBarExpr : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MAX_HASH_BITS = 52;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> get_max_hash_bits() {</div>
@@ -174,13 +173,13 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> type-&gt;to&lt;IR::Type_Extern&gt;();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *n) {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">auto</span> *expr = n-&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">to</a>&lt;IR::Expression&gt;();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *n) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">auto</span> *expr = n-&gt;to&lt;IR::Expression&gt;();</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        BUG_CHECK(expr, <span class="stringliteral">&quot;CanBeIXBarExpr called on non-expression&quot;</span>);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        rv = expr-&gt;type-&gt;width_bits() &lt;= get_max_hash_bits();</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> Inspector::init_apply(n);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }  <span class="comment">// ignore non-expressions</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Node *) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }  <span class="comment">// ignore non-expressions</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::PathExpression *pe) {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span> (!checkPath(pe)) rv = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -236,21 +235,19 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rv; }</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
-</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">/* FIXME -- this should be a constructor of bitvec in the open source code */</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">inline</span> <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> to_bitvec(big_int v) {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> rv(<span class="keyword">static_cast&lt;</span>uintptr_t<span class="keyword">&gt;</span>(v));</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">inline</span> bitvec to_bitvec(big_int v) {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    bitvec rv(<span class="keyword">static_cast&lt;</span>uintptr_t<span class="keyword">&gt;</span>(v));</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    v &gt;&gt;= <span class="keyword">sizeof</span>(uintptr_t) * CHAR_BIT;</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordflow">if</span> (v &gt; 0) rv |= to_bitvec(v) &lt;&lt; (<span class="keyword">sizeof</span>(uintptr_t) * CHAR_BIT);</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span></div>
-<div class="foldopen" id="foldopen00134" data-start="{" data-end="};">
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="class_i_x_bar_expr_seed.html">  134</a></span><span class="keyword">class </span>IXBarExprSeed : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keyword">class </span>IXBarExprSeed : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    le_bitrange slice;</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">int</span> shift = 0;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> rv;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    bitvec rv;</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Annotation *) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Type *) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
@@ -318,17 +315,15 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    IXBarExprSeed(<span class="keyword">const</span> IR::Expression *e, le_bitrange sl) : slice(sl) { e-&gt;apply(*<span class="keyword">this</span>); }</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">operator</span> <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rv &gt;&gt; slice.lo; }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">operator</span> bitvec()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rv &gt;&gt; slice.lo; }</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>};</div>
-</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="foldopen" id="foldopen00208" data-start="{" data-end="};">
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="struct_p4_hash_function.html">  208</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_i_has_db_print.html">IHasDbPrint</a> {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;const IR::Expression *&gt;</a> inputs;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">struct </span>P4HashFunction : <span class="keyword">public</span> IHasDbPrint {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    safe_vector&lt;const IR::Expression *&gt; inputs;</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    le_bitrange hash_bits;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <a class="code hl_struct" href="struct_p4_1_1_i_r_1_1_m_a_u_1_1_hash_function.html">IR::MAU::HashFunction</a> algorithm;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> dyn_hash_name;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <a class="code hl_class" href="class_p4_1_1_l_t_bit_matrix.html">LTBitMatrix</a> symmetrically_hashed_inputs;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    IR::MAU::HashFunction algorithm;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    cstring dyn_hash_name;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    LTBitMatrix symmetrically_hashed_inputs;</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keyword">const</span> IR::Expression *hash_gen_expr = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="comment">// FIXME -- we record the expression the hash is derived from so it can be copied to</span></div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="comment">// the IXBar::Use::HashDistHash and then output it in the .bfa file.  Perhaps we should</span></div>
@@ -343,39 +338,37 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                      <span class="stringliteral">&quot;have symmetric fields&quot;</span>);</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">bool</span> equiv_dyn(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *func) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_p4_hash_function.html#a7f5088156638de556b07b50513c72719">equiv_inputs_alg</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *func) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">bool</span> equiv_dyn(<span class="keyword">const</span> P4HashFunction *func) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordtype">bool</span> equiv_inputs_alg(<span class="keyword">const</span> P4HashFunction *func) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_p4_hash_function.html#ad6af3b61365b6104d462b7c08cadf4ea">slice</a>(le_bitrange hash_slice);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> is_dynamic() ? dyn_hash_name : <span class="stringliteral">&quot;static_hash&quot;</span>_cs; }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">void</span> slice(le_bitrange hash_slice);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    cstring name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> is_dynamic() ? dyn_hash_name : <span class="stringliteral">&quot;static_hash&quot;</span>_cs; }</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">int</span> size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> hash_bits.size(); }</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">bool</span> equiv(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">bool</span> is_next_bit_of_hash(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">bool</span> equiv(<span class="keyword">const</span> P4HashFunction *) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">bool</span> is_next_bit_of_hash(<span class="keyword">const</span> P4HashFunction *) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_p4_hash_function.html#a4e4e2be6c290f715aa8d11e718f9dc73">overlap</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *, le_bitrange *my_overlap, le_bitrange *hash_overlap) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordtype">bool</span> overlap(<span class="keyword">const</span> P4HashFunction *, le_bitrange *my_overlap, le_bitrange *hash_overlap) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordtype">void</span> dbprint(std::ostream &amp;out) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>};</div>
-</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keywordtype">bool</span> verifySymmetricHashPairs(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;const IR::Expression *&gt;</a> &amp;field_list,</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                              <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Annotation&gt;</a> &amp;annotations, gress_t gress,</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                              <span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_1_1_i_r_1_1_m_a_u_1_1_hash_function.html">IR::MAU::HashFunction</a> &amp;hf, <a class="code hl_class" href="class_p4_1_1_l_t_bit_matrix.html">LTBitMatrix</a> *sym_pairs);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keywordtype">bool</span> verifySymmetricHashPairs(<span class="keyword">const</span> PhvInfo &amp;phv, safe_vector&lt;const IR::Expression *&gt; &amp;field_list,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                              <span class="keyword">const</span> IR::Vector&lt;IR::Annotation&gt; &amp;annotations, gress_t gress,</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                              <span class="keyword">const</span> IR::MAU::HashFunction &amp;hf, LTBitMatrix *sym_pairs);</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span></div>
-<div class="foldopen" id="foldopen00265" data-start="{" data-end="};">
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="class_build_p4_hash_function.html">  265</a></span><span class="keyword">class </span>BuildP4HashFunction : <span class="keyword">public</span> PassManager {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *_func = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="keyword">class </span>BuildP4HashFunction : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    P4HashFunction *_func = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">auto</span> rv = PassManager::init_apply(node);</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        _func = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    }</div>
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keyword">class </span>InsideHashGenExpr : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keyword">class </span>InsideHashGenExpr : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        BuildP4HashFunction &amp;self;</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;const IR::Expression *&gt;</a> fields;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <a class="code hl_class" href="class_p4_1_1_l_t_bit_matrix.html">LTBitMatrix</a> sym_fields;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        safe_vector&lt;const IR::Expression *&gt; fields;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        LTBitMatrix sym_fields;</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keyword">enum class</span> State {</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            OUTSIDE,</div>
@@ -384,7 +377,7 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            IXBAR_EXPR,</div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        } state = State::OUTSIDE;</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            <span class="keyword">auto</span> rv = MauInspector::init_apply(node);</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            fields.clear();</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            sym_fields.clear();</div>
@@ -409,7 +402,7 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keyword">explicit</span> InsideHashGenExpr(BuildP4HashFunction &amp;s) : self(s) {}</div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    };</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="keyword">class </span>OutsideHashGenExpr : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="keyword">class </span>OutsideHashGenExpr : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        BuildP4HashFunction &amp;self;</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::HashGenExpression *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::Slice *) <span class="keyword">override</span>;</div>
@@ -421,41 +414,18 @@ $(function(){initNavTree('ixbar__expr_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordtype">void</span> end_apply() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keyword">explicit</span> BuildP4HashFunction(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;p) : phv(p) {</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keyword">explicit</span> BuildP4HashFunction(<span class="keyword">const</span> PhvInfo &amp;p) : phv(p) {</div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        addPasses({<span class="keyword">new</span> InsideHashGenExpr(*<span class="keyword">this</span>), <span class="keyword">new</span> OutsideHashGenExpr(*<span class="keyword">this</span>)});</div>
 <div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    }</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <a class="code hl_struct" href="struct_p4_hash_function.html">P4HashFunction</a> *func() { <span class="keywordflow">return</span> _func; }</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    P4HashFunction *func() { <span class="keywordflow">return</span> _func; }</div>
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>};</div>
-</div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
-<div class="foldopen" id="foldopen00331" data-start="{" data-end="};">
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="class_adjust_i_x_bar_expression.html">  331</a></span><span class="keyword">class </span><a class="code hl_class" href="class_adjust_i_x_bar_expression.html">AdjustIXBarExpression</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_modifier.html">MauModifier</a> {</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="keyword">class </span>AdjustIXBarExpression : <span class="keyword">public</span> MauModifier {</div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keywordtype">bool</span> preorder(IR::MAU::IXBarExpression *e) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>};</div>
-</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_IXBAR_EXPR_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_adjust_i_x_bar_expression_html"><div class="ttname"><a href="class_adjust_i_x_bar_expression.html">AdjustIXBarExpression</a></div><div class="ttdef"><b>Definition</b> ixbar_expr.h:331</div></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_mau_modifier_html"><div class="ttname"><a href="class_mau_modifier.html">MauModifier</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:45</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_has_db_print_html"><div class="ttname"><a href="class_p4_1_1_i_has_db_print.html">P4::IHasDbPrint</a></div><div class="ttdef"><b>Definition</b> stringify.h:33</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_l_t_bit_matrix_html"><div class="ttname"><a href="class_p4_1_1_l_t_bit_matrix.html">P4::LTBitMatrix</a></div><div class="ttdef"><b>Definition</b> ltbitmatrix.h:25</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1bitvec_html"><div class="ttname"><a href="class_p4_1_1bitvec.html">P4::bitvec</a></div><div class="ttdef"><b>Definition</b> bitvec.h:120</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="astruct_p4_1_1_i_r_1_1_m_a_u_1_1_hash_function_html"><div class="ttname"><a href="struct_p4_1_1_i_r_1_1_m_a_u_1_1_hash_function.html">P4::IR::MAU::HashFunction</a></div><div class="ttdef"><b>Definition</b> hash_function.h:28</div></div>
-<div class="ttc" id="astruct_p4_1_1_r_t_t_i_1_1_base_html_a15a2e4484076dcafa2964ede26024a61"><div class="ttname"><a href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">P4::RTTI::Base::to</a></div><div class="ttdeci">T * to() noexcept</div><div class="ttdef"><b>Definition</b> rtti.h:226</div></div>
-<div class="ttc" id="astruct_p4_hash_function_html"><div class="ttname"><a href="struct_p4_hash_function.html">P4HashFunction</a></div><div class="ttdef"><b>Definition</b> ixbar_expr.h:208</div></div>
-<div class="ttc" id="astruct_p4_hash_function_html_a4e4e2be6c290f715aa8d11e718f9dc73"><div class="ttname"><a href="struct_p4_hash_function.html#a4e4e2be6c290f715aa8d11e718f9dc73">P4HashFunction::overlap</a></div><div class="ttdeci">bool overlap(const P4HashFunction *, le_bitrange *my_overlap, le_bitrange *hash_overlap) const</div><div class="ttdef"><b>Definition</b> ixbar_expr.cpp:71</div></div>
-<div class="ttc" id="astruct_p4_hash_function_html_a7f5088156638de556b07b50513c72719"><div class="ttname"><a href="struct_p4_hash_function.html#a7f5088156638de556b07b50513c72719">P4HashFunction::equiv_inputs_alg</a></div><div class="ttdeci">bool equiv_inputs_alg(const P4HashFunction *func) const</div><div class="ttdef"><b>Definition</b> ixbar_expr.cpp:42</div></div>
-<div class="ttc" id="astruct_p4_hash_function_html_ad6af3b61365b6104d462b7c08cadf4ea"><div class="ttname"><a href="struct_p4_hash_function.html#ad6af3b61365b6104d462b7c08cadf4ea">P4HashFunction::slice</a></div><div class="ttdeci">void slice(le_bitrange hash_slice)</div><div class="ttdef"><b>Definition</b> ixbar_expr.cpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

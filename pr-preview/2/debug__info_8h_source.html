@@ -138,30 +138,21 @@ $(function(){initNavTree('debug__info_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;lib/cstring.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_debug_info.html">   33</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_b_f_n_1_1_debug_info.html">DebugInfo</a> {</div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_debug_info.html#a5013e3451eec5da73eda374e32c688c6">   35</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_b_f_n_1_1_debug_info.html#a5013e3451eec5da73eda374e32c688c6">mergeWith</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_debug_info.html">DebugInfo</a> &amp;other) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">struct </span>DebugInfo {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> mergeWith(<span class="keyword">const</span> DebugInfo &amp;other) {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        info.insert(info.end(), other.info.begin(), other.info.end());</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
-</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;cstring&gt; <a class="code hl_function" href="namespace_p4.html#ac88f69b11f3155bdc0cabc0b2d684eb9">info</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;cstring&gt; info;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
-</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_COMMON_DEBUG_INFO_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="anamespace_p4_html_ac88f69b11f3155bdc0cabc0b2d684eb9"><div class="ttname"><a href="namespace_p4.html#ac88f69b11f3155bdc0cabc0b2d684eb9">P4::info</a></div><div class="ttdeci">void info(const int kind, const char *format, const T *node, Args &amp;&amp;...args)</div><div class="ttdoc">Report info messages of type kind. Requires that the node argument have source info.</div><div class="ttdef"><b>Definition</b> lib/error.h:167</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_debug_info_html"><div class="ttname"><a href="struct_b_f_n_1_1_debug_info.html">BFN::DebugInfo</a></div><div class="ttdef"><b>Definition</b> debug_info.h:33</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_debug_info_html_a5013e3451eec5da73eda374e32c688c6"><div class="ttname"><a href="struct_b_f_n_1_1_debug_info.html#a5013e3451eec5da73eda374e32c688c6">BFN::DebugInfo::mergeWith</a></div><div class="ttdeci">void mergeWith(const DebugInfo &amp;other)</div><div class="ttdoc">Merge the contents of another DebugInfo object into this one.</div><div class="ttdef"><b>Definition</b> debug_info.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -138,12 +138,11 @@ $(function(){initNavTree('pointer__wrapper_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * const and is a (non-const) T * if it is not const.  It is incidentally non-copyable or movable,</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * as that would result in losing the const-ness. */</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classpointer__wrap.html">   26</a></span><span class="keyword">class </span>pointer_wrap {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>pointer_wrap {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    T *ptr;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    pointer_wrap() : ptr(<span class="keyword">nullptr</span>) {}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    pointer_wrap() : ptr(nullptr) {}</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    pointer_wrap(pointer_wrap &amp;a) : ptr(a.ptr) {}  <span class="comment">// NOLINT(runtime/explicit)</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    pointer_wrap(T *p) : ptr(p) {}                 <span class="comment">// NOLINT(runtime/explicit)</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    pointer_wrap(<span class="keyword">const</span> pointer_wrap &amp;) = <span class="keyword">delete</span>;</div>
@@ -157,7 +156,6 @@ $(function(){initNavTree('pointer__wrapper_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">operator</span> T *() { <span class="keywordflow">return</span> ptr; }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">operator</span> <span class="keyword">const</span> T *() <span class="keyword">const</span> { <span class="keywordflow">return</span> ptr; }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
-</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_LIB_POINTER_WRAPPER_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->

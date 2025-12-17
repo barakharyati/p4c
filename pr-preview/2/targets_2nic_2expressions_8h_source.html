@@ -137,21 +137,18 @@ $(function(){initNavTree('targets_2nic_2expressions_8h_source.html',''); initRes
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>P4::P4Tools::P4Smith {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_tools_1_1_p4_smith_1_1_nic_expression_generator.html">    9</a></span><span class="keyword">class </span>NicExpressionGenerator : <span class="keyword">public</span> ExpressionGenerator {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span>NicExpressionGenerator : <span class="keyword">public</span> ExpressionGenerator {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">explicit</span> NicExpressionGenerator(<a class="code hl_class" href="class_p4_1_1_p4_tools_1_1_p4_smith_1_1_smith_target.html">SmithTarget</a> &amp;parent) : ExpressionGenerator(parent) {}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">explicit</span> NicExpressionGenerator(SmithTarget &amp;parent) : ExpressionGenerator(parent) {}</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    [[nodiscard]] std::vector&lt;int&gt; availableBitWidths()<span class="keyword"> const override </span>{</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> {4, 8, 16, 32, 64};</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
-</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}  <span class="comment">// namespace P4::P4Tools::P4Smith</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_P4TOOLS_MODULES_SMITH_TARGETS_NIC_EXPRESSIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_p4_tools_1_1_p4_smith_1_1_smith_target_html"><div class="ttname"><a href="class_p4_1_1_p4_tools_1_1_p4_smith_1_1_smith_target.html">P4::P4Tools::P4Smith::SmithTarget</a></div><div class="ttdef"><b>Definition</b> p4tools/modules/smith/core/target.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

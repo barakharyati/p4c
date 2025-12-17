@@ -145,12 +145,11 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;lib/safe_vector.h&quot;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_tofino.html">Tofino</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span>Tofino {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// Despite the namespace name, this code is shared for Tofino and JBay (Tofino 1/2)</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_tofino_1_1_memories.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_tofino_1_1_memories.html">Memories</a> : <span class="keyword">public</span> <a class="code hl_struct" href="struct_tofino_1_1_memories.html">::Memories</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">struct </span>Memories : <span class="keyword">public</span> ::Memories {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">/* track memory allocations within a single stage */</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> SRAM_ROWS = 8;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> SRAM_COLUMNS = 10;</div>
@@ -193,15 +192,15 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">struct </span>search_bus_info {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        cstring name;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="comment">// word number in exact match format</span></div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordtype">int</span> width_section = 0;  <span class="comment">// Each search bus for a table has a particular width</span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordtype">int</span> hash_group = 0;     <span class="comment">// Each hash function requires a different hash function</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">bool</span> init = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        search_bus_info() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        search_bus_info(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n, <span class="keywordtype">int</span> ws, <span class="keywordtype">int</span> hg)</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            : name(n), width_section(ws), hash_group(hg), init(<span class="keyword">true</span>) {}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        search_bus_info(cstring n, <span class="keywordtype">int</span> ws, <span class="keywordtype">int</span> hg)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            : name(n), width_section(ws), hash_group(hg), init(true) {}</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> search_bus_info &amp;sbi) {</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> name == sbi.name &amp;&amp; width_section == sbi.width_section &amp;&amp;</div>
@@ -215,15 +214,15 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> search_bus_info &amp;);</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">struct </span>result_bus_info {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        cstring name;</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordtype">int</span> width_section = 0;  <span class="comment">// Each width section may require a different width section</span></div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordtype">int</span> logical_table = 0;  <span class="comment">// For ATCAM tables, each logical table requires a separate</span></div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                                <span class="comment">// result bus</span></div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">bool</span> init = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        result_bus_info() {}</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        result_bus_info(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n, <span class="keywordtype">int</span> ws, <span class="keywordtype">int</span> lt)</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            : name(n), width_section(ws), logical_table(lt), init(<span class="keyword">true</span>) {}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        result_bus_info(cstring n, <span class="keywordtype">int</span> ws, <span class="keywordtype">int</span> lt)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            : name(n), width_section(ws), logical_table(lt), init(true) {}</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> result_bus_info &amp;mbi) {</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">return</span> name == mbi.name &amp;&amp; width_section == mbi.width_section &amp;&amp;</div>
@@ -235,32 +234,32 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    };</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> result_bus_info &amp;);</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, SRAM_COLUMNS&gt;</a> sram_use;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, SRAM_COLUMNS&gt; sram_use;</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">unsigned</span> sram_inuse[SRAM_ROWS] = {0};</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, STASH_UNITS&gt;</a> stash_use;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, TCAM_ROWS, TCAM_COLUMNS&gt;</a> tcam_use;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, GATEWAYS_PER_ROW&gt;</a> gateway_use;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, STASH_UNITS&gt; stash_use;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    BFN::Alloc2D&lt;cstring, TCAM_ROWS, TCAM_COLUMNS&gt; tcam_use;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, GATEWAYS_PER_ROW&gt; gateway_use;</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">// FIXME (Refactoring): Remove sram_print_result_bus / sram_print_search_bus</span></div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="comment">// and move the info inside and move into main result_bus_info /</span></div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">// search_bus_info class</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;search_bus_info, SRAM_ROWS, BUS_COUNT&gt;</a> sram_search_bus;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, BUS_COUNT&gt;</a> sram_print_search_bus;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;result_bus_info, SRAM_ROWS, BUS_COUNT&gt;</a> sram_result_bus;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, BUS_COUNT&gt;</a> sram_print_result_bus;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    BFN::Alloc2D&lt;search_bus_info, SRAM_ROWS, BUS_COUNT&gt; sram_search_bus;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, BUS_COUNT&gt; sram_print_search_bus;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    BFN::Alloc2D&lt;result_bus_info, SRAM_ROWS, BUS_COUNT&gt; sram_result_bus;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, BUS_COUNT&gt; sram_print_result_bus;</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="comment">// int tcam_group_use[TCAM_ROWS][TCAM_COLUMNS] = {{-1}};</span></div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">int</span> tcam_midbyte_use[TCAM_ROWS / 2][TCAM_COLUMNS] = {{-1}};</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, 2&gt;</a> tind_bus;</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, PAYLOAD_COUNT&gt;</a> payload_use;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, 2&gt;</a> action_data_bus;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, 2&gt;</a> overflow_bus;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc1_d.html">BFN::Alloc1D&lt;cstring, SRAM_ROWS&gt;</a> twoport_bus;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc1_d.html">BFN::Alloc1D&lt;std::pair&lt;cstring, int&gt;</a>, SRAM_ROWS - 1&gt; vert_overflow_bus;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, SRAM_ROWS, MAPRAM_COLUMNS&gt;</a> mapram_use;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, 2&gt; tind_bus;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, PAYLOAD_COUNT&gt; payload_use;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, 2&gt; action_data_bus;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, 2&gt; overflow_bus;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    BFN::Alloc1D&lt;cstring, SRAM_ROWS&gt; twoport_bus;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    BFN::Alloc1D&lt;std::pair&lt;cstring, int&gt;, SRAM_ROWS - 1&gt; vert_overflow_bus;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    BFN::Alloc2D&lt;cstring, SRAM_ROWS, MAPRAM_COLUMNS&gt; mapram_use;</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">unsigned</span> mapram_inuse[SRAM_ROWS] = {0};</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D&lt;cstring, 2, NUM_IDLETIME_BUS&gt;</a> idletime_bus;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    BFN::Alloc2D&lt;cstring, 2, NUM_IDLETIME_BUS&gt; idletime_bus;</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordtype">bool</span> gw_bytes_reserved[SRAM_ROWS][BUS_COUNT] = {{<span class="keyword">false</span>}};</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc1_d.html">BFN::Alloc1D&lt;cstring, STATS_ALUS&gt;</a> stats_alus;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_class" href="class_b_f_n_1_1_alloc1_d.html">BFN::Alloc1D&lt;cstring, METER_ALUS&gt;</a> meter_alus;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    BFN::Alloc1D&lt;cstring, STATS_ALUS&gt; stats_alus;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    BFN::Alloc1D&lt;cstring, METER_ALUS&gt; meter_alus;</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keyword">struct </span>mem_info {</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordtype">int</span> logical_tables = 0;</div>
@@ -299,7 +298,7 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        }</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordtype">int</span> non_SRAM_RAMs()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> left_side_RAMs() + right_side_RAMs() + action_RAMs; }</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordtype">int</span> columns(<span class="keywordtype">int</span> RAMs)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (RAMs + SRAM_COLUMNS - 1) / SRAM_COLUMNS; }</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">bool</span> constraint_check(<span class="keywordtype">int</span> lt_allowed, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> &amp;failure_reason) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">bool</span> constraint_check(<span class="keywordtype">int</span> lt_allowed, cstring &amp;failure_reason) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    };</div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keyword">friend</span> <span class="keyword">class </span>SetupAttachedTables;</div>
@@ -309,17 +308,17 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keyword">struct </span>table_alloc {</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">const</span> IR::MAU::Table *table;</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        const ::IXBar::Use *match_ixbar;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keyword">const</span> <a class="code hl_struct" href="struct_table_format_1_1_use.html">TableFormat::Use</a> *table_format;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keyword">const</span> <a class="code hl_struct" href="struct_instruction_memory_1_1_use.html">InstructionMemory::Use</a> *instr_mem;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keyword">const</span> <a class="code hl_struct" href="struct_action_data_1_1_format_1_1_use.html">ActionData::Format::Use</a> *action_format;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keyword">const</span> TableFormat::Use *table_format;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keyword">const</span> InstructionMemory::Use *instr_mem;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keyword">const</span> ActionData::Format::Use *action_format;</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        std::map&lt;UniqueId, Memories::Use&gt; *memuse;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_layout_option.html">LayoutOption</a> *layout_option;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <a class="code hl_class" href="class_action_data_1_1_format_type__t.html">ActionData::FormatType_t</a> format_type;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keyword">const</span> LayoutOption *layout_option;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        ActionData::FormatType_t format_type;</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordtype">int</span> provided_entries;</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        attached_entries_t attached_entries;</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="comment">// Entries per match table allocation_unit (logical table) of the table.  This is</span></div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="comment">// used to determine the attached table requirements if direct</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;int&gt;</a> calc_entries_per_uid;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        safe_vector&lt;int&gt; calc_entries_per_uid;</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordtype">int</span> total_entries()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">return</span> std::accumulate(calc_entries_per_uid.begin(), calc_entries_per_uid.end(), 0);</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
@@ -330,10 +329,10 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="comment">// FIXME -- hack to avoid problems in payload calculation when the only reason we</span></div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="comment">// have a payload is to set the match address</span></div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordtype">bool</span> payload_match_addr_only = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        table_alloc(<span class="keyword">const</span> IR::MAU::Table *t, const ::IXBar::Use *mi, <span class="keyword">const</span> <a class="code hl_struct" href="struct_table_format_1_1_use.html">TableFormat::Use</a> *tf,</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                    <span class="keyword">const</span> <a class="code hl_struct" href="struct_instruction_memory_1_1_use.html">InstructionMemory::Use</a> *im, <span class="keyword">const</span> <a class="code hl_struct" href="struct_action_data_1_1_format_1_1_use.html">ActionData::Format::Use</a> *af,</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                    std::map&lt;UniqueId, Memories::Use&gt; *mu, <span class="keyword">const</span> <a class="code hl_class" href="class_layout_option.html">LayoutOption</a> *lo,</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                    <a class="code hl_class" href="class_action_data_1_1_format_type__t.html">ActionData::FormatType_t</a> ft, <span class="keyword">const</span> <span class="keywordtype">int</span> e, <span class="keyword">const</span> <span class="keywordtype">int</span> st,</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        table_alloc(<span class="keyword">const</span> IR::MAU::Table *t, const ::IXBar::Use *mi, <span class="keyword">const</span> TableFormat::Use *tf,</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                    <span class="keyword">const</span> InstructionMemory::Use *im, <span class="keyword">const</span> ActionData::Format::Use *af,</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                    std::map&lt;UniqueId, Memories::Use&gt; *mu, <span class="keyword">const</span> LayoutOption *lo,</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                    ActionData::FormatType_t ft, <span class="keyword">const</span> <span class="keywordtype">int</span> e, <span class="keyword">const</span> <span class="keywordtype">int</span> st,</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                    attached_entries_t attached_entries)</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            : table(t),</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>              match_ixbar(mi),</div>
@@ -347,23 +346,23 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>              attached_entries(attached_entries),</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>              attached_gw_bytes(0),</div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>              stage_table(st),</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>              table_link(<span class="keyword">nullptr</span>) {}</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>              table_link(nullptr) {}</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordtype">void</span> link_table(table_alloc *ta) { table_link = ta; }</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <span class="keywordtype">int</span> analysis_priority() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <a class="code hl_class" href="class_p4_1_1_unique_id.html">UniqueId</a> build_unique_id(</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        UniqueId build_unique_id(</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            <span class="keyword">const</span> IR::MAU::AttachedMemory *at = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> is_gw = <span class="keyword">false</span>, <span class="keywordtype">int</span> logical_table = -1,</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            UniqueAttachedId::pre_placed_type_t ppt = UniqueAttachedId::NO_PP) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;UniqueId&gt;</a> allocation_units(</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        safe_vector&lt;UniqueId&gt; allocation_units(</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keyword">const</span> IR::MAU::AttachedMemory *at = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> is_gw = <span class="keyword">false</span>,</div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            UniqueAttachedId::pre_placed_type_t ppt = UniqueAttachedId::NO_PP) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;UniqueId&gt;</a> unattached_units(</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        safe_vector&lt;UniqueId&gt; unattached_units(</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keyword">const</span> IR::MAU::AttachedMemory *at = <span class="keyword">nullptr</span>,</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            UniqueAttachedId::pre_placed_type_t ppt = UniqueAttachedId::NO_PP) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;UniqueId&gt;</a> accounted_units(</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        safe_vector&lt;UniqueId&gt; accounted_units(</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            <span class="keyword">const</span> IR::MAU::AttachedMemory *at = <span class="keyword">nullptr</span>,</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            UniqueAttachedId::pre_placed_type_t ppt = UniqueAttachedId::NO_PP) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    };</div>
@@ -371,7 +370,7 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> Memories::table_alloc &amp;ta);</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keyword">struct </span>SRAM_group : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_i_has_db_print.html">IHasDbPrint</a> {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keyword">struct </span>SRAM_group : <span class="keyword">public</span> IHasDbPrint {</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        table_alloc *ta;  <span class="comment">// Link to the table alloc to be generated</span></div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordtype">int</span> depth = 0;    <span class="comment">// Individual number of RAMs required for a group</span></div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keywordtype">int</span> width = 0;    <span class="comment">// How wide an individual group is, only needed for exact match</span></div>
@@ -400,8 +399,7 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        } type;</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="comment">// Color Mapram Requirements, necessary for METER groups</span></div>
-<div class="foldopen" id="foldopen00317" data-start="{" data-end="};">
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1color__mapram__group.html">  317</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1color__mapram__group.html">color_mapram_group</a> {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        <span class="keyword">struct </span>color_mapram_group {</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            <span class="keywordtype">int</span> needed = 0;</div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            <span class="keywordtype">int</span> placed = 0;</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            <span class="comment">// Necessary for stats addressed color maprams</span></div>
@@ -418,14 +416,12 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>            <span class="keywordtype">bool</span> require_stats()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cma == IR::MAU::ColorMapramAddress::STATS; }</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        };</div>
-</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="comment">// Linkage between selectors and the corresponding action table in order to prevent</span></div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="comment">// a collision on the selector overflow</span></div>
-<div class="foldopen" id="foldopen00337" data-start="{" data-end="};">
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1selector__info.html">  337</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1selector__info.html">selector_info</a> {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keyword">struct </span>selector_info {</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            SRAM_group *sel_group = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;SRAM_group *&gt;</a> action_groups;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            ordered_set&lt;SRAM_group *&gt; action_groups;</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>            <span class="keywordtype">bool</span> sel_linked() { <span class="keywordflow">return</span> sel_group != <span class="keyword">nullptr</span>; }</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            <span class="keywordtype">bool</span> act_linked() { <span class="keywordflow">return</span> !action_groups.empty(); }</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <span class="keywordtype">bool</span> sel_all_placed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sel_group-&gt;all_placed(); }</div>
@@ -471,9 +467,8 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>                <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>            }</div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        };</div>
-</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        <a class="code hl_struct" href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1selector__info.html">selector_info</a> sel;</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <a class="code hl_struct" href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1color__mapram__group.html">color_mapram_group</a> cm;</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        selector_info sel;</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        color_mapram_group cm;</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordtype">bool</span> requires_ab = <span class="keyword">false</span>;  <span class="comment">// LPF and WRED meters require synth and action bus</span></div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        SRAM_group(table_alloc *t, <span class="keywordtype">int</span> d, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> n, type_t ty)</div>
@@ -823,27 +818,10 @@ $(function(){initNavTree('tofino_2memories_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        <span class="keywordflow">return</span> sram_info;</div>
 <div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>    }</div>
 <div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>};</div>
-</div>
 <div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span> </div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>}  <span class="comment">// namespace Tofino</span></div>
 <div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
 <div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_TOFINO_MEMORIES_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_action_data_1_1_format_type__t_html"><div class="ttname"><a href="class_action_data_1_1_format_type__t.html">ActionData::FormatType_t</a></div><div class="ttdef"><b>Definition</b> attached_info.h:32</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_alloc1_d_html"><div class="ttname"><a href="class_b_f_n_1_1_alloc1_d.html">BFN::Alloc1D</a></div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:48</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_alloc2_d_html"><div class="ttname"><a href="class_b_f_n_1_1_alloc2_d.html">BFN::Alloc2D</a></div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:135</div></div>
-<div class="ttc" id="aclass_layout_option_html"><div class="ttname"><a href="class_layout_option.html">LayoutOption</a></div><div class="ttdef"><b>Definition</b> table_layout.h:34</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_has_db_print_html"><div class="ttname"><a href="class_p4_1_1_i_has_db_print.html">P4::IHasDbPrint</a></div><div class="ttdef"><b>Definition</b> stringify.h:33</div></div>
-<div class="ttc" id="aclass_p4_1_1_unique_id_html"><div class="ttname"><a href="class_p4_1_1_unique_id.html">P4::UniqueId</a></div><div class="ttdef"><b>Definition</b> unique_id.h:168</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="anamespace_tofino_html"><div class="ttname"><a href="namespace_tofino.html">Tofino</a></div><div class="ttdef"><b>Definition</b> tofino/action_data_bus.cpp:28</div></div>
-<div class="ttc" id="astruct_action_data_1_1_format_1_1_use_html"><div class="ttname"><a href="struct_action_data_1_1_format_1_1_use.html">ActionData::Format::Use</a></div><div class="ttdef"><b>Definition</b> action_format.h:979</div></div>
-<div class="ttc" id="astruct_instruction_memory_1_1_use_html"><div class="ttname"><a href="struct_instruction_memory_1_1_use.html">InstructionMemory::Use</a></div><div class="ttdef"><b>Definition</b> instruction_memory.h:111</div></div>
-<div class="ttc" id="astruct_table_format_1_1_use_html"><div class="ttname"><a href="struct_table_format_1_1_use.html">TableFormat::Use</a></div><div class="ttdef"><b>Definition</b> table_format.h:108</div></div>
-<div class="ttc" id="astruct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1color__mapram__group_html"><div class="ttname"><a href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1color__mapram__group.html">Tofino::Memories::SRAM_group::color_mapram_group</a></div><div class="ttdef"><b>Definition</b> tofino/memories.h:317</div></div>
-<div class="ttc" id="astruct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1selector__info_html"><div class="ttname"><a href="struct_tofino_1_1_memories_1_1_s_r_a_m__group_1_1selector__info.html">Tofino::Memories::SRAM_group::selector_info</a></div><div class="ttdef"><b>Definition</b> tofino/memories.h:337</div></div>
-<div class="ttc" id="astruct_tofino_1_1_memories_html"><div class="ttname"><a href="struct_tofino_1_1_memories.html">Tofino::Memories</a></div><div class="ttdef"><b>Definition</b> tofino/memories.h:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

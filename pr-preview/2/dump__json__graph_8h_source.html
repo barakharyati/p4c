@@ -137,30 +137,22 @@ $(function(){initNavTree('dump__json__graph_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/logging/pass_manager.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/mau/table_dependency_graph.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_dump_json_graph.html">   27</a></span><span class="keyword">class </span>DumpJsonGraph : <span class="keyword">public</span> PassManager {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="struct_flow_graph.html">FlowGraph</a> fg;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *dgJson;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> passContext;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span>DumpJsonGraph : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    FlowGraph fg;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    DependencyGraph &amp;dg;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    Util::JsonObject *dgJson;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    cstring passContext;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> placed;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *root) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    DumpJsonGraph(<a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;dg, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *dgJson, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> passContext, <span class="keywordtype">bool</span> placed);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    DumpJsonGraph(DependencyGraph &amp;dg, Util::JsonObject *dgJson, cstring passContext, <span class="keywordtype">bool</span> placed);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
-</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_DUMP_JSON_GRAPH_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_object_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_object.html">P4::Util::JsonObject</a></div><div class="ttdef"><b>Definition</b> lib/json.h:177</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="astruct_dependency_graph_html"><div class="ttname"><a href="struct_dependency_graph.html">DependencyGraph</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:52</div></div>
-<div class="ttc" id="astruct_flow_graph_html"><div class="ttname"><a href="struct_flow_graph.html">FlowGraph</a></div><div class="ttdef"><b>Definition</b> table_flow_graph.h:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

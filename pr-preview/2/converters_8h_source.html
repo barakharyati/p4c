@@ -158,128 +158,119 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;lib/safe_vector.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;programStructure.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4_1_1_p4_v1.html">P4::P4V1</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span>P4::P4V1 {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// Converts expressions from P4-14 to P4-16</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// However, the type in each expression is still a P4-14 type.</span></div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_expression_converter.html">   34</a></span><span class="keyword">class </span>ExpressionConverter : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>ExpressionConverter : <span class="keyword">public</span> Transform {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_p4_1_1_p4_core_library.html">P4::P4CoreLibrary</a> &amp;p4lib;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">using </span>funcType = std::function&lt;<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *)&gt;;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    ProgramStructure *structure;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    P4::P4CoreLibrary &amp;p4lib;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">using </span>funcType = std::function&lt;<span class="keyword">const</span> IR::Node *(<span class="keyword">const</span> IR::Node *)&gt;;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> std::map&lt;cstring, funcType&gt; *cvtForType;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> replaceNextWithLast;  <span class="comment">// if true p[next] becomes p.last</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">explicit</span> ExpressionConverter(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        : structure(structure), p4lib(P4::P4CoreLibrary::instance()), replaceNextWithLast(<span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">explicit</span> ExpressionConverter(ProgramStructure *structure)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        : structure(structure), p4lib(P4::P4CoreLibrary::instance()), replaceNextWithLast(false) {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        setName(<span class="stringliteral">&quot;ExpressionConverter&quot;</span>);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> IR::Type *getFieldType(<span class="keyword">const</span> IR::Type_StructLike *ht, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> fieldName);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Constant *expression) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Member *field) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::FieldList *fl) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Mask *expression) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::ActionArg *arg) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Primitive *primitive) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::PathExpression *ref) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::ConcreteHeaderRef *nhr) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::HeaderStackItemRef *ref) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::GlobalRef *gr) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Equ *equ) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Neq *neq) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> IR::Expression *convert(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> IR::Type *getFieldType(<span class="keyword">const</span> IR::Type_StructLike *ht, cstring fieldName);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Constant *expression) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Member *field) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> IR::Node *postorder(IR::FieldList *fl) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Mask *expression) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> IR::Node *postorder(IR::ActionArg *arg) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Primitive *primitive) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> IR::Node *postorder(IR::PathExpression *ref) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> IR::Node *postorder(IR::ConcreteHeaderRef *nhr) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> IR::Node *postorder(IR::HeaderStackItemRef *ref) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> IR::Node *postorder(IR::GlobalRef *gr) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Equ *equ) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Neq *neq) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> IR::Expression *convert(<span class="keyword">const</span> IR::Node *node) {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">auto</span> result = node-&gt;apply(*<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> result-&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">to</a>&lt;IR::Expression&gt;();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> result-&gt;to&lt;IR::Expression&gt;();</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addConverter(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> type, funcType);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> funcType get(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> type);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addConverter(cstring type, funcType);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> funcType get(cstring type);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
-</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_statement_converter.html">   68</a></span><span class="keyword">class </span>StatementConverter : <span class="keyword">public</span> ExpressionConverter {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">class </span>StatementConverter : <span class="keyword">public</span> ExpressionConverter {</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::map&lt;cstring, cstring&gt; *renameMap;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    StatementConverter(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure, std::map&lt;cstring, cstring&gt; *renameMap)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    StatementConverter(ProgramStructure *structure, std::map&lt;cstring, cstring&gt; *renameMap)</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        : ExpressionConverter(structure), renameMap(renameMap) {}</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::Apply *apply) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::Primitive *primitive) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::If *cond) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">const</span> IR::Statement *convert(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Expression&gt;</a> *toConvert);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">const</span> IR::Node *preorder(IR::Apply *apply) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> IR::Node *preorder(IR::Primitive *primitive) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> IR::Node *preorder(IR::If *cond) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">const</span> IR::Statement *convert(<span class="keyword">const</span> IR::Vector&lt;IR::Expression&gt; *toConvert);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> IR::Statement *convert(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> IR::Statement *convert(<span class="keyword">const</span> IR::Node *node) {</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">auto</span> conv = node-&gt;apply(*<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">auto</span> result = conv-&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">to</a>&lt;IR::Statement&gt;();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">auto</span> result = conv-&gt;to&lt;IR::Statement&gt;();</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        BUG_CHECK(result != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;Conversion of %1% did not produce a statement&quot;</span>, node);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
-</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="foldopen" id="foldopen00088" data-start="{" data-end="};">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_type_converter.html">   88</a></span><span class="keyword">class </span>TypeConverter : <span class="keyword">public</span> ExpressionConverter {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">class </span>TypeConverter : <span class="keyword">public</span> ExpressionConverter {</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">const</span> IR::Type_Varbits *postorder(IR::Type_Varbits *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">const</span> IR::Type_StructLike *postorder(IR::Type_StructLike *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">const</span> IR::StructField *postorder(IR::StructField *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">explicit</span> TypeConverter(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : ExpressionConverter(structure) {}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">explicit</span> TypeConverter(ProgramStructure *structure) : ExpressionConverter(structure) {}</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
-</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="foldopen" id="foldopen00097" data-start="{" data-end="};">
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_extern_converter.html">   97</a></span><span class="keyword">class </span>ExternConverter {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">class </span>ExternConverter {</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">static</span> std::map&lt;cstring, ExternConverter *&gt; *cvtForType;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Type_Extern *convertExternType(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *, <span class="keyword">const</span> IR::Type_Extern *,</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                                                     <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Type_Extern *convertExternType(ProgramStructure *, <span class="keyword">const</span> IR::Type_Extern *,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                                                     cstring);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Declaration_Instance *convertExternInstance(</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *, <span class="keyword">const</span> IR::Declaration_Instance *, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>,</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::Declaration&gt;</a> *);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Statement *convertExternCall(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        ProgramStructure *, <span class="keyword">const</span> IR::Declaration_Instance *, cstring,</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        IR::IndexedVector&lt;IR::Declaration&gt; *);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Statement *convertExternCall(ProgramStructure *,</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                                                   <span class="keyword">const</span> IR::Declaration_Instance *,</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                                                   <span class="keyword">const</span> IR::Primitive *);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> convertAsGlobal(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *, <span class="keyword">const</span> IR::Declaration_Instance *) {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> convertAsGlobal(ProgramStructure *, <span class="keyword">const</span> IR::Declaration_Instance *) {</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    ExternConverter() {}</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> ~ExternConverter() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_p4_1_1_p4_v1_1_1_extern_converter.html#a9f11cf0df406593b149a458c7a4e0d20">addConverter</a>(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> type, ExternConverter *);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">static</span> ExternConverter *get(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> type);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addConverter(cstring type, ExternConverter *);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">static</span> ExternConverter *get(cstring type);</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">static</span> ExternConverter *get(<span class="keyword">const</span> IR::Type_Extern *type) { <span class="keywordflow">return</span> get(type-&gt;name); }</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">static</span> ExternConverter *get(<span class="keyword">const</span> IR::Declaration_Instance *ext) {</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> get(ext-&gt;type-&gt;to&lt;IR::Type_Extern&gt;());</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Type_Extern *cvtExternType(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *s, <span class="keyword">const</span> IR::Type_Extern *e,</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                                                <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name) {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Type_Extern *cvtExternType(ProgramStructure *s, <span class="keyword">const</span> IR::Type_Extern *e,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                                                cstring name) {</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">return</span> get(e)-&gt;convertExternType(s, e, name);</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Declaration_Instance *cvtExternInstance(</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *s, <span class="keyword">const</span> IR::Declaration_Instance *di, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name,</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::Declaration&gt;</a> *scope) {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        ProgramStructure *s, <span class="keyword">const</span> IR::Declaration_Instance *di, cstring name,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        IR::IndexedVector&lt;IR::Declaration&gt; *scope) {</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> get(di)-&gt;convertExternInstance(s, di, name, scope);</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Statement *cvtExternCall(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *s,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Statement *cvtExternCall(ProgramStructure *s,</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                                              <span class="keyword">const</span> IR::Declaration_Instance *di,</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                                              <span class="keyword">const</span> IR::Primitive *p) {</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">return</span> get(di)-&gt;convertExternCall(s, di, p);</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> cvtAsGlobal(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *s, <span class="keyword">const</span> IR::Declaration_Instance *di) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> cvtAsGlobal(ProgramStructure *s, <span class="keyword">const</span> IR::Declaration_Instance *di) {</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">return</span> get(di)-&gt;convertAsGlobal(s, di);</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>};</div>
-</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="foldopen" id="foldopen00142" data-start="{" data-end="};">
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_primitive_converter.html">  142</a></span><span class="keyword">class </span>PrimitiveConverter {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">class </span>PrimitiveConverter {</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">static</span> std::map&lt;cstring, std::vector&lt;PrimitiveConverter *&gt;&gt; *all_converters;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> prim_name;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    cstring prim_name;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">int</span> priority;</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> <span class="keyword">protected</span>:</div>
@@ -287,13 +278,12 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">virtual</span> ~PrimitiveConverter();</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// helper functions</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;const IR::Expression *&gt;</a> convertArgs(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *, <span class="keyword">const</span> IR::Primitive *);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    safe_vector&lt;const IR::Expression *&gt; convertArgs(ProgramStructure *, <span class="keyword">const</span> IR::Primitive *);</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Statement *convert(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *, <span class="keyword">const</span> IR::Primitive *) = 0;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Statement *cvtPrimitive(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *, <span class="keyword">const</span> IR::Primitive *);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> IR::Statement *convert(ProgramStructure *, <span class="keyword">const</span> IR::Primitive *) = 0;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">static</span> <span class="keyword">const</span> IR::Statement *cvtPrimitive(ProgramStructure *, <span class="keyword">const</span> IR::Primitive *);</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>};</div>
-</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span></div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#define CONVERT_PRIMITIVE(NAME, ...)                                                      \</span></div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">    class PrimitiveConverter_##NAME##_##__VA_ARGS__ : public PrimitiveConverter {         \</span></div>
@@ -306,28 +296,27 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">        ProgramStructure *structure, const IR::Primitive *primitive)</span></div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="foldopen" id="foldopen00179" data-start="{" data-end="};">
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_discover_structure.html">  179</a></span><span class="keyword">class </span>DiscoverStructure : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">class </span>DiscoverStructure : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// These names can only be used for very specific purposes</span></div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    std::map&lt;cstring, cstring&gt; reserved_names = {{<span class="stringliteral">&quot;standard_metadata_t&quot;</span>_cs, <span class="stringliteral">&quot;type&quot;</span>_cs},</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                                                 {<span class="stringliteral">&quot;standard_metadata&quot;</span>_cs, <span class="stringliteral">&quot;metadata&quot;</span>_cs},</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                                                 {<span class="stringliteral">&quot;egress&quot;</span>_cs, <span class="stringliteral">&quot;control&quot;</span>_cs}};</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> checkReserved(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> nodeName, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> kind)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> checkReserved(<span class="keyword">const</span> IR::Node *node, cstring nodeName, cstring kind)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keyword">auto</span> it = reserved_names.find(nodeName);</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span> (it == reserved_names.end()) <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">if</span> (it-&gt;second != kind)</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_INVALID, <span class="stringliteral">&quot;%1%: invalid name; it can only be used for %2%&quot;</span>,</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            ::P4::error(ErrorType::ERR_INVALID, <span class="stringliteral">&quot;%1%: invalid name; it can only be used for %2%&quot;</span>,</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                        node, it-&gt;second);</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">void</span> checkReserved(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> nodeName)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">void</span> checkReserved(<span class="keyword">const</span> IR::Node *node, cstring nodeName)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        checkReserved(node, nodeName, <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keyword">explicit</span> DiscoverStructure(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keyword">explicit</span> DiscoverStructure(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        setName(<span class="stringliteral">&quot;DiscoverStructure&quot;</span>);</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
@@ -411,14 +400,12 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        checkReserved(pvs, pvs-&gt;name);</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>};</div>
-</div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="foldopen" id="foldopen00284" data-start="{" data-end="};">
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_compute_call_graph.html">  284</a></span><span class="keyword">class </span>ComputeCallGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="keyword">class </span>ComputeCallGraph : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keyword">explicit</span> ComputeCallGraph(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keyword">explicit</span> ComputeCallGraph(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        setName(<span class="stringliteral">&quot;ComputeCallGraph&quot;</span>);</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    }</div>
@@ -464,7 +451,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">auto</span> nr = ctrref-&gt;to&lt;IR::PathExpression&gt;())</div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                ctr = structure-&gt;counters.get(nr-&gt;path-&gt;name);</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>            <span class="keywordflow">if</span> (ctr == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Cannot find counter&quot;</span>, ctrref);</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                ::P4::error(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Cannot find counter&quot;</span>, ctrref);</div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>                <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            }</div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            <span class="keyword">auto</span> parent = findContext&lt;IR::ActionFunction&gt;();</div>
@@ -479,7 +466,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">auto</span> nr = mtrref-&gt;to&lt;IR::PathExpression&gt;())</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>                mtr = structure-&gt;meters.get(nr-&gt;path-&gt;name);</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>            <span class="keywordflow">if</span> (mtr == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Cannot find meter&quot;</span>, mtrref);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>                ::P4::error(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Cannot find meter&quot;</span>, mtrref);</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>                <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            }</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>            <span class="keyword">auto</span> parent = findContext&lt;IR::ActionFunction&gt;();</div>
@@ -498,7 +485,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">auto</span> nr = regref-&gt;to&lt;IR::PathExpression&gt;())</div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                reg = structure-&gt;registers.get(nr-&gt;path-&gt;name);</div>
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>            <span class="keywordflow">if</span> (reg == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Cannot find register&quot;</span>, regref);</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>                ::P4::error(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Cannot find register&quot;</span>, regref);</div>
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>                <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            }</div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            <span class="keyword">auto</span> parent = findContext&lt;IR::ActionFunction&gt;();</div>
@@ -516,7 +503,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        }</div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    }</div>
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::GlobalRef *gref)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> caller;</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        cstring caller;</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordflow">if</span> (<span class="keyword">auto</span> af = findContext&lt;IR::ActionFunction&gt;()) {</div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>            caller = af-&gt;name;</div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">auto</span> di = findContext&lt;IR::Declaration_Instance&gt;()) {</div>
@@ -534,14 +521,12 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            structure-&gt;calledExterns.calls(caller, ext-&gt;name.name);</div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    }</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>};</div>
-</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span></div>
-<div class="foldopen" id="foldopen00408" data-start="{" data-end="};">
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_compute_table_call_graph.html">  408</a></span><span class="keyword">class </span>ComputeTableCallGraph : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="keyword">class </span>ComputeTableCallGraph : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
 <div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keyword">explicit</span> ComputeTableCallGraph(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keyword">explicit</span> ComputeTableCallGraph(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>        setName(<span class="stringliteral">&quot;ComputeTableCallGraph&quot;</span>);</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    }</div>
@@ -550,12 +535,12 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>        LOG3(<span class="stringliteral">&quot;Scanning &quot;</span> &lt;&lt; apply-&gt;name);</div>
 <div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keyword">auto</span> tbl = structure-&gt;tables.get(apply-&gt;name.name);</div>
 <div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordflow">if</span> (tbl == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Could not find table&quot;</span>, apply-&gt;name);</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            ::P4::error(ErrorType::ERR_NOT_FOUND, <span class="stringliteral">&quot;%1%: Could not find table&quot;</span>, apply-&gt;name);</div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>        }</div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        <span class="keyword">auto</span> parent = findContext&lt;IR::V1Control&gt;();</div>
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>        <span class="keywordflow">if</span> (!parent) {</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_UNEXPECTED, <span class="stringliteral">&quot;%1%: Apply not within a control block?&quot;</span>, apply);</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            ::P4::error(ErrorType::ERR_UNEXPECTED, <span class="stringliteral">&quot;%1%: Apply not within a control block?&quot;</span>, apply);</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        }</div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
@@ -569,7 +554,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
 <div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        <span class="keywordflow">if</span> (ctrl != <span class="keyword">nullptr</span> &amp;&amp; ctrl != parent) {</div>
 <div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>            <span class="keyword">auto</span> previous = get(structure-&gt;tableInvocation, tbl);</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_INVALID,</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            ::P4::error(ErrorType::ERR_INVALID,</div>
 <div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                        <span class="stringliteral">&quot;%1%: Table invoked from two different controls: %2% and %3%&quot;</span>, tbl, apply,</div>
 <div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                        previous);</div>
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>        }</div>
@@ -578,19 +563,17 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>        structure-&gt;tableInvocation.emplace(tbl, apply);</div>
 <div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    }</div>
 <div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>};</div>
-</div>
 <div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span> </div>
-<div class="foldopen" id="foldopen00450" data-start="{" data-end="};">
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_rewriter.html">  450</a></span><span class="keyword">class </span>Rewriter : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span><span class="keyword">class </span>Rewriter : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> </div>
 <div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    <span class="keyword">explicit</span> Rewriter(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    <span class="keyword">explicit</span> Rewriter(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>        setName(<span class="stringliteral">&quot;Rewriter&quot;</span>);</div>
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    }</div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span> </div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::V1Program *global)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    <span class="keyword">const</span> IR::Node *preorder(IR::V1Program *global)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>        <span class="keywordflow">if</span> (LOGGING(4)) {</div>
 <div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>            LOG4(<span class="stringliteral">&quot;#### Initial P4_14 program&quot;</span>);</div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>            dump(global);</div>
@@ -604,11 +587,9 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>    }</div>
 <div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>};</div>
-</div>
 <div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span></div>
-<div class="foldopen" id="foldopen00509" data-start="{" data-end="};">
-<div class="line"><a id="l00509" name="l00509"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_fix_extracts.html">  509</a></span><span class="keyword">class </span>FixExtracts final : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span><span class="keyword">class </span>FixExtracts final : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span> </div>
 <div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>    <span class="keyword">struct </span>HeaderSplit {</div>
 <div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>        <span class="keyword">const</span> IR::Type_Header *fixedHeaderType;</div>
@@ -617,8 +598,8 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span></div>
 <div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    <span class="comment">// The following vector contains only IR::Type_Header, but it is easier</span></div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>    <span class="comment">// to append if the elements are Node.</span></div>
-<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Node&gt;</a> allTypeDecls;</div>
-<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::Declaration&gt;</a> varDecls;</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>    IR::Vector&lt;IR::Node&gt; allTypeDecls;</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>    IR::IndexedVector&lt;IR::Declaration&gt; varDecls;</div>
 <div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>    std::map&lt;cstring, HeaderSplit *&gt; fixedPart;</div>
 <div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span></div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>    HeaderSplit *splitHeaderType(<span class="keyword">const</span> IR::Type_Header *type) {</div>
@@ -629,18 +610,18 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>        <span class="keyword">const</span> IR::Expression *headerLength = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>        <span class="comment">// We allocate the following when we find the first varbit field.</span></div>
 <div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        <span class="keyword">const</span> IR::Type_Header *fixedHeaderType = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::StructField&gt;</a> fields;</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        IR::IndexedVector&lt;IR::StructField&gt; fields;</div>
 <div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span> </div>
 <div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> f : type-&gt;fields) {</div>
 <div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>            <span class="keywordflow">if</span> (f-&gt;type-&gt;is&lt;IR::Type_Varbits&gt;()) {</div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>                <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> hname = structure-&gt;makeUniqueName(type-&gt;name.name);</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>                cstring hname = structure-&gt;makeUniqueName(type-&gt;name.name);</div>
 <div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>                <span class="keywordflow">if</span> (fixedHeaderType != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>                    <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_INVALID,</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>                    ::P4::error(ErrorType::ERR_INVALID,</div>
 <div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>                                <span class="stringliteral">&quot;%1%: header types with multiple varbit fields are not supported&quot;</span>,</div>
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>                                type);</div>
 <div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>                    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>                }</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>                fixedHeaderType = <span class="keyword">new</span> IR::Type_Header(<a class="code hl_struct" href="struct_p4_1_1_i_r_1_1_i_d.html">IR::ID</a>(hname), fields);</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>                fixedHeaderType = <span class="keyword">new</span> IR::Type_Header(IR::ID(hname), fields);</div>
 <div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>                <span class="comment">// extract length from annotation</span></div>
 <div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>                <span class="keyword">auto</span> anno = f-&gt;getAnnotation(IR::Annotation::lengthAnnotation);</div>
 <div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>                BUG_CHECK(anno != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;No length annotation on varbit field&quot;</span>, f);</div>
@@ -666,7 +647,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>    }</div>
 <div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span></div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    <span class="keyword">class </span>RewriteLength final : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    <span class="keyword">class </span>RewriteLength final : <span class="keyword">public</span> Transform {</div>
 <div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>        <span class="keyword">const</span> IR::Type_Header *header;</div>
 <div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>        <span class="keyword">const</span> IR::Declaration *var;</div>
 <div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span> </div>
@@ -676,7 +657,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>            setName(<span class="stringliteral">&quot;RewriteLength&quot;</span>);</div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>        }</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span> </div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::PathExpression *expression)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>        <span class="keyword">const</span> IR::Node *postorder(IR::PathExpression *expression)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>            <span class="keywordflow">if</span> (expression-&gt;path-&gt;absolute) <span class="keywordflow">return</span> expression;</div>
 <div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> f : header-&gt;fields) {</div>
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>                <span class="keywordflow">if</span> (f-&gt;name == expression-&gt;path-&gt;name)</div>
@@ -688,12 +669,12 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    };</div>
 <div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span> </div>
 <div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    <span class="keyword">explicit</span> FixExtracts(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    <span class="keyword">explicit</span> FixExtracts(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>        setName(<span class="stringliteral">&quot;FixExtracts&quot;</span>);</div>
 <div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    }</div>
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span> </div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::P4Program *program)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    <span class="keyword">const</span> IR::Node *postorder(IR::P4Program *program)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>        <span class="comment">// P4-14 headers cannot refer to other types, so it is safe</span></div>
 <div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        <span class="comment">// to prepend them to the list of declarations.</span></div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>        allTypeDecls.append(program-&gt;objects);</div>
@@ -701,7 +682,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        <span class="keywordflow">return</span> program;</div>
 <div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>    }</div>
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span> </div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::P4Parser *parser)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>    <span class="keyword">const</span> IR::Node *postorder(IR::P4Parser *parser)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>        <span class="keywordflow">if</span> (!varDecls.empty()) {</div>
 <div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>            parser-&gt;parserLocals.append(varDecls);</div>
 <div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>            varDecls.clear();</div>
@@ -709,7 +690,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>        <span class="keywordflow">return</span> parser;</div>
 <div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    }</div>
 <div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span> </div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::MethodCallStatement *statement)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keyword">const</span> IR::Node *postorder(IR::MethodCallStatement *statement)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>        <span class="keyword">auto</span> mce = getOriginal&lt;IR::MethodCallStatement&gt;()-&gt;methodCall;</div>
 <div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>        LOG3(<span class="stringliteral">&quot;Looking up in extracts &quot;</span> &lt;&lt; dbp(mce));</div>
 <div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>        <span class="keyword">auto</span> ht = ::P4::get(structure-&gt;extractsSynthesized, mce);</div>
@@ -726,21 +707,21 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>        CHECK_NULL(fixed-&gt;headerLength);</div>
 <div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>        CHECK_NULL(fixed-&gt;fixedHeaderType);</div>
 <div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span> </div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        <span class="keyword">auto</span> result = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::StatOrDecl&gt;</a>();</div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> varName = structure-&gt;makeUniqueName(<span class="stringliteral">&quot;tmp_hdr&quot;</span>_cs);</div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        <span class="keyword">auto</span> result = <span class="keyword">new</span> IR::IndexedVector&lt;IR::StatOrDecl&gt;();</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>        cstring varName = structure-&gt;makeUniqueName(<span class="stringliteral">&quot;tmp_hdr&quot;</span>_cs);</div>
 <div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>        <span class="keyword">auto</span> var =</div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            <span class="keyword">new</span> IR::Declaration_Variable(<a class="code hl_struct" href="struct_p4_1_1_i_r_1_1_i_d.html">IR::ID</a>(varName), fixed-&gt;fixedHeaderType-&gt;to&lt;IR::Type&gt;());</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            <span class="keyword">new</span> IR::Declaration_Variable(IR::ID(varName), fixed-&gt;fixedHeaderType-&gt;to&lt;IR::Type&gt;());</div>
 <div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        varDecls.push_back(var);</div>
 <div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span> </div>
 <div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        <span class="comment">// Create lookahead</span></div>
 <div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>        <span class="keyword">auto</span> member = mce-&gt;method-&gt;to&lt;IR::Member&gt;();  <span class="comment">// should be packet_in.extract</span></div>
 <div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>        CHECK_NULL(member);</div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>        <span class="keyword">auto</span> typeArgs = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Type&gt;</a>();</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>        <span class="keyword">auto</span> typeArgs = <span class="keyword">new</span> IR::Vector&lt;IR::Type&gt;();</div>
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>        typeArgs-&gt;push_back(fixed-&gt;fixedHeaderType-&gt;getP4Type());</div>
 <div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        <span class="keyword">auto</span> lookaheadMethod =</div>
 <div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>            <span class="keyword">new</span> IR::Member(member-&gt;expr, P4::P4CoreLibrary::instance().packetIn.lookahead.name);</div>
 <div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>        <span class="keyword">auto</span> lookahead = <span class="keyword">new</span> IR::MethodCallExpression(mce-&gt;srcInfo, lookaheadMethod, typeArgs,</div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>                                                      <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Argument&gt;</a>());</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>                                                      <span class="keyword">new</span> IR::Vector&lt;IR::Argument&gt;());</div>
 <div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>        <span class="keyword">auto</span> assign =</div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>            <span class="keyword">new</span> IR::AssignmentStatement(mce-&gt;srcInfo, <span class="keyword">new</span> IR::PathExpression(varName), lookahead);</div>
 <div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        result-&gt;push_back(assign);</div>
@@ -750,17 +731,16 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>        RewriteLength rewrite(fixed-&gt;fixedHeaderType, var);</div>
 <div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        rewrite.setCalledBy(<span class="keyword">this</span>);</div>
 <div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>        <span class="keyword">auto</span> length = fixed-&gt;headerLength-&gt;apply(rewrite);</div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        <span class="keyword">auto</span> args = <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Argument&gt;</a>();</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        <span class="keyword">auto</span> args = <span class="keyword">new</span> IR::Vector&lt;IR::Argument&gt;();</div>
 <div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>        args-&gt;push_back(arg-&gt;clone());</div>
 <div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>        <span class="keyword">auto</span> type = IR::Type_Bits::get(P4::P4CoreLibrary::instance().packetIn.extractSecondArgSize);</div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>        <span class="keyword">auto</span> cast = <span class="keyword">new</span> IR::Cast(<a class="code hl_class" href="class_p4_1_1_util_1_1_source_info.html">Util::SourceInfo</a>(), type, length);</div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>        <span class="keyword">auto</span> cast = <span class="keyword">new</span> IR::Cast(Util::SourceInfo(), type, length);</div>
 <div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>        args-&gt;push_back(<span class="keyword">new</span> IR::Argument(cast));</div>
 <div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>        <span class="keyword">auto</span> expression = <span class="keyword">new</span> IR::MethodCallExpression(mce-&gt;srcInfo, mce-&gt;method-&gt;clone(), args);</div>
 <div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>        result-&gt;push_back(<span class="keyword">new</span> IR::MethodCallStatement(expression));</div>
 <div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>    }</div>
 <div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>};</div>
-</div>
 <div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
 <div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span><span class="comment">  This class is used to adjust the expressions in a @length</span></div>
@@ -802,11 +782,10 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span><span class="comment">  but since the semantics of P4-14 expressions is unclear, we cannot</span></div>
 <div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span><span class="comment">  do much better than this.</span></div>
 <div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span><span class="comment">*/</span></div>
-<div class="foldopen" id="foldopen00718" data-start="{" data-end="};">
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_adjust_lengths.html">  718</a></span><span class="keyword">class </span>AdjustLengths : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span><span class="keyword">class </span>AdjustLengths : <span class="keyword">public</span> Transform {</div>
 <div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>    AdjustLengths() { setName(<span class="stringliteral">&quot;AdjustLengths&quot;</span>); }</div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::PathExpression *expression)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>    <span class="keyword">const</span> IR::Node *postorder(IR::PathExpression *expression)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>        <span class="keyword">auto</span> anno = findContext&lt;IR::Annotation&gt;();</div>
 <div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>        <span class="keywordflow">if</span> (anno == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> expression;</div>
 <div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        <span class="keywordflow">if</span> (anno-&gt;name != <span class="stringliteral">&quot;length&quot;</span>) <span class="keywordflow">return</span> expression;</div>
@@ -817,10 +796,8 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>        <span class="keywordflow">return</span> cast;</div>
 <div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>    }</div>
 <div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>};</div>
-</div>
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span></div>
-<div class="foldopen" id="foldopen00735" data-start="{" data-end="};">
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_detect_duplicates.html">  735</a></span><span class="keyword">class </span>DetectDuplicates : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span><span class="keyword">class </span>DetectDuplicates : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>    DetectDuplicates() { setName(<span class="stringliteral">&quot;DetectDuplicates&quot;</span>); }</div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
@@ -837,10 +814,10 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>                    <span class="keyword">auto</span> e2 = n-&gt;second;</div>
 <div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>                    <span class="keywordflow">if</span> (e1-&gt;node_type_name() == e2-&gt;node_type_name()) {</div>
 <div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>                        <span class="keywordflow">if</span> (e1-&gt;srcInfo.getStart().isValid())</div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>                            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_DUPLICATE, <span class="stringliteral">&quot;%1%: same name as %2%&quot;</span>, e1, e2);</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>                            ::P4::error(ErrorType::ERR_DUPLICATE, <span class="stringliteral">&quot;%1%: same name as %2%&quot;</span>, e1, e2);</div>
 <div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>                        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>                            <span class="comment">// This name is probably standard_metadata_t, a built-in declaration</span></div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>                            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_INVALID,</div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>                            ::P4::error(ErrorType::ERR_INVALID,</div>
 <div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>                                        <span class="stringliteral">&quot;%1% is invalid; name %2% is reserved&quot;</span>, e2, key);</div>
 <div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>                    }</div>
 <div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>                }</div>
@@ -851,16 +828,14 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>    }</div>
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>};</div>
-</div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span> </div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span><span class="comment">// If a parser state has a pragma @packet_entry, it is treated as a new entry</span></div>
 <div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span><span class="comment">// point to the parser.</span></div>
-<div class="foldopen" id="foldopen00769" data-start="{" data-end="};">
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_check_if_multi_entry_point.html">  769</a></span><span class="keyword">class </span>CheckIfMultiEntryPoint : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span><span class="keyword">class </span>CheckIfMultiEntryPoint : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span> </div>
 <div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>    <span class="keyword">explicit</span> CheckIfMultiEntryPoint(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>    <span class="keyword">explicit</span> CheckIfMultiEntryPoint(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        setName(<span class="stringliteral">&quot;CheckIfMultiEntryPoint&quot;</span>);</div>
 <div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>    }</div>
 <div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::ParserState *state)<span class="keyword"> override </span>{</div>
@@ -872,24 +847,22 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>    }</div>
 <div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>};</div>
-</div>
 <div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span> </div>
 <div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span><span class="comment">// Generate a new start state that selects on the meta variable,</span></div>
 <div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span><span class="comment">// standard_metadata.instance_type and branches into one of the entry points.</span></div>
 <div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span><span class="comment">// The backend is responsible for removing the use of the meta variable and</span></div>
 <div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span><span class="comment">// eliminate the new start state.  The new start state is not added if the user</span></div>
 <div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span><span class="comment">// does not use the @packet_entry pragma.</span></div>
-<div class="foldopen" id="foldopen00791" data-start="{" data-end="};">
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_insert_compiler_generated_start_state.html">  791</a></span><span class="keyword">class </span>InsertCompilerGeneratedStartState : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Node&gt;</a> allTypeDecls;</div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::ParserState&gt;</a> parserStates;</div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::SelectCase&gt;</a> selCases;</div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> newStartState;</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> newInstanceType;</div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span><span class="keyword">class </span>InsertCompilerGeneratedStartState : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>    ProgramStructure *structure;</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>    IR::Vector&lt;IR::Node&gt; allTypeDecls;</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>    IR::IndexedVector&lt;IR::ParserState&gt; parserStates;</div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>    IR::Vector&lt;IR::SelectCase&gt; selCases;</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>    cstring newStartState;</div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>    cstring newInstanceType;</div>
 <div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span> </div>
 <div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>    <span class="keyword">explicit</span> InsertCompilerGeneratedStartState(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>    <span class="keyword">explicit</span> InsertCompilerGeneratedStartState(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>        setName(<span class="stringliteral">&quot;InsertCompilerGeneratedStartState&quot;</span>);</div>
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>        structure-&gt;allNames.insert({IR::ParserState::start, 0});</div>
 <div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>        structure-&gt;allNames.insert({<span class="stringliteral">&quot;InstanceType&quot;</span>_cs, 0});</div>
@@ -897,14 +870,14 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>        newInstanceType = structure-&gt;makeUniqueName(<span class="stringliteral">&quot;InstanceType&quot;</span>_cs);</div>
 <div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>    }</div>
 <div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span> </div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::P4Program *program)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>    <span class="keyword">const</span> IR::Node *postorder(IR::P4Program *program)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>        allTypeDecls.append(program-&gt;objects);</div>
 <div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>        program-&gt;objects = allTypeDecls;</div>
 <div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>        <span class="keywordflow">return</span> program;</div>
 <div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>    }</div>
 <div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span> </div>
 <div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>    <span class="comment">// rename original start state</span></div>
-<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::ParserState *state)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>    <span class="keyword">const</span> IR::Node *postorder(IR::ParserState *state)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>        <span class="keywordflow">if</span> (structure-&gt;parserEntryPoints.empty()) <span class="keywordflow">return</span> state;</div>
 <div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>        <span class="keywordflow">if</span> (state-&gt;name == IR::ParserState::start) {</div>
 <div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>            state-&gt;name = newStartState;</div>
@@ -913,14 +886,14 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>    }</div>
 <div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span> </div>
 <div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>    <span class="comment">// Rename any path refering to original start state</span></div>
-<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Path *path)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Path *path)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>        <span class="keywordflow">if</span> (structure-&gt;parserEntryPoints.empty()) <span class="keywordflow">return</span> path;</div>
 <div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>        <span class="comment">// At this point any identifier called start should have been renamed</span></div>
 <div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>        <span class="comment">// to unique name (e.g. start_1) =&gt; we can safely assume that any</span></div>
 <div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>        <span class="comment">// &quot;start&quot; refers to the parser state</span></div>
 <div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>        <span class="keywordflow">if</span> (path-&gt;name.name != IR::ParserState::start) <span class="keywordflow">return</span> path;</div>
 <div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>        <span class="comment">// Just to make sure we can also check it explicitly</span></div>
-<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>        <span class="keyword">auto</span> pe = getContext()-&gt;node-&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">to</a>&lt;IR::PathExpression&gt;();</div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>        <span class="keyword">auto</span> pe = getContext()-&gt;node-&gt;to&lt;IR::PathExpression&gt;();</div>
 <div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>        <span class="keyword">auto</span> sc = findContext&lt;IR::SelectCase&gt;();</div>
 <div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span>        <span class="keyword">auto</span> ps = findContext&lt;IR::ParserState&gt;();</div>
 <div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>        <span class="comment">// Either the path is within SelectCase-&gt;state&lt;PathExpression&gt;-&gt;path</span></div>
@@ -931,9 +904,9 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>        <span class="keywordflow">return</span> path;</div>
 <div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>    }</div>
 <div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span> </div>
-<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::P4Parser *parser)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>    <span class="keyword">const</span> IR::Node *postorder(IR::P4Parser *parser)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>        <span class="keywordflow">if</span> (structure-&gt;parserEntryPoints.empty()) <span class="keywordflow">return</span> parser;</div>
-<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_indexed_vector.html">IR::IndexedVector&lt;IR::SerEnumMember&gt;</a> members;</div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span>        IR::IndexedVector&lt;IR::SerEnumMember&gt; members;</div>
 <div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>        <span class="comment">// transition to original start state</span></div>
 <div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>        members.push_back(<span class="keyword">new</span> IR::SerEnumMember(<span class="stringliteral">&quot;START&quot;</span>, <span class="keyword">new</span> IR::Constant(0)));</div>
 <div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>        selCases.push_back(<span class="keyword">new</span> IR::SelectCase(</div>
@@ -956,7 +929,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span>            IR::Type_Bits::get(32), members);</div>
 <div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>        allTypeDecls.push_back(instEnum);</div>
 <div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span> </div>
-<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Expression&gt;</a> selExpr;</div>
+<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>        IR::Vector&lt;IR::Expression&gt; selExpr;</div>
 <div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span>        selExpr.push_back(<span class="keyword">new</span> IR::Cast(</div>
 <div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span>            <span class="keyword">new</span> IR::Type_Name(newInstanceType),</div>
 <div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>            <span class="keyword">new</span> IR::Member(<span class="keyword">new</span> IR::PathExpression(<span class="keyword">new</span> IR::Path(<span class="stringliteral">&quot;standard_metadata&quot;</span>_cs)),</div>
@@ -974,22 +947,18 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>        <span class="keywordflow">return</span> parser;</div>
 <div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>    }</div>
 <div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>};</div>
-</div>
 <div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span></div>
-<div class="foldopen" id="foldopen00889" data-start="{" data-end="};">
-<div class="line"><a id="l00889" name="l00889"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_fix_multi_entry_point.html">  889</a></span><span class="keyword">class </span>FixMultiEntryPoint : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span><span class="keyword">class </span>FixMultiEntryPoint : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    <span class="keyword">explicit</span> FixMultiEntryPoint(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) {</div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    <span class="keyword">explicit</span> FixMultiEntryPoint(ProgramStructure *structure) {</div>
 <div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>        setName(<span class="stringliteral">&quot;FixMultiEntryPoint&quot;</span>);</div>
-<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>        passes.emplace_back(<span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_check_if_multi_entry_point.html">CheckIfMultiEntryPoint</a>(structure));</div>
-<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>        passes.emplace_back(<span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_insert_compiler_generated_start_state.html">InsertCompilerGeneratedStartState</a>(structure));</div>
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>        passes.emplace_back(<span class="keyword">new</span> CheckIfMultiEntryPoint(structure));</div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>        passes.emplace_back(<span class="keyword">new</span> InsertCompilerGeneratedStartState(structure));</div>
 <div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>    }</div>
 <div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>};</div>
-</div>
 <div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span></div>
-<div class="foldopen" id="foldopen00906" data-start="{" data-end="};">
-<div class="line"><a id="l00906" name="l00906"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_move_intrinsic_metadata.html">  906</a></span><span class="keyword">class </span>MoveIntrinsicMetadata : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span><span class="keyword">class </span>MoveIntrinsicMetadata : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>    <span class="keyword">const</span> IR::Type_Struct *stdType = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>    <span class="keyword">const</span> IR::Type_Struct *userType = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>    <span class="keyword">const</span> IR::Type_Struct *intrType = <span class="keyword">nullptr</span>;</div>
@@ -998,14 +967,14 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span>    <span class="keyword">const</span> IR::StructField *queueField = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00914" name="l00914"></a><span class="lineno">  914</span> </div>
 <div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span>    <span class="keyword">explicit</span> MoveIntrinsicMetadata(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span>    <span class="keyword">explicit</span> MoveIntrinsicMetadata(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span>        setName(<span class="stringliteral">&quot;MoveIntrinsicMetadata&quot;</span>);</div>
 <div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>    }</div>
-<div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::P4Program *program)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span>    <span class="keyword">const</span> IR::Node *preorder(IR::P4Program *program)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>        stdType = program-&gt;getDeclsByName(structure-&gt;v1model.standardMetadataType.name)</div>
 <div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>                      -&gt;single()</div>
-<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>                      -&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">to</a>&lt;IR::Type_Struct&gt;();</div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>                      -&gt;to&lt;IR::Type_Struct&gt;();</div>
 <div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>        userType = program-&gt;getDeclsByName(structure-&gt;v1model.metadataType.name)</div>
 <div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>                       -&gt;single()</div>
 <div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>                       -&gt;to&lt;IR::Type_Struct&gt;();</div>
@@ -1018,7 +987,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span>            BUG_CHECK(tn, <span class="stringliteral">&quot;%1%: expected a Type_Name&quot;</span>, intrTypeName);</div>
 <div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>            <span class="keyword">auto</span> nt = program-&gt;getDeclsByName(tn-&gt;path-&gt;name)-&gt;nextOrDefault();</div>
 <div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>            <span class="keywordflow">if</span> (nt == <span class="keyword">nullptr</span> || !nt-&gt;is&lt;IR::Type_Struct&gt;()) {</div>
-<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_INVALID, <span class="stringliteral">&quot;%1%: expected a structure&quot;</span>, tn);</div>
+<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>                ::P4::error(ErrorType::ERR_INVALID, <span class="stringliteral">&quot;%1%: expected a structure&quot;</span>, tn);</div>
 <div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span>                <span class="keywordflow">return</span> program;</div>
 <div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span>            }</div>
 <div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>            intrType = nt-&gt;to&lt;IR::Type_Struct&gt;();</div>
@@ -1032,7 +1001,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span>            BUG_CHECK(tn, <span class="stringliteral">&quot;%1%: expected a Type_Name&quot;</span>, queueTypeName);</div>
 <div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span>            <span class="keyword">auto</span> nt = program-&gt;getDeclsByName(tn-&gt;path-&gt;name)-&gt;nextOrDefault();</div>
 <div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>            <span class="keywordflow">if</span> (nt == <span class="keyword">nullptr</span> || !nt-&gt;is&lt;IR::Type_Struct&gt;()) {</div>
-<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>                <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_INVALID, <span class="stringliteral">&quot;%1%: expected a structure&quot;</span>, tn);</div>
+<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>                ::P4::error(ErrorType::ERR_INVALID, <span class="stringliteral">&quot;%1%: expected a structure&quot;</span>, tn);</div>
 <div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span>                <span class="keywordflow">return</span> program;</div>
 <div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>            }</div>
 <div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>            queueType = nt-&gt;to&lt;IR::Type_Struct&gt;();</div>
@@ -1041,12 +1010,12 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>        <span class="keywordflow">return</span> program;</div>
 <div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span>    }</div>
 <div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span> </div>
-<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Type_Struct *type)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Type_Struct *type)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span>        <span class="keywordflow">if</span> (getOriginal() == stdType) {</div>
 <div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span>            <span class="keywordflow">if</span> (intrType != <span class="keyword">nullptr</span>) {</div>
 <div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> f : intrType-&gt;fields) {</div>
 <div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span>                    <span class="keywordflow">if</span> (type-&gt;fields.getDeclaration(f-&gt;name) == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span>                        <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_NOT_FOUND,</div>
+<div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span>                        ::P4::error(ErrorType::ERR_NOT_FOUND,</div>
 <div class="line"><a id="l00965" name="l00965"></a><span class="lineno">  965</span>                                    <span class="stringliteral">&quot;%1%: no such field in standard_metadata&quot;</span>, f-&gt;name);</div>
 <div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span>                        LOG2(<span class="stringliteral">&quot;standard_metadata: &quot;</span> &lt;&lt; type);</div>
 <div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span>                    }</div>
@@ -1055,7 +1024,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00970" name="l00970"></a><span class="lineno">  970</span>            <span class="keywordflow">if</span> (queueType != <span class="keyword">nullptr</span>) {</div>
 <div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> f : queueType-&gt;fields) {</div>
 <div class="line"><a id="l00972" name="l00972"></a><span class="lineno">  972</span>                    <span class="keywordflow">if</span> (type-&gt;fields.getDeclaration(f-&gt;name) == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span>                        <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_NOT_FOUND,</div>
+<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span>                        ::P4::error(ErrorType::ERR_NOT_FOUND,</div>
 <div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>                                    <span class="stringliteral">&quot;%1%: no such field in standard_metadata&quot;</span>, f-&gt;name);</div>
 <div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span>                        LOG2(<span class="stringliteral">&quot;standard_metadata: &quot;</span> &lt;&lt; type);</div>
 <div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>                    }</div>
@@ -1065,36 +1034,34 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span>        <span class="keywordflow">return</span> type;</div>
 <div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span>    }</div>
 <div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span> </div>
-<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::StructField *field)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>    <span class="keyword">const</span> IR::Node *postorder(IR::StructField *field)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00984" name="l00984"></a><span class="lineno">  984</span>        <span class="keywordflow">if</span> (getOriginal() == intrField || getOriginal() == queueField)</div>
 <div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>            <span class="comment">// delete it from its parent</span></div>
 <div class="line"><a id="l00986" name="l00986"></a><span class="lineno">  986</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00987" name="l00987"></a><span class="lineno">  987</span>        <span class="keywordflow">return</span> field;</div>
 <div class="line"><a id="l00988" name="l00988"></a><span class="lineno">  988</span>    }</div>
 <div class="line"><a id="l00989" name="l00989"></a><span class="lineno">  989</span> </div>
-<div class="line"><a id="l00990" name="l00990"></a><span class="lineno">  990</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::Member *member)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00990" name="l00990"></a><span class="lineno">  990</span>    <span class="keyword">const</span> IR::Node *postorder(IR::Member *member)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00991" name="l00991"></a><span class="lineno">  991</span>        <span class="comment">// We rewrite expressions like meta.intrinsic_metadata.x as</span></div>
 <div class="line"><a id="l00992" name="l00992"></a><span class="lineno">  992</span>        <span class="comment">// standard_metadata.x.  We know that these parameter names</span></div>
 <div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span>        <span class="comment">// are always the same.</span></div>
 <div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span>        <span class="keywordflow">if</span> (member-&gt;member != structure-&gt;v1model.intrinsicMetadata.name &amp;&amp;</div>
 <div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>            member-&gt;member != structure-&gt;v1model.queueingMetadata.name)</div>
 <div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>            <span class="keywordflow">return</span> member;</div>
-<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>        <span class="keyword">auto</span> pe = member-&gt;expr-&gt;<a class="code hl_function" href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">to</a>&lt;IR::PathExpression&gt;();</div>
+<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>        <span class="keyword">auto</span> pe = member-&gt;expr-&gt;to&lt;IR::PathExpression&gt;();</div>
 <div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span>        <span class="keywordflow">if</span> (pe == <span class="keyword">nullptr</span> || pe-&gt;path-&gt;absolute) <span class="keywordflow">return</span> member;</div>
 <div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span>        <span class="keywordflow">if</span> (pe-&gt;path-&gt;name == structure-&gt;v1model.parser.metadataParam.name) {</div>
 <div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span>            LOG2(<span class="stringliteral">&quot;Renaming reference &quot;</span> &lt;&lt; member);</div>
 <div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> IR::PathExpression(<span class="keyword">new</span> IR::Path(</div>
 <div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span>                member-&gt;expr-&gt;srcInfo,</div>
-<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span>                <a class="code hl_struct" href="struct_p4_1_1_i_r_1_1_i_d.html">IR::ID</a>(pe-&gt;path-&gt;name.srcInfo, structure-&gt;v1model.standardMetadata.name)));</div>
+<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span>                IR::ID(pe-&gt;path-&gt;name.srcInfo, structure-&gt;v1model.standardMetadata.name)));</div>
 <div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span>        }</div>
 <div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span>        <span class="keywordflow">return</span> member;</div>
 <div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span>    }</div>
 <div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span>};</div>
-</div>
 <div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span></div>
-<div class="foldopen" id="foldopen01011" data-start="{" data-end="};">
-<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_find_recirculated.html"> 1011</a></span><span class="keyword">class </span>FindRecirculated : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
+<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span><span class="keyword">class </span>FindRecirculated : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>    ProgramStructure *structure;</div>
 <div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span> </div>
 <div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>    <span class="keywordtype">void</span> add(<span class="keyword">const</span> IR::Primitive *primitive, <span class="keywordtype">unsigned</span> operand) {</div>
 <div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span>        <span class="keywordflow">if</span> (primitive-&gt;operands.size() &lt;= operand) {</div>
@@ -1104,13 +1071,13 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l01019" name="l01019"></a><span class="lineno"> 1019</span>        }</div>
 <div class="line"><a id="l01020" name="l01020"></a><span class="lineno"> 1020</span>        <span class="keyword">auto</span> expression = primitive-&gt;operands.at(operand);</div>
 <div class="line"><a id="l01021" name="l01021"></a><span class="lineno"> 1021</span>        <span class="keywordflow">if</span> (!expression-&gt;is&lt;IR::PathExpression&gt;()) {</div>
-<div class="line"><a id="l01022" name="l01022"></a><span class="lineno"> 1022</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_EXPECTED, <span class="stringliteral">&quot;%1%: expected a field list&quot;</span>, expression);</div>
+<div class="line"><a id="l01022" name="l01022"></a><span class="lineno"> 1022</span>            ::P4::error(ErrorType::ERR_EXPECTED, <span class="stringliteral">&quot;%1%: expected a field list&quot;</span>, expression);</div>
 <div class="line"><a id="l01023" name="l01023"></a><span class="lineno"> 1023</span>            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l01024" name="l01024"></a><span class="lineno"> 1024</span>        }</div>
 <div class="line"><a id="l01025" name="l01025"></a><span class="lineno"> 1025</span>        <span class="keyword">auto</span> nr = expression-&gt;to&lt;IR::PathExpression&gt;();</div>
 <div class="line"><a id="l01026" name="l01026"></a><span class="lineno"> 1026</span>        <span class="keyword">auto</span> fl = structure-&gt;field_lists.get(nr-&gt;path-&gt;name);</div>
 <div class="line"><a id="l01027" name="l01027"></a><span class="lineno"> 1027</span>        <span class="keywordflow">if</span> (fl == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">::P4::error</a>(ErrorType::ERR_EXPECTED, <span class="stringliteral">&quot;%1%: Expected a field list&quot;</span>, expression);</div>
+<div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span>            ::P4::error(ErrorType::ERR_EXPECTED, <span class="stringliteral">&quot;%1%: Expected a field list&quot;</span>, expression);</div>
 <div class="line"><a id="l01029" name="l01029"></a><span class="lineno"> 1029</span>            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span>        }</div>
 <div class="line"><a id="l01031" name="l01031"></a><span class="lineno"> 1031</span>        LOG3(<span class="stringliteral">&quot;Recirculated &quot;</span> &lt;&lt; nr-&gt;path-&gt;name);</div>
@@ -1118,7 +1085,7 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l01033" name="l01033"></a><span class="lineno"> 1033</span>    }</div>
 <div class="line"><a id="l01034" name="l01034"></a><span class="lineno"> 1034</span> </div>
 <div class="line"><a id="l01035" name="l01035"></a><span class="lineno"> 1035</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01036" name="l01036"></a><span class="lineno"> 1036</span>    <span class="keyword">explicit</span> FindRecirculated(<a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure) : structure(structure) {</div>
+<div class="line"><a id="l01036" name="l01036"></a><span class="lineno"> 1036</span>    <span class="keyword">explicit</span> FindRecirculated(ProgramStructure *structure) : structure(structure) {</div>
 <div class="line"><a id="l01037" name="l01037"></a><span class="lineno"> 1037</span>        CHECK_NULL(structure);</div>
 <div class="line"><a id="l01038" name="l01038"></a><span class="lineno"> 1038</span>        setName(<span class="stringliteral">&quot;FindRecirculated&quot;</span>);</div>
 <div class="line"><a id="l01039" name="l01039"></a><span class="lineno"> 1039</span>    }</div>
@@ -1131,44 +1098,22 @@ $(function(){initNavTree('converters_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l01046" name="l01046"></a><span class="lineno"> 1046</span>        }</div>
 <div class="line"><a id="l01047" name="l01047"></a><span class="lineno"> 1047</span>    }</div>
 <div class="line"><a id="l01048" name="l01048"></a><span class="lineno"> 1048</span>};</div>
-</div>
 <div class="line"><a id="l01049" name="l01049"></a><span class="lineno"> 1049</span></div>
 <div class="line"><a id="l01051" name="l01051"></a><span class="lineno"> 1051</span> </div>
 <div class="line"><a id="l01052" name="l01052"></a><span class="lineno"> 1052</span><span class="comment">// Is fed a P4-14 program and outputs an equivalent P4-16 program in v1model</span></div>
-<div class="foldopen" id="foldopen01053" data-start="{" data-end="};">
-<div class="line"><a id="l01053" name="l01053"></a><span class="lineno"><a class="line" href="class_p4_1_1_p4_v1_1_1_converter.html"> 1053</a></span><span class="keyword">class </span>Converter : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l01053" name="l01053"></a><span class="lineno"> 1053</span><span class="keyword">class </span>Converter : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l01054" name="l01054"></a><span class="lineno"> 1054</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span>    <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *structure;</div>
-<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_program_structure.html">ProgramStructure</a> *(*createProgramStructure)();</div>
-<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1_p4_v1_1_1_conversion_context.html">ConversionContext</a> *(*createConversionContext)();</div>
+<div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span>    ProgramStructure *structure;</div>
+<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span>    <span class="keyword">static</span> ProgramStructure *(*createProgramStructure)();</div>
+<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span>    <span class="keyword">static</span> ConversionContext *(*createConversionContext)();</div>
 <div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span>    Converter();</div>
 <div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span>    <span class="keywordtype">void</span> loadModel() { structure-&gt;loadModel(); }</div>
-<div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">Visitor::profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *node) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *node) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l01061" name="l01061"></a><span class="lineno"> 1061</span>};</div>
-</div>
 <div class="line"><a id="l01062" name="l01062"></a><span class="lineno"> 1062</span> </div>
 <div class="line"><a id="l01063" name="l01063"></a><span class="lineno"> 1063</span>}  <span class="comment">// namespace P4::P4V1</span></div>
 <div class="line"><a id="l01064" name="l01064"></a><span class="lineno"> 1064</span> </div>
 <div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span><span class="preprocessor">#endif </span><span class="comment">/* FRONTENDS_P4_14_FROMV1_0_CONVERTERS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_indexed_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_indexed_vector.html">P4::IR::IndexedVector</a></div><div class="ttdef"><b>Definition</b> indexed_vector.h:40</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_core_library_html"><div class="ttname"><a href="class_p4_1_1_p4_core_library.html">P4::P4CoreLibrary</a></div><div class="ttdef"><b>Definition</b> coreLibrary.h:103</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_v1_1_1_check_if_multi_entry_point_html"><div class="ttname"><a href="class_p4_1_1_p4_v1_1_1_check_if_multi_entry_point.html">P4::P4V1::CheckIfMultiEntryPoint</a></div><div class="ttdef"><b>Definition</b> converters.h:769</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_v1_1_1_conversion_context_html"><div class="ttname"><a href="class_p4_1_1_p4_v1_1_1_conversion_context.html">P4::P4V1::ConversionContext</a></div><div class="ttdef"><b>Definition</b> frontends/p4-14/fromv1.0/programStructure.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_v1_1_1_extern_converter_html_a9f11cf0df406593b149a458c7a4e0d20"><div class="ttname"><a href="class_p4_1_1_p4_v1_1_1_extern_converter.html#a9f11cf0df406593b149a458c7a4e0d20">P4::P4V1::ExternConverter::addConverter</a></div><div class="ttdeci">static void addConverter(cstring type, ExternConverter *)</div><div class="ttdef"><b>Definition</b> converters.cpp:590</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_v1_1_1_insert_compiler_generated_start_state_html"><div class="ttname"><a href="class_p4_1_1_p4_v1_1_1_insert_compiler_generated_start_state.html">P4::P4V1::InsertCompilerGeneratedStartState</a></div><div class="ttdef"><b>Definition</b> converters.h:791</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_v1_1_1_program_structure_html"><div class="ttname"><a href="class_p4_1_1_p4_v1_1_1_program_structure.html">P4::P4V1::ProgramStructure</a></div><div class="ttdoc">Information about the structure of a P4-14 program, used to convert it to a P4-16 program.</div><div class="ttdef"><b>Definition</b> frontends/p4-14/fromv1.0/programStructure.h:46</div></div>
-<div class="ttc" id="aclass_p4_1_1_transform_html"><div class="ttname"><a href="class_p4_1_1_transform.html">P4::Transform</a></div><div class="ttdef"><b>Definition</b> visitor.h:437</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_source_info_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_source_info.html">P4::Util::SourceInfo</a></div><div class="ttdef"><b>Definition</b> source_file.h:132</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="anamespace_p4_1_1_p4_v1_html"><div class="ttname"><a href="namespace_p4_1_1_p4_v1.html">P4::P4V1</a></div><div class="ttdef"><b>Definition</b> converters.cpp:28</div></div>
-<div class="ttc" id="anamespace_p4_html_a9fe6085b1cee8f21f098c9db89644b58"><div class="ttname"><a href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">P4::error</a></div><div class="ttdeci">void error(const char *format, Args &amp;&amp;...args)</div><div class="ttdoc">Report an error with the given message.</div><div class="ttdef"><b>Definition</b> lib/error.h:58</div></div>
-<div class="ttc" id="astruct_p4_1_1_i_r_1_1_i_d_html"><div class="ttname"><a href="struct_p4_1_1_i_r_1_1_i_d.html">P4::IR::ID</a></div><div class="ttdef"><b>Definition</b> id.h:28</div></div>
-<div class="ttc" id="astruct_p4_1_1_r_t_t_i_1_1_base_html_a15a2e4484076dcafa2964ede26024a61"><div class="ttname"><a href="struct_p4_1_1_r_t_t_i_1_1_base.html#a15a2e4484076dcafa2964ede26024a61">P4::RTTI::Base::to</a></div><div class="ttdeci">T * to() noexcept</div><div class="ttdef"><b>Definition</b> rtti.h:226</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

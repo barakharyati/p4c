@@ -137,53 +137,40 @@ $(function(){initNavTree('rewrite__parser__locals_8h_source.html',''); initResiz
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/phv_parde_mau_use.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;collect_parser_usedef.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_get_select_field_info.html">   25</a></span><span class="keyword">class </span>GetSelectFieldInfo : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span>GetSelectFieldInfo : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::BFN::Select *select) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const PHV::Field *, ordered_set&lt;const IR::BFN::ParserState *&gt;</a>&gt;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_get_select_field_info.html#a5da89ee3ad6356b4cb69e282447e320c">   33</a></span>        <a class="code hl_variable" href="class_get_select_field_info.html#a5da89ee3ad6356b4cb69e282447e320c">select_field_to_state</a>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">explicit</span> GetSelectFieldInfo(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv) : phv(phv) {}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    ordered_map&lt;const PHV::Field *, ordered_set&lt;const IR::BFN::ParserState *&gt;&gt;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        select_field_to_state;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">explicit</span> GetSelectFieldInfo(<span class="keyword">const</span> PhvInfo &amp;phv) : phv(phv) {}</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    Visitor::profile_t init_apply(<span class="keyword">const</span> IR::Node *root)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_variable" href="class_get_select_field_info.html#a5da89ee3ad6356b4cb69e282447e320c">select_field_to_state</a>.clear();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        select_field_to_state.clear();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> Inspector::init_apply(root);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
-</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_add_parser_match_defs.html">   41</a></span><span class="keyword">class </span>AddParserMatchDefs : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_modifier.html">Modifier</a> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>AddParserMatchDefs : <span class="keyword">public</span> Modifier {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    CollectParserInfo &amp;parserInfo;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_get_select_field_info.html">GetSelectFieldInfo</a> &amp;getSelectField;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_use.html">PhvUse</a> &amp;uses;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">const</span> GetSelectFieldInfo &amp;getSelectField;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> PhvUse &amp;uses;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span> preorder(IR::BFN::Extract *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    AddParserMatchDefs(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, CollectParserInfo &amp;parserInfo,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                       <span class="keyword">const</span> <a class="code hl_class" href="class_get_select_field_info.html">GetSelectFieldInfo</a> &amp;getSelectField, <span class="keyword">const</span> <a class="code hl_class" href="class_phv_use.html">PhvUse</a> &amp;uses)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    AddParserMatchDefs(<span class="keyword">const</span> PhvInfo &amp;phv, CollectParserInfo &amp;parserInfo,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                       <span class="keyword">const</span> GetSelectFieldInfo &amp;getSelectField, <span class="keyword">const</span> PhvUse &amp;uses)</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        : phv(phv), parserInfo(parserInfo), getSelectField(getSelectField), uses(uses) {}</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
-</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="group__parde.html">   66</a></span><span class="keyword">class </span>RewriteParserMatchDefs : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">class </span>RewriteParserMatchDefs : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">explicit</span> RewriteParserMatchDefs(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">explicit</span> RewriteParserMatchDefs(<span class="keyword">const</span> PhvInfo &amp;phv);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
-</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif </span><span class="comment">/*BACKENDS_TOFINO_BF_P4C_PARDE_REWRITE_PARSER_LOCALS_H_*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_get_select_field_info_html"><div class="ttname"><a href="class_get_select_field_info.html">GetSelectFieldInfo</a></div><div class="ttdef"><b>Definition</b> rewrite_parser_locals.h:25</div></div>
-<div class="ttc" id="aclass_get_select_field_info_html_a5da89ee3ad6356b4cb69e282447e320c"><div class="ttname"><a href="class_get_select_field_info.html#a5da89ee3ad6356b4cb69e282447e320c">GetSelectFieldInfo::select_field_to_state</a></div><div class="ttdeci">ordered_map&lt; const PHV::Field *, ordered_set&lt; const IR::BFN::ParserState * &gt; &gt; select_field_to_state</div><div class="ttdoc">A map of select fields to the states that use them.</div><div class="ttdef"><b>Definition</b> rewrite_parser_locals.h:33</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_modifier_html"><div class="ttname"><a href="class_p4_1_1_modifier.html">P4::Modifier</a></div><div class="ttdef"><b>Definition</b> visitor.h:385</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="aclass_phv_use_html"><div class="ttname"><a href="class_phv_use.html">PhvUse</a></div><div class="ttdef"><b>Definition</b> phv_parde_mau_use.h:154</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

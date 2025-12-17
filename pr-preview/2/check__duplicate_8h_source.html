@@ -136,12 +136,11 @@ $(function(){initNavTree('check__duplicate_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;ir/dump.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_check_table_name_duplicate.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_check_table_name_duplicate.html">CheckTableNameDuplicate</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>CheckTableNameDuplicate : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::set&lt;cstring&gt; names;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        names.clear();</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">return</span> MauInspector::init_apply(root);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
@@ -153,16 +152,14 @@ $(function(){initNavTree('check__duplicate_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
-</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_check_duplicate_attached.html">   41</a></span><span class="keyword">class </span><a class="code hl_class" href="class_check_duplicate_attached.html">CheckDuplicateAttached</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>CheckDuplicateAttached : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::map&lt;cstring, const IR::MAU::AttachedMemory *&gt; attached;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *pass = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> ok = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root) {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        attached.clear();</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> Inspector::init_apply(root);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
@@ -174,7 +171,7 @@ $(function(){initNavTree('check__duplicate_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        attached[at-&gt;name] = at;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *root) {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span> (!ok &amp;&amp; LOGGING(3)) {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;----------  After &quot;</span> &lt;&lt; pass &lt;&lt; <span class="stringliteral">&quot;  ----------&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            dump(root);</div>
@@ -182,16 +179,8 @@ $(function(){initNavTree('check__duplicate_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        BUG_CHECK(ok, <span class="stringliteral">&quot;abort after %s&quot;</span>, pass);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
-</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_CHECK_DUPLICATE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_check_duplicate_attached_html"><div class="ttname"><a href="class_check_duplicate_attached.html">CheckDuplicateAttached</a></div><div class="ttdef"><b>Definition</b> check_duplicate.h:41</div></div>
-<div class="ttc" id="aclass_check_table_name_duplicate_html"><div class="ttname"><a href="class_check_table_name_duplicate.html">CheckTableNameDuplicate</a></div><div class="ttdef"><b>Definition</b> check_duplicate.h:26</div></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

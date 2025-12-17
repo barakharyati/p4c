@@ -151,37 +151,30 @@ $(function(){initNavTree('type_unification_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;frontends/p4/typeMap.h&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span>P4 {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_type_constraints.html">TypeConstraints</a>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_binary_constraint.html">BinaryConstraint</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span>TypeConstraints;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">class </span>BinaryConstraint;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_p4_1_1_type_unification.html">   39</a></span><span class="keyword">class </span>TypeUnification final {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="class_p4_1_1_type_constraints.html">TypeConstraints</a> *constraints;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_type_map.html">TypeMap</a> *typeMap;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>TypeUnification final {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    TypeConstraints *constraints;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> TypeMap *typeMap;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> containsDots(<span class="keyword">const</span> IR::Type_StructLike *type);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> containsDots(<span class="keyword">const</span> IR::Type_BaseList *type);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> unifyCall(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_binary_constraint.html">BinaryConstraint</a> *constraint);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> unifyFunctions(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_binary_constraint.html">BinaryConstraint</a> *constraint, <span class="keywordtype">bool</span> skipReturnValues = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> unifyBlocks(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_binary_constraint.html">BinaryConstraint</a> *constraint);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> unifyCall(<span class="keyword">const</span> BinaryConstraint *constraint);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> unifyFunctions(<span class="keyword">const</span> BinaryConstraint *constraint, <span class="keywordtype">bool</span> skipReturnValues = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> unifyBlocks(<span class="keyword">const</span> BinaryConstraint *constraint);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    TypeUnification(<a class="code hl_class" href="class_p4_1_1_type_constraints.html">TypeConstraints</a> *constraints, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    TypeUnification(TypeConstraints *constraints, <span class="keyword">const</span> P4::TypeMap *typeMap)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        : constraints(constraints), typeMap(typeMap) {}</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_p4_1_1_type_unification.html#a323df5de0794b2ed417822de869f467b">unify</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_binary_constraint.html">BinaryConstraint</a> *constraint);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">bool</span> unify(<span class="keyword">const</span> BinaryConstraint *constraint);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
-</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif </span><span class="comment">/* FRONTENDS_P4_TYPECHECKING_TYPEUNIFICATION_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_binary_constraint_html"><div class="ttname"><a href="class_p4_1_1_binary_constraint.html">P4::BinaryConstraint</a></div><div class="ttdoc">Base class for EqualityConstraint and CanBeImplicitlyCastConstraint.</div><div class="ttdef"><b>Definition</b> typeConstraints.h:107</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_constraints_html"><div class="ttname"><a href="class_p4_1_1_type_constraints.html">P4::TypeConstraints</a></div><div class="ttdef"><b>Definition</b> typeConstraints.h:180</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_map_html"><div class="ttname"><a href="class_p4_1_1_type_map.html">P4::TypeMap</a></div><div class="ttdef"><b>Definition</b> typeMap.h:41</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_unification_html_a323df5de0794b2ed417822de869f467b"><div class="ttname"><a href="class_p4_1_1_type_unification.html#a323df5de0794b2ed417822de869f467b">P4::TypeUnification::unify</a></div><div class="ttdeci">bool unify(const BinaryConstraint *constraint)</div><div class="ttdef"><b>Definition</b> typeUnification.cpp:245</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -141,8 +141,7 @@ $(function(){initNavTree('table__tree_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;lib/ordered_map.h&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;lib/safe_vector.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_table_tree.html">   29</a></span><span class="keyword">class </span>TableTree {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span>TableTree {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">mutable</span> indent_t indent;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">mutable</span> std::set&lt;const IR::MAU::TableSeq *&gt; done;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    safe_vector&lt;cstring&gt; name;</div>
@@ -222,8 +221,8 @@ $(function(){initNavTree('table__tree_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    TableTree(cstring name, <span class="keyword">const</span> IR::MAU::TableSeq *seq) : name{name}, seq(seq), pipe(<span class="keyword">nullptr</span>) {}</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">explicit</span> TableTree(<span class="keyword">const</span> IR::BFN::Pipe *pipe) : name{}, seq(<span class="keyword">nullptr</span>), pipe(pipe) {}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    TableTree(cstring name, <span class="keyword">const</span> IR::MAU::TableSeq *seq) : name{name}, seq(seq), pipe(nullptr) {}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">explicit</span> TableTree(<span class="keyword">const</span> IR::BFN::Pipe *pipe) : name{}, seq(nullptr), pipe(pipe) {}</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> TableTree &amp;tt) {</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        tt.indent = indent_t();</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        tt.done.clear();</div>
@@ -240,7 +239,6 @@ $(function(){initNavTree('table__tree_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>};</div>
-</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_IR_TABLE_TREE_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->

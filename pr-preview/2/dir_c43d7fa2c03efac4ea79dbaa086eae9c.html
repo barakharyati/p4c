@@ -135,76 +135,7 @@ Directory dependency graph for compiler_interfaces:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="dir_c43d7fa2c03efac4ea79dbaa086eae9c_dep.svg" width="206" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Definitions for compiler interfaces</p>
-<p>This repo contains the schema definitions for the compiler outputs:</p>
-<ul>
-<li>manifest.json: for the structure of the outputs</li>
-<li>context.json: for the driver</li>
-<li>resources.json: for p4i</li>
-<li>structured logging<ul>
-<li>Summaries for: phv, mau, power, parser</li>
-<li>Structured logging for: parser, phv allocation, table allocation</li>
-</ul>
-</li>
-</ul>
-<p>The intent of this repo is to be imported as a submodule in Glass and Brig, and any other tools that need to be aware of the schema definition.</p>
-<h1><a class="anchor" id="tools"></a>
-Tools</h1>
-<p>The tools/ directory contains a set of scripts that generate JSON and text outputs from context.json and resources.json to match files that are otherwise produced by the compiler.</p>
-<p>These scripts run standalone or can be packaged with pyinstaller using the following: </p><div class="fragment"><div class="line">pyinstaller --onefile p4c-build-logs.spec</div>
-</div><!-- fragment --><p> The resulting p4c-build-log executable will be located in dist.</p>
-<h1><a class="anchor" id="contributions-and-change-process"></a>
-Contributions and change process</h1>
-<p>Schema changes are coordinated between multiple projects and teams via the schema review board. Follow these steps to submit a change for review:</p>
-<ol type="1">
-<li>Make sure there is a Jira in the project driving the change (this is usually P4C project with various bugfixes). If there is no applicable project, create a Jira within the <a href="https://jira.devtools.intel.com/projects/CPIF/issues">CPIF project</a>. Make sure you know answers to following bulletpoints and can communicate them to the review board:<ul>
-<li>change justification</li>
-<li>urgency</li>
-<li>an initial proposal (e.g. pull request against this repo)</li>
-<li>blast radius: which components might be affected by this change (Brig or Glass, driver, API generation, Harlyn model p4i, BF-Runtime)</li>
-<li>testing strategy</li>
-<li>any other information to support the change proposal</li>
-</ul>
-</li>
-<li>Open a PR against <a href="https://github.com/barefootnetworks/compiler-interfaces">this repository</a></li>
-<li>If the change in the schema breaks the compatibility with the compiler, make sure there is also an integration PR in the bf-p4c-compilers repo</li>
-<li>Notify <a href="#" onclick="location.href='mai'+'lto:'+'p4.'+'sc'+'hem'+'a.'+'rev'+'ie'+'w.b'+'oa'+'rd@'+'in'+'tel'+'.c'+'om'; return false;">p4.sc<span class="obfuscator">.nosp@m.</span>hema<span class="obfuscator">.nosp@m.</span>.revi<span class="obfuscator">.nosp@m.</span>ew.b<span class="obfuscator">.nosp@m.</span>oard@<span class="obfuscator">.nosp@m.</span>inte<span class="obfuscator">.nosp@m.</span>l.com</a> of your proposal. For large proposals we may arrange a review meeting.</li>
-<li>Once the changes are approved (both here and in compiler), follow this merge process:<ul>
-<li>Merge PR here in compiler interfaces</li>
-<li>Rebase PR in bf-p4c-compilers to checkout compiler_interfaces at new tip of the master</li>
-<li>Wait until the regression passes and merge ASAP (this is to prevent conflicts when multiple people are making changes to compiler interfaces)</li>
-</ul>
-</li>
-</ol>
-<h1><a class="anchor" id="schema-review-board-members"></a>
-Schema review board members</h1>
-<p>As a schema review board member you are expected to:</p>
-<ol type="1">
-<li>Provide code review to PRs against compiler-interfaces</li>
-<li>Consider stakeholder projects (p4c, driver, API generation, Harlyn model, p4i or BF-Runtime)</li>
-<li>Follow our schema versioning policy</li>
-</ol>
-<h1><a class="anchor" id="schema-versioning-policy"></a>
-Schema versioning policy</h1>
-<ol type="1">
-<li>Each schema must be versioned.</li>
-<li>This version must communicate backwards-compatibility between the new schema and existing data which adheres to earlier schema versions.</li>
-</ol>
-<p>Given a version MODEL-REVISION-ADDITION, increment:</p>
-<ul>
-<li>MODEL when a schema change will prevent interaction with <b>any</b> historical data</li>
-<li>REVISION when a schema change which may break some interaction with historical data</li>
-<li>ADDITION when a schema change is compatible with historical data</li>
-</ul>
-<p>This policy is adopted from <a href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/">SchemaVer</a>.</p>
-<blockquote class="doxtable">
-<p>What does this mean for compatibility? </p>
-</blockquote>
-<p>For a component which uses schema version 1.2.3:</p><ul>
-<li>it is always compatible with 1.2.X</li>
-<li>it may be compatible with 1.X.X if the changes were not pertinent to the concerned component</li>
-<li>it will not be compatible with 2.X.X </li>
-</ul>
+<p>SHELL SELENIUM_JAR_PATH CONDA GITHUB_WORKSPACE JAVA_HOME_11_X64 JAVA_HOME_25_X64 FAILURE_ICON GITHUB_PATH GITHUB_ACTION DOXYGEN_AWESOME_VERSION DOTFONTPATH JAVA_HOME GITHUB_RUN_NUMBER RUNNER_NAME GRADLE_HOME GITHUB_REPOSITORY_OWNER_ID ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE XDG_CONFIG_HOME MEMORY_PRESSURE_WRITE DOTNET_SKIP_FIRST_TIME_EXPERIENCE ANT_HOME JAVA_HOME_8_X64 GITHUB_TRIGGERING_ACTOR GITHUB_REF_TYPE HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS ANDROID_NDK BOOTSTRAP_HASKELL_NONINTERACTIVE PWD PIPX_BIN_DIR LOGNAME DOMAIN GITHUB_REPOSITORY_ID GITHUB_ACTIONS COMMENT_IDENTIFIER ANDROID_NDK_LATEST_HOME SYSTEMD_EXEC_PID GITHUB_SHA GITHUB_WORKFLOW_REF POWERSHELL_DISTRIBUTION_CHANNEL RUNNER_ENVIRONMENT DOTNET_MULTILEVEL_LOOKUP GITHUB_REF RUNNER_OS GITHUB_REF_PROTECTED HOME GITHUB_API_URL LANG GOROOT_1_25_X64 RUNNER_TRACKING_ID PR_PATH RUNNER_ARCH MEMORY_PRESSURE_WATCH RUNNER_TEMP GITHUB_STATE EDGEWEBDRIVER JAVA_HOME_21_X64 GITHUB_ENV INVOCATION_ID GITHUB_EVENT_PATH GITHUB_EVENT_NAME DOXYGEN_VERSION GITHUB_RUN_ID JAVA_HOME_17_X64 ANDROID_NDK_HOME GITHUB_STEP_SUMMARY HOMEBREW_NO_AUTO_UPDATE GITHUB_ACTOR NVM_DIR SGX_AESM_ADDR GITHUB_RUN_ATTEMPT CELEBRATION ANDROID_HOME GITHUB_GRAPHQL_URL ACCEPT_EULA USER GITHUB_SERVER_URL PIPX_HOME GECKOWEBDRIVER CHROMEWEBDRIVER SHLVL ANDROID_SDK_ROOT VCPKG_INSTALLATION_ROOT GITHUB_ACTOR_ID RUNNER_TOOL_CACHE ImageVersion DOTNET_NOLOGO GOROOT_1_23_X64 GITHUB_WORKFLOW_SHA GOROOT_1_24_X64 GITHUB_REF_NAME DEPLOYMENT GITHUB_JOB XDG_RUNTIME_DIR AZURE_EXTENSION_DIR GITHUB_REPOSITORY CHROME_BIN ANDROID_NDK_ROOT GOROOT_1_22_X64 GITHUB_RETENTION_DAYS JOURNAL_STREAM RUNNER_WORKSPACE GITHUB_ACTION_REPOSITORY PATH GITHUB_BASE_REF GHCUP_INSTALL_BASE_PREFIX CI SWIFT_PATH ImageOS GITHUB_REPOSITORY_OWNER GITHUB_HEAD_REF GITHUB_ACTION_REF ENABLE_RUNNER_TRACING GITHUB_WORKFLOW DEBIAN_FRONTEND GITHUB_OUTPUT AGENT_TOOLSDIRECTORY OLDPWD _ </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

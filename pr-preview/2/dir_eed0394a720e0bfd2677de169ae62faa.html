@@ -148,27 +148,7 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>We use Google's <a href="https://github.com/google/googletest">gtest</a> framework for unit tests.</p>
-<blockquote class="doxtable">
-<p>NB: There are known issues with include paths for P4 include files. Until these are fixed, you must take care to invoke <code>gtestp4c</code> from <code>bf-p4c-compilers/build/p4c</code>. </p>
-</blockquote>
-<h1><a class="anchor" id="building-1"></a>
-Building</h1>
-<p>The gtest binary is built as part of the default <code>make</code> target:</p>
-<div class="fragment"><div class="line">cd bf-p4c-compilers/build</div>
-<div class="line">make</div>
-</div><!-- fragment --><p>For general build instructions, see <a href="https://github.com/barefootnetworks/bf-p4c-compilers">here</a>.</p>
-<h1><a class="anchor" id="running"></a>
-Running</h1>
-<p>Running <code>make</code> produces a <code>gtestp4c</code> binary. To run it, your current working directory <b>must</b> be <code>build/p4c</code>. (This is a known bug.)</p>
-<div class="fragment"><div class="line">cd bf-p4c-compilers/build/p4c</div>
-<div class="line">./test/gtestp4c</div>
-</div><!-- fragment --><p>You can also use <code>ctest</code>:</p>
-<div class="fragment"><div class="line">cd bf-p4c-compilers/build/p4c</div>
-<div class="line">ctest -R gtest</div>
-</div><!-- fragment --><p>Finally, the gtest framework provides command line options for selectively invoking subsets of tests. Use</p>
-<div class="fragment"><div class="line">gtestp4c --help</div>
-</div><!-- fragment --><p>for available options. </p>
+<p>SHELL SELENIUM_JAR_PATH CONDA GITHUB_WORKSPACE JAVA_HOME_11_X64 JAVA_HOME_25_X64 FAILURE_ICON GITHUB_PATH GITHUB_ACTION DOXYGEN_AWESOME_VERSION DOTFONTPATH JAVA_HOME GITHUB_RUN_NUMBER RUNNER_NAME GRADLE_HOME GITHUB_REPOSITORY_OWNER_ID ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE XDG_CONFIG_HOME MEMORY_PRESSURE_WRITE DOTNET_SKIP_FIRST_TIME_EXPERIENCE ANT_HOME JAVA_HOME_8_X64 GITHUB_TRIGGERING_ACTOR GITHUB_REF_TYPE HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS ANDROID_NDK BOOTSTRAP_HASKELL_NONINTERACTIVE PWD PIPX_BIN_DIR LOGNAME DOMAIN GITHUB_REPOSITORY_ID GITHUB_ACTIONS COMMENT_IDENTIFIER ANDROID_NDK_LATEST_HOME SYSTEMD_EXEC_PID GITHUB_SHA GITHUB_WORKFLOW_REF POWERSHELL_DISTRIBUTION_CHANNEL RUNNER_ENVIRONMENT DOTNET_MULTILEVEL_LOOKUP GITHUB_REF RUNNER_OS GITHUB_REF_PROTECTED HOME GITHUB_API_URL LANG GOROOT_1_25_X64 RUNNER_TRACKING_ID PR_PATH RUNNER_ARCH MEMORY_PRESSURE_WATCH RUNNER_TEMP GITHUB_STATE EDGEWEBDRIVER JAVA_HOME_21_X64 GITHUB_ENV INVOCATION_ID GITHUB_EVENT_PATH GITHUB_EVENT_NAME DOXYGEN_VERSION GITHUB_RUN_ID JAVA_HOME_17_X64 ANDROID_NDK_HOME GITHUB_STEP_SUMMARY HOMEBREW_NO_AUTO_UPDATE GITHUB_ACTOR NVM_DIR SGX_AESM_ADDR GITHUB_RUN_ATTEMPT CELEBRATION ANDROID_HOME GITHUB_GRAPHQL_URL ACCEPT_EULA USER GITHUB_SERVER_URL PIPX_HOME GECKOWEBDRIVER CHROMEWEBDRIVER SHLVL ANDROID_SDK_ROOT VCPKG_INSTALLATION_ROOT GITHUB_ACTOR_ID RUNNER_TOOL_CACHE ImageVersion DOTNET_NOLOGO GOROOT_1_23_X64 GITHUB_WORKFLOW_SHA GOROOT_1_24_X64 GITHUB_REF_NAME DEPLOYMENT GITHUB_JOB XDG_RUNTIME_DIR AZURE_EXTENSION_DIR GITHUB_REPOSITORY CHROME_BIN ANDROID_NDK_ROOT GOROOT_1_22_X64 GITHUB_RETENTION_DAYS JOURNAL_STREAM RUNNER_WORKSPACE GITHUB_ACTION_REPOSITORY PATH GITHUB_BASE_REF GHCUP_INSTALL_BASE_PREFIX CI SWIFT_PATH ImageOS GITHUB_REPOSITORY_OWNER GITHUB_HEAD_REF GITHUB_ACTION_REF ENABLE_RUNNER_TRACING GITHUB_WORKFLOW DEBIAN_FRONTEND GITHUB_OUTPUT AGENT_TOOLSDIRECTORY OLDPWD _ </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

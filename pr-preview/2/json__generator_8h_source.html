@@ -165,10 +165,9 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;lib/safe_vector.h&quot;</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;lib/string_map.h&quot;</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">namespace </span>P4 {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_p4_1_1_j_s_o_n_generator.html">   39</a></span><span class="keyword">class </span>JSONGenerator {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>JSONGenerator {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::unordered_set&lt;int&gt; node_refs;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::ostream &amp;out;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> dumpSourceInfo;</div>
@@ -189,7 +188,7 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> value = <span class="keyword">sizeof</span>(test&lt;T&gt;(0)) == <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    };</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="class_p4_1_1indent__t.html">indent_t</a> indent;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    indent_t indent;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">enum</span> output_state_t {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        TOP,</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        VEC_START,</div>
@@ -318,7 +317,7 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordflow">case</span> OBJ_END:</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                BUG(<span class="stringliteral">&quot;invalid json output state for emit_tag&quot;</span>);</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        }</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        out &lt;&lt; <span class="charliteral">&#39;\&quot;&#39;</span> &lt;&lt; <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>(tag).<a class="code hl_function" href="class_p4_1_1cstring.html#a31a3b029db13f3a15069e770294c5889">escapeJson</a>() &lt;&lt; <span class="stringliteral">&quot;\&quot; : &quot;</span>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        out &lt;&lt; <span class="charliteral">&#39;\&quot;&#39;</span> &lt;&lt; cstring(tag).escapeJson() &lt;&lt; <span class="stringliteral">&quot;\&quot; : &quot;</span>;</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        output_state = OBJ_AFTERTAG;</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
@@ -331,7 +330,7 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;T&gt;</a> &amp;v) {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> safe_vector&lt;T&gt; &amp;v) {</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keyword">auto</span> t = begin_vector();</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;el : v) emit(el);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        end_vector(t);</div>
@@ -375,7 +374,7 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;T&gt;</a> &amp;v) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> ordered_set&lt;T&gt; &amp;v) {</div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keyword">auto</span> t = begin_vector();</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;el : v) emit(el);</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        end_vector(t);</div>
@@ -389,14 +388,14 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    }</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;K, V&gt;</a> &amp;v) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> ordered_map&lt;K, V&gt; &amp;v) {</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keyword">auto</span> t = begin_vector();</div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;el : v) emit(el);</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        end_vector(t);</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    }</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> V&gt;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1string__map.html">string_map&lt;V&gt;</a> &amp;v) {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> string_map&lt;V&gt; &amp;v) {</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <span class="keyword">auto</span> t = begin_object();</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;el : v) emit(el.first, el.second);</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        end_object(t);</div>
@@ -421,9 +420,9 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        out &lt;&lt; v;</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    }</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordtype">void</span> generate(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> v) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordtype">void</span> generate(cstring v) {</div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordflow">if</span> (v) {</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            out &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; v.<a class="code hl_function" href="class_p4_1_1cstring.html#a31a3b029db13f3a15069e770294c5889">escapeJson</a>() &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            out &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; v.escapeJson() &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            out &lt;&lt; <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        }</div>
@@ -433,9 +432,9 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        out &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; v &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    }</div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> &amp;v) { out &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; v &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>; }</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> bitvec &amp;v) { out &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; v &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>; }</div>
 <div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p4_1_1match__t.html">match_t</a> &amp;v) {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> match_t &amp;v) {</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <span class="keyword">auto</span> t = begin_object();</div>
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        emit(<span class="stringliteral">&quot;word0&quot;</span>, v.word0);</div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        emit(<span class="stringliteral">&quot;word1&quot;</span>, v.word1);</div>
@@ -450,7 +449,7 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        end_object(t);</div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    }</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_i_node.html">IR::INode</a> &amp;v_) {</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordtype">void</span> generate(<span class="keyword">const</span> IR::INode &amp;v_) {</div>
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keyword">auto</span> &amp;v = *v_.getNode();</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <span class="keyword">auto</span> t = begin_object();</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">if</span> (node_refs.find(v.id) != node_refs.end()) {</div>
@@ -482,22 +481,10 @@ $(function(){initNavTree('json__generator_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        end_vector(t);</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    }</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>};</div>
-</div>
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="preprocessor">#endif </span><span class="comment">/* IR_JSON_GENERATOR_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_i_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_i_node.html">P4::IR::INode</a></div><div class="ttdef"><b>Definition</b> node.h:66</div></div>
-<div class="ttc" id="aclass_p4_1_1bitvec_html"><div class="ttname"><a href="class_p4_1_1bitvec.html">P4::bitvec</a></div><div class="ttdef"><b>Definition</b> bitvec.h:120</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html_a31a3b029db13f3a15069e770294c5889"><div class="ttname"><a href="class_p4_1_1cstring.html#a31a3b029db13f3a15069e770294c5889">P4::cstring::escapeJson</a></div><div class="ttdeci">cstring escapeJson() const</div><div class="ttdef"><b>Definition</b> cstring.cpp:272</div></div>
-<div class="ttc" id="aclass_p4_1_1indent__t_html"><div class="ttname"><a href="class_p4_1_1indent__t.html">P4::indent_t</a></div><div class="ttdef"><b>Definition</b> indent.h:26</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="aclass_p4_1_1string__map_html"><div class="ttname"><a href="class_p4_1_1string__map.html">P4::string_map</a></div><div class="ttdef"><b>Definition</b> string_map.h:41</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="astruct_p4_1_1match__t_html"><div class="ttname"><a href="struct_p4_1_1match__t.html">P4::match_t</a></div><div class="ttdef"><b>Definition</b> match.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

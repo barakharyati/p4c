@@ -160,16 +160,16 @@ $(function(){initNavTree('backends_2tofino_2bf-p4c_2control-plane_2bfruntime_8h_
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;p4/config/v1/p4types.pb.h&quot;</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4_1_1literals.html">P4::literals</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">using namespace </span>P4;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">using namespace </span>P4::literals;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">namespace </span>p4configv1 = ::p4::config::v1;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">struct </span><a class="code hl_struct" href="struct_p4_1_1_p4_runtime_a_p_i.html">P4RuntimeAPI</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">namespace </span>P4 {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">struct </span>P4RuntimeAPI;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">namespace </span>BFRT {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
@@ -304,7 +304,7 @@ $(function(){initNavTree('backends_2tofino_2bf-p4c_2control-plane_2bfruntime_8h_
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = first; it != last; it++) {</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keyword">auto</span> *table = Standard::findTable(p4info, *it);</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordflow">if</span> (table == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(<span class="stringliteral">&quot;Invalid table id &#39;%1%&#39;&quot;</span>, *it);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            error(<span class="stringliteral">&quot;Invalid table id &#39;%1%&#39;&quot;</span>, *it);</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        }</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        tableIds.push_back(*it);</div>
@@ -312,47 +312,42 @@ $(function(){initNavTree('backends_2tofino_2bf-p4c_2control-plane_2bfruntime_8h_
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">return</span> tableIds;</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span></div>
-<div class="foldopen" id="foldopen00204" data-start="{" data-end="};">
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser.html">  204</a></span><span class="keyword">class </span>TypeSpecParser {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keyword">class </span>TypeSpecParser {</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00206" data-start="{" data-end="};">
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser.html">  206</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser.html#struct_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser_1_1_field">Field</a> {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">struct </span>Field {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        cstring name;</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        P4Id id;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *type;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        Util::JsonObject *type;</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    };</div>
-</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">using </span>Fields = std::vector&lt;Field&gt;;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keyword">using </span>iterator = Fields::iterator;</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keyword">using </span>const_iterator = Fields::const_iterator;</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keyword">static</span> TypeSpecParser make(<span class="keyword">const</span> p4configv1::P4Info &amp;p4info,</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                               <span class="keyword">const</span> p4configv1::P4DataTypeSpec &amp;typeSpec, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> instanceType,</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                               <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> instanceName,</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                               <span class="keyword">const</span> p4configv1::P4DataTypeSpec &amp;typeSpec, cstring instanceType,</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                               cstring instanceName,</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                               <span class="keyword">const</span> std::vector&lt;cstring&gt; *fieldNames = <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                               <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> prefix = <span class="stringliteral">&quot;&quot;</span>_cs, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> suffix = <span class="stringliteral">&quot;&quot;</span>_cs, P4Id idOffset = 1);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                               cstring prefix = <span class="stringliteral">&quot;&quot;</span>_cs, cstring suffix = <span class="stringliteral">&quot;&quot;</span>_cs, P4Id idOffset = 1);</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    iterator begin() { <span class="keywordflow">return</span> fields.begin(); }</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">const_iterator</a> cbegin() { <span class="keywordflow">return</span> fields.cbegin(); }</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">iterator</a> end() { <span class="keywordflow">return</span> fields.end(); }</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">const_iterator</a> cend() { <span class="keywordflow">return</span> fields.cend(); }</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    const_iterator cbegin() { <span class="keywordflow">return</span> fields.cbegin(); }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    iterator end() { <span class="keywordflow">return</span> fields.end(); }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    const_iterator cend() { <span class="keywordflow">return</span> fields.cend(); }</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keyword">explicit</span> TypeSpecParser(Fields &amp;&amp;fields) : fields(std::move(fields)) {}</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    Fields fields;</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>};</div>
-</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="foldopen" id="foldopen00233" data-start="{" data-end="};">
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html">  233</a></span><span class="keyword">class </span>BFRuntimeGenerator {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">class </span>BFRuntimeGenerator {</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keyword">explicit</span> BFRuntimeGenerator(<span class="keyword">const</span> p4configv1::P4Info &amp;p4info) : p4info(p4info) {}</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *<a class="code hl_function" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#a6d0652a56d0d1dc3656cb0c186ac7b0d">genSchema</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> Util::JsonObject *genSchema() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#af9bee14d9b08cbd2b0cf2ed4ed6ad6b4">serializeBFRuntimeSchema</a>(std::ostream *destination);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">void</span> serializeBFRuntimeSchema(std::ostream *destination);</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// To avoid potential clashes with P4 names, we prefix the names of &quot;fixed&quot;</span></div>
@@ -394,22 +389,19 @@ $(function(){initNavTree('backends_2tofino_2bf-p4c_2control-plane_2bfruntime_8h_
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        TD_DATA_END,</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    };</div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span></div>
-<div class="foldopen" id="foldopen00285" data-start="{" data-end="};">
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_counter.html">  285</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_counter.html">Counter</a> {</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keyword">struct </span>Counter {</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keyword">enum</span> Unit { UNSPECIFIED = 0, BYTES = 1, PACKETS = 2, BOTH = 3 };</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        std::string name;</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        P4Id id;</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        int64_t size;</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        Unit unit;</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        Util::JsonArray *annotations;</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keyword">static</span> std::optional&lt;Counter&gt; from(<span class="keyword">const</span> p4configv1::Counter &amp;counterInstance);</div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        <span class="keyword">static</span> std::optional&lt;Counter&gt; fromDirect(<span class="keyword">const</span> p4configv1::DirectCounter &amp;counterInstance);</div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    };</div>
-</div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span></div>
-<div class="foldopen" id="foldopen00298" data-start="{" data-end="};">
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_meter.html">  298</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_meter.html">Meter</a> {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="keyword">struct </span>Meter {</div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keyword">enum</span> Unit { UNSPECIFIED = 0, BYTES = 1, PACKETS = 2 };</div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="keyword">enum</span> Type { COLOR_UNAWARE = 0, COLOR_AWARE = 1 };</div>
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        std::string name;</div>
@@ -417,138 +409,109 @@ $(function(){initNavTree('backends_2tofino_2bf-p4c_2control-plane_2bfruntime_8h_
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        int64_t size;</div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        Unit unit;</div>
 <div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        Type type;</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        Util::JsonArray *annotations;</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keyword">static</span> std::optional&lt;Meter&gt; from(<span class="keyword">const</span> p4configv1::Meter &amp;meterInstance);</div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keyword">static</span> std::optional&lt;Meter&gt; fromDirect(<span class="keyword">const</span> p4configv1::DirectMeter &amp;meterInstance);</div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    };</div>
-</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span></div>
-<div class="foldopen" id="foldopen00314" data-start="{" data-end="};">
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_action_prof.html">  314</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_action_prof.html">ActionProf</a> {</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <span class="keyword">struct </span>ActionProf {</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        std::string name;</div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        P4Id id;</div>
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        int64_t size;</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        std::vector&lt;P4Id&gt; tableIds;</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        Util::JsonArray *annotations;</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keyword">static</span> P4Id makeActProfId(P4Id implementationId);</div>
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <span class="keyword">static</span> std::optional&lt;ActionProf&gt; from(<span class="keyword">const</span> p4configv1::P4Info &amp;p4info,</div>
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>                                              <span class="keyword">const</span> p4configv1::ActionProfile &amp;actionProfile);</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    };</div>
-</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span></div>
-<div class="foldopen" id="foldopen00326" data-start="{" data-end="};">
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_digest.html">  326</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_digest.html">Digest</a> {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <span class="keyword">struct </span>Digest {</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        std::string name;</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        P4Id id;</div>
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        p4configv1::P4DataTypeSpec typeSpec;</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        Util::JsonArray *annotations;</div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keyword">static</span> std::optional&lt;Digest&gt; from(<span class="keyword">const</span> p4configv1::Digest &amp;digest);</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    };</div>
-</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span></div>
-<div class="foldopen" id="foldopen00336" data-start="{" data-end="};">
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html">  336</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_register">Register</a> {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    <span class="keyword">struct </span>Register {</div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        std::string name;</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        std::string dataFieldName;</div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        P4Id id;</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        int64_t size;</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        p4configv1::P4DataTypeSpec typeSpec;</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        Util::JsonArray *annotations;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="comment">// static std::optional&lt;Register&gt;</span></div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="comment">// from(const p4configv1::ExternInstance&amp; externInstance);</span></div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    };</div>
-</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keywordtype">void</span> addMatchTables(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addActionProfs(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keywordtype">void</span> addMatchTables(Util::JsonArray *tablesJson) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addActionProfs(Util::JsonArray *tablesJson) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> addActionProfIds(<span class="keyword">const</span> p4configv1::Table &amp;table,</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>                                  <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *tableJson) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordtype">void</span> addCounters(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordtype">void</span> addMeters(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>                                  Util::JsonObject *tableJson) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordtype">void</span> addCounters(Util::JsonArray *tablesJson) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordtype">void</span> addMeters(Util::JsonArray *tablesJson) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <span class="keywordtype">void</span> addCounterCommon(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson, <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_counter.html">Counter</a> &amp;counter) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keywordtype">void</span> addMeterCommon(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson, <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_meter.html">Meter</a> &amp;meter) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keywordtype">void</span> addRegisterCommon(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson, <span class="keyword">const</span> <a class="code hl_struct" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_register">Register</a> &amp;meter) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <span class="keywordtype">void</span> addActionProfCommon(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *tablesJson, <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_action_prof.html">ActionProf</a> &amp;actionProf) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <span class="keywordtype">void</span> addLearnFilters(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *learnFiltersJson) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="keywordtype">void</span> addLearnFilterCommon(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *learnFiltersJson, <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_digest.html">Digest</a> &amp;digest) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addDirectResources(<span class="keyword">const</span> p4configv1::Table &amp;table, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *dataJson,</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>                                    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *operationsJson,</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>                                    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *attributesJson,</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <span class="keywordtype">void</span> addCounterCommon(Util::JsonArray *tablesJson, <span class="keyword">const</span> Counter &amp;counter) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keywordtype">void</span> addMeterCommon(Util::JsonArray *tablesJson, <span class="keyword">const</span> Meter &amp;meter) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keywordtype">void</span> addRegisterCommon(Util::JsonArray *tablesJson, <span class="keyword">const</span> Register &amp;meter) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <span class="keywordtype">void</span> addActionProfCommon(Util::JsonArray *tablesJson, <span class="keyword">const</span> ActionProf &amp;actionProf) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <span class="keywordtype">void</span> addLearnFilters(Util::JsonArray *learnFiltersJson) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="keywordtype">void</span> addLearnFilterCommon(Util::JsonArray *learnFiltersJson, <span class="keyword">const</span> Digest &amp;digest) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addDirectResources(<span class="keyword">const</span> p4configv1::Table &amp;table, Util::JsonArray *dataJson,</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>                                    Util::JsonArray *operationsJson,</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>                                    Util::JsonArray *attributesJson,</div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>                                    P4Id maxActionParamId = 0) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="keyword">virtual</span> std::optional&lt;bool&gt; actProfHasSelector(P4Id actProfId) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *<a class="code hl_function" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#a40da7ae35d841e8e0415d75bf835af3e">makeActionSpecs</a>(<span class="keyword">const</span> p4configv1::Table &amp;table,</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    Util::JsonArray *makeActionSpecs(<span class="keyword">const</span> p4configv1::Table &amp;table,</div>
 <div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                                     P4Id *maxActionParamId = <span class="keyword">nullptr</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keyword">virtual</span> std::optional&lt;Counter&gt; getDirectCounter(P4Id counterId) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keyword">virtual</span> std::optional&lt;Meter&gt; getDirectMeter(P4Id meterId) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span></div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#ad541a0afae7373dd63e3f5f999a8b87d">transformTypeSpecToDataFields</a>(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *fieldsJson,</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordtype">void</span> transformTypeSpecToDataFields(Util::JsonArray *fieldsJson,</div>
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>                                       <span class="keyword">const</span> p4configv1::P4DataTypeSpec &amp;typeSpec,</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                                       <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> instanceType, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> instanceName,</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                                       cstring instanceType, cstring instanceName,</div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>                                       <span class="keyword">const</span> std::vector&lt;cstring&gt; *fieldNames = <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>                                       <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> prefix = <span class="stringliteral">&quot;&quot;</span>_cs, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> suffix = <span class="stringliteral">&quot;&quot;</span>_cs,</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>                                       cstring prefix = <span class="stringliteral">&quot;&quot;</span>_cs, cstring suffix = <span class="stringliteral">&quot;&quot;</span>_cs,</div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>                                       P4Id idOffset = 1) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addMeterDataFields(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *dataJson, <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_meter.html">Meter</a> &amp;meter);</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *makeCommonDataField(P4Id <span class="keywordtype">id</span>, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *type,</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addMeterDataFields(Util::JsonArray *dataJson, <span class="keyword">const</span> Meter &amp;meter);</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keyword">static</span> Util::JsonObject *makeCommonDataField(P4Id <span class="keywordtype">id</span>, cstring name, Util::JsonObject *type,</div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>                                                 <span class="keywordtype">bool</span> repeated,</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>                                                 <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>                                                 Util::JsonArray *annotations = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *makeContainerDataField(P4Id <span class="keywordtype">id</span>, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *items,</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <span class="keyword">static</span> Util::JsonObject *makeContainerDataField(P4Id <span class="keywordtype">id</span>, cstring name, Util::JsonArray *items,</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>                                                    <span class="keywordtype">bool</span> repeated,</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>                                                    <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>                                                    Util::JsonArray *annotations = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addActionDataField(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *dataJson, P4Id <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string &amp;name,</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>                                   <span class="keywordtype">bool</span> mandatory, <span class="keywordtype">bool</span> read_only, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *type,</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>                                   <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addActionDataField(Util::JsonArray *dataJson, P4Id <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string &amp;name,</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>                                   <span class="keywordtype">bool</span> mandatory, <span class="keywordtype">bool</span> read_only, Util::JsonObject *type,</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>                                   Util::JsonArray *annotations = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addKeyField(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *dataJson, P4Id <span class="keywordtype">id</span>, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name, <span class="keywordtype">bool</span> mandatory,</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>                            <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> matchType, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *type,</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>                            <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addKeyField(Util::JsonArray *dataJson, P4Id <span class="keywordtype">id</span>, cstring name, <span class="keywordtype">bool</span> mandatory,</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>                            cstring matchType, Util::JsonObject *type,</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>                            Util::JsonArray *annotations = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addCounterDataFields(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *dataJson, <span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_counter.html">Counter</a> &amp;counter);</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addCounterDataFields(Util::JsonArray *dataJson, <span class="keyword">const</span> Counter &amp;counter);</div>
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *initTableJson(<span class="keyword">const</span> std::string &amp;name, P4Id <span class="keywordtype">id</span>, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> tableType,</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>                                           int64_t size, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *annotations = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keyword">static</span> Util::JsonObject *initTableJson(<span class="keyword">const</span> std::string &amp;name, P4Id <span class="keywordtype">id</span>, cstring tableType,</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>                                           int64_t size, Util::JsonArray *annotations = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addToDependsOn(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *tableJson, P4Id <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> addToDependsOn(Util::JsonObject *tableJson, P4Id <span class="keywordtype">id</span>);</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span></div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#afa58d93eafd2ca7ccfd8ccf3bf6220f0">addRegisterDataFields</a>(<a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *dataJson, <span class="keyword">const</span> <a class="code hl_struct" href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_register">Register</a> &amp;register_,</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keywordtype">void</span> addRegisterDataFields(Util::JsonArray *dataJson, <span class="keyword">const</span> Register &amp;register_,</div>
 <div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                               P4Id idOffset = 1) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    <span class="keyword">const</span> p4configv1::P4Info &amp;p4info;</div>
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>};</div>
-</div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>}  <span class="comment">// namespace BFRT</span></div>
 <div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span> </div>
 <div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_CONTROL_PLANE_BFRUNTIME_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_html_a40da7ae35d841e8e0415d75bf835af3e"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#a40da7ae35d841e8e0415d75bf835af3e">BFN::BFRT::BFRuntimeGenerator::makeActionSpecs</a></div><div class="ttdeci">Util::JsonArray * makeActionSpecs(const p4configv1::Table &amp;table, P4Id *maxActionParamId=nullptr) const</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.cpp:661</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_html_a6d0652a56d0d1dc3656cb0c186ac7b0d"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#a6d0652a56d0d1dc3656cb0c186ac7b0d">BFN::BFRT::BFRuntimeGenerator::genSchema</a></div><div class="ttdeci">virtual const Util::JsonObject * genSchema() const</div><div class="ttdoc">Generates the schema as a Json object for the provided P4Info instance.</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.cpp:967</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_html_ad541a0afae7373dd63e3f5f999a8b87d"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#ad541a0afae7373dd63e3f5f999a8b87d">BFN::BFRT::BFRuntimeGenerator::transformTypeSpecToDataFields</a></div><div class="ttdeci">void transformTypeSpecToDataFields(Util::JsonArray *fieldsJson, const p4configv1::P4DataTypeSpec &amp;typeSpec, cstring instanceType, cstring instanceName, const std::vector&lt; cstring &gt; *fieldNames=nullptr, cstring prefix=&quot;&quot;_cs, cstring suffix=&quot;&quot;_cs, P4Id idOffset=1) const</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.cpp:498</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_html_af9bee14d9b08cbd2b0cf2ed4ed6ad6b4"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#af9bee14d9b08cbd2b0cf2ed4ed6ad6b4">BFN::BFRT::BFRuntimeGenerator::serializeBFRuntimeSchema</a></div><div class="ttdeci">void serializeBFRuntimeSchema(std::ostream *destination)</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.cpp:988</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_html_afa58d93eafd2ca7ccfd8ccf3bf6220f0"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#afa58d93eafd2ca7ccfd8ccf3bf6220f0">BFN::BFRT::BFRuntimeGenerator::addRegisterDataFields</a></div><div class="ttdeci">void addRegisterDataFields(Util::JsonArray *dataJson, const Register &amp;register_, P4Id idOffset=1) const</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.cpp:512</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_html_struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_register"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator.html#struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_register">BFN::BFRT::BFRuntimeGenerator::Register</a></div><div class="ttdoc">Common register representation between PSA and other architectures.</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.h:336</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser_html_struct_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser_1_1_field"><div class="ttname"><a href="class_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser.html#struct_b_f_n_1_1_b_f_r_t_1_1_type_spec_parser_1_1_field">BFN::BFRT::TypeSpecParser::Field</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.h:206</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_array_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_array.html">P4::Util::JsonArray</a></div><div class="ttdef"><b>Definition</b> lib/json.h:128</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_object_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_object.html">P4::Util::JsonObject</a></div><div class="ttdef"><b>Definition</b> lib/json.h:177</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::const_iterator</a></div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::iterator</a></div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
-<div class="ttc" id="anamespace_p4_1_1literals_html"><div class="ttname"><a href="namespace_p4_1_1literals.html">P4::literals</a></div><div class="ttdef"><b>Definition</b> cstring.h:80</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="anamespace_p4_html_a9fe6085b1cee8f21f098c9db89644b58"><div class="ttname"><a href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">P4::error</a></div><div class="ttdeci">void error(const char *format, Args &amp;&amp;...args)</div><div class="ttdoc">Report an error with the given message.</div><div class="ttdef"><b>Definition</b> lib/error.h:58</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_action_prof_html"><div class="ttname"><a href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_action_prof.html">BFN::BFRT::BFRuntimeGenerator::ActionProf</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.h:314</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_counter_html"><div class="ttname"><a href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_counter.html">BFN::BFRT::BFRuntimeGenerator::Counter</a></div><div class="ttdoc">Common counter representation between PSA and other architectures.</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.h:285</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_digest_html"><div class="ttname"><a href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_digest.html">BFN::BFRT::BFRuntimeGenerator::Digest</a></div><div class="ttdoc">Common digest representation between PSA and other architectures.</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.h:326</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_meter_html"><div class="ttname"><a href="struct_b_f_n_1_1_b_f_r_t_1_1_b_f_runtime_generator_1_1_meter.html">BFN::BFRT::BFRuntimeGenerator::Meter</a></div><div class="ttdoc">Common meter representation between PSA and other architectures.</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/control-plane/bfruntime.h:298</div></div>
-<div class="ttc" id="astruct_p4_1_1_p4_runtime_a_p_i_html"><div class="ttname"><a href="struct_p4_1_1_p4_runtime_a_p_i.html">P4::P4RuntimeAPI</a></div><div class="ttdef"><b>Definition</b> p4RuntimeSerializer.h:57</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

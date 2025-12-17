@@ -194,7 +194,7 @@ $(function(){initNavTree('jbay_2counter_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                        <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    }</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    <span class="keywordflow">if</span> (vpn_processed.count(v))</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                        <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(home_lineno, <span class="stringliteral">&quot;Multiple instance of the VPN %d detected&quot;</span>, v);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                        error(home_lineno, <span class="stringliteral">&quot;Multiple instance of the VPN %d detected&quot;</span>, v);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                        vpn_processed.insert(v);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
@@ -207,7 +207,7 @@ $(function(){initNavTree('jbay_2counter_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                bitvec block_range(min, max - min + 1);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                <span class="keywordflow">if</span> (vpn_range.intersects(block_range))</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(home_lineno, <span class="stringliteral">&quot;Overlapping of VPN range detected&quot;</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    error(home_lineno, <span class="stringliteral">&quot;Overlapping of VPN range detected&quot;</span>);</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                    vpn_range |= block_range;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
@@ -221,7 +221,7 @@ $(function(){initNavTree('jbay_2counter_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">if</span> (vpn_range != bitvec(minvpn, sparevpn - minvpn))</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(home_lineno, <span class="stringliteral">&quot;VPN range not entirely covered&quot;</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        error(home_lineno, <span class="stringliteral">&quot;VPN range not entirely covered&quot;</span>);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">template</span> &lt;&gt;</div>
@@ -235,7 +235,6 @@ $(function(){initNavTree('jbay_2counter_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_JBAY_COUNTER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespace_p4_html_a9fe6085b1cee8f21f098c9db89644b58"><div class="ttname"><a href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">P4::error</a></div><div class="ttdeci">void error(const char *format, Args &amp;&amp;...args)</div><div class="ttdoc">Report an error with the given message.</div><div class="ttdef"><b>Definition</b> lib/error.h:58</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -139,29 +139,23 @@ $(function(){initNavTree('kind__size__indexed__map_8h_source.html',''); initResi
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/phv_fields.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span>PHV {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>v2 {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_p_h_v_1_1v2_1_1_kind_size_indexed_map.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_kind_size_indexed_map.html">KindSizeIndexedMap</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">struct </span>KindSizeIndexedMap {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::map&lt;std::pair&lt;PHV::Kind, PHV::Size&gt;, <span class="keywordtype">int</span>&gt; m;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">int</span> &amp;operator[](<span class="keyword">const</span> std::pair&lt;PHV::Kind, PHV::Size&gt; &amp;ks) { <span class="keywordflow">return</span> m[ks]; }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> sum(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#aba5418d9e37657e37eb63ee0aa0a435f">PHV::Kind</a> &amp;k) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">int</span> sum(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#a3ff115c4ef9dcfb7a3565ddc263f0ece">PHV::Size</a> &amp;k) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::optional&lt;int&gt; get(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#aba5418d9e37657e37eb63ee0aa0a435f">PHV::Kind</a> &amp;k, <span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#a3ff115c4ef9dcfb7a3565ddc263f0ece">PHV::Size</a> &amp;s) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> get_or(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#aba5418d9e37657e37eb63ee0aa0a435f">PHV::Kind</a> &amp;k, <span class="keyword">const</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#a3ff115c4ef9dcfb7a3565ddc263f0ece">PHV::Size</a> &amp;s, <span class="keywordtype">int</span> default_val) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> sum(<span class="keyword">const</span> PHV::Kind &amp;k) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">int</span> sum(<span class="keyword">const</span> PHV::Size &amp;k) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::optional&lt;int&gt; get(<span class="keyword">const</span> PHV::Kind &amp;k, <span class="keyword">const</span> PHV::Size &amp;s) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> get_or(<span class="keyword">const</span> PHV::Kind &amp;k, <span class="keyword">const</span> PHV::Size &amp;s, <span class="keywordtype">int</span> default_val) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
-</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> <a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_kind_size_indexed_map.html">KindSizeIndexedMap</a> &amp;);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> KindSizeIndexedMap &amp;);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}  <span class="comment">// namespace v2</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}  <span class="comment">// namespace PHV</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_V2_KIND_SIZE_INDEXED_MAP_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
-<div class="ttc" id="anamespace_p_h_v_html_a3ff115c4ef9dcfb7a3565ddc263f0ece"><div class="ttname"><a href="namespace_p_h_v.html#a3ff115c4ef9dcfb7a3565ddc263f0ece">PHV::Size</a></div><div class="ttdeci">Size</div><div class="ttdoc">all possible PHV container sizes in BFN devices</div><div class="ttdef"><b>Definition</b> bf-p4c/phv/phv.h:110</div></div>
-<div class="ttc" id="anamespace_p_h_v_html_aba5418d9e37657e37eb63ee0aa0a435f"><div class="ttname"><a href="namespace_p_h_v.html#aba5418d9e37657e37eb63ee0aa0a435f">PHV::Kind</a></div><div class="ttdeci">Kind</div><div class="ttdef"><b>Definition</b> bf-p4c/phv/phv.h:44</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1v2_1_1_kind_size_indexed_map_html"><div class="ttname"><a href="struct_p_h_v_1_1v2_1_1_kind_size_indexed_map.html">PHV::v2::KindSizeIndexedMap</a></div><div class="ttdef"><b>Definition</b> kind_size_indexed_map.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

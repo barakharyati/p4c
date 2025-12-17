@@ -162,33 +162,27 @@ $(function(){initNavTree('bytestrings_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}  <span class="comment">// namespace P4::IR</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span>P4 {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_type_map.html">TypeMap</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>TypeMap;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4_1_1_control_plane_a_p_i.html">ControlPlaneAPI</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span>ControlPlaneAPI {</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">int</span> <a class="code hl_function" href="namespace_p4_1_1_control_plane_a_p_i.html#a4eb913db2bfb7833ee16d2f5e76b84ea">getTypeWidth</a>(<span class="keyword">const</span> IR::Type &amp;type, <span class="keyword">const</span> TypeMap &amp;typeMap);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">int</span> getTypeWidth(<span class="keyword">const</span> IR::Type &amp;type, <span class="keyword">const</span> TypeMap &amp;typeMap);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>std::optional&lt;std::string&gt; <a class="code hl_function" href="namespace_p4_1_1_control_plane_a_p_i.html#a1cbf60adfd13d0658ae7f497f889c3a7">stringRepr</a>(<span class="keyword">const</span> IR::Constant *constant, <span class="keywordtype">int</span> width);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>std::optional&lt;std::string&gt; stringRepr(<span class="keyword">const</span> IR::Constant *constant, <span class="keywordtype">int</span> width);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>std::optional&lt;std::string&gt; <a class="code hl_function" href="namespace_p4_1_1_control_plane_a_p_i.html#a1cbf60adfd13d0658ae7f497f889c3a7">stringRepr</a>(<span class="keyword">const</span> IR::BoolLiteral *constant, <span class="keywordtype">int</span> width);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>std::optional&lt;std::string&gt; stringRepr(<span class="keyword">const</span> IR::BoolLiteral *constant, <span class="keywordtype">int</span> width);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>std::optional&lt;std::string&gt; <a class="code hl_function" href="namespace_p4_1_1_control_plane_a_p_i.html#a1cbf60adfd13d0658ae7f497f889c3a7">stringRepr</a>(<span class="keyword">const</span> TypeMap &amp;typeMap, <span class="keyword">const</span> IR::Expression *expression);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>std::optional&lt;std::string&gt; stringRepr(<span class="keyword">const</span> TypeMap &amp;typeMap, <span class="keyword">const</span> IR::Expression *expression);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>std::optional&lt;std::string&gt; <a class="code hl_function" href="namespace_p4_1_1_control_plane_a_p_i.html#ab87a21ceb20c681d197b8b1c5ba96d3b">stringReprConstant</a>(big_int value, <span class="keywordtype">int</span> width);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>std::optional&lt;std::string&gt; stringReprConstant(big_int value, <span class="keywordtype">int</span> width);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}  <span class="comment">// namespace ControlPlaneAPI</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif  </span><span class="comment">// CONTROL_PLANE_BYTESTRINGS_H_</span></div>
-<div class="ttc" id="aclass_p4_1_1_type_map_html"><div class="ttname"><a href="class_p4_1_1_type_map.html">P4::TypeMap</a></div><div class="ttdef"><b>Definition</b> typeMap.h:41</div></div>
-<div class="ttc" id="anamespace_p4_1_1_control_plane_a_p_i_html"><div class="ttname"><a href="namespace_p4_1_1_control_plane_a_p_i.html">P4::ControlPlaneAPI</a></div><div class="ttdoc">TODO(antonin): High level goals of the generator go here!!</div><div class="ttdef"><b>Definition</b> dpdk/control-plane/bfruntime_arch_handler.h:52</div></div>
-<div class="ttc" id="anamespace_p4_1_1_control_plane_a_p_i_html_a1cbf60adfd13d0658ae7f497f889c3a7"><div class="ttname"><a href="namespace_p4_1_1_control_plane_a_p_i.html#a1cbf60adfd13d0658ae7f497f889c3a7">P4::ControlPlaneAPI::stringRepr</a></div><div class="ttdeci">std::optional&lt; std::string &gt; stringRepr(const IR::Constant *constant, int width)</div><div class="ttdef"><b>Definition</b> bytestrings.cpp:67</div></div>
-<div class="ttc" id="anamespace_p4_1_1_control_plane_a_p_i_html_a4eb913db2bfb7833ee16d2f5e76b84ea"><div class="ttname"><a href="namespace_p4_1_1_control_plane_a_p_i.html#a4eb913db2bfb7833ee16d2f5e76b84ea">P4::ControlPlaneAPI::getTypeWidth</a></div><div class="ttdeci">int getTypeWidth(const IR::Type &amp;type, const TypeMap &amp;typeMap)</div><div class="ttdef"><b>Definition</b> bytestrings.cpp:26</div></div>
-<div class="ttc" id="anamespace_p4_1_1_control_plane_a_p_i_html_ab87a21ceb20c681d197b8b1c5ba96d3b"><div class="ttname"><a href="namespace_p4_1_1_control_plane_a_p_i.html#ab87a21ceb20c681d197b8b1c5ba96d3b">P4::ControlPlaneAPI::stringReprConstant</a></div><div class="ttdeci">std::optional&lt; std::string &gt; stringReprConstant(big_int value, int width)</div><div class="ttdef"><b>Definition</b> bytestrings.cpp:40</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

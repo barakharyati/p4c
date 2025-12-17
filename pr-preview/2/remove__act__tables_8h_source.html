@@ -136,10 +136,9 @@ $(function(){initNavTree('remove__act__tables_8h_source.html',''); initResizable
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_analyze_action_tables.html">   34</a></span><span class="keyword">class </span>AnalyzeActionTables : <span class="keyword">public</span> MAU::Inspector {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>AnalyzeActionTables : <span class="keyword">public</span> MAU::Inspector {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    AnalyzeActionTables() {}</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> isCandidate(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _candidates. }</div>
@@ -151,39 +150,29 @@ $(function(){initNavTree('remove__act__tables_8h_source.html',''); initResizable
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::set&lt;cstring&gt; _candidates;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
-</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_do_remove_action_tables.html">   48</a></span><span class="keyword">class </span>DoRemoveActionTables : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_analyze_action_tables.html">AnalyzeActionTables</a> *analysis;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>DoRemoveActionTables : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> AnalyzeActionTables *analysis;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">explicit</span> DoRemoveActionTables(<span class="keyword">const</span> <a class="code hl_class" href="class_analyze_action_tables.html">AnalyzeActionTables</a> *a) : analysis(a) {}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">explicit</span> DoRemoveActionTables(<span class="keyword">const</span> AnalyzeActionTables *a) : analysis(a) {}</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> IR::Node *postorder(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
-</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="foldopen" id="foldopen00058" data-start="{" data-end="};">
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_remove_action_tables.html">   58</a></span><span class="keyword">class </span>RemoveActionTables : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">class </span>RemoveActionTables : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    RemoveActionTables() {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">auto</span> analysis = <span class="keyword">new</span> <a class="code hl_class" href="class_analyze_action_tables.html">AnalyzeActionTables</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">auto</span> analysis = <span class="keyword">new</span> AnalyzeActionTables();</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        addPasses({</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            &amp;analysis,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keyword">new</span> <a class="code hl_class" href="class_do_remove_action_tables.html">DoRemoveActionTables</a>(analysis),</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keyword">new</span> DoRemoveActionTables(analysis),</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        });</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
-</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_REMOVE_ACT_TABLES_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_analyze_action_tables_html"><div class="ttname"><a href="class_analyze_action_tables.html">AnalyzeActionTables</a></div><div class="ttdef"><b>Definition</b> remove_act_tables.h:34</div></div>
-<div class="ttc" id="aclass_do_remove_action_tables_html"><div class="ttname"><a href="class_do_remove_action_tables.html">DoRemoveActionTables</a></div><div class="ttdoc">Do the actual moves after the analysis has completed.</div><div class="ttdef"><b>Definition</b> remove_act_tables.h:48</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_transform_html"><div class="ttname"><a href="class_p4_1_1_transform.html">P4::Transform</a></div><div class="ttdef"><b>Definition</b> visitor.h:437</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

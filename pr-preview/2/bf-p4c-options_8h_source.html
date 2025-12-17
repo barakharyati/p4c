@@ -139,8 +139,7 @@ $(function(){initNavTree('bf-p4c-options_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;lib/cstring.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;logging/bf_error_reporter.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_b_f_n___options.html">   27</a></span><span class="keyword">class </span>BFN_Options : <span class="keyword">public</span> CompilerOptions {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span>BFN_Options : <span class="keyword">public</span> CompilerOptions {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> allowUnimplemented = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> debugInfo = <span class="keyword">false</span>;</div>
@@ -217,7 +216,7 @@ $(function(){initNavTree('bf-p4c-options_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    BFN_Options();</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    std::vector&lt;const char *&gt; *<a class="code hl_function" href="class_b_f_n___options.html#ad04ae7bb5310bdf0fbc64d50764f51d6">process</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *<span class="keyword">const</span> argv[]) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    std::vector&lt;const char *&gt; *process(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *<span class="keyword">const</span> argv[]) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">// private:</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// BFN_Options::process is called twice: once from the main, and once</span></div>
@@ -237,38 +236,34 @@ $(function(){initNavTree('bf-p4c-options_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">unsigned</span> ghost_pipes = 0;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> inclusive_max_errors_before_enforcing_silence_other_than_the_summary = INT_MAX;</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
-</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">// forward declarations so we do not include ir-generated.h</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_i_r.html">IR</a> {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">namespace </span>P4 {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">namespace </span>IR {</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">class </span>P4Program;      <span class="comment">// NOLINT(build/forward_decl)</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword">class </span>ToplevelBlock;  <span class="comment">// NOLINT(build/forward_decl)</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}  <span class="comment">// namespace IR</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
-<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_b_f_n_context.html">  135</a></span><span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_context.html">BFNContext</a> : <span class="keyword">public</span> <span class="keyword">virtual</span> P4CContext {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">class </span>BFNContext : <span class="keyword">public</span> <span class="keyword">virtual</span> P4CContext {</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_b_f_n_context.html">BFNContext</a> &amp;<a class="code hl_function" href="class_b_f_n_context.html#a0121e8f63d600f5bd0921dcc8d9fccf5">get</a>();</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keyword">static</span> BFNContext &amp;get();</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> &amp;<a class="code hl_function" href="class_b_f_n_context.html#a3942e5ee0ee51885fa35d7cc59fc7c0e">options</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    BFN_Options &amp;options() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_context.html#a4e3555110a8e3603ec3cd0705ff3c295">setBackendOptions</a>(<a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> *<a class="code hl_function" href="class_b_f_n_context.html#a3942e5ee0ee51885fa35d7cc59fc7c0e">options</a>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> setBackendOptions(BFN_Options *options);</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_context.html#a4f0aa72d0d7756b510e8bbca60967cf7">clearBackendOptions</a>();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> clearBackendOptions();</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    cstring <a class="code hl_function" href="class_b_f_n_context.html#a9a4aebb6edae612670a75df0ea1d1bad">getOutputDirectory</a>(<span class="keyword">const</span> cstring &amp;suffix = cstring(), <span class="keywordtype">int</span> pipe_id = -1);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    cstring getOutputDirectory(<span class="keyword">const</span> cstring &amp;suffix = cstring(), <span class="keywordtype">int</span> pipe_id = -1);</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_context.html#ad5b0ada6f763048297107e5970bc99a8">discoverPipes</a>(<span class="keyword">const</span> IR::P4Program *, <span class="keyword">const</span> IR::ToplevelBlock *);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordtype">void</span> discoverPipes(<span class="keyword">const</span> IR::P4Program *, <span class="keyword">const</span> IR::ToplevelBlock *);</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span></div>
-<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="class_b_f_n_context.html#ae043ef3a9bae0ae027dce82b4b42312c">  177</a></span>    cstring &amp;<a class="code hl_function" href="class_b_f_n_context.html#ae043ef3a9bae0ae027dce82b4b42312c">getPipeName</a>(<span class="keywordtype">int</span> pipe_id) {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    cstring &amp;getPipeName(<span class="keywordtype">int</span> pipe_id) {</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keyword">static</span> cstring empty(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">if</span> (_pipes.count(pipe_id)) <span class="keywordflow">return</span> _pipes.at(pipe_id);</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">return</span> empty;</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    }</div>
-</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span></div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">bool</span> isPipeName(<span class="keyword">const</span> cstring &amp;name) {</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> pipe : _pipes) {</div>
@@ -290,37 +285,21 @@ $(function(){initNavTree('bf-p4c-options_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    BfErrorReporter bfErrorReporter;</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>};</div>
-</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keyword">inline</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> &amp;BackendOptions() { <span class="keywordflow">return</span> <a class="code hl_function" href="class_b_f_n_context.html#a0121e8f63d600f5bd0921dcc8d9fccf5">BFNContext::get</a>().<a class="code hl_function" href="class_b_f_n_context.html#a3942e5ee0ee51885fa35d7cc59fc7c0e">options</a>(); }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keyword">inline</span> BFN_Options &amp;BackendOptions() { <span class="keywordflow">return</span> BFNContext::get().options(); }</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span></div>
-<div class="foldopen" id="foldopen00221" data-start="{" data-end="};">
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="class_b_f_n_option_pragma_parser.html">  221</a></span><span class="keyword">class </span>BFNOptionPragmaParser : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_p4_c_option_pragma_parser.html">P4::P4COptionPragmaParser</a> {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="keyword">class </span>BFNOptionPragmaParser : <span class="keyword">public</span> P4::P4COptionPragmaParser {</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    std::optional&lt;CommandLineOptions&gt; tryToParse(<span class="keyword">const</span> IR::Annotation *annotation) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    BFNOptionPragmaParser() : <a class="code hl_class" href="class_p4_1_1_p4_c_option_pragma_parser.html">P4::P4COptionPragmaParser</a>(<span class="keyword">false</span>) {}</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    BFNOptionPragmaParser() : P4::P4COptionPragmaParser(false) {}</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="comment">// FIXME -- should remove the tofino @command_line stuff and use the base class</span></div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    std::optional&lt;CommandLineOptions&gt; parseCompilerOption(<span class="keyword">const</span> IR::Annotation *annotation);</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>};</div>
-</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_BF_P4C_OPTIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_b_f_n___options_html"><div class="ttname"><a href="class_b_f_n___options.html">BFN_Options</a></div><div class="ttdef"><b>Definition</b> bf-p4c-options.h:27</div></div>
-<div class="ttc" id="aclass_b_f_n___options_html_ad04ae7bb5310bdf0fbc64d50764f51d6"><div class="ttname"><a href="class_b_f_n___options.html#ad04ae7bb5310bdf0fbc64d50764f51d6">BFN_Options::process</a></div><div class="ttdeci">std::vector&lt; const char * &gt; * process(int argc, char *const argv[]) override</div><div class="ttdoc">Process the command line arguments and set options accordingly.</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:674</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html"><div class="ttname"><a href="class_b_f_n_context.html">BFNContext</a></div><div class="ttdoc">A CompileContext for bf-p4c.</div><div class="ttdef"><b>Definition</b> bf-p4c-options.h:135</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_a0121e8f63d600f5bd0921dcc8d9fccf5"><div class="ttname"><a href="class_b_f_n_context.html#a0121e8f63d600f5bd0921dcc8d9fccf5">BFNContext::get</a></div><div class="ttdeci">static BFNContext &amp; get()</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:785</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_a3942e5ee0ee51885fa35d7cc59fc7c0e"><div class="ttname"><a href="class_b_f_n_context.html#a3942e5ee0ee51885fa35d7cc59fc7c0e">BFNContext::options</a></div><div class="ttdeci">BFN_Options &amp; options() override</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:789</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_a4e3555110a8e3603ec3cd0705ff3c295"><div class="ttname"><a href="class_b_f_n_context.html#a4e3555110a8e3603ec3cd0705ff3c295">BFNContext::setBackendOptions</a></div><div class="ttdeci">void setBackendOptions(BFN_Options *options)</div><div class="ttdoc">Record options created in the Backend.</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:791</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_a4f0aa72d0d7756b510e8bbca60967cf7"><div class="ttname"><a href="class_b_f_n_context.html#a4f0aa72d0d7756b510e8bbca60967cf7">BFNContext::clearBackendOptions</a></div><div class="ttdeci">void clearBackendOptions()</div><div class="ttdoc">Clear the backend options.</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:797</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_a9a4aebb6edae612670a75df0ea1d1bad"><div class="ttname"><a href="class_b_f_n_context.html#a9a4aebb6edae612670a75df0ea1d1bad">BFNContext::getOutputDirectory</a></div><div class="ttdeci">cstring getOutputDirectory(const cstring &amp;suffix=cstring(), int pipe_id=-1)</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:803</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_ad5b0ada6f763048297107e5970bc99a8"><div class="ttname"><a href="class_b_f_n_context.html#ad5b0ada6f763048297107e5970bc99a8">BFNContext::discoverPipes</a></div><div class="ttdeci">void discoverPipes(const IR::P4Program *, const IR::ToplevelBlock *)</div><div class="ttdoc">identify the pipelines in the program and setup the _pipes map</div><div class="ttdef"><b>Definition</b> bf-p4c-options.cpp:837</div></div>
-<div class="ttc" id="aclass_b_f_n_context_html_ae043ef3a9bae0ae027dce82b4b42312c"><div class="ttname"><a href="class_b_f_n_context.html#ae043ef3a9bae0ae027dce82b4b42312c">BFNContext::getPipeName</a></div><div class="ttdeci">cstring &amp; getPipeName(int pipe_id)</div><div class="ttdoc">Return the pipeline name or empty if the program has not been parsed.</div><div class="ttdef"><b>Definition</b> bf-p4c-options.h:177</div></div>
-<div class="ttc" id="aclass_p4_1_1_p4_c_option_pragma_parser_html"><div class="ttname"><a href="class_p4_1_1_p4_c_option_pragma_parser.html">P4::P4COptionPragmaParser</a></div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.h:78</div></div>
-<div class="ttc" id="anamespace_i_r_html"><div class="ttname"><a href="namespace_i_r.html">IR</a></div><div class="ttdoc">The namespace encapsulating IR node classes.</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

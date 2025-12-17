@@ -137,27 +137,22 @@ $(function(){initNavTree('tofino_2bf-p4c_2arch_2arch__spec_8h_source.html',''); 
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/ir/gress.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_intrinsic_field.html">   25</a></span><span class="keyword">struct </span>IntrinsicField {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">struct </span>IntrinsicField {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::string name;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::string asm_name;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">explicit</span> IntrinsicField(std::string n) : name(n), asm_name(n) {}</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    IntrinsicField(std::string n, std::string an) : name(n), asm_name(an) {}</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_intrinsic_param.html">   33</a></span><span class="keyword">struct </span>IntrinsicParam {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">struct </span>IntrinsicParam {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::string type;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::string name;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    IntrinsicParam(std::string t, std::string n) : type(t), name(n) {}</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
-</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_arch_spec.html">   47</a></span><span class="keyword">class </span><a class="code hl_function" href="class_arch_spec.html#aae347149fdf5f3bed701b8940cf65387">ArchSpec</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>ArchSpec {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::vector&lt;IntrinsicField&gt; intrinsic_metadata[GRESS_T_COUNT];</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::vector&lt;IntrinsicField&gt; intrinsic_metadata_for_tm[GRESS_T_COUNT];</div>
@@ -174,7 +169,7 @@ $(function(){initNavTree('tofino_2bf-p4c_2arch_2arch__spec_8h_source.html',''); 
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">enum</span> ArchType_t { TNA, T2NA };</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="class_arch_spec.html#aae347149fdf5f3bed701b8940cf65387">ArchSpec</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    ArchSpec();</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::vector&lt;IntrinsicField&gt; getIngressIntrinsicMetadata()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> intrinsic_metadata[INGRESS];</div>
@@ -212,21 +207,21 @@ $(function(){initNavTree('tofino_2bf-p4c_2arch_2arch__spec_8h_source.html',''); 
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">return</span> intrinsic_metadata_for_output_port[EGRESS];</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> add_md(gress_t gress, <a class="code hl_struct" href="struct_intrinsic_field.html">IntrinsicField</a> f) { intrinsic_metadata[gress].push_back(f); }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> add_md(gress_t gress, IntrinsicField f) { intrinsic_metadata[gress].push_back(f); }</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> add_tm_md(gress_t gress, <a class="code hl_struct" href="struct_intrinsic_field.html">IntrinsicField</a> f) {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> add_tm_md(gress_t gress, IntrinsicField f) {</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        intrinsic_metadata_for_tm[gress].push_back(f);</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> add_prsr_md(gress_t gress, <a class="code hl_struct" href="struct_intrinsic_field.html">IntrinsicField</a> f) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> add_prsr_md(gress_t gress, IntrinsicField f) {</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        intrinsic_metadata_from_parser[gress].push_back(f);</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> add_dprsr_md(gress_t gress, <a class="code hl_struct" href="struct_intrinsic_field.html">IntrinsicField</a> f) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> add_dprsr_md(gress_t gress, IntrinsicField f) {</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        intrinsic_metadata_for_deparser[gress].push_back(f);</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">void</span> add_outport_md(gress_t gress, <a class="code hl_struct" href="struct_intrinsic_field.html">IntrinsicField</a> f) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">void</span> add_outport_md(gress_t gress, IntrinsicField f) {</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        intrinsic_metadata_for_output_port[gress].push_back(f);</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
@@ -246,34 +241,24 @@ $(function(){initNavTree('tofino_2bf-p4c_2arch_2arch__spec_8h_source.html',''); 
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> deparser_intrinsic_types[g];</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span></div>
-<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="class_arch_spec.html#a31960d594c5ddf42a913ba17b0b3dd32">  143</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_arch_spec.html#a31960d594c5ddf42a913ba17b0b3dd32">getDeparserIntrinsicMetadataForDeparserParamIndex</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">int</span> getDeparserIntrinsicMetadataForDeparserParamIndex()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> deparser_intrinsic_metadata_for_deparser_param_index;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
-</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">void</span> setTofinoIntrinsicTypes();</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>};</div>
-</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="foldopen" id="foldopen00150" data-start="{" data-end="};">
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="class_tofino_arch_spec.html">  150</a></span><span class="keyword">class </span>TofinoArchSpec : <span class="keyword">public</span> <a class="code hl_function" href="class_arch_spec.html#aae347149fdf5f3bed701b8940cf65387">ArchSpec</a> {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">class </span>TofinoArchSpec : <span class="keyword">public</span> ArchSpec {</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    TofinoArchSpec();</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>};</div>
-</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="};">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_j_bay_arch_spec.html">  155</a></span><span class="keyword">class </span>JBayArchSpec : <span class="keyword">public</span> <a class="code hl_function" href="class_arch_spec.html#aae347149fdf5f3bed701b8940cf65387">ArchSpec</a> {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">class </span>JBayArchSpec : <span class="keyword">public</span> ArchSpec {</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    JBayArchSpec();</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>};</div>
-</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_ARCH_ARCH_SPEC_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_arch_spec_html_a31960d594c5ddf42a913ba17b0b3dd32"><div class="ttname"><a href="class_arch_spec.html#a31960d594c5ddf42a913ba17b0b3dd32">ArchSpec::getDeparserIntrinsicMetadataForDeparserParamIndex</a></div><div class="ttdeci">int getDeparserIntrinsicMetadataForDeparserParamIndex() const</div><div class="ttdoc">Get the index of the intrinsic metadata for deparser parameter in the deparser.</div><div class="ttdef"><b>Definition</b> tofino/bf-p4c/arch/arch_spec.h:143</div></div>
-<div class="ttc" id="aclass_arch_spec_html_aae347149fdf5f3bed701b8940cf65387"><div class="ttname"><a href="class_arch_spec.html#aae347149fdf5f3bed701b8940cf65387">ArchSpec::ArchSpec</a></div><div class="ttdeci">ArchSpec()</div><div class="ttdef"><b>Definition</b> tofino/bf-p4c/arch/arch_spec.cpp:21</div></div>
-<div class="ttc" id="astruct_intrinsic_field_html"><div class="ttname"><a href="struct_intrinsic_field.html">IntrinsicField</a></div><div class="ttdef"><b>Definition</b> tofino/bf-p4c/arch/arch_spec.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

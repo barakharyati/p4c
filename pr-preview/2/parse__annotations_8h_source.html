@@ -138,7 +138,7 @@ $(function(){initNavTree('parse__annotations_8h_source.html',''); initResizable(
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;frontends/p4/parseAnnotations.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// wrapper for PARSE, PARSE_PAIR, and PARSE_TRIPLE</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define BFN_PARSE(pragmaClass, parse, tname, internal)                                             \</span></div>
@@ -160,11 +160,10 @@ $(function(){initNavTree('parse__annotations_8h_source.html',''); initResizable(
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">        Pragma::registerPragma(p, internal);                                                 \</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    }</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_parse_annotations.html">   49</a></span><span class="keyword">class </span>ParseAnnotations : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a> {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">class </span>ParseAnnotations : <span class="keyword">public</span> P4::ParseAnnotations {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="class_p4_1_1_parse_annotations.html#a2d06720fca4e53da1eb65e2bda05ee29">ParseAnnotations</a>()</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        : <a class="code hl_class" href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a>(<span class="stringliteral">&quot;BFN&quot;</span>, <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    ParseAnnotations()</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        : P4::ParseAnnotations(<span class="stringliteral">&quot;BFN&quot;</span>, true,</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                               {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                                   <span class="comment">// Ignore p4v annotations.</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                                   PARSE_SKIP(<span class="stringliteral">&quot;assert&quot;</span>_cs),</div>
@@ -201,7 +200,7 @@ $(function(){initNavTree('parse__annotations_8h_source.html',''); initResizable(
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        BFN_PARSE_EMPTY(PragmaDisableI2EReservedDropImplementation, PARSE_EMPTY, extPragma);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        BFN_PARSE_EMPTY(PragmaDisableEgressMirrorIOSelectInitialization, PARSE_EMPTY, extPragma);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        BFN_PARSE(PragmaDoNotBridge, PARSE_PAIR, StringLiteral, extPragma);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_do_not_use_clot.html">PragmaDoNotUseClot</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        BFN_PARSE_EMPTY(PragmaDoNotUseClot, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        BFN_PARSE(PragmaDontTranslateExternMethod, PARSE, StringLiteral, intPragma);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        BFN_PARSE(PragmaDontMerge, PARSE, Expression, extPragma);</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        BFN_PARSE_EMPTY(PragmaDontUnroll, PARSE_EMPTY, extPragma);</div>
@@ -272,18 +271,18 @@ $(function(){initNavTree('parse__annotations_8h_source.html',''); initResizable(
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        BFN_PARSE_EMPTY(PragmaPayloadChecksum, PARSE_EMPTY, intPragma);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="comment">// pa_ pragmas</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_alias.html">PragmaAlias</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_atomic.html">PragmaAtomic</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        BFN_PARSE_EMPTY(PragmaAlias, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        BFN_PARSE_EMPTY(PragmaAtomic, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        BFN_PARSE_EMPTY(PragmaAutoInitMetadata, PARSE_EMPTY, extPragma);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_byte_pack.html">PragmaBytePack</a>, PARSE_EXPRESSION_LIST, extPragma);</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_container_size.html">PragmaContainerSize</a>, PARSE_EXPRESSION_LIST, extPragma);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_container_type.html">PragmaContainerType</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        BFN_PARSE_EMPTY(PragmaBytePack, PARSE_EXPRESSION_LIST, extPragma);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        BFN_PARSE_EMPTY(PragmaContainerSize, PARSE_EXPRESSION_LIST, extPragma);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        BFN_PARSE_EMPTY(PragmaContainerType, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="comment">// FIXME: is DisableDeparseZero internal?</span></div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        BFN_PARSE_EMPTY(PragmaDisableDeparseZero, PARSE_STRING_LITERAL_LIST, intPragma);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_mutually_exclusive.html">PragmaMutuallyExclusive</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="group___lower_parser.html#class_pragma_no_init">PragmaNoInit</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_no_overlay.html">PragmaNoOverlay</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_no_pack.html">PragmaNoPack</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        BFN_PARSE_EMPTY(PragmaMutuallyExclusive, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        BFN_PARSE_EMPTY(PragmaNoInit, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        BFN_PARSE_EMPTY(PragmaNoOverlay, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        BFN_PARSE_EMPTY(PragmaNoPack, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        BFN_PARSE_EMPTY(PragmaNotDeparsed, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        BFN_PARSE_EMPTY(PragmaNotParsed, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        BFN_PARSE_EMPTY(PragmaParserBandwidthOpt, PARSE_EMPTY, extPragma);</div>
@@ -291,7 +290,7 @@ $(function(){initNavTree('parse__annotations_8h_source.html',''); initResizable(
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        BFN_PARSE_EMPTY(PragmaAllowPOVonMocha, PARSE_EMPTY, extPragma);</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        BFN_PARSE_EMPTY(PragmaPrioritizeARAinits, PARSE_EMPTY, extPragma);</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        BFN_PARSE_EMPTY(PragmaQuickPhvAlloc, PARSE_EMPTY, extPragma);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        BFN_PARSE_EMPTY(<a class="code hl_class" href="class_pragma_solitary.html">PragmaSolitary</a>, PARSE_STRING_LITERAL_LIST, extPragma);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        BFN_PARSE_EMPTY(PragmaSolitary, PARSE_STRING_LITERAL_LIST, extPragma);</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="comment">// internal annotation to be removed</span></div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        BFN_PARSE(PragmaActionSelectorHashFieldCalcName, PARSE, StringLiteral, intPragma);</div>
@@ -300,25 +299,10 @@ $(function(){initNavTree('parse__annotations_8h_source.html',''); initResizable(
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        BFN_PARSE(PragmaAlgorithm, PARSE, StringLiteral, intPragma);</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>};</div>
-</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_COMMON_PARSE_ANNOTATIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_parse_annotations_html"><div class="ttname"><a href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a></div><div class="ttdef"><b>Definition</b> parseAnnotations.h:120</div></div>
-<div class="ttc" id="aclass_p4_1_1_parse_annotations_html_a2d06720fca4e53da1eb65e2bda05ee29"><div class="ttname"><a href="class_p4_1_1_parse_annotations.html#a2d06720fca4e53da1eb65e2bda05ee29">P4::ParseAnnotations::ParseAnnotations</a></div><div class="ttdeci">ParseAnnotations(bool warn=false)</div><div class="ttdoc">Produces a pass that rewrites the spec-defined annotations.</div><div class="ttdef"><b>Definition</b> parseAnnotations.h:132</div></div>
-<div class="ttc" id="aclass_pragma_alias_html"><div class="ttname"><a href="class_pragma_alias.html">PragmaAlias</a></div><div class="ttdef"><b>Definition</b> pa_alias.h:38</div></div>
-<div class="ttc" id="aclass_pragma_atomic_html"><div class="ttname"><a href="class_pragma_atomic.html">PragmaAtomic</a></div><div class="ttdef"><b>Definition</b> pa_atomic.h:30</div></div>
-<div class="ttc" id="aclass_pragma_byte_pack_html"><div class="ttname"><a href="class_pragma_byte_pack.html">PragmaBytePack</a></div><div class="ttdef"><b>Definition</b> pa_byte_pack.h:39</div></div>
-<div class="ttc" id="aclass_pragma_container_size_html"><div class="ttname"><a href="class_pragma_container_size.html">PragmaContainerSize</a></div><div class="ttdef"><b>Definition</b> pa_container_size.h:39</div></div>
-<div class="ttc" id="aclass_pragma_container_type_html"><div class="ttname"><a href="class_pragma_container_type.html">PragmaContainerType</a></div><div class="ttdef"><b>Definition</b> pa_container_type.h:35</div></div>
-<div class="ttc" id="aclass_pragma_do_not_use_clot_html"><div class="ttname"><a href="class_pragma_do_not_use_clot.html">PragmaDoNotUseClot</a></div><div class="ttdoc">do_not_use_clot pragma support.</div><div class="ttdef"><b>Definition</b> do_not_use_clot.h:37</div></div>
-<div class="ttc" id="aclass_pragma_mutually_exclusive_html"><div class="ttname"><a href="class_pragma_mutually_exclusive.html">PragmaMutuallyExclusive</a></div><div class="ttdef"><b>Definition</b> pa_mutually_exclusive.h:37</div></div>
-<div class="ttc" id="aclass_pragma_no_overlay_html"><div class="ttname"><a href="class_pragma_no_overlay.html">PragmaNoOverlay</a></div><div class="ttdef"><b>Definition</b> pa_no_overlay.h:33</div></div>
-<div class="ttc" id="aclass_pragma_no_pack_html"><div class="ttname"><a href="class_pragma_no_pack.html">PragmaNoPack</a></div><div class="ttdef"><b>Definition</b> pa_no_pack.h:28</div></div>
-<div class="ttc" id="aclass_pragma_solitary_html"><div class="ttname"><a href="class_pragma_solitary.html">PragmaSolitary</a></div><div class="ttdef"><b>Definition</b> pa_solitary.h:27</div></div>
-<div class="ttc" id="agroup___lower_parser_html_class_pragma_no_init"><div class="ttname"><a href="group___lower_parser.html#class_pragma_no_init">PragmaNoInit</a></div><div class="ttdoc">Adds the no_init pragma to the specified fields with the specified gress.</div><div class="ttdef"><b>Definition</b> pa_no_init.h:35</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

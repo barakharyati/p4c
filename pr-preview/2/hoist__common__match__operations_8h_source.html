@@ -140,18 +140,17 @@ $(function(){initNavTree('hoist__common__match__operations_8h_source.html',''); 
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/parde/parde_visitor.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;compute_lowered_parser_ir.h&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_parde_1_1_lowered.html">Parde::Lowered</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>Parde::Lowered {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group___lower_parser_i_r.html">   36</a></span><span class="keyword">class </span>HoistCommonMatchOperations : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_transform">ParserTransform</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>HoistCommonMatchOperations : <span class="keyword">public</span> ParserTransform {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    CollectLoweredParserInfo &amp;parser_info;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> <a class="code hl_struct" href="group___lower_parser_i_r.html#struct_parde_1_1_lowered_1_1_compute_lowered_parser_i_r">ComputeLoweredParserIR</a> &amp;computed;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="class_clot_info.html">ClotInfo</a> &amp;clot_info;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> ComputeLoweredParserIR &amp;computed;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ClotInfo &amp;clot_info;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classassoc_1_1map.html">assoc::map&lt;const IR::BFN::LoweredParserState *, const IR::BFN::LoweredParserState *&gt;</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    assoc::map&lt;const IR::BFN::LoweredParserState *, const IR::BFN::LoweredParserState *&gt;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        original_to_modified;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    profile_t init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// Compares all fields in two LoweredParserMatch objects</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// except for the match values.  Essentially returns if both</span></div>
@@ -175,27 +174,19 @@ $(function(){initNavTree('hoist__common__match__operations_8h_source.html',''); 
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> do_hoist(IR::BFN::LoweredParserMatch *match, <span class="keyword">const</span> IR::BFN::LoweredParserMatch *next);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// do not merge loopback state for now, need to maitain loopback pointer TODO</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> is_loopback_state(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> state);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> is_loopback_state(cstring state);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::BFN::LoweredParserMatch *match) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    IR::Node *preorder(IR::BFN::LoweredParserMatch *match) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">explicit</span> HoistCommonMatchOperations(CollectLoweredParserInfo &amp;parser_info,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                        <span class="keyword">const</span> <a class="code hl_struct" href="group___lower_parser_i_r.html#struct_parde_1_1_lowered_1_1_compute_lowered_parser_i_r">ComputeLoweredParserIR</a> &amp;computed, <a class="code hl_class" href="class_clot_info.html">ClotInfo</a> &amp;clot_info)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                        <span class="keyword">const</span> ComputeLoweredParserIR &amp;computed, ClotInfo &amp;clot_info)</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        : parser_info(parser_info), computed(computed), clot_info(clot_info) {}</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
-</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}  <span class="comment">// namespace Parde::Lowered</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_LOWERED_HOIST_COMMON_MATCH_OPERATIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_clot_info_html"><div class="ttname"><a href="class_clot_info.html">ClotInfo</a></div><div class="ttdef"><b>Definition</b> clot_info.h:41</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclassassoc_1_1map_html"><div class="ttname"><a href="classassoc_1_1map.html">assoc::map</a></div><div class="ttdef"><b>Definition</b> assoc.h:300</div></div>
-<div class="ttc" id="agroup___lower_parser_i_r_html_struct_parde_1_1_lowered_1_1_compute_lowered_parser_i_r"><div class="ttname"><a href="group___lower_parser_i_r.html#struct_parde_1_1_lowered_1_1_compute_lowered_parser_i_r">Parde::Lowered::ComputeLoweredParserIR</a></div><div class="ttdoc">Combines the high-level parser IR and the results of PHV allocation to produce a low-level,...</div><div class="ttdef"><b>Definition</b> compute_lowered_parser_ir.h:37</div></div>
-<div class="ttc" id="agroup__parde_html_class_parser_transform"><div class="ttname"><a href="group__parde.html#class_parser_transform">ParserTransform</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:90</div></div>
-<div class="ttc" id="anamespace_parde_1_1_lowered_html"><div class="ttname"><a href="namespace_parde_1_1_lowered.html">Parde::Lowered</a></div><div class="ttdef"><b>Definition</b> lower_parser.cpp:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

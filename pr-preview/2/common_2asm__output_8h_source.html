@@ -143,33 +143,30 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;lib/safe_vector.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;lib/stringref.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><a class="code hl_struct" href="struct_p4_1_1_string_ref.html">StringRef</a> trim_asm_name(<a class="code hl_struct" href="struct_p4_1_1_string_ref.html">StringRef</a> name);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>StringRef trim_asm_name(StringRef name);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classcanon__name.html">   35</a></span><span class="keyword">class </span>canon_name {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="struct_p4_1_1_string_ref.html">StringRef</a> name;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>canon_name {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    StringRef name;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, canon_name);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">explicit</span> canon_name(<a class="code hl_struct" href="struct_p4_1_1_string_ref.html">StringRef</a> n) : name(n) {}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">explicit</span> canon_name(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n) : name(n) {}</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">explicit</span> canon_name(<a class="code hl_struct" href="struct_p4_1_1_i_r_1_1_i_d.html">IR::ID</a> n) : name(n.name) {}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">explicit</span> canon_name(StringRef n) : name(n) {}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">explicit</span> canon_name(cstring n) : name(n) {}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">explicit</span> canon_name(IR::ID n) : name(n.name) {}</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">operator</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cstring::to_cstring(*<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">operator</span> cstring()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> cstring::to_cstring(*<span class="keyword">this</span>); }</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
-</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_slice.html">   47</a></span><span class="keyword">class </span>Slice {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *field;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> reg;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>Slice {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> PHV::Field *field;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    PHV::Container reg;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">int</span> lo, hi;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> Slice &amp;);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    Slice &amp;invalidate() {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        field = 0;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        reg = <a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        reg = PHV::Container();</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        lo = -1;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        hi = -2;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -177,60 +174,60 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    Slice() : field(0), lo(-1), hi(-2) {}  <span class="comment">// hi = -2 to make width() = 0</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">explicit</span> Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *f) : field(f), lo(0), hi(f-&gt;<a class="code hl_variable" href="class_p_h_v_1_1_field.html#a10a198e7adff85104913040f88af6081">size</a> - 1) {}</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *f, <span class="keywordtype">int</span> bit) : field(f), lo(bit), hi(bit) {}</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *f, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) : field(f), lo(l), hi(h) {}</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *f, le_bitrange r) : field(f), lo(r.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">lo</a>), hi(r.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">hi</a>) {}</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">explicit</span> Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_abstract_field.html">PHV::AbstractField</a> *f)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">explicit</span> Slice(<span class="keyword">const</span> PHV::Field *f) : field(f), lo(0), hi(f-&gt;size - 1) {}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    Slice(<span class="keyword">const</span> PHV::Field *f, <span class="keywordtype">int</span> bit) : field(f), lo(bit), hi(bit) {}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    Slice(<span class="keyword">const</span> PHV::Field *f, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) : field(f), lo(l), hi(h) {}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    Slice(<span class="keyword">const</span> PHV::Field *f, le_bitrange r) : field(f), lo(r.lo), hi(r.hi) {}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">explicit</span> Slice(<span class="keyword">const</span> PHV::AbstractField *f)</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        : field(f-&gt;field()), lo(f-&gt;range().lo), hi(f-&gt;range().hi) {}</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_abstract_field.html">PHV::AbstractField</a> *f, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    Slice(<span class="keyword">const</span> PHV::AbstractField *f, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h)</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        : field(f-&gt;field()), lo(f-&gt;range().lo + l), hi(f-&gt;range().lo + h) {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span> (hi &gt; f-&gt;range().hi) hi = f-&gt;range().hi;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (!field || lo &gt; hi) invalidate();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        if (!field || lo &gt; hi) invalidate();</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_abstract_field.html">PHV::AbstractField</a> *f, le_bitrange r) : Slice(f, r.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">lo</a>, r.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">hi</a>) {}</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_abstract_field.html">PHV::AbstractField</a> *f, <span class="keywordtype">int</span> bit) : Slice(f, bit, bit) {}</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <span class="keyword">const</span> IR::Expression *e) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    Slice(<span class="keyword">const</span> PHV::AbstractField *f, le_bitrange r) : Slice(f, r.lo, r.hi) {}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    Slice(<span class="keyword">const</span> PHV::AbstractField *f, <span class="keywordtype">int</span> bit) : Slice(f, bit, bit) {}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, <span class="keyword">const</span> IR::Expression *e) {</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        le_bitrange bits;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span> (!(field = phv.field(e, &amp;bits))) {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            invalidate();</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            lo = bits.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">lo</a>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            hi = bits.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">hi</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            lo = bits.lo;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            hi = bits.hi;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <span class="keyword">const</span> IR::Expression *e, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, <span class="keyword">const</span> IR::Expression *e, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) {</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        le_bitrange bits;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">if</span> (!(field = phv.field(e, &amp;bits))) {</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            invalidate();</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            lo = bits.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">lo</a> + l;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            hi = bits.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">lo</a> + h;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">if</span> (hi &gt; bits.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">hi</a>) hi = bits.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">hi</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            lo = bits.lo + l;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            hi = bits.lo + h;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">if</span> (hi &gt; bits.hi) hi = bits.hi;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">if</span> (lo &gt; hi) invalidate();</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <span class="keyword">const</span> IR::Expression *e, le_bitrange r) : Slice(phv, e, r.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">lo</a>, r.<a class="code hl_variable" href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">hi</a>) {}</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <span class="keyword">const</span> IR::Expression *e, <span class="keywordtype">int</span> bit) : Slice(phv, e, bit, bit) {}</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n) : field(phv.field(n)), lo(0), hi(field-&gt;size - 1) {}</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n, <span class="keywordtype">int</span> bit) : field(phv.field(n)), lo(bit), hi(bit) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, <span class="keyword">const</span> IR::Expression *e, le_bitrange r) : Slice(phv, e, r.lo, r.hi) {}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, <span class="keyword">const</span> IR::Expression *e, <span class="keywordtype">int</span> bit) : Slice(phv, e, bit, bit) {}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, cstring n) : field(phv.field(n)), lo(0), hi(field-&gt;size - 1) {}</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, cstring n, <span class="keywordtype">int</span> bit) : field(phv.field(n)), lo(bit), hi(bit) {</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        BUG_CHECK((bit &gt;= 0 &amp;&amp; bit &lt; field-&gt;size),</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                  <span class="stringliteral">&quot;Slice out of range for field = &#39;%s&#39;, bit=%d, size=%d&quot;</span>, field-&gt;name, bit,</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                  field-&gt;size);</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    Slice(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) : field(phv.field(n)), lo(l), hi(h) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    Slice(<span class="keyword">const</span> PhvInfo &amp;phv, cstring n, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) : field(phv.field(n)), lo(l), hi(h) {</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        BUG_CHECK((lo &lt; field-&gt;size), <span class="stringliteral">&quot;Slice out of range for field = &#39;%s&#39;, lo=%d, size=%d&quot;</span>,</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                  field-&gt;name, lo, field-&gt;size);</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">if</span> (lo &lt; 0) lo = 0;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">if</span> (hi &gt;= field-&gt;size) hi = field-&gt;size - 1;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">explicit</span> Slice(<a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> r) : field(0), reg(r), lo(0), hi(r.<a class="code hl_function" href="struct_p4_1_1_closed_range.html#ac8fa1d0ca690e1d84fd7b9b76cd1b73b">size</a>() - 1) {}</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    Slice(<a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> r, <span class="keywordtype">int</span> bit) : field(0), reg(r), lo(bit), hi(bit) {}</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    Slice(<a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> r, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi) : field(0), reg(r), lo(lo), hi(hi) {}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">explicit</span> Slice(PHV::Container r) : field(0), reg(r), lo(0), hi(r.size() - 1) {}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    Slice(PHV::Container r, <span class="keywordtype">int</span> bit) : field(0), reg(r), lo(bit), hi(bit) {}</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    Slice(PHV::Container r, <span class="keywordtype">int</span> lo, <span class="keywordtype">int</span> hi) : field(0), reg(r), lo(lo), hi(hi) {}</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    Slice(<span class="keyword">const</span> Slice &amp;s, <span class="keywordtype">int</span> bit) : field(s.field), reg(s.reg), lo(s.lo + bit), hi(lo) {}</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    Slice(<span class="keyword">const</span> Slice &amp;s, <span class="keywordtype">int</span> l, <span class="keywordtype">int</span> h) : field(s.field), reg(s.reg), lo(s.lo + l), hi(s.lo + h) {</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">if</span> (hi &gt; s.hi) hi = s.hi;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">if</span> (!field || lo &gt; hi) invalidate();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        if (!field || lo &gt; hi) invalidate();</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> field != <span class="keyword">nullptr</span> || reg; }</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    Slice operator()(<span class="keywordtype">int</span> bit)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Slice(*<span class="keyword">this</span>, bit); }</div>
@@ -269,14 +266,14 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        tmp &amp;= a;</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> tmp;</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;Slice&gt;</a> split(<span class="keyword">const</span> Slice &amp;a, <span class="keywordtype">bool</span> &amp;split);</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;Slice&gt;</a> split(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;Slice&gt;</a> &amp;vec, <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;Slice&gt;</a> &amp;splitters);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    safe_vector&lt;Slice&gt; split(<span class="keyword">const</span> Slice &amp;a, <span class="keywordtype">bool</span> &amp;split);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    safe_vector&lt;Slice&gt; split(<span class="keyword">const</span> safe_vector&lt;Slice&gt; &amp;vec, safe_vector&lt;Slice&gt; &amp;splitters);</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">int</span> width()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> hi - lo + 1; }</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">int</span> align(<span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">int</span> bytealign()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> align(8); }</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    Slice fullbyte() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_field.html">PHV::Field</a> *get_field()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> field; }</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_container.html">PHV::Container</a> get_container()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> reg; }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keyword">const</span> PHV::Field *get_field()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> field; }</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">const</span> PHV::Container get_container()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> reg; }</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">int</span> get_lo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lo; }</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">int</span> get_hi()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> hi; }</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">void</span> shrink_lo(<span class="keywordtype">int</span> shrink) {</div>
@@ -293,7 +290,6 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            hi -= shrink;</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>};</div>
-</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">/* The rest of this is pretty generic formatting stuff -- should be in lib somewhere? */</span></div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
@@ -322,7 +318,7 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V&gt;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;K, V&gt;</a> &amp;m) {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> ordered_map&lt;K, V&gt; &amp;m) {</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *sep = <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    out &lt;&lt; <span class="stringliteral">&quot;{&quot;</span>;</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : m) {</div>
@@ -334,15 +330,13 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> VEC&gt;</div>
-<div class="foldopen" id="foldopen00218" data-start="{" data-end="};">
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="structemit__vector__formatter.html">  218</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structemit__vector__formatter.html">emit_vector_formatter</a> {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">struct </span>emit_vector_formatter {</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keyword">const</span> VEC &amp;vec;</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *sep;</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>};</div>
-</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> VEC&gt;</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_struct" href="structemit__vector__formatter.html">emit_vector_formatter&lt;VEC&gt;</a> &amp;v) {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> emit_vector_formatter&lt;VEC&gt; &amp;v) {</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *sep = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;el : v.vec) {</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        out &lt;&lt; sep &lt;&lt; el;</div>
@@ -352,16 +346,16 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>}</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> VEC&gt;</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><a class="code hl_struct" href="structemit__vector__formatter.html">emit_vector_formatter&lt;VEC&gt;</a> emit_vector(<span class="keyword">const</span> VEC &amp;v, <span class="keyword">const</span> <span class="keywordtype">char</span> *sep = <span class="stringliteral">&quot;, &quot;</span>) {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structemit__vector__formatter.html">emit_vector_formatter&lt;VEC&gt;</a>{v, sep};</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>emit_vector_formatter&lt;VEC&gt; emit_vector(<span class="keyword">const</span> VEC &amp;v, <span class="keyword">const</span> <span class="keywordtype">char</span> *sep = <span class="stringliteral">&quot;, &quot;</span>) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">return</span> emit_vector_formatter&lt;VEC&gt;{v, sep};</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>}</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keywordtype">bool</span> has_user_annotation(<span class="keyword">const</span> IR::IAnnotated *node);</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="keywordtype">void</span> emit_user_annotation_context_json(std::ostream &amp;out, <a class="code hl_class" href="class_p4_1_1indent__t.html">indent_t</a> indent,</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="keywordtype">void</span> emit_user_annotation_context_json(std::ostream &amp;out, indent_t indent,</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                                       <span class="keyword">const</span> IR::IAnnotated *node, <span class="keywordtype">bool</span> emit_dash = <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keywordtype">void</span> emit_user_annotation_context_json(<a class="code hl_class" href="class_p4_1_1indent__t.html">indent_t</a> indent, <span class="keyword">const</span> IR::IAnnotated *node,</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keywordtype">void</span> emit_user_annotation_context_json(indent_t indent, <span class="keyword">const</span> IR::IAnnotated *node,</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                                       std::stringstream &amp;context_json_entries);</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
@@ -380,22 +374,6 @@ $(function(){initNavTree('common_2asm__output_8h_source.html',''); initResizable
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>}</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_COMMON_ASM_OUTPUT_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1indent__t_html"><div class="ttname"><a href="class_p4_1_1indent__t.html">P4::indent_t</a></div><div class="ttdef"><b>Definition</b> indent.h:26</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_abstract_field_html"><div class="ttname"><a href="class_p_h_v_1_1_abstract_field.html">PHV::AbstractField</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:855</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_container_html"><div class="ttname"><a href="class_p_h_v_1_1_container.html">PHV::Container</a></div><div class="ttdef"><b>Definition</b> bf-p4c/phv/phv.h:176</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_html"><div class="ttname"><a href="class_p_h_v_1_1_field.html">PHV::Field</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:154</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_html_a10a198e7adff85104913040f88af6081"><div class="ttname"><a href="class_p_h_v_1_1_field.html#a10a198e7adff85104913040f88af6081">PHV::Field::size</a></div><div class="ttdeci">int size</div><div class="ttdoc">Total size of Field in bits.</div><div class="ttdef"><b>Definition</b> phv_fields.h:194</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="astruct_p4_1_1_closed_range_html_ac5d9635f8942d705945acf033addda3e"><div class="ttname"><a href="struct_p4_1_1_closed_range.html#ac5d9635f8942d705945acf033addda3e">P4::ClosedRange::lo</a></div><div class="ttdeci">int lo</div><div class="ttdef"><b>Definition</b> lib/bitrange.h:694</div></div>
-<div class="ttc" id="astruct_p4_1_1_closed_range_html_ac8fa1d0ca690e1d84fd7b9b76cd1b73b"><div class="ttname"><a href="struct_p4_1_1_closed_range.html#ac8fa1d0ca690e1d84fd7b9b76cd1b73b">P4::ClosedRange::size</a></div><div class="ttdeci">ssize_t size() const</div><div class="ttdef"><b>Definition</b> lib/bitrange.h:539</div></div>
-<div class="ttc" id="astruct_p4_1_1_closed_range_html_ae2cfcb5e2f49dfe5fc37e540bafda81e"><div class="ttname"><a href="struct_p4_1_1_closed_range.html#ae2cfcb5e2f49dfe5fc37e540bafda81e">P4::ClosedRange::hi</a></div><div class="ttdeci">int hi</div><div class="ttdef"><b>Definition</b> lib/bitrange.h:700</div></div>
-<div class="ttc" id="astruct_p4_1_1_i_r_1_1_i_d_html"><div class="ttname"><a href="struct_p4_1_1_i_r_1_1_i_d.html">P4::IR::ID</a></div><div class="ttdef"><b>Definition</b> id.h:28</div></div>
-<div class="ttc" id="astruct_p4_1_1_string_ref_html"><div class="ttname"><a href="struct_p4_1_1_string_ref.html">P4::StringRef</a></div><div class="ttdef"><b>Definition</b> stringref.h:43</div></div>
-<div class="ttc" id="astructemit__vector__formatter_html"><div class="ttname"><a href="structemit__vector__formatter.html">emit_vector_formatter</a></div><div class="ttdef"><b>Definition</b> common/asm_output.h:218</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

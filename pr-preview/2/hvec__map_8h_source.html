@@ -155,12 +155,11 @@ $(function(){initNavTree('hvec__map_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;exceptions.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;hashvec.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span>P4 {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> KEY, <span class="keyword">class</span> VAL, <span class="keyword">class</span> HASH = std::hash&lt;KEY&gt;, <span class="keyword">class</span> PRED = std::equal_to&lt;KEY&gt;,</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>          <span class="keyword">class</span> ALLOC = std::allocator&lt;std::pair&lt;const KEY, VAL&gt;&gt;&gt;</div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_p4_1_1hvec__map.html">   31</a></span><span class="keyword">class </span>hvec_map : hash_vector_base {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>hvec_map : hash_vector_base {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    HASH hf;  <span class="comment">// FIXME -- use empty base optimization for these?</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    PRED eql;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
@@ -177,12 +176,12 @@ $(function(){initNavTree('hvec__map_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::vector&lt;value_type&gt;::reference reference;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::vector&lt;value_type&gt;::const_reference const_reference;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">typedef</span> <a class="code hl_struct" href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">hash_vector_base::lookup_cache</a> lookup_cache;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">typedef</span> hash_vector_base::lookup_cache lookup_cache;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">explicit</span> hvec_map(<span class="keywordtype">size_t</span> icap = 0, <span class="keyword">const</span> hasher &amp;hf = hasher(),</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                      <span class="keyword">const</span> key_equal &amp;eql = key_equal(),</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                      <span class="keyword">const</span> allocator_type &amp;a = allocator_type())</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        : hash_vector_base(<span class="keyword">true</span>, <span class="keyword">false</span>, icap), hf(hf), eql(eql), data(a) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        : hash_vector_base(true, false, icap), hf(hf), eql(eql), data(a) {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        data.reserve(icap);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    hvec_map(<span class="keyword">const</span> hvec_map &amp;) = <span class="keywordflow">default</span>;</div>
@@ -204,15 +203,15 @@ $(function(){initNavTree('hvec__map_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> ITER&gt;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    hvec_map(ITER begin, ITER end, <span class="keyword">const</span> hasher &amp;hf = hasher(), <span class="keyword">const</span> key_equal &amp;eql = key_equal(),</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>             <span class="keyword">const</span> allocator_type &amp;a = allocator_type())</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        : hash_vector_base(<span class="keyword">true</span>, <span class="keyword">false</span>, end - begin), hf(hf), eql(eql), data(a) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        : hash_vector_base(true, false, end - begin), hf(hf), eql(eql), data(a) {</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        data.reserve(end - begin);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = begin; it != end; ++it) insert(*it);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    hvec_map(std::initializer_list&lt;value_type&gt; il, <span class="keyword">const</span> hasher &amp;hf = hasher(),</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>             <span class="keyword">const</span> key_equal &amp;eql = key_equal(), <span class="keyword">const</span> allocator_type &amp;a = allocator_type())</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        : hash_vector_base(<span class="keyword">true</span>, <span class="keyword">false</span>, il.size()), hf(hf), eql(eql), data(a) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        : hash_vector_base(true, false, il.size()), hf(hf), eql(eql), data(a) {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        data.reserve(il.size());</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;i : il) insert(i);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        for (<span class="keyword">auto</span> &amp;i : il) insert(i);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> <span class="keyword">private</span>:</div>
@@ -294,29 +293,29 @@ $(function(){initNavTree('hvec__map_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    iterator find(<span class="keyword">const</span> KEY &amp;k) {</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <a class="code hl_struct" href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">hash_vector_base::lookup_cache</a> cache;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        hash_vector_base::lookup_cache cache;</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordtype">size_t</span> idx = hash_vector_base::find(&amp;k, &amp;cache);</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">return</span> idx ? iterator(*<span class="keyword">this</span>, idx - 1) : end();</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    const_iterator find(<span class="keyword">const</span> KEY &amp;k)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <a class="code hl_struct" href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">hash_vector_base::lookup_cache</a> cache;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        hash_vector_base::lookup_cache cache;</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">size_t</span> idx = hash_vector_base::find(&amp;k, &amp;cache);</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">return</span> idx ? const_iterator(*<span class="keyword">this</span>, idx - 1) : end();</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordtype">size_t</span> count(<span class="keyword">const</span> KEY &amp;k)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <a class="code hl_struct" href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">hash_vector_base::lookup_cache</a> cache;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        hash_vector_base::lookup_cache cache;</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordtype">size_t</span> idx = hash_vector_base::find(&amp;k, &amp;cache);</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">return</span> idx &gt; 0;</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    VAL &amp;at(<span class="keyword">const</span> KEY &amp;k) {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <a class="code hl_struct" href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">hash_vector_base::lookup_cache</a> cache;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        hash_vector_base::lookup_cache cache;</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordtype">size_t</span> idx = hash_vector_base::find(&amp;k, &amp;cache);</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">if</span> (!idx || erased[idx - 1]) <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;hvec_map::at&quot;</span>);</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span> data[idx - 1].second;</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keyword">const</span> VAL &amp;at(<span class="keyword">const</span> KEY &amp;k)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <a class="code hl_struct" href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">hash_vector_base::lookup_cache</a> cache;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        hash_vector_base::lookup_cache cache;</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordtype">size_t</span> idx = hash_vector_base::find(&amp;k, &amp;cache);</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span> (!idx || erased[idx - 1]) <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;hvec_map::at&quot;</span>);</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">return</span> data[idx - 1].second;</div>
@@ -453,10 +452,9 @@ $(function(){initNavTree('hvec__map_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <span class="keyword">new</span> (&amp;data[to]) value_type(std::move(data[from]));</div>
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    }</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>};</div>
-</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> T, <span class="keyword">class</span> V, <span class="keyword">class</span> Comp, <span class="keyword">class</span> Alloc&gt;</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="keyword">inline</span> V get(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1hvec__map.html">hvec_map&lt;K, V, Comp, Alloc&gt;</a> &amp;m, T key, V def = V()) {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="keyword">inline</span> V get(<span class="keyword">const</span> hvec_map&lt;K, V, Comp, Alloc&gt; &amp;m, T key, V def = V()) {</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="keyword">auto</span> it = m.find(key);</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keywordflow">if</span> (it != m.end()) <span class="keywordflow">return</span> it-&gt;second;</div>
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keywordflow">return</span> def;</div>
@@ -470,33 +468,30 @@ $(function(){initNavTree('hvec__map_8h_source.html',''); initResizable(true); })
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>}</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> T, <span class="keyword">class</span> V, <span class="keyword">class</span> Comp, <span class="keyword">class</span> Alloc&gt;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="keyword">inline</span> <span class="keyword">const</span> V *getref(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1hvec__map.html">hvec_map&lt;K, V, Comp, Alloc&gt;</a> &amp;m, T key) {</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="keyword">inline</span> <span class="keyword">const</span> V *getref(<span class="keyword">const</span> hvec_map&lt;K, V, Comp, Alloc&gt; &amp;m, T key) {</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="keyword">auto</span> it = m.find(key);</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordflow">if</span> (it != m.end()) <span class="keywordflow">return</span> &amp;it-&gt;second;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>}</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> T, <span class="keyword">class</span> V, <span class="keyword">class</span> Comp, <span class="keyword">class</span> Alloc&gt;</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="keyword">inline</span> V get(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1hvec__map.html">hvec_map&lt;K, V, Comp, Alloc&gt;</a> *m, T key, V def = V()) {</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="keyword">inline</span> V get(<span class="keyword">const</span> hvec_map&lt;K, V, Comp, Alloc&gt; *m, T key, V def = V()) {</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keywordflow">return</span> m ? get(*m, key, def) : def;</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>}</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> T, <span class="keyword">class</span> V, <span class="keyword">class</span> Comp, <span class="keyword">class</span> Alloc&gt;</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="keyword">inline</span> V *getref(<a class="code hl_class" href="class_p4_1_1hvec__map.html">hvec_map&lt;K, V, Comp, Alloc&gt;</a> *m, T key) {</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="keyword">inline</span> V *getref(hvec_map&lt;K, V, Comp, Alloc&gt; *m, T key) {</div>
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordflow">return</span> m ? getref(*m, key) : 0;</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>}</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> T, <span class="keyword">class</span> V, <span class="keyword">class</span> Comp, <span class="keyword">class</span> Alloc&gt;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="keyword">inline</span> <span class="keyword">const</span> V *getref(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1hvec__map.html">hvec_map&lt;K, V, Comp, Alloc&gt;</a> *m, T key) {</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="keyword">inline</span> <span class="keyword">const</span> V *getref(<span class="keyword">const</span> hvec_map&lt;K, V, Comp, Alloc&gt; *m, T key) {</div>
 <div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <span class="keywordflow">return</span> m ? getref(*m, key) : 0;</div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>}</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
 <div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="preprocessor">#endif </span><span class="comment">/* LIB_HVEC_MAP_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1hvec__map_html"><div class="ttname"><a href="class_p4_1_1hvec__map.html">P4::hvec_map</a></div><div class="ttdef"><b>Definition</b> hvec_map.h:31</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="astruct_p4_1_1hash__vector__base_1_1lookup__cache_html"><div class="ttname"><a href="struct_p4_1_1hash__vector__base_1_1lookup__cache.html">P4::hash_vector_base::lookup_cache</a></div><div class="ttdef"><b>Definition</b> hashvec.h:51</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

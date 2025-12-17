@@ -139,33 +139,26 @@ $(function(){initNavTree('phv__allocation__v2_8h_source.html',''); initResizable
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/v2/phv_kit.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;lib/cstring.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span>PHV {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>v2 {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_p_h_v_1_1v2_1_1_phv_allocation.html">   30</a></span><span class="keyword">class </span>PhvAllocation : <span class="keyword">public</span> Visitor {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> <a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_phv_kit.html">PhvKit</a> &amp;kit_i;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau_bt_i;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv_i;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span>PhvAllocation : <span class="keyword">public</span> Visitor {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> PhvKit &amp;kit_i;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> MauBacktracker &amp;mau_bt_i;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    PhvInfo &amp;phv_i;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">int</span> pipe_id_i = -1;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *apply_visitor(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root, <span class="keyword">const</span> <span class="keywordtype">char</span> *name = 0) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> IR::Node *apply_visitor(<span class="keyword">const</span> IR::Node *root, <span class="keyword">const</span> <span class="keywordtype">char</span> *name = 0) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    PhvAllocation(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_phv_kit.html">PhvKit</a> &amp;kit, <span class="keyword">const</span> <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau, <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    PhvAllocation(<span class="keyword">const</span> PhvKit &amp;kit, <span class="keyword">const</span> MauBacktracker &amp;mau, PhvInfo &amp;phv)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        : kit_i(kit), mau_bt_i(mau), phv_i(phv) {}</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}  <span class="comment">// namespace v2</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}  <span class="comment">// namespace PHV</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_V2_PHV_ALLOCATION_V2_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_mau_backtracker_html"><div class="ttname"><a href="class_mau_backtracker.html">MauBacktracker</a></div><div class="ttdef"><b>Definition</b> mau_backtracker.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1v2_1_1_phv_kit_html"><div class="ttname"><a href="struct_p_h_v_1_1v2_1_1_phv_kit.html">PHV::v2::PhvKit</a></div><div class="ttdef"><b>Definition</b> phv_kit.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

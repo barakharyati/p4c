@@ -142,32 +142,31 @@ $(function(){initNavTree('ping__pong__generation_8h_source.html',''); initResiza
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;frontends/p4/typeMap.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="group__midend.html">   46</a></span><span class="keyword">class </span><a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">class </span>PingPongGeneration : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// CONSTANTS ----------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> ID_PING_PONG_SUFFIX;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> GMD_STRUCTURE_NAME;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> PING_PONG_FIELD_NAME;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">static</span> <span class="keyword">const</span> cstring ID_PING_PONG_SUFFIX;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">static</span> <span class="keyword">const</span> cstring GMD_STRUCTURE_NAME;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">static</span> <span class="keyword">const</span> cstring PING_PONG_FIELD_NAME;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// VARIABLES ----------------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// These variables serve as a state/storage between different passes</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">const</span> IR::Type_Header *ghost_meta_struct = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// Basic maps</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    P4::ReferenceMap *refMap;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    P4::TypeMap *typeMap;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// Local maps for storing information</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">using </span>RegisterSet = std::set&lt;const IR::Declaration_Instance *&gt;;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">using </span>TnaControlLess = <a class="code hl_class" href="class_by_name_less.html">ByNameLess&lt;const IR::BFN::TnaControl&gt;</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">using </span>TnaControlLess = ByNameLess&lt;const IR::BFN::TnaControl&gt;;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key&gt;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">using </span>TnaControlPairLess = <a class="code hl_class" href="class_pair_less.html">PairLess&lt;const IR::BFN::TnaControl *, const Key, TnaControlLess&gt;</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">using </span>TnaControlPairLess = PairLess&lt;const IR::BFN::TnaControl *, const Key, TnaControlLess&gt;;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> Value&gt;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">using </span>TnaControlPairMap = std::map&lt;std::pair&lt;const IR::BFN::TnaControl *, const Key&gt;, <a class="code hl_struct" href="group___deparser_copy_opt.html#struct_value">Value</a>,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">using </span>TnaControlPairMap = std::map&lt;std::pair&lt;const IR::BFN::TnaControl *, const Key&gt;, Value,</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                                       TnaControlPairLess&lt;const Key&gt;&gt;;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Value&gt;</div>
@@ -195,7 +194,7 @@ $(function(){initNavTree('ping__pong__generation_8h_source.html',''); initResiza
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    ControlToRegisterMap controlToRegister;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    P4TableToP4TableMap p4TableToDuplicateTable;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html">CollectPipelines::Pipelines</a> pipelines;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    CollectPipelines::Pipelines pipelines;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">// HELPER FUNCTIONS ---------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">inline</span> IR::Path *appendPingPongSuffix(IR::Path *, std::set&lt;cstring&gt; &amp;);</div>
@@ -210,44 +209,44 @@ $(function(){initNavTree('ping__pong__generation_8h_source.html',''); initResiza
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">bool</span> isPingPongValid(<span class="keyword">const</span> IR::BFN::TnaControl *gress, <span class="keyword">const</span> IR::Declaration_Instance *reg,</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                         <span class="keywordtype">bool</span> calculatingCovered = <span class="keyword">false</span>);  <span class="comment">// FIXME const;</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">bool</span> isPingPongValid(<span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">CollectPipelines::Pipe</a> &amp;pipe, <span class="keyword">const</span> IR::Declaration_Instance *reg,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">bool</span> isPingPongValid(<span class="keyword">const</span> CollectPipelines::Pipe &amp;pipe, <span class="keyword">const</span> IR::Declaration_Instance *reg,</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                         <span class="keywordtype">bool</span> calculatingCovered = <span class="keyword">false</span>);  <span class="comment">// FIXME const;</span></div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">// HELPER VISITORS ----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">// Finds a ghost_metadata.ping_pong field reference in a subtree</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_ping_pong_generation_1_1_ping_pong_field_finder.html">PingPongFieldFinder</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keyword">class </span>PingPongFieldFinder;</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="comment">// Base class for chaning declarations</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_ping_pong_generation_1_1_declaration_changer.html">DeclarationChanger</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">class </span>DeclarationChanger;</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="comment">// This visitor changes specific references in new cloned register action</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_ping_pong_generation_1_1_reg_action_changer.html">RegActionChanger</a>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">class </span>RegActionChanger;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="comment">// This visitor changes specific references in new cloned P4 action</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_ping_pong_generation_1_1_p4_action_changer.html">P4ActionChanger</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">class </span>P4ActionChanger;</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">// This visitor changes specific references in new cloned P4 table</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_ping_pong_generation_1_1_p4_table_changer.html">P4TableChanger</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">class </span>P4TableChanger;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// This visitor changes P4 table references in cloned MethodCallStatement</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_ping_pong_generation_1_1_apply_m_c_s_changer.html">ApplyMCSChanger</a>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">class </span>ApplyMCSChanger;</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="comment">// MAIN VISITORS ------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">class </span>GetAllRegisters : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">class </span>GetAllRegisters : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        PingPongGeneration &amp;self;</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MethodCallExpression *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keyword">explicit</span> GetAllRegisters(<a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self) : self(self) {}</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keyword">explicit</span> GetAllRegisters(PingPongGeneration &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    };</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">class </span>AddAllTables : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">class </span>AddAllTables : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        PingPongGeneration &amp;self;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::ActionListElement *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">explicit</span> AddAllTables(<a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self) : self(self) {}</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">explicit</span> AddAllTables(PingPongGeneration &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    };</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keyword">class </span>CheckPingPongTables : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keyword">class </span>CheckPingPongTables : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        PingPongGeneration &amp;self;</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="comment">// Finds ghost_metadata structure presence</span></div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Type_Header *) <span class="keyword">override</span>;</div>
@@ -257,71 +256,46 @@ $(function(){initNavTree('ping__pong__generation_8h_source.html',''); initResiza
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Parameter *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keyword">explicit</span> CheckPingPongTables(<a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self) : self(self) {}</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keyword">explicit</span> CheckPingPongTables(PingPongGeneration &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    };</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keyword">class </span>GeneratePingPongMechanismDeclarations : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keyword">class </span>GeneratePingPongMechanismDeclarations : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        PingPongGeneration &amp;self;</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::P4Program *);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::BFN::TnaControl *);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        IR::Node *preorder(IR::P4Program *);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        IR::Node *preorder(IR::BFN::TnaControl *);</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keyword">explicit</span> GeneratePingPongMechanismDeclarations(<a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self) : self(self) {}</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keyword">explicit</span> GeneratePingPongMechanismDeclarations(PingPongGeneration &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    };</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">class </span>GeneratePingPongMechanism : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">class </span>GeneratePingPongMechanism : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        PingPongGeneration &amp;self;</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::MethodCallStatement *);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        IR::Node *postorder(IR::MethodCallStatement *);</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keyword">explicit</span> GeneratePingPongMechanism(<a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a> &amp;self) : self(self) {}</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keyword">explicit</span> GeneratePingPongMechanism(PingPongGeneration &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    };</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">  225</a></span>    <a class="code hl_function" href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">PingPongGeneration</a>(<a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap, <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap)</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    PingPongGeneration(P4::ReferenceMap *refMap, P4::TypeMap *typeMap)</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        : refMap(refMap), typeMap(typeMap) {</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        setName(<span class="stringliteral">&quot;Automatic ping-pong generation&quot;</span>);</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        addPasses({<span class="keyword">new</span> <a class="code hl_class" href="group__midend.html#class_b_f_n_1_1_collect_pipelines">CollectPipelines</a>(refMap, &amp;pipelines),</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                   <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_type_checking.html">TypeChecking</a>(refMap, typeMap, <span class="keyword">true</span>), <span class="keyword">new</span> GetAllRegisters(*<span class="keyword">this</span>),</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        addPasses({<span class="keyword">new</span> CollectPipelines(refMap, &amp;pipelines),</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                   <span class="keyword">new</span> TypeChecking(refMap, typeMap, <span class="keyword">true</span>), <span class="keyword">new</span> GetAllRegisters(*<span class="keyword">this</span>),</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                   <span class="keyword">new</span> AddAllTables(*<span class="keyword">this</span>), <span class="keyword">new</span> CheckPingPongTables(*<span class="keyword">this</span>),</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                   <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_pass_if.html">PassIf</a>([<span class="keyword">this</span>]() { <span class="keywordflow">return</span> shouldTransform(); },</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                   <span class="keyword">new</span> PassIf([<span class="keyword">this</span>]() { <span class="keywordflow">return</span> shouldTransform(); },</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                              {<span class="keyword">new</span> GeneratePingPongMechanismDeclarations(*<span class="keyword">this</span>),</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                               <span class="comment">// Update ref and type map, bacause the IR might have changed</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                               <span class="keyword">new</span> <a class="code hl_class" href="class_p4_1_1_type_checking.html">TypeChecking</a>(refMap, typeMap, <span class="keyword">true</span>),</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                               <span class="keyword">new</span> TypeChecking(refMap, typeMap, <span class="keyword">true</span>),</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                               <span class="keyword">new</span> GeneratePingPongMechanism(*<span class="keyword">this</span>)})});</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
-</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>};</div>
-</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="preprocessor">#endif  </span><span class="comment">// BACKENDS_TOFINO_BF_P4C_MIDEND_PING_PONG_GENERATION_H_</span></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipe_html"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">BFN::CollectPipelines::Pipe</a></div><div class="ttdef"><b>Definition</b> collect_pipelines.h:58</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipelines_html"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html">BFN::CollectPipelines::Pipelines</a></div><div class="ttdef"><b>Definition</b> collect_pipelines.h:80</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_ping_pong_generation_1_1_apply_m_c_s_changer_html"><div class="ttname"><a href="class_b_f_n_1_1_ping_pong_generation_1_1_apply_m_c_s_changer.html">BFN::PingPongGeneration::ApplyMCSChanger</a></div><div class="ttdoc">This visitor changes P4 table references in cloned MethodCallStatement.</div><div class="ttdef"><b>Definition</b> ping_pong_generation.cpp:143</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_ping_pong_generation_1_1_declaration_changer_html"><div class="ttname"><a href="class_b_f_n_1_1_ping_pong_generation_1_1_declaration_changer.html">BFN::PingPongGeneration::DeclarationChanger</a></div><div class="ttdoc">Base visitor class for other classes that change declarations.</div><div class="ttdef"><b>Definition</b> ping_pong_generation.cpp:42</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_ping_pong_generation_1_1_p4_action_changer_html"><div class="ttname"><a href="class_b_f_n_1_1_ping_pong_generation_1_1_p4_action_changer.html">BFN::PingPongGeneration::P4ActionChanger</a></div><div class="ttdoc">This visitor changes specific references in new cloned P4 action.</div><div class="ttdef"><b>Definition</b> ping_pong_generation.cpp:93</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_ping_pong_generation_1_1_p4_table_changer_html"><div class="ttname"><a href="class_b_f_n_1_1_ping_pong_generation_1_1_p4_table_changer.html">BFN::PingPongGeneration::P4TableChanger</a></div><div class="ttdoc">This visitor changes specific references in new cloned P4 table.</div><div class="ttdef"><b>Definition</b> ping_pong_generation.cpp:115</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_ping_pong_generation_1_1_ping_pong_field_finder_html"><div class="ttname"><a href="class_b_f_n_1_1_ping_pong_generation_1_1_ping_pong_field_finder.html">BFN::PingPongGeneration::PingPongFieldFinder</a></div><div class="ttdoc">Finds a ghost_metadata.ping_pong field reference in a subtree.</div><div class="ttdef"><b>Definition</b> ping_pong_generation.cpp:202</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_ping_pong_generation_1_1_reg_action_changer_html"><div class="ttname"><a href="class_b_f_n_1_1_ping_pong_generation_1_1_reg_action_changer.html">BFN::PingPongGeneration::RegActionChanger</a></div><div class="ttdoc">This visitor changes specific references in new cloned register action.</div><div class="ttdef"><b>Definition</b> ping_pong_generation.cpp:72</div></div>
-<div class="ttc" id="aclass_by_name_less_html"><div class="ttname"><a href="class_by_name_less.html">ByNameLess</a></div><div class="ttdef"><b>Definition</b> cmp.h:97</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_pass_if_html"><div class="ttname"><a href="class_p4_1_1_pass_if.html">P4::PassIf</a></div><div class="ttdef"><b>Definition</b> ir/pass_manager.h:172</div></div>
-<div class="ttc" id="aclass_p4_1_1_reference_map_html"><div class="ttname"><a href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a></div><div class="ttdoc">Class used to encode maps from paths to declarations.</div><div class="ttdef"><b>Definition</b> referenceMap.h:67</div></div>
-<div class="ttc" id="aclass_p4_1_1_transform_html"><div class="ttname"><a href="class_p4_1_1_transform.html">P4::Transform</a></div><div class="ttdef"><b>Definition</b> visitor.h:437</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_checking_html"><div class="ttname"><a href="class_p4_1_1_type_checking.html">P4::TypeChecking</a></div><div class="ttdef"><b>Definition</b> typeChecker.h:55</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_map_html"><div class="ttname"><a href="class_p4_1_1_type_map.html">P4::TypeMap</a></div><div class="ttdef"><b>Definition</b> typeMap.h:41</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_pair_less_html"><div class="ttname"><a href="class_pair_less.html">PairLess</a></div><div class="ttdef"><b>Definition</b> cmp.h:113</div></div>
-<div class="ttc" id="agroup___deparser_copy_opt_html_struct_value"><div class="ttname"><a href="group___deparser_copy_opt.html#struct_value">Value</a></div><div class="ttdef"><b>Definition</b> decaf.h:117</div></div>
-<div class="ttc" id="agroup__midend_html_a6f0292ef3b724d89f8ba6c6f4effe6ac"><div class="ttname"><a href="group__midend.html#a6f0292ef3b724d89f8ba6c6f4effe6ac">BFN::PingPongGeneration::PingPongGeneration</a></div><div class="ttdeci">PingPongGeneration(P4::ReferenceMap *refMap, P4::TypeMap *typeMap)</div><div class="ttdef"><b>Definition</b> ping_pong_generation.h:225</div></div>
-<div class="ttc" id="agroup__midend_html_class_b_f_n_1_1_collect_pipelines"><div class="ttname"><a href="group__midend.html#class_b_f_n_1_1_collect_pipelines">BFN::CollectPipelines</a></div><div class="ttdoc">Inspector pass that collects information about all pipelines declared in the Switch....</div><div class="ttdef"><b>Definition</b> collect_pipelines.h:42</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

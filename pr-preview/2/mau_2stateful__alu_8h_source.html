@@ -143,10 +143,9 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#include &quot;mau_visitor.h&quot;</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="foldopen" id="foldopen00106" data-start="{" data-end="};">
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="struct_device_1_1_stateful_alu_spec.html">  106</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_device_1_1_stateful_alu_spec.html">Device::StatefulAluSpec</a> {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">struct </span>Device::StatefulAluSpec {</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">bool</span> CmpMask;  <span class="comment">// are cmp oprerands maskable?</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    std::vector&lt;cstring&gt; CmpUnits;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">int</span> MaxSize;</div>
@@ -161,27 +160,25 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">bool</span> FastClear;</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">int</span> MaxRegfileRows;</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> cmpUnit(<span class="keywordtype">unsigned</span> idx) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    cstring cmpUnit(<span class="keywordtype">unsigned</span> idx) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>};</div>
-</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span></div>
-<div class="foldopen" id="foldopen00161" data-start="{" data-end="};">
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="group__stateful__alu.html">  161</a></span><span class="keyword">class </span>CreateSaluInstruction : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">class </span>CreateSaluInstruction : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    IR::MAU::StatefulAlu *salu;</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keyword">const</span> IR::Type *regtype;</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keyword">const</span> IR::Declaration_Instance *reg_action = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> action_type_name;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    cstring action_type_name;</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keyword">enum class</span> param_t { VALUE, OUTPUT, HASH, LEARN, MATCH };</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keyword">const</span> std::vector&lt;param_t&gt; *param_types = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    IR::MAU::SaluAction *action = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">const</span> IR::ParameterList *params = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keyword">struct </span>LocalVar {</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        cstring name;</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordtype">bool</span> pair;</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">const</span> IR::MAU::SaluRegfileRow *regfile = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keyword">enum</span> use_t { NONE, ALUHI, MEMLO, MEMHI, MEMALL, REGFILE } use = NONE;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        LocalVar(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name, <span class="keywordtype">bool</span> pair, use_t use = NONE,</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        LocalVar(cstring name, <span class="keywordtype">bool</span> pair, use_t use = NONE,</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                 <span class="keyword">const</span> IR::MAU::SaluRegfileRow *regfile = <span class="keyword">nullptr</span>)</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            : name(name), pair(pair), regfile(regfile), use(use) {}</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    } *dest = <span class="keyword">nullptr</span>;  <span class="comment">// destination of current assignment</span></div>
@@ -203,8 +200,8 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordtype">bool</span> negate = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordtype">bool</span> negate_regfile = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">bool</span> alu_write[2] = {<span class="keyword">false</span>, <span class="keyword">false</span>};</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> opcode;</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::Expression&gt;</a> operands, pred_operands;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    cstring opcode;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    IR::Vector&lt;IR::Expression&gt; operands, pred_operands;</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">int</span> output_index = -1;</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    std::vector&lt;const IR::MAU::SaluInstruction *&gt; cmp_instr;</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">const</span> IR::MAU::SaluInstruction *divmod_instr = <span class="keyword">nullptr</span>, *minmax_instr = <span class="keyword">nullptr</span>;</div>
@@ -232,8 +229,8 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="comment">// of given assignment</span></div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keyword">struct </span>AssignmentProperties {</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keyword">const</span> IR::Expression *predicate;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_source_info.html">Util::SourceInfo</a> &amp;srcInfo;</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keyword">explicit</span> AssignmentProperties(<span class="keyword">const</span> IR::Expression *pred, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_source_info.html">Util::SourceInfo</a> &amp;src)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keyword">const</span> Util::SourceInfo &amp;srcInfo;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keyword">explicit</span> AssignmentProperties(<span class="keyword">const</span> IR::Expression *pred, <span class="keyword">const</span> Util::SourceInfo &amp;src)</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            : predicate(pred), srcInfo(src) {}</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    };</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    std::map&lt;cstring, std::vector&lt;AssignmentProperties&gt;&gt; written_dest;</div>
@@ -249,16 +246,16 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordtype">void</span> clearFuncState();</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">const</span> IR::MAU::SaluInstruction *createInstruction();</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordtype">bool</span> applyArg(<span class="keyword">const</span> IR::PathExpression *, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordtype">bool</span> applyArg(<span class="keyword">const</span> IR::PathExpression *, cstring);</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keyword">const</span> IR::Expression *reuseCmp(<span class="keyword">const</span> IR::MAU::SaluInstruction *cmp, <span class="keywordtype">int</span> idx);</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordtype">void</span> setupCmp(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> op);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordtype">void</span> setupCmp(cstring op);</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keywordtype">void</span> splitWideInstructions();</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordtype">void</span> assignOutputAlus();</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keyword">const</span> IR::MAU::SaluInstruction *setup_output();</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordtype">bool</span> outputEnumAsPredicate(<span class="keyword">const</span> IR::Member *);</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordtype">bool</span> canBeIXBarExpr(<span class="keyword">const</span> IR::Expression *);</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordtype">bool</span> outputAluHi();</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordtype">void</span> checkActions(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_source_info.html">Util::SourceInfo</a> &amp;srcInfo);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordtype">void</span> checkActions(<span class="keyword">const</span> Util::SourceInfo &amp;srcInfo);</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Declaration_Instance *di) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Declaration_Variable *v) <span class="keyword">override</span>;</div>
@@ -267,17 +264,17 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Function *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::Function *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Annotation *)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordtype">void</span> doAssignment(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_util_1_1_source_info.html">Util::SourceInfo</a> &amp;srcInfo);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordtype">void</span> doAssignment(<span class="keyword">const</span> Util::SourceInfo &amp;srcInfo);</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::AssignmentStatement *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::IfStatement *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::BlockStatement *)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::EmptyStatement *)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Statement *s)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(<span class="stringliteral">&quot;%s: statement too complex for register action %s&quot;</span>, s-&gt;srcInfo, s);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        error(<span class="stringliteral">&quot;%s: statement too complex for register action %s&quot;</span>, s-&gt;srcInfo, s);</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    }</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">void</span> doPrimary(<span class="keyword">const</span> IR::Expression *, <span class="keyword">const</span> IR::PathExpression *, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>);</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">void</span> doPrimary(<span class="keyword">const</span> IR::Expression *, <span class="keyword">const</span> IR::PathExpression *, cstring);</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::PathExpression *pe) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Member *m) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::StructExpression *m) <span class="keyword">override</span>;</div>
@@ -288,7 +285,7 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Slice *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Primitive *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::SaluRegfileRow *) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Operation::Relation *, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> op, <span class="keywordtype">bool</span> eq);</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Operation::Relation *, cstring op, <span class="keywordtype">bool</span> eq);</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Equ *r)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> preorder(r, <span class="stringliteral">&quot;equ&quot;</span>_cs, <span class="keyword">true</span>); }</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Neq *r)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> preorder(r, <span class="stringliteral">&quot;neq&quot;</span>_cs, <span class="keyword">true</span>); }</div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Grt *r)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> preorder(r, <span class="stringliteral">&quot;grt&quot;</span>_cs, <span class="keyword">false</span>); }</div>
@@ -323,11 +320,11 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::BXor *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Concat *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::Concat *) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <span class="keywordtype">bool</span> divmod(<span class="keyword">const</span> IR::Operation::Binary *, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> op);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <span class="keywordtype">bool</span> divmod(<span class="keyword">const</span> IR::Operation::Binary *, cstring op);</div>
 <div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Div *e)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> divmod(e, <span class="stringliteral">&quot;div&quot;</span>_cs); }</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Mod *e)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> divmod(e, <span class="stringliteral">&quot;mod&quot;</span>_cs); }</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Expression *e)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        <a class="code hl_function" href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">error</a>(<span class="stringliteral">&quot;%s: expression too complex for register action&quot;</span>, e-&gt;srcInfo);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        error(<span class="stringliteral">&quot;%s: expression too complex for register action&quot;</span>, e-&gt;srcInfo);</div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    }</div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
@@ -344,15 +341,13 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        visitDagOnce = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    }</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>};</div>
-</div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span></div>
-<div class="foldopen" id="foldopen00349" data-start="{" data-end="};">
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="class_check_stateful_alu.html">  349</a></span><span class="keyword">class </span><a class="code hl_class" href="class_check_stateful_alu.html">CheckStatefulAlu</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_modifier.html">MauModifier</a> {</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="keyword">class </span>CheckStatefulAlu : <span class="keyword">public</span> MauModifier {</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="comment">// There&#39;s a nasty problem outputting the address on jbay -- we have a way of</span></div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="comment">// specifying an extra bit via lmatch on the output, but it is shared across</span></div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="comment">// all the instructions in the salu.  So we have to ensure all instructions that</span></div>
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="comment">// use lmatch have identical lmatch usage, possibly modifying them.</span></div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <span class="keyword">struct </span>AddressLmatchUsage : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <span class="keyword">struct </span>AddressLmatchUsage : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> regmasks[];</div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordtype">void</span> clear();</div>
 <div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <span class="keywordtype">unsigned</span> eval_cmp(<span class="keyword">const</span> IR::Expression *);</div>
@@ -382,27 +377,25 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    std::set&lt;big_int&gt; large_constants;</div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>};</div>
-</div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
-<div class="foldopen" id="foldopen00390" data-start="{" data-end="};">
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno"><a class="line" href="class_fixup_stateful_alu.html">  390</a></span><span class="keyword">class </span>FixupStatefulAlu : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><span class="keyword">class </span>FixupStatefulAlu : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    <span class="keyword">struct </span>return_enum_info_t {</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> enum_name;</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;const IR::MAU::SaluAction *&gt;</a> actions;</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>        cstring enum_name;</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        ordered_set&lt;const IR::MAU::SaluAction *&gt; actions;</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keyword">const</span> IR::MAU::SaluAction::ReturnEnumEncoding *encoding;</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    };</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::Type_Enum *, return_enum_info_t&gt;</a> encodings;</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    ordered_map&lt;const IR::Type_Enum *, return_enum_info_t&gt; encodings;</div>
 <div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    <span class="keywordtype">int</span> pred_type_size;</div>
 <div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keyword">const</span> IR::Type::Bits *pred_type;</div>
 <div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keyword">struct </span>FindEncodings : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keyword">struct </span>FindEncodings : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        FixupStatefulAlu &amp;self;</div>
 <div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::SaluAction *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Action *)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>        <span class="keyword">explicit</span> FindEncodings(FixupStatefulAlu &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    };</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">struct </span>UpdateEncodings : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">struct </span>UpdateEncodings : <span class="keyword">public</span> Transform {</div>
 <div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        FixupStatefulAlu &amp;self;</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        <span class="keyword">const</span> IR::BFN::Pipe *preorder(IR::BFN::Pipe *p)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>            <span class="keywordflow">if</span> (self.encodings.empty()) prune();</div>
@@ -416,7 +409,7 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span> </div>
 <div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>        <span class="keyword">explicit</span> UpdateEncodings(FixupStatefulAlu &amp;self) : self(self) {}</div>
 <div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    };</div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    <span class="keyword">struct </span>ReplaceUpdatedEnumTypes : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    <span class="keyword">struct </span>ReplaceUpdatedEnumTypes : <span class="keyword">public</span> Transform {</div>
 <div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        FixupStatefulAlu &amp;self;</div>
 <div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>        <span class="keyword">const</span> IR::Expression *postorder(IR::Expression *exp) {</div>
 <div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>            visit(exp-&gt;type, <span class="stringliteral">&quot;type&quot;</span>);</div>
@@ -432,7 +425,7 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    FixupStatefulAlu()</div>
 <div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>        : PassManager({</div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>              <span class="keyword">new</span> <a class="code hl_class" href="class_check_stateful_alu.html">CheckStatefulAlu</a>,</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>              <span class="keyword">new</span> CheckStatefulAlu,</div>
 <div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>              <span class="keyword">new</span> FindEncodings(*<span class="keyword">this</span>),</div>
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>              <span class="keyword">new</span> UpdateEncodings(*<span class="keyword">this</span>),</div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>              <span class="keyword">new</span> ReplaceUpdatedEnumTypes(*<span class="keyword">this</span>),</div>
@@ -441,22 +434,8 @@ $(function(){initNavTree('mau_2stateful__alu_8h_source.html',''); initResizable(
 <div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>        pred_type = IR::Type::Bits::get(pred_type_size);</div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    }</div>
 <div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>};</div>
-</div>
 <div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_STATEFUL_ALU_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_check_stateful_alu_html"><div class="ttname"><a href="class_check_stateful_alu.html">CheckStatefulAlu</a></div><div class="ttdef"><b>Definition</b> mau/stateful_alu.h:349</div></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_mau_modifier_html"><div class="ttname"><a href="class_mau_modifier.html">MauModifier</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:45</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_transform_html"><div class="ttname"><a href="class_p4_1_1_transform.html">P4::Transform</a></div><div class="ttdef"><b>Definition</b> visitor.h:437</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_source_info_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_source_info.html">P4::Util::SourceInfo</a></div><div class="ttdef"><b>Definition</b> source_file.h:132</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
-<div class="ttc" id="anamespace_p4_html_a9fe6085b1cee8f21f098c9db89644b58"><div class="ttname"><a href="namespace_p4.html#a9fe6085b1cee8f21f098c9db89644b58">P4::error</a></div><div class="ttdeci">void error(const char *format, Args &amp;&amp;...args)</div><div class="ttdoc">Report an error with the given message.</div><div class="ttdef"><b>Definition</b> lib/error.h:58</div></div>
-<div class="ttc" id="astruct_device_1_1_stateful_alu_spec_html"><div class="ttname"><a href="struct_device_1_1_stateful_alu_spec.html">Device::StatefulAluSpec</a></div><div class="ttdef"><b>Definition</b> mau/stateful_alu.h:106</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

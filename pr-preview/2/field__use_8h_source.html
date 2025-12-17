@@ -142,24 +142,23 @@ $(function(){initNavTree('field__use_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;lib/safe_vector.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;mau_visitor.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_field_use.html">   32</a></span><span class="keyword">class </span>FieldUse : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a>, <a class="code hl_class" href="class_tofino_write_context.html">TofinoWriteContext</a> {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;cstring&gt;</a> field_names;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>FieldUse : <span class="keyword">public</span> MauInspector, TofinoWriteContext {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    safe_vector&lt;cstring&gt; field_names;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::map&lt;cstring, int&gt; field_index;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">struct </span>rw_t {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> reads, writes;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        bitvec reads, writes;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    };</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::map&lt;cstring, rw_t&gt; table_use;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> access_field(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> field);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> access_field(cstring field);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Member *f) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::HeaderStackItemRef *f) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::TempVar *t) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> FieldUse &amp;);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> counter;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">auto</span> rv = MauInspector::init_apply(root);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        LOG1(<span class="stringliteral">&quot;Field Use call #&quot;</span> &lt;&lt; ++counter);</div>
@@ -168,30 +167,20 @@ $(function(){initNavTree('field__use_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> end_apply()<span class="keyword"> override </span>{ LOG3(*<span class="keyword">this</span>); }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">explicit</span> FieldUse(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;p) : phv(p) { visitDagOnce = <span class="keyword">false</span>; }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> tables_modify(<span class="keyword">const</span> IR::MAU::TableSeq *t) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> tables_access(<span class="keyword">const</span> IR::MAU::TableSeq *t) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> tables_modify(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> tables_access(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> table_reads(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> table_use.at(t-&gt;name).reads; }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="class_p4_1_1bitvec.html">bitvec</a> table_writes(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> table_use.at(t-&gt;name).writes; }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> cloning_table(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name, <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> newname) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">explicit</span> FieldUse(<span class="keyword">const</span> PhvInfo &amp;p) : phv(p) { visitDagOnce = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    bitvec tables_modify(<span class="keyword">const</span> IR::MAU::TableSeq *t) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    bitvec tables_access(<span class="keyword">const</span> IR::MAU::TableSeq *t) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    bitvec tables_modify(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    bitvec tables_access(<span class="keyword">const</span> IR::MAU::Table *t) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    bitvec table_reads(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> table_use.at(t-&gt;name).reads; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    bitvec table_writes(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> table_use.at(t-&gt;name).writes; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> cloning_table(cstring name, cstring newname) {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        assert(table_use.count(name) &amp;&amp; !table_use.count(newname));</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        table_use[newname] = table_use[name];</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
-</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_FIELD_USE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1bitvec_html"><div class="ttname"><a href="class_p4_1_1bitvec.html">P4::bitvec</a></div><div class="ttdef"><b>Definition</b> bitvec.h:120</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="aclass_tofino_write_context_html"><div class="ttname"><a href="class_tofino_write_context.html">TofinoWriteContext</a></div><div class="ttdef"><b>Definition</b> tofino_write_context.h:24</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

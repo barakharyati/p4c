@@ -144,7 +144,7 @@ $(function(){initNavTree('extract__parser_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;lib/cstring.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;lib/exceptions.h&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span>P4 {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span>IR {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span>BFN {</div>
@@ -159,56 +159,42 @@ $(function(){initNavTree('extract__parser_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}  <span class="comment">// namespace IR</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}  <span class="comment">// namespace P4</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">using namespace </span>P4;</div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group__parde.html">   54</a></span><span class="keyword">class </span>ExtractParser : <span class="keyword">public</span> <a class="code hl_class" href="group__parde.html#class_parser_inspector">ParserInspector</a> {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="class_logging_1_1_file_log.html">Logging::FileLog</a> *parserLog = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">class </span>ExtractParser : <span class="keyword">public</span> ParserInspector {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Logging::FileLog *parserLog = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">explicit</span> ExtractParser(<a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap, <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap, IR::BFN::Pipe *rv,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                           <a class="code hl_class" href="group___arch_translation.html#class_b_f_n_1_1_parse_tna">ParseTna</a> *arch)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">explicit</span> ExtractParser(P4::ReferenceMap *refMap, P4::TypeMap *typeMap, IR::BFN::Pipe *rv,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                           ParseTna *arch)</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        : refMap(refMap), typeMap(typeMap), rv(rv), arch(arch) {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        setName(<span class="stringliteral">&quot;ExtractParser&quot;</span>);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::BFN::TnaParser *parser) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> end_apply() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    profile_t init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> (BackendOptions().verbose &gt; 0)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            parserLog = <span class="keyword">new</span> <a class="code hl_class" href="class_logging_1_1_file_log.html">Logging::FileLog</a>(rv-&gt;canon_id(), <span class="stringliteral">&quot;parser.log&quot;</span>_cs);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            parserLog = <span class="keyword">new</span> Logging::FileLog(rv-&gt;canon_id(), <span class="stringliteral">&quot;parser.log&quot;</span>_cs);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> ParserInspector::init_apply(root);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    P4::ReferenceMap *refMap;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    P4::TypeMap *typeMap;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    IR::BFN::Pipe *rv;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="group___arch_translation.html#class_b_f_n_1_1_parse_tna">ParseTna</a> *arch;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    ParseTna *arch;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
-</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_process_parde.html">   81</a></span><span class="keyword">class </span><a class="code hl_function" href="class_b_f_n_1_1_process_parde.html#a382c97744486a9a1f3211fcb1cfe6978">ProcessParde</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_logging_1_1_pass_manager.html">Logging::PassManager</a> {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">class </span>ProcessParde : <span class="keyword">public</span> Logging::PassManager {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_function" href="class_b_f_n_1_1_process_parde.html#a382c97744486a9a1f3211fcb1cfe6978">ProcessParde</a>(<span class="keyword">const</span> IR::BFN::Pipe *rv, <span class="keywordtype">bool</span> useTna);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    ProcessParde(<span class="keyword">const</span> IR::BFN::Pipe *rv, <span class="keywordtype">bool</span> useTna);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
-</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_EXTRACT_PARSER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_b_f_n_1_1_process_parde_html_a382c97744486a9a1f3211fcb1cfe6978"><div class="ttname"><a href="class_b_f_n_1_1_process_parde.html#a382c97744486a9a1f3211fcb1cfe6978">BFN::ProcessParde::ProcessParde</a></div><div class="ttdeci">ProcessParde(const IR::BFN::Pipe *rv, bool useTna)</div><div class="ttdef"><b>Definition</b> extract_parser.cpp:1861</div></div>
-<div class="ttc" id="aclass_logging_1_1_file_log_html"><div class="ttname"><a href="class_logging_1_1_file_log.html">Logging::FileLog</a></div><div class="ttdoc">A FileLog is used to redirect the logging output of a visitor pass to a file.</div><div class="ttdef"><b>Definition</b> filelog.h:48</div></div>
-<div class="ttc" id="aclass_logging_1_1_pass_manager_html"><div class="ttname"><a href="class_logging_1_1_pass_manager.html">Logging::PassManager</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/logging/pass_manager.h:36</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_reference_map_html"><div class="ttname"><a href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a></div><div class="ttdoc">Class used to encode maps from paths to declarations.</div><div class="ttdef"><b>Definition</b> referenceMap.h:67</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_map_html"><div class="ttname"><a href="class_p4_1_1_type_map.html">P4::TypeMap</a></div><div class="ttdef"><b>Definition</b> typeMap.h:41</div></div>
-<div class="ttc" id="agroup___arch_translation_html_class_b_f_n_1_1_parse_tna"><div class="ttname"><a href="group___arch_translation.html#class_b_f_n_1_1_parse_tna">BFN::ParseTna</a></div><div class="ttdef"><b>Definition</b> arch.h:326</div></div>
-<div class="ttc" id="agroup__parde_html_class_parser_inspector"><div class="ttname"><a href="group__parde.html#class_parser_inspector">ParserInspector</a></div><div class="ttdef"><b>Definition</b> parde_visitor.h:66</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

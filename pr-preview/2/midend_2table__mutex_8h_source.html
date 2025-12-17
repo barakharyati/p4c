@@ -139,13 +139,12 @@ $(function(){initNavTree('midend_2table__mutex_8h_source.html',''); initResizabl
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// FIXME -- move this to open source P4.org code?</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_table_mutex.html">   30</a></span><span class="keyword">class </span>TableMutex : <span class="keyword">public</span> Inspector, <span class="keyword">public</span> ControlFlowVisitor, <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_resolution_context.html">P4::ResolutionContext</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span>TableMutex : <span class="keyword">public</span> Inspector, <span class="keyword">public</span> ControlFlowVisitor, <span class="keyword">public</span> P4::ResolutionContext {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    TableMutex *clone()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="keyword">new</span> TableMutex(*<span class="keyword">this</span>); }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> flow_merge(Visitor &amp;) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> flow_copy(ControlFlowVisitor &amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_table_mutex.html#struct_table_mutex_1_1_shared">Shared</a>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_struct" href="class_table_mutex.html#struct_table_mutex_1_1_shared">Shared</a> *data;  <span class="comment">// shared between clones</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">struct </span>Shared;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    Shared *data;  <span class="comment">// shared between clones</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    bitvec seen_tables;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::P4Control *) <span class="keyword">override</span>;</div>
@@ -160,11 +159,8 @@ $(function(){initNavTree('midend_2table__mutex_8h_source.html',''); initResizabl
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> IR::P4Action *, <span class="keyword">const</span> IR::P4Action *);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> IR::Declaration *, <span class="keyword">const</span> IR::Declaration *);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
-</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MIDEND_TABLE_MUTEX_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_resolution_context_html"><div class="ttname"><a href="class_p4_1_1_resolution_context.html">P4::ResolutionContext</a></div><div class="ttdoc">Visitor mixin for looking up names in enclosing scopes from the Visitor::Context.</div><div class="ttdef"><b>Definition</b> resolveReferences.h:35</div></div>
-<div class="ttc" id="aclass_table_mutex_html_struct_table_mutex_1_1_shared"><div class="ttname"><a href="class_table_mutex.html#struct_table_mutex_1_1_shared">TableMutex::Shared</a></div><div class="ttdef"><b>Definition</b> midend/table_mutex.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

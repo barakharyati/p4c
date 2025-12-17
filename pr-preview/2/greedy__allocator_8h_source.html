@@ -140,13 +140,12 @@ $(function(){initNavTree('greedy__allocator_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/v2/phv_kit.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/v2/utils_v2.h&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>PHV {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span>v2 {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_p_h_v_1_1v2_1_1_greedy_allocator.html">   31</a></span><span class="keyword">class </span>GreedyAllocator : <span class="keyword">public</span> AllocatorBase {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>GreedyAllocator : <span class="keyword">public</span> AllocatorBase {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// const PhvKit&amp; kit_i;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv_i;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    PhvInfo &amp;phv_i;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> pipe_id_i;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> max_slicing_tries_i = 256;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
@@ -155,13 +154,13 @@ $(function(){initNavTree('greedy__allocator_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">struct </span>PreSliceResult {</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        std::list&lt;SuperCluster *&gt; clusters;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const SuperCluster *, KindSizeIndexedMap&gt;</a> baseline_cont_req;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        ordered_map&lt;const SuperCluster *, KindSizeIndexedMap&gt; baseline_cont_req;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    PreSliceResult pre_slice_all(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_allocation.html">Allocation</a> &amp;empty_alloc,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    PreSliceResult pre_slice_all(<span class="keyword">const</span> Allocation &amp;empty_alloc,</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                                 <span class="keyword">const</span> std::list&lt;SuperCluster *&gt; &amp;clusters,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                                 <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;const SuperCluster *&gt;</a> &amp;invalid_clusters,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                                 <a class="code hl_class" href="class_p_h_v_1_1v2_1_1_allocator_metrics.html">AllocatorMetrics</a> &amp;alloc_metrics) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                                 ordered_set&lt;const SuperCluster *&gt; &amp;invalid_clusters,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                                 AllocatorMetrics &amp;alloc_metrics) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">struct </span>RefinedSuperClusterSet {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        std::list&lt;PHV::SuperCluster *&gt; normal;</div>
@@ -176,28 +175,27 @@ $(function(){initNavTree('greedy__allocator_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    RefinedSuperClusterSet prepare_refined_set(<span class="keyword">const</span> std::list&lt;SuperCluster *&gt; &amp;clusters) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">struct </span>AllocResultWithSlicingDetails {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_alloc_result.html">AllocResult</a> rst;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_class" href="class_p_h_v_1_1v2_1_1_tx_score.html">TxScore</a> *best_score = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        AllocResult rst;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        TxScore *best_score = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        std::list&lt;PHV::SuperCluster *&gt; best_slicing;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordtype">int</span> best_slicing_idx = 0;  <span class="comment">// valid index starts from 1.</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const PHV::SuperCluster *, TxContStatus&gt;</a> *sliced_tx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">explicit</span> AllocResultWithSlicingDetails(<span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_transaction.html">Transaction</a> &amp;tx) : rst(tx) {}</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">explicit</span> AllocResultWithSlicingDetails(<a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_alloc_error.html">AllocError</a> *err) : rst(err) {}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        ordered_map&lt;const PHV::SuperCluster *, TxContStatus&gt; *sliced_tx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">explicit</span> AllocResultWithSlicingDetails(<span class="keyword">const</span> Transaction &amp;tx) : rst(tx) {}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">explicit</span> AllocResultWithSlicingDetails(AllocError *err) : rst(err) {}</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    };</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> AllocResultWithSlicingDetails &amp;);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    AllocResultWithSlicingDetails slice_and_allocate_sc(</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1v2_1_1_score_context.html">ScoreContext</a> &amp;ctx, <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_allocation.html">Allocation</a> &amp;alloc, <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_super_cluster.html">PHV::SuperCluster</a> *sc,</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">const</span> ContainerGroupsBySize &amp;container_groups, <a class="code hl_class" href="class_p_h_v_1_1v2_1_1_allocator_metrics.html">AllocatorMetrics</a> &amp;alloc_metrics,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">const</span> ScoreContext &amp;ctx, <span class="keyword">const</span> Allocation &amp;alloc, <span class="keyword">const</span> PHV::SuperCluster *sc,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">const</span> ContainerGroupsBySize &amp;container_groups, AllocatorMetrics &amp;alloc_metrics,</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> max_slicings = 128) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    GreedyAllocator(<span class="keyword">const</span> <a class="code hl_struct" href="struct_p_h_v_1_1v2_1_1_phv_kit.html">PhvKit</a> &amp;kit, <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <span class="keywordtype">int</span> pipe_id)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    GreedyAllocator(<span class="keyword">const</span> PhvKit &amp;kit, PhvInfo &amp;phv, <span class="keywordtype">int</span> pipe_id)</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        : AllocatorBase(kit), phv_i(phv), pipe_id_i(pipe_id) {};</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_p_h_v_1_1v2_1_1_greedy_allocator.html#a381d7485f52adc6c8c75c58403f0cc76">allocate</a>(std::list&lt;SuperCluster *&gt; clusters, <a class="code hl_class" href="class_p_h_v_1_1v2_1_1_allocator_metrics.html">AllocatorMetrics</a> &amp;alloc_metrics);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> allocate(std::list&lt;SuperCluster *&gt; clusters, AllocatorMetrics &amp;alloc_metrics);</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
-</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> GreedyAllocator::AllocResultWithSlicingDetails &amp;);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
@@ -205,20 +203,6 @@ $(function(){initNavTree('greedy__allocator_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}  <span class="comment">// namespace PHV</span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_V2_GREEDY_ALLOCATOR_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_allocation_html"><div class="ttname"><a href="class_p_h_v_1_1_allocation.html">PHV::Allocation</a></div><div class="ttdef"><b>Definition</b> phv/utils/utils.h:117</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_super_cluster_html"><div class="ttname"><a href="class_p_h_v_1_1_super_cluster.html">PHV::SuperCluster</a></div><div class="ttdef"><b>Definition</b> phv/utils/utils.h:1049</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_transaction_html"><div class="ttname"><a href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a></div><div class="ttdef"><b>Definition</b> phv/utils/utils.h:561</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1v2_1_1_allocator_metrics_html"><div class="ttname"><a href="class_p_h_v_1_1v2_1_1_allocator_metrics.html">PHV::v2::AllocatorMetrics</a></div><div class="ttdoc">AllocatorMetrics contains metrics useful in tracking Allocator efficiency and debug.</div><div class="ttdef"><b>Definition</b> allocator_metrics.h:30</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1v2_1_1_greedy_allocator_html_a381d7485f52adc6c8c75c58403f0cc76"><div class="ttname"><a href="class_p_h_v_1_1v2_1_1_greedy_allocator.html#a381d7485f52adc6c8c75c58403f0cc76">PHV::v2::GreedyAllocator::allocate</a></div><div class="ttdeci">bool allocate(std::list&lt; SuperCluster * &gt; clusters, AllocatorMetrics &amp;alloc_metrics)</div><div class="ttdef"><b>Definition</b> greedy_allocator.cpp:494</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1v2_1_1_score_context_html"><div class="ttname"><a href="class_p_h_v_1_1v2_1_1_score_context.html">PHV::v2::ScoreContext</a></div><div class="ttdoc">ScoreContext is the allocation context that is updated and passed down during allocation.</div><div class="ttdef"><b>Definition</b> utils_v2.h:178</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1v2_1_1_tx_score_html"><div class="ttname"><a href="class_p_h_v_1_1v2_1_1_tx_score.html">PHV::v2::TxScore</a></div><div class="ttdoc">TxScore is the interface of an allocation score.</div><div class="ttdef"><b>Definition</b> tx_score.h:28</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1v2_1_1_alloc_error_html"><div class="ttname"><a href="struct_p_h_v_1_1v2_1_1_alloc_error.html">PHV::v2::AllocError</a></div><div class="ttdef"><b>Definition</b> utils_v2.h:92</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1v2_1_1_alloc_result_html"><div class="ttname"><a href="struct_p_h_v_1_1v2_1_1_alloc_result.html">PHV::v2::AllocResult</a></div><div class="ttdef"><b>Definition</b> utils_v2.h:120</div></div>
-<div class="ttc" id="astruct_p_h_v_1_1v2_1_1_phv_kit_html"><div class="ttname"><a href="struct_p_h_v_1_1v2_1_1_phv_kit.html">PHV::v2::PhvKit</a></div><div class="ttdef"><b>Definition</b> phv_kit.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

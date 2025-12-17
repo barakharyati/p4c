@@ -140,8 +140,7 @@ $(function(){initNavTree('optimize__phv_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/phv_fields.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/utils/utils.h&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_transact_data.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_transact_data.html">TransactData</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">struct </span>TransactData {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Mapping table of Transaction -&gt; SuperCluster</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::unordered_map&lt;PHV::Transaction *, PHV::SuperCluster *&gt; tr_to_sc_i;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// Mapping table of Transaction -&gt; Unique Transaction ID</span></div>
@@ -156,10 +155,8 @@ $(function(){initNavTree('optimize__phv_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// Mapping table of Unique Transaction ID -&gt; Diff for logging purpose</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::map&lt;int, const cstring&gt; tr_id_to_diff;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
-</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_brute_force_optimization_strategy.html">   64</a></span><span class="keyword">class </span>BruteForceOptimizationStrategy {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">class </span>BruteForceOptimizationStrategy {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Limit the number of dependant transactions when trying to replace a transaction.</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MAX_PRUNED_TRANSACTIONS = 16;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// Limit the number of passes we spend on trying to optimize the solution. One pass is equal</span></div>
@@ -179,50 +176,41 @@ $(function(){initNavTree('optimize__phv_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> MAX_TOTAL_SC_BIT = 256;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">// Required to call the BruteForceAllocationStrategy allocation services.</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="class_brute_force_allocation_strategy.html">BruteForceAllocationStrategy</a> &amp;alloc_strategy_i;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    BruteForceAllocationStrategy &amp;alloc_strategy_i;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">const</span> std::list&lt;PHV::ContainerGroup *&gt; &amp;container_groups_i;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_score_context.html">ScoreContext</a> &amp;score_ctx_i;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">const</span> ScoreContext &amp;score_ctx_i;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// Transaction Data that is continuously updated to increase the solution score.</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_struct" href="struct_transact_data.html">TransactData</a> *data;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    TransactData *data;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// Build a sequence of Transaction In/Out if tr_id is removed.</span></div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">bool</span> buildSeqWithout(<span class="keywordtype">int</span> tr_id, std::list&lt;int&gt; &amp;tr_in, std::list&lt;int&gt; &amp;tr_out);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// Play a sequence on top of a particular Transaction.</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    BruteForceOptimizationStrategy playSeq(std::list&lt;int&gt; &amp;tr_in, <a class="code hl_class" href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a> &amp;partial_alloc);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    BruteForceOptimizationStrategy playSeq(std::list&lt;int&gt; &amp;tr_in, PHV::Transaction &amp;partial_alloc);</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">explicit</span> BruteForceOptimizationStrategy(</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_class" href="class_brute_force_allocation_strategy.html">BruteForceAllocationStrategy</a> &amp;alloc_strategy_i,</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keyword">const</span> std::list&lt;PHV::ContainerGroup *&gt; &amp;container_groups, <span class="keyword">const</span> <a class="code hl_class" href="class_score_context.html">ScoreContext</a> &amp;score_ctx)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        BruteForceAllocationStrategy &amp;alloc_strategy_i,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keyword">const</span> std::list&lt;PHV::ContainerGroup *&gt; &amp;container_groups, <span class="keyword">const</span> ScoreContext &amp;score_ctx)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        : alloc_strategy_i(alloc_strategy_i),</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>          container_groups_i(container_groups),</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>          score_ctx_i(score_ctx) {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        data = <span class="keyword">new</span> <a class="code hl_struct" href="struct_transact_data.html">TransactData</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        data = <span class="keyword">new</span> TransactData();</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">// Insert a Transaction/SuperCluster to the optimization strategy.</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_brute_force_optimization_strategy.html#a1061df9a6442914d12105ee9da34c5dc">addTransaction</a>(<a class="code hl_class" href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a> &amp;transaction, <a class="code hl_class" href="class_p_h_v_1_1_super_cluster.html">PHV::SuperCluster</a> &amp;sc, <span class="keywordtype">int</span> tr_id = -1);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> addTransaction(PHV::Transaction &amp;transaction, PHV::SuperCluster &amp;sc, <span class="keywordtype">int</span> tr_id = -1);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// Start the optimization process.</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    std::list&lt;PHV::SuperCluster *&gt; <a class="code hl_function" href="class_brute_force_optimization_strategy.html#a517271a7275b6d7cf28ef8211c99390a">optimize</a>(std::list&lt;PHV::SuperCluster *&gt; &amp;unallocated_sc,</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                                            <a class="code hl_class" href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a> &amp;rst);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    std::list&lt;PHV::SuperCluster *&gt; optimize(std::list&lt;PHV::SuperCluster *&gt; &amp;unallocated_sc,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                                            PHV::Transaction &amp;rst);</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// Print the Container to Transaction Dependencies.</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_brute_force_optimization_strategy.html#addf7937622c8800e73f96431eb37a7ec">printContDependency</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> printContDependency();</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>};</div>
-</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_OPTIMIZE_PHV_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_brute_force_allocation_strategy_html"><div class="ttname"><a href="class_brute_force_allocation_strategy.html">BruteForceAllocationStrategy</a></div><div class="ttdef"><b>Definition</b> allocate_phv.h:695</div></div>
-<div class="ttc" id="aclass_brute_force_optimization_strategy_html_a1061df9a6442914d12105ee9da34c5dc"><div class="ttname"><a href="class_brute_force_optimization_strategy.html#a1061df9a6442914d12105ee9da34c5dc">BruteForceOptimizationStrategy::addTransaction</a></div><div class="ttdeci">void addTransaction(PHV::Transaction &amp;transaction, PHV::SuperCluster &amp;sc, int tr_id=-1)</div><div class="ttdef"><b>Definition</b> optimize_phv.cpp:29</div></div>
-<div class="ttc" id="aclass_brute_force_optimization_strategy_html_a517271a7275b6d7cf28ef8211c99390a"><div class="ttname"><a href="class_brute_force_optimization_strategy.html#a517271a7275b6d7cf28ef8211c99390a">BruteForceOptimizationStrategy::optimize</a></div><div class="ttdeci">std::list&lt; PHV::SuperCluster * &gt; optimize(std::list&lt; PHV::SuperCluster * &gt; &amp;unallocated_sc, PHV::Transaction &amp;rst)</div><div class="ttdef"><b>Definition</b> optimize_phv.cpp:177</div></div>
-<div class="ttc" id="aclass_brute_force_optimization_strategy_html_addf7937622c8800e73f96431eb37a7ec"><div class="ttname"><a href="class_brute_force_optimization_strategy.html#addf7937622c8800e73f96431eb37a7ec">BruteForceOptimizationStrategy::printContDependency</a></div><div class="ttdeci">void printContDependency()</div><div class="ttdef"><b>Definition</b> optimize_phv.cpp:391</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_super_cluster_html"><div class="ttname"><a href="class_p_h_v_1_1_super_cluster.html">PHV::SuperCluster</a></div><div class="ttdef"><b>Definition</b> phv/utils/utils.h:1049</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_transaction_html"><div class="ttname"><a href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a></div><div class="ttdef"><b>Definition</b> phv/utils/utils.h:561</div></div>
-<div class="ttc" id="aclass_score_context_html"><div class="ttname"><a href="class_score_context.html">ScoreContext</a></div><div class="ttdoc">ScoreContext can compute a alloc score for an PHV::Transaction.</div><div class="ttdef"><b>Definition</b> allocate_phv.h:307</div></div>
-<div class="ttc" id="astruct_transact_data_html"><div class="ttname"><a href="struct_transact_data.html">TransactData</a></div><div class="ttdef"><b>Definition</b> optimize_phv.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -166,39 +166,33 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;tcAnnotations.h&quot;</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;tc_defines.h&quot;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4_1_1_t_c.html">P4::TC</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span>P4::TC {</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">extern</span> cstring PnaMainParserInputMetaFields[TC::MAX_PNA_PARSER_META];</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">extern</span> cstring PnaMainInputMetaFields[TC::MAX_PNA_INPUT_META];</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">extern</span> cstring PnaMainOutputMetaFields[TC::MAX_PNA_OUTPUT_META];</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_t_c_1_1_p_n_a_ebpf_generator.html">PNAEbpfGenerator</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">class </span>PNAEbpfGenerator;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1decllist">decllist</a> DECLLIST;</div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">   47</a></span><span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1decllist">decllist</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">typedef</span> <span class="keyword">struct </span>decllist DECLLIST;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">struct </span>decllist {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    DECLLIST *link;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    IR::Declaration *decl;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
-</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1stmtlist">stmtlist</a> STMTLIST;</div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">   53</a></span><span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1stmtlist">stmtlist</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">typedef</span> <span class="keyword">struct </span>stmtlist STMTLIST;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">struct </span>stmtlist {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    STMTLIST *link;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    IR::Statement *stmt;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
-</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1container">container</a> CONTAINER;</div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">   59</a></span><span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1container">container</a> {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">typedef</span> <span class="keyword">struct </span>container CONTAINER;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">struct </span>container {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    CONTAINER *link;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    DECLLIST *temps;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    STMTLIST *stmts;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    IR::Statement *s;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
-</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">enum</span> WrType {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    WR_VALUE = 1,</div>
@@ -225,60 +219,45 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    WR_ASSIGN,</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="foldopen" id="foldopen00091" data-start="{" data-end="};">
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_width_rec.html">   91</a></span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_t_c_1_1_width_rec.html">WidthRec</a> {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">class </span>WidthRec {</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    WrType type;</div>
-<div class="foldopen" id="foldopen00094" data-start="{" data-end="};">
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">   94</a></span>    <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">union </span>{</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">// if WR_VALUE</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">int</span> value;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="comment">// if WR_CONCAT</span></div>
-<div class="foldopen" id="foldopen00098" data-start="{" data-end="};">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">   98</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordtype">int</span> lhsw;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordtype">int</span> rhsw;</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="comment">// result width is implicit: is lhsw + rhsw</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        } concat;</div>
-</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="comment">// if WR_ADD, WR_SUB, WR_MUL, WR_NEG, WR_NOT, WR_BITAND,</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="comment">//  WR_BITOR, WR_BITXOR</span></div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="};">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  105</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordtype">int</span> w;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        } arith;</div>
-</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="comment">// if WR_BXSMUL</span></div>
-<div class="foldopen" id="foldopen00109" data-start="{" data-end="};">
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  109</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordtype">int</span> bw;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sv;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        } bxsmul;</div>
-</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="comment">// if WR_CAST</span></div>
-<div class="foldopen" id="foldopen00114" data-start="{" data-end="};">
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  114</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordtype">int</span> fw;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordtype">int</span> tw;</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        } cast;</div>
-</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="comment">// if WR_SHL_X, WR_SHRA_X, WR_SHRL_X</span></div>
-<div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  119</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordtype">int</span> lw;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordtype">int</span> rw;</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        } shift_x;</div>
-</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="comment">// if WR_SHL_C, WR_SHRA_C, WR_SRL_C</span></div>
-<div class="foldopen" id="foldopen00124" data-start="{" data-end="};">
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  124</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keywordtype">int</span> lw;</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sv;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        } shift_c;</div>
-</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="comment">// if WR_CMP</span></div>
-<div class="foldopen" id="foldopen00129" data-start="{" data-end="};">
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  129</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordtype">int</span> w;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> cmp;</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#define CMP_EQ 0x01</span></div>
@@ -290,23 +269,17 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="preprocessor">#define CMP_BASE 0x07</span></div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#define CMP_SIGNED 0x08</span></div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        } cmp;</div>
-</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="comment">// if WR_ADDSAT, WR_SUBSAT</span></div>
-<div class="foldopen" id="foldopen00142" data-start="{" data-end="};">
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  142</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordtype">int</span> w;</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordtype">bool</span> issigned;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        } sarith;</div>
-</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="comment">// if WR_ASSIGN</span></div>
-<div class="foldopen" id="foldopen00147" data-start="{" data-end="};">
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_t_c.html">  147</a></span>        <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            <span class="keywordtype">int</span> w;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        } assign;</div>
-</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="comment">// Naming union to avoid c++ warnings</span></div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    } u;</div>
-</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> WidthRec &amp;l, <span class="keyword">const</span> WidthRec &amp;r) {</div>
@@ -421,16 +394,14 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;=(<span class="keyword">const</span> WidthRec &amp;l, <span class="keyword">const</span> WidthRec &amp;r) { <span class="keywordflow">return</span> (!(r &lt; l)); }</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> WidthRec &amp;l, <span class="keyword">const</span> WidthRec &amp;r) { <span class="keywordflow">return</span> (!(l == r)); }</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>};</div>
-</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
-<div class="foldopen" id="foldopen00267" data-start="{" data-end="};">
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_scan_widths.html">  267</a></span><span class="keyword">class </span>ScanWidths : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="keyword">class </span>ScanWidths : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordtype">int</span> nwr;</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_width_rec.html">WidthRec</a> *wrv;</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typemap;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <a class="code hl_class" href="class_p4_1_1_e_b_p_f_1_1_target.html">EBPF::Target</a> *target;</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">void</span> insert_wr(<a class="code hl_class" href="class_p4_1_1_t_c_1_1_width_rec.html">WidthRec</a> &amp;);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    WidthRec *wrv;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    P4::TypeMap *typemap;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    EBPF::Target *target;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">void</span> insert_wr(WidthRec &amp;);</div>
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordtype">void</span> add_width(<span class="keywordtype">int</span>);</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordtype">void</span> add_concat(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keywordtype">void</span> add_arith(WrType, <span class="keywordtype">int</span>);</div>
@@ -444,7 +415,7 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keywordtype">void</span> add_assign(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keyword">explicit</span> ScanWidths(<a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *tm, <a class="code hl_class" href="class_p4_1_1_e_b_p_f_1_1_target.html">EBPF::Target</a> *tgt)</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keyword">explicit</span> ScanWidths(P4::TypeMap *tm, EBPF::Target *tgt)</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        : nwr(0), wrv(0), typemap(tm), target(tgt) {}</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    ~ScanWidths(<span class="keywordtype">void</span>) { std::free(wrv); }</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keywordtype">void</span> expr_common(<span class="keyword">const</span> IR::Expression *);</div>
@@ -473,63 +444,57 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordtype">bool</span> arith_common_2(<span class="keyword">const</span> IR::Operation_Binary *, WrType, <span class="keywordtype">bool</span> = <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <span class="keywordtype">bool</span> arith_common_1(<span class="keyword">const</span> IR::Operation_Unary *, WrType, <span class="keywordtype">bool</span> = <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keywordtype">bool</span> sarith_common_2(<span class="keyword">const</span> IR::Operation_Binary *, WrType, <span class="keywordtype">bool</span> = <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="keywordtype">void</span> revisit_visited();</div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    <span class="keywordtype">void</span> dump() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordtype">void</span> gen_h(<a class="code hl_class" href="class_p4_1_1_e_b_p_f_1_1_code_builder.html">EBPF::CodeBuilder</a> *) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordtype">void</span> gen_c(<a class="code hl_class" href="class_p4_1_1_e_b_p_f_1_1_code_builder.html">EBPF::CodeBuilder</a> *) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordtype">void</span> gen_h(EBPF::CodeBuilder *) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keywordtype">void</span> gen_c(EBPF::CodeBuilder *) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>};</div>
-</div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span></div>
-<div class="foldopen" id="foldopen00327" data-start="{" data-end="};">
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html">  327</a></span><span class="keyword">class </span>ConvertToBackendIR : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="keyword">class </span>ConvertToBackendIR : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00329" data-start="{" data-end="};">
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html">  329</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html#struct_p4_1_1_t_c_1_1_convert_to_backend_i_r_1_1_extern_instance">ExternInstance</a> {</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> instance_name;</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keyword">struct </span>ExternInstance {</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        cstring instance_name;</div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="keywordtype">unsigned</span> instance_id;</div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordtype">bool</span> is_num_elements;</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordtype">int</span> num_elements;</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    };</div>
-</div>
-<div class="foldopen" id="foldopen00335" data-start="{" data-end="};">
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html">  335</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html#struct_p4_1_1_t_c_1_1_convert_to_backend_i_r_1_1_extern_block">ExternBlock</a> {</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> externId;</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> control_name;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keyword">struct </span>ExternBlock {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        cstring externId;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        cstring control_name;</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="keywordtype">unsigned</span> no_of_instances;</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> permissions;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;struct ExternInstance *&gt;</a> eInstance;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        cstring permissions;</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        safe_vector&lt;struct ExternInstance *&gt; eInstance;</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    };</div>
-</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keyword">enum</span> CounterType { PACKETS, BYTES, PACKETS_AND_BYTES };</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="keyword">const</span> IR::ToplevelBlock *tlb;</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    IR::TCPipeline *tcPipeline;</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap;</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_t_c_options.html">TCOptions</a> &amp;options;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    P4::ReferenceMap *refMap;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    P4::TypeMap *typeMap;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    TCOptions &amp;options;</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tableCount = 0;</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> actionCount = 0;</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> metadataCount = 0;</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> labelCount = 0;</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> externCount = 0;</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> pipelineName = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> mainParserName = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, const IR::P4Action *&gt;</a> actions;</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;unsigned, cstring&gt;</a> tableIDList;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;unsigned, cstring&gt;</a> actionIDList;</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;unsigned, unsigned&gt;</a> tableKeysizeList;</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <a class="code hl_class" href="class_p4_1_1safe__vector.html">safe_vector&lt;const IR::P4Table *&gt;</a> add_on_miss_tables;</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, std::pair&lt;cstring, cstring&gt;</a> *&gt; tablePermissions;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, const IR::Type_Struct *&gt;</a> ControlStructPerExtern;</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, struct ExternBlock *&gt;</a> externsInfo;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    cstring pipelineName = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    cstring mainParserName = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    ordered_map&lt;cstring, const IR::P4Action *&gt; actions;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    ordered_map&lt;unsigned, cstring&gt; tableIDList;</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    ordered_map&lt;unsigned, cstring&gt; actionIDList;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    ordered_map&lt;unsigned, unsigned&gt; tableKeysizeList;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    safe_vector&lt;const IR::P4Table *&gt; add_on_miss_tables;</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    ordered_map&lt;cstring, std::pair&lt;cstring, cstring&gt; *&gt; tablePermissions;</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    ordered_map&lt;cstring, const IR::Type_Struct *&gt; ControlStructPerExtern;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    ordered_map&lt;cstring, struct ExternBlock *&gt; externsInfo;</div>
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html">ConvertToBackendIR</a>(<span class="keyword">const</span> IR::ToplevelBlock *tlb, IR::TCPipeline *pipe, <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap,</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                       <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap, <a class="code hl_class" href="class_p4_1_1_t_c_1_1_t_c_options.html">TCOptions</a> &amp;options)</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    ConvertToBackendIR(<span class="keyword">const</span> IR::ToplevelBlock *tlb, IR::TCPipeline *pipe, P4::ReferenceMap *refMap,</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                       P4::TypeMap *typeMap, TCOptions &amp;options)</div>
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        : tlb(tlb), tcPipeline(pipe), refMap(refMap), typeMap(typeMap), options(options) {}</div>
 <div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keywordtype">void</span> setPipelineName();</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> getPipelineName() { <span class="keywordflow">return</span> pipelineName; };</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    cstring getPipelineName() { <span class="keywordflow">return</span> pipelineName; };</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::P4Program *p) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::P4Action *a) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::P4Table *t) <span class="keyword">override</span>;</div>
@@ -553,7 +518,7 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="keywordtype">void</span> updateTimerProfiles(IR::TCTable *tabledef);</div>
 <div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <span class="keywordtype">void</span> updatePnaDirectCounter(<span class="keyword">const</span> IR::P4Table *t, IR::TCTable *tabledef, <span class="keywordtype">unsigned</span> tentries);</div>
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keywordtype">void</span> updatePnaDirectMeter(<span class="keyword">const</span> IR::P4Table *t, IR::TCTable *tabledef, <span class="keywordtype">unsigned</span> tentries);</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html#ae7bad13342bddf732a6611d960fd6c3b">isPnaParserMeta</a>(<span class="keyword">const</span> IR::Member *mem);</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keywordtype">bool</span> isPnaParserMeta(<span class="keyword">const</span> IR::Member *mem);</div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keywordtype">bool</span> isPnaMainInputMeta(<span class="keyword">const</span> IR::Member *mem);</div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordtype">bool</span> isPnaMainOutputMeta(<span class="keyword">const</span> IR::Member *mem);</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> findMappedKernelMeta(<span class="keyword">const</span> IR::Member *mem);</div>
@@ -582,75 +547,45 @@ $(function(){initNavTree('tc_2backend_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keyword">const</span> IR::Declaration_Instance *decl);</div>
 <div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    CounterType toCounterType(<span class="keyword">const</span> <span class="keywordtype">int</span> type);</div>
 <div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>};</div>
-</div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="foldopen" id="foldopen00423" data-start="{" data-end="};">
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_extern.html">  423</a></span><span class="keyword">class </span><a class="code hl_class" href="class_p4_1_1_t_c_1_1_extern.html">Extern</a> {</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span><span class="keyword">class </span>Extern {</div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> dropPacket;</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> sendToPort;</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">static</span> <span class="keyword">const</span> cstring dropPacket;</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <span class="keyword">static</span> <span class="keyword">const</span> cstring sendToPort;</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>};</div>
-</div>
 <div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
-<div class="foldopen" id="foldopen00429" data-start="{" data-end="};">
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno"><a class="line" href="class_p4_1_1_t_c_1_1_backend.html">  429</a></span><span class="keyword">class </span>Backend : <span class="keyword">public</span> PassManager {</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span><span class="keyword">class </span>Backend : <span class="keyword">public</span> PassManager {</div>
 <div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    IR::ToplevelBlock *toplevel;</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap;</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap;</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_t_c_options.html">TCOptions</a> &amp;options;</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    P4::ReferenceMap *refMap;</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    P4::TypeMap *typeMap;</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    TCOptions &amp;options;</div>
 <div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    IR::TCPipeline *pipeline = <span class="keyword">new</span> IR::TCPipeline();</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html">TC::ConvertToBackendIR</a> *tcIR;</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_introspection_generator.html">TC::IntrospectionGenerator</a> *genIJ;</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    <a class="code hl_class" href="class_p4_1_1_t_c_1_1_parse_t_c_annotations.html">TC::ParseTCAnnotations</a> *parseTCAnno;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    TC::ConvertToBackendIR *tcIR;</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    TC::IntrospectionGenerator *genIJ;</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    TC::ParseTCAnnotations *parseTCAnno;</div>
 <div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    <span class="keyword">const</span> IR::ToplevelBlock *top = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    <a class="code hl_class" href="class_p4_1_1_ebpf_options.html">EbpfOptions</a> ebpfOption;</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    <a class="code hl_class" href="class_p4_1_1_e_b_p_f_1_1_target.html">EBPF::Target</a> *target;</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_t_c_1_1_p_n_a_ebpf_generator.html">PNAEbpfGenerator</a> *ebpf_program;</div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_t_c_1_1_scan_widths.html">ScanWidths</a> *widths;</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    EbpfOptions ebpfOption;</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    EBPF::Target *target;</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="keyword">const</span> PNAEbpfGenerator *ebpf_program;</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    <span class="keyword">const</span> ScanWidths *widths;</div>
 <div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
 <div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    <span class="keyword">explicit</span> Backend(IR::ToplevelBlock *toplevel, <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap, <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap,</div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>                     <a class="code hl_class" href="class_p4_1_1_t_c_1_1_t_c_options.html">TCOptions</a> &amp;options)</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    <span class="keyword">explicit</span> Backend(IR::ToplevelBlock *toplevel, P4::ReferenceMap *refMap, P4::TypeMap *typeMap,</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>                     TCOptions &amp;options)</div>
 <div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>        : toplevel(toplevel), refMap(refMap), typeMap(typeMap), options(options), widths(0) {</div>
 <div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>        setName(<span class="stringliteral">&quot;BackEnd&quot;</span>);</div>
 <div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    }</div>
 <div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <span class="keywordtype">bool</span> process();</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <span class="keywordtype">bool</span> ebpfCodeGen(<a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap, <a class="code hl_class" href="class_p4_1_1_type_map.html">P4::TypeMap</a> *typeMap, <span class="keyword">const</span> IR::P4Program *);</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <span class="keywordtype">bool</span> ebpfCodeGen(P4::ReferenceMap *refMap, P4::TypeMap *typeMap, <span class="keyword">const</span> IR::P4Program *);</div>
 <div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    <span class="keywordtype">void</span> serialize() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    <span class="keywordtype">bool</span> serializeIntrospectionJson(std::ostream &amp;out) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>    <span class="keywordtype">bool</span> emitCFile();</div>
 <div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>};</div>
-</div>
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span> </div>
 <div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>}  <span class="comment">// namespace P4::TC</span></div>
 <div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
 <div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TC_BACKEND_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_e_b_p_f_1_1_code_builder_html"><div class="ttname"><a href="class_p4_1_1_e_b_p_f_1_1_code_builder.html">P4::EBPF::CodeBuilder</a></div><div class="ttdef"><b>Definition</b> ebpf/codeGen.h:33</div></div>
-<div class="ttc" id="aclass_p4_1_1_e_b_p_f_1_1_target_html"><div class="ttname"><a href="class_p4_1_1_e_b_p_f_1_1_target.html">P4::EBPF::Target</a></div><div class="ttdef"><b>Definition</b> ebpf/target.h:44</div></div>
-<div class="ttc" id="aclass_p4_1_1_ebpf_options_html"><div class="ttname"><a href="class_p4_1_1_ebpf_options.html">P4::EbpfOptions</a></div><div class="ttdef"><b>Definition</b> ebpfOptions.h:26</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_reference_map_html"><div class="ttname"><a href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a></div><div class="ttdoc">Class used to encode maps from paths to declarations.</div><div class="ttdef"><b>Definition</b> referenceMap.h:67</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_convert_to_backend_i_r_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html">P4::TC::ConvertToBackendIR</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:327</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_convert_to_backend_i_r_html_ae7bad13342bddf732a6611d960fd6c3b"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html#ae7bad13342bddf732a6611d960fd6c3b">P4::TC::ConvertToBackendIR::isPnaParserMeta</a></div><div class="ttdeci">bool isPnaParserMeta(const IR::Member *mem)</div><div class="ttdef"><b>Definition</b> tc/backend.cpp:2950</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_convert_to_backend_i_r_html_struct_p4_1_1_t_c_1_1_convert_to_backend_i_r_1_1_extern_block"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html#struct_p4_1_1_t_c_1_1_convert_to_backend_i_r_1_1_extern_block">P4::TC::ConvertToBackendIR::ExternBlock</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:335</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_convert_to_backend_i_r_html_struct_p4_1_1_t_c_1_1_convert_to_backend_i_r_1_1_extern_instance"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_convert_to_backend_i_r.html#struct_p4_1_1_t_c_1_1_convert_to_backend_i_r_1_1_extern_instance">P4::TC::ConvertToBackendIR::ExternInstance</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:329</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_extern_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_extern.html">P4::TC::Extern</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:423</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_introspection_generator_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_introspection_generator.html">P4::TC::IntrospectionGenerator</a></div><div class="ttdoc">This pass generates introspection JSON into user specified file.</div><div class="ttdef"><b>Definition</b> introspection.h:148</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_p_n_a_ebpf_generator_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_p_n_a_ebpf_generator.html">P4::TC::PNAEbpfGenerator</a></div><div class="ttdef"><b>Definition</b> ebpfCodeGen.h:36</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_parse_t_c_annotations_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_parse_t_c_annotations.html">P4::TC::ParseTCAnnotations</a></div><div class="ttdef"><b>Definition</b> tcAnnotations.h:25</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_scan_widths_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_scan_widths.html">P4::TC::ScanWidths</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:267</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_t_c_options_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_t_c_options.html">P4::TC::TCOptions</a></div><div class="ttdef"><b>Definition</b> backends/tc/options.h:25</div></div>
-<div class="ttc" id="aclass_p4_1_1_t_c_1_1_width_rec_html"><div class="ttname"><a href="class_p4_1_1_t_c_1_1_width_rec.html">P4::TC::WidthRec</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:91</div></div>
-<div class="ttc" id="aclass_p4_1_1_type_map_html"><div class="ttname"><a href="class_p4_1_1_type_map.html">P4::TypeMap</a></div><div class="ttdef"><b>Definition</b> typeMap.h:41</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1safe__vector_html"><div class="ttname"><a href="class_p4_1_1safe__vector.html">P4::safe_vector</a></div><div class="ttdef"><b>Definition</b> safe_vector.h:27</div></div>
-<div class="ttc" id="anamespace_p4_1_1_t_c_html"><div class="ttname"><a href="namespace_p4_1_1_t_c.html">P4::TC</a></div><div class="ttdoc">This file defines functions for the pass to generate the introspection file.</div><div class="ttdef"><b>Definition</b> tc/backend.cpp:27</div></div>
-<div class="ttc" id="anamespace_p4_1_1_t_c_html_struct_p4_1_1_t_c_1_1container"><div class="ttname"><a href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1container">P4::TC::container</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:59</div></div>
-<div class="ttc" id="anamespace_p4_1_1_t_c_html_struct_p4_1_1_t_c_1_1decllist"><div class="ttname"><a href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1decllist">P4::TC::decllist</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:47</div></div>
-<div class="ttc" id="anamespace_p4_1_1_t_c_html_struct_p4_1_1_t_c_1_1stmtlist"><div class="ttname"><a href="namespace_p4_1_1_t_c.html#struct_p4_1_1_t_c_1_1stmtlist">P4::TC::stmtlist</a></div><div class="ttdef"><b>Definition</b> tc/backend.h:53</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

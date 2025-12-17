@@ -180,13 +180,11 @@ $(function(){initNavTree('ebpf__test_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#define SEC(NAME)</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="};">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structsk__buff.html">   63</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structsk__buff.html">sk_buff</a> {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">struct </span>sk_buff {</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> *data;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    u16 len;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    u32 ifindex;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
-</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define BPF_ANY     0 </span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#define BPF_NOEXIST 1 </span></div>
@@ -221,8 +219,8 @@ $(function(){initNavTree('ebpf__test_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#define BPF_OBJ_GET(name) registry_get_id(name)</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">extern</span> <span class="keyword">struct </span><a class="code hl_struct" href="structbpf__table.html">bpf_table</a> tables[];</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">extern</span> <span class="keywordtype">int</span> ebpf_filter(<span class="keyword">struct</span> <a class="code hl_struct" href="structsk__buff.html">sk_buff</a> *skb);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">extern</span> <span class="keyword">struct </span>bpf_table tables[];</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">extern</span> <span class="keywordtype">int</span> ebpf_filter(<span class="keyword">struct</span> sk_buff *skb);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> print_n_bytes(<span class="keywordtype">void</span> *receiveBuffer, <span class="keywordtype">int</span> num) {</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num; i++)</div>
@@ -231,8 +229,6 @@ $(function(){initNavTree('ebpf__test_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif  </span><span class="comment">// BACKENDS_EBPF_RUNTIME_EBPF_USER_H_</span></div>
-<div class="ttc" id="astructbpf__table_html"><div class="ttname"><a href="structbpf__table.html">bpf_table</a></div><div class="ttdoc">A helper structure used to describe attributes.</div><div class="ttdef"><b>Definition</b> ebpf_registry.h:36</div></div>
-<div class="ttc" id="astructsk__buff_html"><div class="ttname"><a href="structsk__buff.html">sk_buff</a></div><div class="ttdoc">simple descriptor which replaces the kernel sk_buff structure.</div><div class="ttdef"><b>Definition</b> ebpf_test.h:63</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

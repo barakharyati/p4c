@@ -140,22 +140,21 @@ $(function(){initNavTree('pragma_2pragma_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;set&gt;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_pragma.html">Pragma</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span>Pragma {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    Pragma(<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a5c17531527f83834d03033cf8d8c0c7b">name</a>, <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a5374dd15cd9a36e7407c307f8e511f69">description</a>, <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a1bae642ec0463b100639a269ca6d306c">help</a>)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        : _name(<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a5c17531527f83834d03033cf8d8c0c7b">name</a>), _description(<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a5374dd15cd9a36e7407c307f8e511f69">description</a>), _help(<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a1bae642ec0463b100639a269ca6d306c">help</a>) {}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    Pragma(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keyword">const</span> <span class="keywordtype">char</span> *description, <span class="keyword">const</span> <span class="keywordtype">char</span> *help)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        : _name(name), _description(description), _help(help) {}</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a46220aefd8b20b52ac2d4a714dda1ca7">registerPragma</a>(<span class="keyword">const</span> Pragma *p, <span class="keywordtype">bool</span> internal = <span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> registerPragma(<span class="keyword">const</span> Pragma *p, <span class="keywordtype">bool</span> internal = <span class="keyword">false</span>) {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">if</span> (!internal)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            _supported_pragmas.insert(p);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            _internal_pragmas.insert(p);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_pragma.html#a679b07aaef7c397348ad744beb05101e">   52</a></span>    <span class="keyword">static</span> std::ostream &amp;<a class="code hl_function" href="class_b_f_n_1_1_pragma.html#a679b07aaef7c397348ad744beb05101e">printHelp</a>(std::ostream &amp;o) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">static</span> std::ostream &amp;printHelp(std::ostream &amp;o) {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// format a string to width</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">auto</span> format = [](<span class="keyword">const</span> <span class="keywordtype">char</span> *str, <span class="keywordtype">size_t</span> width <span class="comment">/*, size_t indent = 0 */</span>) {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            std::string *res = <span class="keyword">new</span> std::string(<span class="stringliteral">&quot;&quot;</span>);</div>
@@ -184,7 +183,7 @@ $(function(){initNavTree('pragma_2pragma_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        };</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">auto</span> formatPragma = [format](<span class="keyword">const</span> <a class="code hl_namespace" href="namespace_pragma.html">Pragma</a> *p, std::ostream &amp;o) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">auto</span> formatPragma = [format](<span class="keyword">const</span> Pragma *p, std::ostream &amp;o) {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            o &lt;&lt; std::endl &lt;&lt; std::string(80, <span class="charliteral">&#39;-&#39;</span>) &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keyword">auto</span> d = format(p-&gt;_description, 80 - (strlen(p-&gt;_name) + 3));</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keyword">auto</span> h = format(p-&gt;_help, 80);</div>
@@ -205,7 +204,6 @@ $(function(){initNavTree('pragma_2pragma_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> o;</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
-</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *_name;</div>
@@ -213,7 +211,7 @@ $(function(){initNavTree('pragma_2pragma_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *_help;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">struct </span>PragmaCmp {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code hl_namespace" href="namespace_pragma.html">Pragma</a> *a, <span class="keyword">const</span> <a class="code hl_namespace" href="namespace_pragma.html">Pragma</a> *b)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> Pragma *a, <span class="keyword">const</span> Pragma *b)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">return</span> std::string(a-&gt;_name) &lt; std::string(b-&gt;_name);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    };</div>
@@ -225,14 +223,6 @@ $(function(){initNavTree('pragma_2pragma_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}  <span class="comment">// end namespace BFN</span></div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#endif  </span><span class="comment">// BACKENDS_TOFINO_BF_P4C_COMMON_PRAGMA_PRAGMA_H_</span></div>
-<div class="ttc" id="aclass_b_f_n_1_1_pragma_html"><div class="ttname"><a href="class_b_f_n_1_1_pragma.html">BFN::Pragma</a></div><div class="ttdef"><b>Definition</b> pragma.h:32</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_pragma_html_a1bae642ec0463b100639a269ca6d306c"><div class="ttname"><a href="class_b_f_n_1_1_pragma.html#a1bae642ec0463b100639a269ca6d306c">BFN::Pragma::help</a></div><div class="ttdeci">virtual const char * help() const =0</div><div class="ttdoc">detailed description that will be printed as help</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_pragma_html_a46220aefd8b20b52ac2d4a714dda1ca7"><div class="ttname"><a href="class_b_f_n_1_1_pragma.html#a46220aefd8b20b52ac2d4a714dda1ca7">BFN::Pragma::registerPragma</a></div><div class="ttdeci">static bool registerPragma(const Pragma *p, bool internal=false)</div><div class="ttdef"><b>Definition</b> pragma.h:92</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_pragma_html_a5374dd15cd9a36e7407c307f8e511f69"><div class="ttname"><a href="class_b_f_n_1_1_pragma.html#a5374dd15cd9a36e7407c307f8e511f69">BFN::Pragma::description</a></div><div class="ttdeci">virtual const char * description() const =0</div><div class="ttdoc">short description that will be printed as help</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_pragma_html_a5c17531527f83834d03033cf8d8c0c7b"><div class="ttname"><a href="class_b_f_n_1_1_pragma.html#a5c17531527f83834d03033cf8d8c0c7b">BFN::Pragma::name</a></div><div class="ttdeci">virtual const char * name() const</div><div class="ttdoc">the pragma name – should be overriden</div><div class="ttdef"><b>Definition</b> pragma.h:35</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_pragma_html_a679b07aaef7c397348ad744beb05101e"><div class="ttname"><a href="class_b_f_n_1_1_pragma.html#a679b07aaef7c397348ad744beb05101e">BFN::Pragma::printHelp</a></div><div class="ttdeci">static std::ostream &amp; printHelp(std::ostream &amp;o)</div><div class="ttdoc">print the currently supported pragmas</div><div class="ttdef"><b>Definition</b> pragma/pragma.h:52</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
-<div class="ttc" id="anamespace_pragma_html"><div class="ttname"><a href="namespace_pragma.html">Pragma</a></div><div class="ttdef"><b>Definition</b> pretty_print.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

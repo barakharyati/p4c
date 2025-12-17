@@ -136,34 +136,27 @@ $(function(){initNavTree('front__end__policy_8h_source.html',''); initResizable(
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;frontends/p4/frontend.h&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_front_end_policy.html">   26</a></span><span class="keyword">struct </span>FrontEndPolicy : <a class="code hl_class" href="class_p4_1_1_front_end_policy.html">P4::FrontEndPolicy</a> {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_front_end_policy.html#a6720a4fa2a362144b0447f6841313c83">   27</a></span>    <a class="code hl_class" href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a> *<a class="code hl_function" href="struct_b_f_n_1_1_front_end_policy.html#a6720a4fa2a362144b0447f6841313c83">getParseAnnotations</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> pars; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">struct </span>FrontEndPolicy : P4::FrontEndPolicy {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    P4::ParseAnnotations *getParseAnnotations()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> pars; }</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_front_end_policy.html#ac5eb1ef1768801a85a62a893061d501e">   29</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_b_f_n_1_1_front_end_policy.html#ac5eb1ef1768801a85a62a893061d501e">skipSideEffectOrdering</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> skip_side_effect_ordering; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> skipSideEffectOrdering()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> skip_side_effect_ordering; }</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_p4_1_1_front_end_policy.html">FrontEndPolicy</a>(<a class="code hl_class" href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a> *parseAnnotations)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">explicit</span> FrontEndPolicy(P4::ParseAnnotations *parseAnnotations)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        : pars(parseAnnotations), skip_side_effect_ordering(false) {}</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">explicit</span> FrontEndPolicy(<a class="code hl_class" href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a> *parseAnnotations, <span class="keywordtype">bool</span> skip_side_effect_ordering)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">explicit</span> FrontEndPolicy(P4::ParseAnnotations *parseAnnotations, <span class="keywordtype">bool</span> skip_side_effect_ordering)</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        : pars(parseAnnotations), skip_side_effect_ordering(skip_side_effect_ordering) {}</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    P4::ParseAnnotations *pars;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> skip_side_effect_ordering;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
-</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_COMMON_FRONT_END_POLICY_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_front_end_policy_html"><div class="ttname"><a href="class_p4_1_1_front_end_policy.html">P4::FrontEndPolicy</a></div><div class="ttdef"><b>Definition</b> frontends/p4/frontend.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1_parse_annotations_html"><div class="ttname"><a href="class_p4_1_1_parse_annotations.html">P4::ParseAnnotations</a></div><div class="ttdef"><b>Definition</b> parseAnnotations.h:120</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_front_end_policy_html_a6720a4fa2a362144b0447f6841313c83"><div class="ttname"><a href="struct_b_f_n_1_1_front_end_policy.html#a6720a4fa2a362144b0447f6841313c83">BFN::FrontEndPolicy::getParseAnnotations</a></div><div class="ttdeci">P4::ParseAnnotations * getParseAnnotations() const override</div><div class="ttdef"><b>Definition</b> front_end_policy.h:27</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_front_end_policy_html_ac5eb1ef1768801a85a62a893061d501e"><div class="ttname"><a href="struct_b_f_n_1_1_front_end_policy.html#ac5eb1ef1768801a85a62a893061d501e">BFN::FrontEndPolicy::skipSideEffectOrdering</a></div><div class="ttdeci">bool skipSideEffectOrdering() const override</div><div class="ttdef"><b>Definition</b> front_end_policy.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

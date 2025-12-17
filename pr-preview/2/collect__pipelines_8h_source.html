@@ -141,48 +141,42 @@ $(function(){initNavTree('collect__pipelines_8h_source.html',''); initResizable(
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;frontends/common/resolveReferences/referenceMap.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_b_f_n.html">BFN</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span>BFN {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="group__midend.html">   42</a></span><span class="keyword">class </span><a class="code hl_function" href="group__midend.html#a3ecc91b529a9818b5e51b3656e1cbbf7">CollectPipelines</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_inspector.html">Inspector</a> {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">class </span>CollectPipelines : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// Checks the &quot;main&quot;</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::Declaration_Instance *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_b_f_n_1_1_collect_pipelines_1_1_full_gress.html">   48</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_b_f_n_1_1_collect_pipelines_1_1_full_gress.html">FullGress</a> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">struct </span>FullGress {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">const</span> IR::BFN::TnaParser *parser = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">const</span> IR::BFN::TnaControl *control = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">const</span> IR::BFN::TnaDeparser *deparser = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_struct" href="struct_b_f_n_1_1_collect_pipelines_1_1_full_gress.html">FullGress</a> &amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> FullGress &amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    };</div>
-</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
-<div class="foldopen" id="foldopen00058" data-start="{" data-end="};">
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">   58</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">Pipe</a> {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">class </span>Pipe {</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">friend</span> <span class="keyword">class </span>CollectPipelines;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">void</span> set(<span class="keywordtype">unsigned</span> count, <span class="keywordtype">unsigned</span> idx, <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_i_declaration.html">IR::IDeclaration</a> *ty);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">void</span> set(<span class="keywordtype">unsigned</span> count, <span class="keywordtype">unsigned</span> idx, <span class="keyword">const</span> IR::IDeclaration *ty);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>     <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_struct" href="struct_b_f_n_1_1_collect_pipelines_1_1_full_gress.html">FullGress</a> ingress, egress;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        FullGress ingress, egress;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">const</span> IR::BFN::TnaControl *ghost = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">const</span> IR::Declaration_Instance *dec = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html#a2906f215fa7d4252291e45d497c8ba39">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">Pipe</a> &amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> Pipe &amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html#a94ec80ebb4d4ee61c0e28d918e2bedfc">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">Pipe</a> &amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> Pipe &amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
-</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">using </span>PipeSet = std::set&lt;Pipe&gt;;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
-<div class="foldopen" id="foldopen00080" data-start="{" data-end="};">
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html">   80</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html">Pipelines</a> {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">class </span>Pipelines {</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">friend</span> <span class="keyword">class </span>CollectPipelines;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        std::vector&lt;Pipe&gt; pipes;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        std::map&lt;const IR::Type_Declaration *, std::unordered_set&lt;int&gt;,</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                 <a class="code hl_class" href="class_by_name_less.html">ByNameLess&lt;const IR::Type_Declaration&gt;</a>&gt;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                 ByNameLess&lt;const IR::Type_Declaration&gt;&gt;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            declarationToPipe;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        PipeSet _get(<span class="keyword">const</span> IR::Type_Declaration *dec)<span class="keyword"> const </span>{</div>
@@ -197,42 +191,24 @@ $(function(){initNavTree('collect__pipelines_8h_source.html',''); initResizable(
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        std::vector&lt;Pipe&gt;::const_iterator begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pipes.begin(); }</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        std::vector&lt;Pipe&gt;::const_iterator end()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pipes.end(); }</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#a8c67927f7b8ca69cffaef24e9715803f">  100</a></span>        PipeSet <a class="code hl_function" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#a8c67927f7b8ca69cffaef24e9715803f">get</a>(<span class="keyword">const</span> IR::BFN::TnaParser *p)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _get(p); }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#adab62ff67fc2b616c74126066c6e85bf">  102</a></span>        PipeSet <a class="code hl_function" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#adab62ff67fc2b616c74126066c6e85bf">get</a>(<span class="keyword">const</span> IR::BFN::TnaDeparser *d)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _get(d); }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#a3ec49eaa313b2901509acd85630579f0">  104</a></span>        PipeSet <a class="code hl_function" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#a3ec49eaa313b2901509acd85630579f0">get</a>(<span class="keyword">const</span> IR::BFN::TnaControl *c)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _get(c); }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        PipeSet get(<span class="keyword">const</span> IR::BFN::TnaParser *p)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _get(p); }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        PipeSet get(<span class="keyword">const</span> IR::BFN::TnaDeparser *d)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _get(d); }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        PipeSet get(<span class="keyword">const</span> IR::BFN::TnaControl *c)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _get(c); }</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    };</div>
-</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    P4::ReferenceMap *refMap;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    Pipelines *pipelines;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    std::unordered_map&lt;const IR::IDeclaration *, Pipe&gt; pipesByDec;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="group__midend.html#a3ecc91b529a9818b5e51b3656e1cbbf7">  115</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="group__midend.html#a3ecc91b529a9818b5e51b3656e1cbbf7">CollectPipelines</a>(<a class="code hl_class" href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a> *refMap, <a class="code hl_class" href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html">Pipelines</a> *pipelines)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">explicit</span> CollectPipelines(P4::ReferenceMap *refMap, Pipelines *pipelines)</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        : refMap(refMap), pipelines(pipelines) {}</div>
-</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
-</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}  <span class="comment">// namespace BFN</span></div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif  </span><span class="comment">// BACKENDS_TOFINO_BF_P4C_MIDEND_COLLECT_PIPELINES_H_</span></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipe_html"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html">BFN::CollectPipelines::Pipe</a></div><div class="ttdef"><b>Definition</b> collect_pipelines.h:58</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipe_html_a2906f215fa7d4252291e45d497c8ba39"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html#a2906f215fa7d4252291e45d497c8ba39">BFN::CollectPipelines::Pipe::operator==</a></div><div class="ttdeci">bool operator==(const Pipe &amp;) const</div><div class="ttdef"><b>Definition</b> collect_pipelines.cpp:73</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipe_html_a94ec80ebb4d4ee61c0e28d918e2bedfc"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipe.html#a94ec80ebb4d4ee61c0e28d918e2bedfc">BFN::CollectPipelines::Pipe::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Pipe &amp;) const</div><div class="ttdoc">A total order given by declaration names (i.e. consistent with ==).</div><div class="ttdef"><b>Definition</b> collect_pipelines.cpp:77</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipelines_html"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html">BFN::CollectPipelines::Pipelines</a></div><div class="ttdef"><b>Definition</b> collect_pipelines.h:80</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipelines_html_a3ec49eaa313b2901509acd85630579f0"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#a3ec49eaa313b2901509acd85630579f0">BFN::CollectPipelines::Pipelines::get</a></div><div class="ttdeci">PipeSet get(const IR::BFN::TnaControl *c) const</div><div class="ttdoc">Set of all pipes using this control.</div><div class="ttdef"><b>Definition</b> collect_pipelines.h:104</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipelines_html_a8c67927f7b8ca69cffaef24e9715803f"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#a8c67927f7b8ca69cffaef24e9715803f">BFN::CollectPipelines::Pipelines::get</a></div><div class="ttdeci">PipeSet get(const IR::BFN::TnaParser *p) const</div><div class="ttdoc">Set of all pipes using this parser.</div><div class="ttdef"><b>Definition</b> collect_pipelines.h:100</div></div>
-<div class="ttc" id="aclass_b_f_n_1_1_collect_pipelines_1_1_pipelines_html_adab62ff67fc2b616c74126066c6e85bf"><div class="ttname"><a href="class_b_f_n_1_1_collect_pipelines_1_1_pipelines.html#adab62ff67fc2b616c74126066c6e85bf">BFN::CollectPipelines::Pipelines::get</a></div><div class="ttdeci">PipeSet get(const IR::BFN::TnaDeparser *d) const</div><div class="ttdoc">Set of all pipes using this deparser.</div><div class="ttdef"><b>Definition</b> collect_pipelines.h:102</div></div>
-<div class="ttc" id="aclass_by_name_less_html"><div class="ttname"><a href="class_by_name_less.html">ByNameLess</a></div><div class="ttdef"><b>Definition</b> cmp.h:97</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_i_declaration_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_i_declaration.html">P4::IR::IDeclaration</a></div><div class="ttdoc">The Declaration interface, representing objects with names.</div><div class="ttdef"><b>Definition</b> declaration.h:26</div></div>
-<div class="ttc" id="aclass_p4_1_1_inspector_html"><div class="ttname"><a href="class_p4_1_1_inspector.html">P4::Inspector</a></div><div class="ttdef"><b>Definition</b> visitor.h:413</div></div>
-<div class="ttc" id="aclass_p4_1_1_reference_map_html"><div class="ttname"><a href="class_p4_1_1_reference_map.html">P4::ReferenceMap</a></div><div class="ttdoc">Class used to encode maps from paths to declarations.</div><div class="ttdef"><b>Definition</b> referenceMap.h:67</div></div>
-<div class="ttc" id="agroup__midend_html_a3ecc91b529a9818b5e51b3656e1cbbf7"><div class="ttname"><a href="group__midend.html#a3ecc91b529a9818b5e51b3656e1cbbf7">BFN::CollectPipelines::CollectPipelines</a></div><div class="ttdeci">CollectPipelines(P4::ReferenceMap *refMap, Pipelines *pipelines)</div><div class="ttdef"><b>Definition</b> collect_pipelines.h:115</div></div>
-<div class="ttc" id="anamespace_b_f_n_html"><div class="ttname"><a href="namespace_b_f_n.html">BFN</a></div><div class="ttdoc">The namespace encapsulating Barefoot/Intel-specific stuff.</div><div class="ttdef"><b>Definition</b> bf-asm/alloc.h:10</div></div>
-<div class="ttc" id="astruct_b_f_n_1_1_collect_pipelines_1_1_full_gress_html"><div class="ttname"><a href="struct_b_f_n_1_1_collect_pipelines_1_1_full_gress.html">BFN::CollectPipelines::FullGress</a></div><div class="ttdoc">Description ingress or egress.</div><div class="ttdef"><b>Definition</b> collect_pipelines.h:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

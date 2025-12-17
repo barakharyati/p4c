@@ -151,10 +151,9 @@ $(function(){initNavTree('action_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;helpers.h&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p4_1_1_b_m_v2.html">P4::BMV2</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span>P4::BMV2 {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespace_p4_1_1_b_m_v2.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="namespace_p4_1_1_b_m_v2.html#struct_p4_1_1_b_m_v2_1_1_jump_label_info">JumpLabelInfo</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">struct </span>JumpLabelInfo {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// The number of jump labels that have been created so far, for</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// the current action where we are generating its primitives.</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// Jump labels are allocated starting from 0 and incrementing from</span></div>
@@ -182,38 +181,28 @@ $(function(){initNavTree('action_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// that primitive.</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    std::map&lt;unsigned int, unsigned int&gt; labelIdToJumpOffset;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
-</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_p4_1_1_b_m_v2_1_1_action_converter.html">   57</a></span><span class="keyword">class </span>ActionConverter : <span class="keyword">public</span> Inspector {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_struct" href="struct_p4_1_1_b_m_v2_1_1_conversion_context.html">ConversionContext</a> *ctxt;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">class </span>ActionConverter : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    ConversionContext *ctxt;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> convertActionBodyTop(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::StatOrDecl&gt;</a> *body, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *result);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> convertActionBody(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_vector.html">IR::Vector&lt;IR::StatOrDecl&gt;</a> *body, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *result,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                           <span class="keywordtype">bool</span> inConditional, <a class="code hl_struct" href="namespace_p4_1_1_b_m_v2.html#struct_p4_1_1_b_m_v2_1_1_jump_label_info">JumpLabelInfo</a> *<a class="code hl_function" href="namespace_p4.html#ac88f69b11f3155bdc0cabc0b2d684eb9">info</a>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> convertActionParams(<span class="keyword">const</span> IR::ParameterList *parameters, <a class="code hl_class" href="class_p4_1_1_util_1_1_json_array.html">Util::JsonArray</a> *params);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> jsonAssignment(<span class="keyword">const</span> IR::Type *type);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> convertActionBodyTop(<span class="keyword">const</span> IR::Vector&lt;IR::StatOrDecl&gt; *body, Util::JsonArray *result);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> convertActionBody(<span class="keyword">const</span> IR::Vector&lt;IR::StatOrDecl&gt; *body, Util::JsonArray *result,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                           <span class="keywordtype">bool</span> inConditional, JumpLabelInfo *info);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> convertActionParams(<span class="keyword">const</span> IR::ParameterList *parameters, Util::JsonArray *params);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    cstring jsonAssignment(<span class="keyword">const</span> IR::Type *type);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::P4Action *action) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> emitExterns;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">explicit</span> ActionConverter(<a class="code hl_struct" href="struct_p4_1_1_b_m_v2_1_1_conversion_context.html">ConversionContext</a> *ctxt, <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;emitExterns_)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">explicit</span> ActionConverter(ConversionContext *ctxt, <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;emitExterns_)</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        : ctxt(ctxt), emitExterns(emitExterns_) {</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        setName(<span class="stringliteral">&quot;ConvertActions&quot;</span>);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
-</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}  <span class="comment">// namespace P4::BMV2</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_BMV2_COMMON_ACTION_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_vector_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_vector.html">P4::IR::Vector</a></div><div class="ttdef"><b>Definition</b> ir/vector.h:59</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_array_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_array.html">P4::Util::JsonArray</a></div><div class="ttdef"><b>Definition</b> lib/json.h:128</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="anamespace_p4_1_1_b_m_v2_html"><div class="ttname"><a href="namespace_p4_1_1_b_m_v2.html">P4::BMV2</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> action.cpp:21</div></div>
-<div class="ttc" id="anamespace_p4_1_1_b_m_v2_html_struct_p4_1_1_b_m_v2_1_1_jump_label_info"><div class="ttname"><a href="namespace_p4_1_1_b_m_v2.html#struct_p4_1_1_b_m_v2_1_1_jump_label_info">P4::BMV2::JumpLabelInfo</a></div><div class="ttdef"><b>Definition</b> action.h:28</div></div>
-<div class="ttc" id="anamespace_p4_html_ac88f69b11f3155bdc0cabc0b2d684eb9"><div class="ttname"><a href="namespace_p4.html#ac88f69b11f3155bdc0cabc0b2d684eb9">P4::info</a></div><div class="ttdeci">void info(const int kind, const char *format, const T *node, Args &amp;&amp;...args)</div><div class="ttdoc">Report info messages of type kind. Requires that the node argument have source info.</div><div class="ttdef"><b>Definition</b> lib/error.h:167</div></div>
-<div class="ttc" id="astruct_p4_1_1_b_m_v2_1_1_conversion_context_html"><div class="ttname"><a href="struct_p4_1_1_b_m_v2_1_1_conversion_context.html">P4::BMV2::ConversionContext</a></div><div class="ttdef"><b>Definition</b> bmv2/common/helpers.h:297</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

@@ -141,63 +141,60 @@ $(function(){initNavTree('table__replay__friendly__constraints_8h_source.html','
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/mau_backtracker.h&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/pragma/pa_no_init.h&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_alloc_info.html">   29</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_alloc_info.html">AllocInfo</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">struct </span>AllocInfo {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">int</span> length;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">size_t</span> container_size;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;cstring&gt;</a> pack_with;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    ordered_set&lt;cstring&gt; pack_with;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">bool</span> perfectly_aligned;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
-</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> <a class="code hl_struct" href="struct_alloc_info.html">AllocInfo</a> &amp;ai);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>std::ostream &amp;operator&lt;&lt;(std::ostream &amp;out, <span class="keyword">const</span> AllocInfo &amp;ai);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span>PHV {</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">namespace </span>v2 {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// This pass adds a few pa_container_size constraints based on the feedback from table summary after</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// table replay failure. These pa_container_size constraints are trying to replay the trivial</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// allocation result for the problematic table provided by table summary. And this can potentially</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// fix the problematic&#39;s fitting issue and advance the table replay.</span></div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_p_h_v_1_1v2_1_1_table_replay_friendly_phv_constraints.html">   45</a></span><span class="keyword">class </span>TableReplayFriendlyPhvConstraints : <span class="keyword">public</span> Transform {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau_backtracker;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;</a>&gt; &amp;trivial_allocation_info;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;</a>&gt; &amp;real_allocation_info;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">class </span>TableReplayFriendlyPhvConstraints : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    MauBacktracker &amp;mau_backtracker;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    PhvInfo &amp;phv;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; &amp;trivial_allocation_info;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; &amp;real_allocation_info;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// extra pa_container_size pragmas to fix table replay</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, std::vector&lt;PHV::Size&gt;</a>&gt; add_pa_container_size;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    ordered_map&lt;cstring, std::vector&lt;PHV::Size&gt;&gt; add_pa_container_size;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// extra pa_no_pack pragmas to fix table replay</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_set&lt;cstring&gt;</a>&gt; add_pa_no_pack;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    ordered_map&lt;cstring, ordered_set&lt;cstring&gt;&gt; add_pa_no_pack;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// problematic_table during table replay found by table_summary</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> IR::MAU::Table *problematic_table = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// field candidates to fix in the problematic table</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;const PHV::Field *&gt;</a> field_candidates;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    ordered_set&lt;const PHV::Field *&gt; field_candidates;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// a map from action to a set of fields in this action</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;const IR::MAU::Action *, ordered_set&lt;cstring&gt;</a>&gt; action_to_fields;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    ordered_map&lt;const IR::MAU::Action *, ordered_set&lt;cstring&gt;&gt; action_to_fields;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// a set of field that has the same phv size allocation in both trivial and real phv allocation</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;const PHV::Field *&gt;</a> container_size_ok;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    ordered_set&lt;const PHV::Field *&gt; container_size_ok;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, std::vector&lt;PHV::Size&gt;</a>&gt; &amp;get_container_size_constr() {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">const</span> ordered_map&lt;cstring, std::vector&lt;PHV::Size&gt;&gt; &amp;get_container_size_constr() {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> add_pa_container_size;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_set&lt;cstring&gt;</a>&gt; &amp;get_no_pack_constr() {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> ordered_map&lt;cstring, ordered_set&lt;cstring&gt;&gt; &amp;get_no_pack_constr() {</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">return</span> add_pa_no_pack;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    TableReplayFriendlyPhvConstraints(</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau_backtracker, <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map</a>&lt;<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>, <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;int, AllocInfo&gt;</a>&gt; &amp;trivial_allocation_info,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map</a>&lt;<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a>, <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;int, AllocInfo&gt;</a>&gt; &amp;real_allocation_info)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        MauBacktracker &amp;mau_backtracker, PhvInfo &amp;phv,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">const</span> ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; &amp;trivial_allocation_info,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">const</span> ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; &amp;real_allocation_info)</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        : mau_backtracker(mau_backtracker),</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>          phv(phv),</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>          trivial_allocation_info(trivial_allocation_info),</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>          real_allocation_info(real_allocation_info) {}</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::BFN::Pipe *pipe) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *preorder(IR::Expression *expr) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">const</span> IR::Node *preorder(IR::BFN::Pipe *pipe) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> IR::Node *preorder(IR::Expression *expr) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::BFN::Pipe *pipe)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">const</span> IR::Node *postorder(IR::BFN::Pipe *pipe)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        LOG5(<span class="stringliteral">&quot;print all pa container size&quot;</span>);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        LOG5(<span class="stringliteral">&quot;pipe is &quot;</span> + pipe-&gt;canon_name());</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;it : add_pa_container_size) {</div>
@@ -208,50 +205,39 @@ $(function(){initNavTree('table__replay__friendly__constraints_8h_source.html','
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">return</span> pipe;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>};</div>
-</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">// This table collects PHV allocation results after phv analysis. It provides information for</span></div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">// TableReplayFriendlyPhvConstraints, so that it can replay trivial phv allocation result for some</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">// table</span></div>
-<div class="foldopen" id="foldopen00099" data-start="{" data-end="};">
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_p_h_v_1_1v2_1_1_collect_p_h_v_allocation_result.html">   99</a></span><span class="keyword">class </span>CollectPHVAllocationResult : <span class="keyword">public</span> Inspector {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">class </span>CollectPHVAllocationResult : <span class="keyword">public</span> Inspector {</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// This data structure maps the name of a field to a map that maps alignment to AllocInfo.</span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// For example, if a field&#39;s name is f and it has two AllocSlice, one is allocating [7:0] to a</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// 8-bit container, another is allocation [8:15] to another 8-bit container. Then one entry of</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// allocation info is f -&gt; { { 0 -&gt; { length = 8, container_size = 8 },</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// { 8 -&gt; { length = 8, container_size = 8 } } }}</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;</a>&gt; trivial_allocation_info;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;</a>&gt; real_allocation_info;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau_backtracker;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; trivial_allocation_info;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; real_allocation_info;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    PhvInfo &amp;phv;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    MauBacktracker &amp;mau_backtracker;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    CollectPHVAllocationResult(<a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau_backtracker)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    CollectPHVAllocationResult(PhvInfo &amp;phv, MauBacktracker &amp;mau_backtracker)</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        : phv(phv), mau_backtracker(mau_backtracker) {}</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;</a>&gt; &amp;get_trivial_allocation_info() {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> end_apply(<span class="keyword">const</span> IR::Node *) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">const</span> ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; &amp;get_trivial_allocation_info() {</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> trivial_allocation_info;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;</a>&gt; &amp;get_real_allocation_info() {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">const</span> ordered_map&lt;cstring, ordered_map&lt;int, AllocInfo&gt;&gt; &amp;get_real_allocation_info() {</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> real_allocation_info;</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>};</div>
-</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}  <span class="comment">// namespace v2</span></div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}  <span class="comment">// namespace PHV</span></div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_V2_TABLE_REPLAY_FRIENDLY_CONSTRAINTS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_mau_backtracker_html"><div class="ttname"><a href="class_mau_backtracker.html">MauBacktracker</a></div><div class="ttdef"><b>Definition</b> mau_backtracker.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
-<div class="ttc" id="astruct_alloc_info_html"><div class="ttname"><a href="struct_alloc_info.html">AllocInfo</a></div><div class="ttdef"><b>Definition</b> table_replay_friendly_constraints.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

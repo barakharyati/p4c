@@ -138,33 +138,28 @@ $(function(){initNavTree('add__metadata__pov_8h_source.html',''); initResizable(
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group__parde.html">   35</a></span><span class="keyword">class </span>AddMetadataPOV : <span class="keyword">public</span> <a class="code hl_class" href="class_p4_1_1_transform.html">Transform</a> {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">class </span>AddMetadataPOV : <span class="keyword">public</span> Transform {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> IR::BFN::Deparser *dp = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> equiv(<span class="keyword">const</span> IR::Expression *a, <span class="keyword">const</span> IR::Expression *b);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">static</span> IR::MAU::Primitive *create_pov_write(<span class="keyword">const</span> IR::Expression *povBit, <span class="keywordtype">bool</span> validate);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *insert_deparser_param_pov_write(<span class="keyword">const</span> IR::MAU::Primitive *p, <span class="keywordtype">bool</span> validate);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *insert_deparser_digest_pov_write(<span class="keyword">const</span> IR::MAU::Primitive *p, <span class="keywordtype">bool</span> validate);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *insert_field_pov_read(<span class="keyword">const</span> IR::MAU::Primitive *p);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    IR::Node *insert_deparser_param_pov_write(<span class="keyword">const</span> IR::MAU::Primitive *p, <span class="keywordtype">bool</span> validate);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    IR::Node *insert_deparser_digest_pov_write(<span class="keyword">const</span> IR::MAU::Primitive *p, <span class="keywordtype">bool</span> validate);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    IR::Node *insert_field_pov_read(<span class="keyword">const</span> IR::MAU::Primitive *p);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    IR::BFN::Pipe *preorder(IR::BFN::Pipe *pipe) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    IR::BFN::DeparserParameter *postorder(IR::BFN::DeparserParameter *param) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    IR::BFN::Digest *postorder(IR::BFN::Digest *digest) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::MAU::Primitive *p) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *postorder(IR::BFN::Extract *e) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    IR::Node *postorder(IR::MAU::Primitive *p) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    IR::Node *postorder(IR::BFN::Extract *e) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">explicit</span> AddMetadataPOV(<a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;p) : phv(p) {}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">explicit</span> AddMetadataPOV(PhvInfo &amp;p) : phv(p) {}</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
-</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PARDE_ADD_METADATA_POV_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_transform_html"><div class="ttname"><a href="class_p4_1_1_transform.html">P4::Transform</a></div><div class="ttdef"><b>Definition</b> visitor.h:437</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

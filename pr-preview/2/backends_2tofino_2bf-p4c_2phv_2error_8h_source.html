@@ -136,32 +136,26 @@ $(function(){initNavTree('backends_2tofino_2bf-p4c_2phv_2error_8h_source.html','
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span>PHV {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespace_p_h_v.html#a8949a43908ce8baadc642d8099e2bc1f">   27</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespace_p_h_v.html#a8949a43908ce8baadc642d8099e2bc1f">ErrorCode</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">enum class</span> ErrorCode {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    ok = 0,</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    unknown,</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// utils::is_well_formed</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    slicelist_sz_mismatch,</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
-</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_p_h_v_1_1_error.html">   37</a></span><span class="keyword">class </span>Error : <span class="keyword">public</span> std::stringstream {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>Error : <span class="keyword">public</span> std::stringstream {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumeration" href="namespace_p_h_v.html#a8949a43908ce8baadc642d8099e2bc1f">ErrorCode</a> code;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ErrorCode code;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    Error() : code(ErrorCode::ok) {}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> set(<a class="code hl_enumeration" href="namespace_p_h_v.html#a8949a43908ce8baadc642d8099e2bc1f">ErrorCode</a> c) { code = c; }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> is(<a class="code hl_enumeration" href="namespace_p_h_v.html#a8949a43908ce8baadc642d8099e2bc1f">ErrorCode</a> c) { <span class="keywordflow">return</span> code == c; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> set(ErrorCode c) { code = c; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> is(ErrorCode c) { <span class="keywordflow">return</span> code == c; }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
-</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}  <span class="comment">// namespace PHV</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_ERROR_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
-<div class="ttc" id="anamespace_p_h_v_html_a8949a43908ce8baadc642d8099e2bc1f"><div class="ttname"><a href="namespace_p_h_v.html#a8949a43908ce8baadc642d8099e2bc1f">PHV::ErrorCode</a></div><div class="ttdeci">ErrorCode</div><div class="ttdoc">ErrorCode is the specific reason of failure of function invoke.</div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/phv/error.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

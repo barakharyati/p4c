@@ -143,16 +143,15 @@ $(function(){initNavTree('data__switchbox_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> REGS&gt;</div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_data_switchbox_setup.html">   30</a></span><span class="keyword">class </span>DataSwitchboxSetup {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">class </span>DataSwitchboxSetup {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    REGS &amp;regs;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="class_table.html">Table</a> *tbl;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    Table *tbl;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">unsigned</span> home_row, home_row_logical, prev_row, top_ram_row, bottom_ram_row;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">unsigned</span> get_home_row() { <span class="keywordflow">return</span> home_row; }</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">unsigned</span> get_home_row_logical() { <span class="keywordflow">return</span> home_row_logical; }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    DataSwitchboxSetup(REGS &amp;regs, <a class="code hl_class" href="class_table.html">Table</a> *t, <span class="keywordtype">int</span> home = -1, <span class="keywordtype">int</span> next_home = -1)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    DataSwitchboxSetup(REGS &amp;regs, Table *t, <span class="keywordtype">int</span> home = -1, <span class="keywordtype">int</span> next_home = -1)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        : regs(regs), tbl(t) {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span> (home &gt;= 0)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            top_ram_row = prev_row = home_row = home / 2U;</div>
@@ -174,13 +173,12 @@ $(function(){initNavTree('data__switchbox_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            prev_row = home_row = prev_row % 2 ? prev_row + 1 : prev_row;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// Stateful/Selection/Meter ALU&#39;s are on odd rows on right side of RAM</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">// array. Set home_row to the correct ALU</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tbl-&gt;table_type() == Table::STATEFUL || tbl-&gt;table_type() == Table::SELECTION ||</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">else</span> if (tbl-&gt;table_type() == Table::STATEFUL || tbl-&gt;table_type() == Table::SELECTION ||</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                 tbl-&gt;table_type() == Table::METER)</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            prev_row = home_row = prev_row % 2 ? prev_row : prev_row + 1;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        home_row_logical = home_row * 2 + 1;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
-<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_data_switchbox_setup.html#ac006a2b5c75946d1b1baa40f1b78dbba">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_data_switchbox_setup.html#ac006a2b5c75946d1b1baa40f1b78dbba">setup_row</a>(<span class="keywordtype">unsigned</span> row) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> setup_row(<span class="keywordtype">unsigned</span> row) {</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">auto</span> &amp;map_alu = regs.rams.map_alu;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">auto</span> &amp;swbox = regs.rams.array.switchbox.row;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">auto</span> &amp;map_alu_row = map_alu.row[row];</div>
@@ -230,7 +228,6 @@ $(function(){initNavTree('data__switchbox_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            syn2port_ctl.synth2port_connect_below = 1;</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
-</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> setup_row_col(<span class="keywordtype">unsigned</span> row, <span class="keywordtype">unsigned</span> col, <span class="keywordtype">int</span> vpn) {</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">int</span> side = col &gt;= 6;</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordtype">unsigned</span> logical_col = col % 6U;</div>
@@ -274,11 +271,8 @@ $(function(){initNavTree('data__switchbox_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        syn2port_members |= 1U &lt;&lt; logical_col;</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>};</div>
-</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_ASM_DATA_SWITCHBOX_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_data_switchbox_setup_html_ac006a2b5c75946d1b1baa40f1b78dbba"><div class="ttname"><a href="class_data_switchbox_setup.html#ac006a2b5c75946d1b1baa40f1b78dbba">DataSwitchboxSetup::setup_row</a></div><div class="ttdeci">void setup_row(unsigned row)</div><div class="ttdef"><b>Definition</b> data_switchbox.h:74</div></div>
-<div class="ttc" id="aclass_table_html"><div class="ttname"><a href="class_table.html">Table</a></div><div class="ttdef"><b>Definition</b> tables.h:98</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

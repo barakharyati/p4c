@@ -143,23 +143,22 @@ $(function(){initNavTree('phv_2asm__output_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/utils/live_range_report.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;lib/ordered_set.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_phv_asm_output.html">   31</a></span><span class="keyword">class </span><a class="code hl_function" href="class_phv_asm_output.html#a7a15d795b836a254921f1d8ae22086e2">PhvAsmOutput</a> {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <a class="code hl_class" href="group__parde.html#class_field_def_use">FieldDefUse</a> &amp;defuse;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_table_summary.html">TableSummary</a> &amp;tbl_summary;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_live_range_report.html">LiveRangeReport</a> *live_range_report;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>PhvAsmOutput {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> PhvInfo &amp;phv;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> FieldDefUse &amp;defuse;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">const</span> TableSummary &amp;tbl_summary;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> LiveRangeReport *live_range_report;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> have_ghost;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">struct </span>FieldUse {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> name;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        cstring name;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        gress_t gress;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordtype">int</span> live_start;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">int</span> live_end;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">bool</span> parsed;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">bool</span> deparsed;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;cstring&gt;</a> mutex_fields;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        FieldUse(<a class="code hl_class" href="class_p4_1_1cstring.html">cstring</a> n, gress_t g, <span class="keywordtype">int</span> s, <span class="keywordtype">int</span> e, <span class="keywordtype">bool</span> p, <span class="keywordtype">bool</span> d, <a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;cstring&gt;</a> m)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        ordered_set&lt;cstring&gt; mutex_fields;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        FieldUse(cstring n, gress_t g, <span class="keywordtype">int</span> s, <span class="keywordtype">int</span> e, <span class="keywordtype">bool</span> p, <span class="keywordtype">bool</span> d, ordered_set&lt;cstring&gt; m)</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            : name(n),</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>              gress(g),</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>              live_start(s),</div>
@@ -180,33 +179,23 @@ $(function(){initNavTree('phv_2asm__output_8h_source.html',''); initResizable(tr
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;cstring, std::vector&lt;FieldUse&gt;</a>&gt; FieldUses;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">typedef</span> ordered_map&lt;cstring, std::vector&lt;FieldUse&gt;&gt; FieldUses;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">typedef</span> std::map&lt;PHV::Container, FieldUses&gt; LiveRangePerContainer[2];</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> getLiveRanges(LiveRangePerContainer &amp;c) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> emit_gress(std::ostream &amp;out, gress_t gress) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> <a class="code hl_function" href="class_phv_asm_output.html#a7a15d795b836a254921f1d8ae22086e2">PhvAsmOutput</a> &amp;);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;, <span class="keyword">const</span> PhvAsmOutput &amp;);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::map&lt;int, PHV::FieldUse&gt; processUseDefSet(<span class="keyword">const</span> FieldDefUse::LocPairSet &amp;,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                                                  <a class="code hl_class" href="class_p_h_v_1_1_field_use.html">PHV::FieldUse</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                                                  PHV::FieldUse) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_phv_asm_output.html#a7a15d795b836a254921f1d8ae22086e2">PhvAsmOutput</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;p, <span class="keyword">const</span> <a class="code hl_class" href="group__parde.html#class_field_def_use">FieldDefUse</a> &amp;defuse,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                          <span class="keyword">const</span> <a class="code hl_class" href="class_table_summary.html">TableSummary</a> &amp;tbl_summary, <span class="keyword">const</span> <a class="code hl_class" href="class_live_range_report.html">LiveRangeReport</a> *live_range_report,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">explicit</span> PhvAsmOutput(<span class="keyword">const</span> PhvInfo &amp;p, <span class="keyword">const</span> FieldDefUse &amp;defuse,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                          <span class="keyword">const</span> TableSummary &amp;tbl_summary, <span class="keyword">const</span> LiveRangeReport *live_range_report,</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                          <span class="keywordtype">bool</span> have_ghost = <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
-</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_PHV_ASM_OUTPUT_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_live_range_report_html"><div class="ttname"><a href="class_live_range_report.html">LiveRangeReport</a></div><div class="ttdef"><b>Definition</b> live_range_report.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1cstring_html"><div class="ttname"><a href="class_p4_1_1cstring.html">P4::cstring</a></div><div class="ttdef"><b>Definition</b> cstring.h:85</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_field_use_html"><div class="ttname"><a href="class_p_h_v_1_1_field_use.html">PHV::FieldUse</a></div><div class="ttdef"><b>Definition</b> bf-p4c/phv/phv.h:248</div></div>
-<div class="ttc" id="aclass_phv_asm_output_html_a7a15d795b836a254921f1d8ae22086e2"><div class="ttname"><a href="class_phv_asm_output.html#a7a15d795b836a254921f1d8ae22086e2">PhvAsmOutput::PhvAsmOutput</a></div><div class="ttdeci">PhvAsmOutput(const PhvInfo &amp;p, const FieldDefUse &amp;defuse, const TableSummary &amp;tbl_summary, const LiveRangeReport *live_range_report, bool have_ghost=false)</div><div class="ttdef"><b>Definition</b> phv/asm_output.cpp:32</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="aclass_table_summary_html"><div class="ttname"><a href="class_table_summary.html">TableSummary</a></div><div class="ttdef"><b>Definition</b> table_summary.h:158</div></div>
-<div class="ttc" id="agroup__parde_html_class_field_def_use"><div class="ttname"><a href="group__parde.html#class_field_def_use">FieldDefUse</a></div><div class="ttdef"><b>Definition</b> field_defuse.h:77</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

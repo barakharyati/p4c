@@ -139,16 +139,15 @@ $(function(){initNavTree('action__mutex_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/mau/mau_visitor.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;lib/symbitmatrix.h&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_p4.html">P4</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">using namespace </span>P4;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_action_mutually_exclusive.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="class_action_mutually_exclusive.html">ActionMutuallyExclusive</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_mau_inspector.html">MauInspector</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">class </span>ActionMutuallyExclusive : <span class="keyword">public</span> MauInspector {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// map action to ids</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::map&lt;const IR::MAU::Action *, int&gt; action_ids;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// map table to all actions that will be executed after applying it.</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::map&lt;const IR::MAU::Table *, bitvec&gt; action_succ;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// action mutex matrix</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_p4_1_1_sym_bit_matrix.html">SymBitMatrix</a> not_mutex;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    SymBitMatrix not_mutex;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> preorder(<span class="keyword">const</span> IR::MAU::Table *t)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> *act : Values(t-&gt;actions)) {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">if</span> (!action_ids.count(act)) action_ids.emplace(act, action_ids.size());</div>
@@ -159,8 +158,8 @@ $(function(){initNavTree('action__mutex_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::MAU::Table *tbl) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> postorder(<span class="keyword">const</span> IR::MAU::TableSeq *seq) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> init_apply(<span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1_i_r_1_1_node.html">IR::Node</a> *root)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_class" href="class_p4_1_1_visitor_1_1profile__t.html">profile_t</a> rv = MauInspector::init_apply(root);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    profile_t init_apply(<span class="keyword">const</span> IR::Node *root)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        profile_t rv = MauInspector::init_apply(root);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        action_ids.clear();</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        action_succ.clear();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        not_mutex.clear();</div>
@@ -177,15 +176,8 @@ $(function(){initNavTree('action__mutex_8h_source.html',''); initResizable(true)
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// Maping action names to pointers</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::map&lt;cstring, const IR::MAU::Action *&gt; name_actions;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
-</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_ACTION_MUTEX_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_action_mutually_exclusive_html"><div class="ttname"><a href="class_action_mutually_exclusive.html">ActionMutuallyExclusive</a></div><div class="ttdef"><b>Definition</b> action_mutex.h:29</div></div>
-<div class="ttc" id="aclass_mau_inspector_html"><div class="ttname"><a href="class_mau_inspector.html">MauInspector</a></div><div class="ttdef"><b>Definition</b> mau_visitor.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_i_r_1_1_node_html"><div class="ttname"><a href="class_p4_1_1_i_r_1_1_node.html">P4::IR::Node</a></div><div class="ttdef"><b>Definition</b> node.h:94</div></div>
-<div class="ttc" id="aclass_p4_1_1_sym_bit_matrix_html"><div class="ttname"><a href="class_p4_1_1_sym_bit_matrix.html">P4::SymBitMatrix</a></div><div class="ttdef"><b>Definition</b> symbitmatrix.h:27</div></div>
-<div class="ttc" id="aclass_p4_1_1_visitor_1_1profile__t_html"><div class="ttname"><a href="class_p4_1_1_visitor_1_1profile__t.html">P4::Visitor::profile_t</a></div><div class="ttdef"><b>Definition</b> visitor.h:78</div></div>
-<div class="ttc" id="anamespace_p4_html"><div class="ttname"><a href="namespace_p4.html">P4</a></div><div class="ttdoc">TODO: this is not really specific to BMV2, it should reside somewhere else.</div><div class="ttdef"><b>Definition</b> applyOptionsPragmas.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

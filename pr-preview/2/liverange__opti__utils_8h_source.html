@@ -138,29 +138,24 @@ $(function(){initNavTree('liverange__opti__utils_8h_source.html',''); initResiza
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;backends/tofino/bf-p4c/phv/utils/slice_alloc.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_p_h_v.html">PHV</a> {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span><a class="code hl_class" href="class_p_h_v_1_1_transaction.html">Transaction</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>PHV {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span>Transaction;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">bool</span> hasParserUse(<span class="keyword">const</span> PHV::UnitSet &amp;doms);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><a class="code hl_class" href="class_p4_1_1ordered__set.html">ordered_set&lt;std::pair&lt;const IR::BFN::Unit *, const IR::BFN::Unit *&gt;</a>&gt; canFUnitsReachGUnits(</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>ordered_set&lt;std::pair&lt;const IR::BFN::Unit *, const IR::BFN::Unit *&gt;&gt; canFUnitsReachGUnits(</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> PHV::UnitSet &amp;f_units, <span class="keyword">const</span> PHV::UnitSet &amp;g_units,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;gress_t, FlowGraph&gt;</a> &amp;flowGraph);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> ordered_map&lt;gress_t, FlowGraph&gt; &amp;flowGraph);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> getTrimmedDominators(PHV::UnitSet &amp;candidates, <span class="keyword">const</span> <a class="code hl_class" href="class_build_dominator_tree.html">BuildDominatorTree</a> &amp;domTree);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> getTrimmedDominators(PHV::UnitSet &amp;candidates, <span class="keyword">const</span> BuildDominatorTree &amp;domTree);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;gress_t, FlowGraph&gt;</a> update_flowgraph(<span class="keyword">const</span> PHV::UnitSet &amp;g_units,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>ordered_map&lt;gress_t, FlowGraph&gt; update_flowgraph(<span class="keyword">const</span> PHV::UnitSet &amp;g_units,</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                                                 <span class="keyword">const</span> PHV::UnitSet &amp;f_units,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                                                 <span class="keyword">const</span> <a class="code hl_class" href="class_p4_1_1ordered__map.html">ordered_map&lt;gress_t, FlowGraph&gt;</a> &amp;flgraphs,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                                                 <span class="keyword">const</span> <a class="code hl_class" href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a> &amp;transact, <span class="keywordtype">bool</span> &amp;canUseARA);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                                                 <span class="keyword">const</span> ordered_map&lt;gress_t, FlowGraph&gt; &amp;flgraphs,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                                                 <span class="keyword">const</span> PHV::Transaction &amp;transact, <span class="keywordtype">bool</span> &amp;canUseARA);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">/*  BACKENDS_TOFINO_BF_P4C_PHV_UTILS_LIVERANGE_OPTI_UTILS_H_  */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_build_dominator_tree_html"><div class="ttname"><a href="class_build_dominator_tree.html">BuildDominatorTree</a></div><div class="ttdef"><b>Definition</b> dominator_tree.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__map_html"><div class="ttname"><a href="class_p4_1_1ordered__map.html">P4::ordered_map</a></div><div class="ttdef"><b>Definition</b> ordered_map.h:32</div></div>
-<div class="ttc" id="aclass_p4_1_1ordered__set_html"><div class="ttname"><a href="class_p4_1_1ordered__set.html">P4::ordered_set</a></div><div class="ttdef"><b>Definition</b> ordered_set.h:32</div></div>
-<div class="ttc" id="aclass_p_h_v_1_1_transaction_html"><div class="ttname"><a href="class_p_h_v_1_1_transaction.html">PHV::Transaction</a></div><div class="ttdef"><b>Definition</b> phv/utils/utils.h:561</div></div>
-<div class="ttc" id="anamespace_p_h_v_html"><div class="ttname"><a href="namespace_p_h_v.html">PHV</a></div><div class="ttdoc">The namespace encapsulating PHV-related stuff.</div><div class="ttdef"><b>Definition</b> bf-p4c/mau/gateway.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->

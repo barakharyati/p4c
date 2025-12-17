@@ -144,41 +144,25 @@ $(function(){initNavTree('mau__alloc_8h_source.html',''); initResizable(true); }
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;ir/ir.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;lib/json.h&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span><a class="code hl_class" href="class_table_summary.html">TableSummary</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>TableSummary;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_table_alloc_pass.html">   34</a></span><span class="keyword">class </span>TableAllocPass : <span class="keyword">public</span> <a class="code hl_class" href="class_logging_1_1_pass_manager.html">Logging::PassManager</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">class </span>TableAllocPass : <span class="keyword">public</span> Logging::PassManager {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="class_ignore_table_deps.html">IgnoreTableDeps</a> ignore;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_split_attached_info.html">SplitAttachedInfo</a> att_info;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_tables_mutually_exclusive.html">TablesMutuallyExclusive</a> mutex;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="class_action_mutually_exclusive.html">ActionMutuallyExclusive</a> action_mutex;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> &amp;options;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_layout_choices.html">LayoutChoices</a> *lc = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_shared_indirect_attached_analysis.html">SharedIndirectAttachedAnalysis</a> *siaa = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    IgnoreTableDeps ignore;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    SplitAttachedInfo att_info;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    TablesMutuallyExclusive mutex;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ActionMutuallyExclusive action_mutex;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> BFN_Options &amp;options;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    LayoutChoices *lc = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    SharedIndirectAttachedAnalysis *siaa = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_table_alloc_pass.html#ab3c372ae3885c4a967b2b98e1b231958">   45</a></span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_table_alloc_pass.html#ab3c372ae3885c4a967b2b98e1b231958">table_placement_round</a>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    TableAllocPass(<span class="keyword">const</span> <a class="code hl_class" href="class_b_f_n___options.html">BFN_Options</a> &amp;options, <a class="code hl_class" href="class_phv_info.html">PhvInfo</a> &amp;phv, <a class="code hl_struct" href="struct_dependency_graph.html">DependencyGraph</a> &amp;deps, <a class="code hl_class" href="class_table_summary.html">TableSummary</a> &amp;,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                   <a class="code hl_class" href="class_p4_1_1_util_1_1_json_object.html">Util::JsonObject</a> *, <a class="code hl_class" href="class_mau_backtracker.html">MauBacktracker</a> &amp;mau_backtracker);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> table_placement_round;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    TableAllocPass(<span class="keyword">const</span> BFN_Options &amp;options, PhvInfo &amp;phv, DependencyGraph &amp;deps, TableSummary &amp;,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                   Util::JsonObject *, MauBacktracker &amp;mau_backtracker);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
-</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif </span><span class="comment">/* BACKENDS_TOFINO_BF_P4C_MAU_MAU_ALLOC_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclass_action_mutually_exclusive_html"><div class="ttname"><a href="class_action_mutually_exclusive.html">ActionMutuallyExclusive</a></div><div class="ttdef"><b>Definition</b> action_mutex.h:29</div></div>
-<div class="ttc" id="aclass_b_f_n___options_html"><div class="ttname"><a href="class_b_f_n___options.html">BFN_Options</a></div><div class="ttdef"><b>Definition</b> bf-p4c-options.h:27</div></div>
-<div class="ttc" id="aclass_ignore_table_deps_html"><div class="ttname"><a href="class_ignore_table_deps.html">IgnoreTableDeps</a></div><div class="ttdef"><b>Definition</b> mau/table_mutex.h:36</div></div>
-<div class="ttc" id="aclass_layout_choices_html"><div class="ttname"><a href="class_layout_choices.html">LayoutChoices</a></div><div class="ttdef"><b>Definition</b> table_layout.h:83</div></div>
-<div class="ttc" id="aclass_logging_1_1_pass_manager_html"><div class="ttname"><a href="class_logging_1_1_pass_manager.html">Logging::PassManager</a></div><div class="ttdef"><b>Definition</b> backends/tofino/bf-p4c/logging/pass_manager.h:36</div></div>
-<div class="ttc" id="aclass_mau_backtracker_html"><div class="ttname"><a href="class_mau_backtracker.html">MauBacktracker</a></div><div class="ttdef"><b>Definition</b> mau_backtracker.h:29</div></div>
-<div class="ttc" id="aclass_p4_1_1_util_1_1_json_object_html"><div class="ttname"><a href="class_p4_1_1_util_1_1_json_object.html">P4::Util::JsonObject</a></div><div class="ttdef"><b>Definition</b> lib/json.h:177</div></div>
-<div class="ttc" id="aclass_phv_info_html"><div class="ttname"><a href="class_phv_info.html">PhvInfo</a></div><div class="ttdef"><b>Definition</b> phv_fields.h:1095</div></div>
-<div class="ttc" id="aclass_shared_indirect_attached_analysis_html"><div class="ttname"><a href="class_shared_indirect_attached_analysis.html">SharedIndirectAttachedAnalysis</a></div><div class="ttdef"><b>Definition</b> mau/table_mutex.h:160</div></div>
-<div class="ttc" id="aclass_split_attached_info_html"><div class="ttname"><a href="class_split_attached_info.html">SplitAttachedInfo</a></div><div class="ttdef"><b>Definition</b> attached_info.h:235</div></div>
-<div class="ttc" id="aclass_table_alloc_pass_html_ab3c372ae3885c4a967b2b98e1b231958"><div class="ttname"><a href="class_table_alloc_pass.html#ab3c372ae3885c4a967b2b98e1b231958">TableAllocPass::table_placement_round</a></div><div class="ttdeci">static int table_placement_round</div><div class="ttdef"><b>Definition</b> mau_alloc.h:45</div></div>
-<div class="ttc" id="aclass_table_summary_html"><div class="ttname"><a href="class_table_summary.html">TableSummary</a></div><div class="ttdef"><b>Definition</b> table_summary.h:158</div></div>
-<div class="ttc" id="aclass_tables_mutually_exclusive_html"><div class="ttname"><a href="class_tables_mutually_exclusive.html">TablesMutuallyExclusive</a></div><div class="ttdef"><b>Definition</b> mau/table_mutex.h:110</div></div>
-<div class="ttc" id="astruct_dependency_graph_html"><div class="ttname"><a href="struct_dependency_graph.html">DependencyGraph</a></div><div class="ttdef"><b>Definition</b> table_dependency_graph.h:52</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.13.2-->
