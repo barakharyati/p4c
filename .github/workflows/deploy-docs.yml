@@ -18,6 +18,8 @@ on:
 
 jobs:
   build-and-deploy:
+    if: github.event_name != 'pull_request_target' || contains(github.event.pull_request.labels.*.name, 'safe-to-run')
+
   # Authorization / manual approval gate
     environment:
       name: docs-preview-approval
