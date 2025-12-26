@@ -5,10 +5,7 @@ permissions:
   pages: write
   issues: write
   pull-requests: write
-
-
-
-
+  
 on:
   push:
     branches:
@@ -18,10 +15,7 @@ on:
 
 jobs:
   build-and-deploy:
-  # Authorization / manual approval gate
     if: github.event_name != 'pull_request_target' || contains(github.event.pull_request.labels.*.name, 'safe-to-run')
-
-      
     runs-on: ubuntu-latest
     env:
       DOXYGEN_VERSION: 1.13.2
