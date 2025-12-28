@@ -75,8 +75,9 @@ jobs:
     needs: build-docs
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push to gh-pages branch
-      issues: write # Needed to post PR comments
+      contents: write      # Needed to push to gh-pages branch
+      issues: write        # Needed to post PR comments
+      pull-requests: write # Needed to comment on PRs
     env:
       PR_PATH: pr-preview/${{ github.event.number }}
       DOMAIN: p4lang.github.io
@@ -85,7 +86,9 @@ jobs:
       FAILURE_ICON: '<img src="https://github.com/user-attachments/assets/af921ba9-953d-465e-b597-64ed0a2dc921" alt="failed" width="25"/>'
       COMMENT_IDENTIFIER: "<!-- preview-comment -->"
 
-    concurrency: ci-${{ github.ref }}
+    concurrency:
+      group: deploy-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Find Existing Comment
         if: github.event_name == 'pull_request_target'
