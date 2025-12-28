@@ -28,4 +28,4 @@ curl -X POST \
 
 
 
-sleep 1200
+sleep 2
