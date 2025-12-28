@@ -14,7 +14,10 @@ jobs:
   # Job 1: Build the Doxygen documentation and upload as artifact.
   # Only runs for pushes to main OR PRs with the 'documentation' label.
   build-docs:
-    if: github.event_name == 'push' || contains(github.event.pull_request.labels.*.name, 'documentation')
+    if: >-
+      github.event_name == 'push' ||
+      contains(github.event.pull_request.labels.*.name, 'documentation') ||
+      github.event.label.name == 'documentation'
     runs-on: ubuntu-latest
     permissions:
       contents: read # Only needs to read the repository
