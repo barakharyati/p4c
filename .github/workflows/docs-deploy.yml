@@ -1,0 +1,47 @@
+name: Deploy Doxygen
+on:
+  workflow_run:
+    workflows: ["Build Doxygen"]
+    types: [completed]
+
+permissions:
+  contents: write # Needed to push to gh-pages branch
+  pull-requests: write # Needed to post the comment
+  issues: write # Needed to post the comment
+  actions: read # Needed to read the build artifact
+
+jobs:
+  deploy:
+    # Only run if the build workflow succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact from Build
+        uses: actions/download-artifact@v4
+        with:
+          name: doxygen-html
+          path: build-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Deploy to GitHub Pages (Main or PR)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build-results
+          branch: gh-pages
+          # Logic: If triggered by a PR, use pr-preview folder, otherwise root
+          target-folder: >-
+            ${{ github.event.workflow_run.event == 'pull_request' 
+                && format('pr-preview/{0}', github.event.workflow_run.pull_requests[0].number) 
+                || '' }}
+          clean: ${{ github.event.workflow_run.event == 'push' }}
+          clean-exclude: pr-preview/
+
+      - name: Post/Update PR Comment
+        if: github.event.workflow_run.event == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.workflow_run.pull_requests[0].number }}
+          body: |
+            🚀 **Doxygen Preview Ready!**
+            [Click here to view the preview](https://p4lang.github.io/p4c/pr-preview/${{ github.event.workflow_run.pull_requests[0].number }}/)
