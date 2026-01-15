@@ -38,6 +38,14 @@ jobs:
           doxygen doxygen.cfg
           touch build/html/.nojekyll
 
+      # workflow_run payloads don't reliably include pull_request.number.
+      # Write the PR number into the artifact so the deploy workflow can read it back.
+      - name: Write PR number metadata
+        if: github.event_name == 'pull_request'
+        run: |
+          mkdir -p docs/doxygen/build/html/_meta
+          echo "${{ github.event.pull_request.number }}" > docs/doxygen/build/html/_meta/pr_number.txt
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
