@@ -44,4 +44,4 @@ jobs:
           issue-number: ${{ github.event.workflow_run.pull_requests[0].number }}
           body: |
             🚀 **Doxygen Preview Ready!**
-            [Click here to view the preview](https://p4lang.github.io/p4c/pr-preview/${{ github.event.workflow_run.pull_requests[0].number }}/)
+            [Click here to view the preview](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-preview/${{ github.event.workflow_run.pull_requests[0].number }}/)
