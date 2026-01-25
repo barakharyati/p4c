@@ -1,7 +1,6 @@
 name: Deploy Doxygen
 on:
   workflow_run:
-    workflows: ["Build Doxygen"]
     types: [completed]
 
 permissions:
